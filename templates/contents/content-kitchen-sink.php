@@ -2,79 +2,8 @@
 //Setup our variables
 $id = false;
 $output = '';
-
-//Division Card
-while( have_rows( 'division_right_rail' ) ) {
-  the_row();
-  $who_served = get_sub_field('division_who_served');
-  $expertise  = get_sub_field('division_expertise');
-}
-
-$division_card   = array(
-  'capabilities' => get_field('division_capabilities'),
-  'who_served'   => $who_served,
-  'expertise'    => $expertise,
-  'logo'         => get_field('division_logo')
-);
-
-$output .= ll_include_component(
-  'division-card',
-  $division_card,
-  array(),
-  true
-);
-
-//Innovations Card
-while( have_rows( 'innovation_right_rail' ) ) {
-  the_row();
-  $who_served     = get_sub_field('innovation_who_served');
-  $past_projects  = get_sub_field('innovation_past_projects');
-  $services       = get_sub_field('innovation_capability_services');
-  $process        = get_sub_field('innovation_project_process');
-}
-while( have_rows( 'innovation_left_rail' ) ) {
-  the_row();
-  $capabilites    = get_sub_field('innovation_capabilities');
-  $related        = get_sub_field('innovation_related');
-  $leader_btn     = get_sub_field('innovation_leadership_btn');
-  $timeline_btn   = get_sub_field('innovation_timeline_btn');
-  $case_btn       = get_sub_field('innovation_case_studies_btn');
-}
-
-$innovation_card   = array(
-  'capabilities'  => $capabilites,
-  'innovations'   => $related,
-  'who_served'    => $who_served,
-  'past_projects' => $past_projects,
-  'services'      => $services,
-  'process'       => $process,
-  'logo'          => get_field('division_logo'),
-  'leader_btn'    => $leader_btn,
-  'timeline_btn'  => $timeline_btn,
-  'case_btn'      => $case_btn
-);
-
-$output .= ll_include_component(
-  'innovation-card',
-  $innovation_card,
-  array(),
-  true
-);
-
-//Image w/ Blockquote
-$callout_img = array(
-  'quote' => get_field('quote'),
-  'cite'     => get_field('cite'),
-  'background'   => get_field('background')
-);
-
-$output .= ll_include_component(
-  'callout-image',
-  $callout_img,
-  array(),
-  true
-);
-
+?>
+<?php
 //Callout w/ Counter
 while( have_rows( 'callout_numbers_columns' ) ) {
   the_row();
@@ -184,7 +113,7 @@ while( have_rows( 'band_columns' ) ) {
 $band   = array(
   'has_background' => get_sub_field('has_background'),
   'navbar'         => get_sub_field('navbar'),
-  'section_bg'     => get_sub_field('section_bg'),
+  'article_bg'     => get_sub_field('article_bg'),
   'band_theme'     => get_sub_field('band_theme'),
   'padded_top'     => get_sub_field('padded_top'),
   'padded_bottom'  => get_sub_field('padded_bottom'),
@@ -221,34 +150,95 @@ $output .= ll_include_component(
 );
 echo $output;
 ?>
-<section id="accordions" class="content">
+<aside class="content" id="general">
+  <div class="container row">
+    <h2 class="block">General</h2>
+    <p class="h5 text-center">The most used components, these are here to plug in regular text, images, lists and anything else you'd like to organize in columns or rows.</p>
+  </div>
+</aside>
+<article id="capability_teaser" class="content">
   <div class="container row">
     <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
-      <h2>The Accordion</h2>
+      <h3>The Capability Teaser</h3>
     </div>
-    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
-      <p>Highlight any one of the divisions, its capabilities, innovations and case studies.</p>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <p>Based on the "Band" component, this is 2-up/2 column layout with an image on the left and text on the right. There are 2 ways to create a teaser.</p>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <ul>
+        <li>If we are going to use an existing "Capability", it can be selected from the dropdown</li>
+        <li>Conversely, you we can create a new capability for use on a single page. This addition will NOT be added to the "Capabilities" post type.</li>
+      </ul>
     </div>
   </div>
-</section>
+</article>
 <?php
-$accordions = [
-  'accordion_background' => get_field('accordion_background'),
-  'accordion_wrapper'    => get_field('accordion_wrapper')
-];
+//Capability Teaser
+$teaser = get_field('teaser_columns');
 
 ll_include_component(
-  'accordion',
-  $accordions,
+  'capability-teaser',
   array(
-    'id' => $id
+    'teaser_columns' => $teaser
+  ),
+  array(
+    'id'         => $id
   )
 );
 ?>
-<section id="gallery" class="content">
+<aside class="content">
+  <div class="container row">
+    <h2 class="block">Imagery</h2>
+    <p class="h5 text-center">Whether you're looking for a slideshow, a grid or simply a single image with some padding around it, we've provided several options for images.</p>
+  </div>
+</aside>
+<article id="accordions" class="content">
   <div class="container row">
     <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
-      <h2>The Slideshow Gallery</h2>
+      <h3>The Big Image</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
+      <p>It's just a big image with an equal amount of padding above and below.</p>
+    </div>
+  </div>
+</article>
+<?php
+  //Big Image
+  ll_include_component(
+    'picture',
+    array(
+      'image' => get_field('big_image')
+    )
+  );
+?>
+<article id="callout_img" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <h3>Image with a Blockquote</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
+      <p>This one is SUPER simple. It's just an image of your choice with some text over it. There is a field for the quote itself, and one for a credit or "cite/citation".</p>
+    </div>
+  </div>
+</article>
+<?php
+  //Image w/ Blockquote
+  $callout_img = array(
+    'quote' => get_field('quote'),
+    'cite'     => get_field('cite'),
+    'background'   => get_field('background')
+  );
+
+  ll_include_component(
+    'callout-image',
+    $callout_img,
+    array()
+  );
+?>
+<article id="gallery" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <h3>The Slideshow Gallery</h3>
     </div>
     <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
       <p>Showcase your a single large "hero" image with navigation. Navigation is automatically created below and contains:</p>
@@ -261,7 +251,7 @@ ll_include_component(
       </ul>
     </div>
   </div>
-</section>
+</article>
   <?php
     $gallery = get_field('gallery');
 
@@ -277,16 +267,16 @@ ll_include_component(
       )
     );
   ?>
-<section id="masonry" class="content">
+<article id="masonry" class="content">
   <div class="container row">
     <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
-      <h2>The Masonry Gallery</h2>
+      <h3>The Masonry Gallery</h3>
     </div>
     <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
       <p>Showcase your images in a card-like grid. The option "Left" steps the images down from the top-left corner (highest), to the lower right corner (lowest). The option "Right" reverses this visual. Lastly, "Center" shows the images in the classic 3-up fashion.</p>
     </div>
   </div>
-</section>
+</article>
   <?php
   ll_include_component(
     'gallery-masonry',
@@ -294,19 +284,215 @@ ll_include_component(
       'gallery' => get_field('gallery-masonry')
     ),
     array(
+      'id'         => $id,
+      'cascade'    => get_field('cascade')
+    )
+  );
+  ?>
+<article id="masonry" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <h3>A Gallery with Image and Copy</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
+      <p>Showcase your images in a card-like grid, only in this version you can showcase a headline and copy beneath each image.</p>
+    </div>
+  </div>
+</article>
+  <?php
+  ll_include_component(
+    'gallery-w-copy',
+    array(
+      'gallery' => get_field('gallery-w-copy')
+    ),
+    array(
       'id'         => $id
     )
   );
   ?>
-<section id="locations">
-  <header class="container row">
+<aside class="content" id="cards">
+  <div class="container row">
+    <h2 class="block">Cards</h2>
+    <p class="h5 text-center">A way to pull information for other, related areas into a Single Page. There is a card for the 3 major custom post types, Capability, Innovation and Division.</p>
+  </div>
+</aside>
+<article id="gallery" class="content">
+  <div class="container row">
     <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
-      <h2>The Locations</h2>
+      <h3>The Capability Card</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <p>Visible on all Single "Capability" pages, this component pulls the related information and displays it in a postcard format. Optional information is as follows:</p>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <ul>
+        <li>Related Division: pulls in said division's logo</li>
+        <li>Related Innovation(s): Will display that innovation's name or multiple names.</li>
+        <li>Remaining fields are open text fields where information can be pasted.<br><small class="danger">*Please note HTML information entered will be ignored. Line breaks can be put in without code</small></li>
+        <li>The button links are all the same, and will populate automatically</li>
+      </ul>
+    </div>
+  </div>
+</article>
+<?php
+  while( have_rows( 'capability_right_rail' ) ) {
+    the_row();
+    $who_served     = get_sub_field('capability_who_served');
+    $past_projects  = get_sub_field('capability_past_projects');
+    $services       = get_sub_field('capability_services');
+    $process        = get_sub_field('capability_project_process');
+  }
+  while( have_rows( 'capability_left_rail' ) ) {
+    the_row();
+    $capabilites    = get_sub_field('capability_related_capabilities');
+    $related        = get_sub_field('capability_related_innovation');
+    $leader_btn     = get_sub_field('capability_leadership_btn');
+    $timeline_btn   = get_sub_field('capability_timeline_btn');
+    $case_btn       = get_sub_field('capability_case_studies_btn');
+  }
+
+  $capability_card   = array(
+    'capabilities'  => $capabilites,
+    'innovations'   => $related,
+    'who_served'    => $who_served,
+    'past_projects' => $past_projects,
+    'services'      => $services,
+    'process'       => $process,
+    'logo'          => get_field('division_logo_reversed'),
+    'leader_btn'    => $leader_btn,
+    'timeline_btn'  => $timeline_btn,
+    'case_btn'      => $case_btn
+  );
+
+  ll_include_component(
+    'capability-card',
+    $capability_card,
+    array()
+  );
+?>
+<article id="division_card" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <h3>The Division Card</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <p>Just like the "Capability Card", only visible while on Single "Division" pages. Most of the options are the same, only there are fewer of them.</p>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <ul>
+        <li>Related Division: pulls in said division's logo</li>
+        <li>Related Innovation(s): Will display that innovation's name or multiple names.</li>
+        <li>Remaining fields are open text fields where information can be pasted.<br><small class="danger">*Please note HTML information entered will be ignored. Line breaks can be put in without code</small></li>
+        <li>The button links are all the same, and will populate automatically</li>
+      </ul>
+    </div>
+  </div>
+</article>
+<?php
+  while( have_rows( 'division_right_rail' ) ) {
+    the_row();
+    $who_served = get_sub_field('division_who_served');
+    $expertise  = get_sub_field('division_expertise');
+  }
+
+  $division_card   = array(
+    'capabilities' => get_field('division_capabilities'),
+    'who_served'   => $who_served,
+    'expertise'    => $expertise,
+    'logo'         => get_field('division_logo_reversed')
+  );
+
+  ll_include_component(
+    'division-card',
+    $division_card,
+    array()
+  );
+  ?>
+<article id="innovation_card" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <h3>The Innovation Card</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <p>Just like the "Capability Card", only visible while on Single "Innovation" pages. Most of the options are the same, only there are fewer of them.</p>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <ul>
+        <li>Related Division: pulls in said division's logo</li>
+        <li>Related Innovation(s): Will display that innovation's name or multiple names.</li>
+        <li>Remaining fields are open text fields where information can be pasted.<br><small class="danger">*Please note HTML information entered will be ignored. Line breaks can be put in without code</small></li>
+        <li>The button links are all the same, and will populate automatically</li>
+      </ul>
+    </div>
+  </div>
+</article>
+<?php
+  while( have_rows( 'innovation_right_rail' ) ) {
+    the_row();
+    $purpose     = get_sub_field('innovation_purpose');
+    $industries  = get_sub_field('innovation_industries');
+  }
+  while( have_rows( 'innovation_left_rail' ) ) {
+    the_row();
+    $capabilites    = get_sub_field('innovation_capabilities');
+    $related        = get_sub_field('innovation_related');
+  }
+
+  $innovation_card   = array(
+    'capabilities'  => $capabilites,
+    'innovations'   => $related,
+    'purpose'       => $purpose,
+    'industries'    => $industries,
+    'logo'          => get_field('division_logo_reversed')
+  );
+
+  ll_include_component(
+    'innovation-card',
+    $innovation_card,
+    array()
+  ); ?>
+<aside class="content" id="misc">
+  <div class="container row">
+    <h2 class="block">Misc.</h2>
+    <p class="h5 text-center">There are a few special-use components that are either rarely used, or are global components used in multiple ways.</p>
+  </div>
+</aside>
+<article id="accordions" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <h3>The Accordion</h3>
     </div>
     <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
-      <p>Show the Divisions in row, with an optional contact button. The contact button information can be found on the Division itself.</p>
+      <p>Highlight any one of the divisions, its capabilities, innovations and case studies.</p>
     </div>
-  </header>
+  </div>
+</article>
+<?php
+$accordions = [
+  'accordion_background' => get_field('accordion_background'),
+  'accordion_wrapper'    => get_field('accordion_wrapper')
+];
+
+ll_include_component(
+  'accordion',
+  $accordions,
+  array(
+    'id' => $id
+  )
+);
+?>
+<article id="locations" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <h3>The Locations</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
+      <p>Show the Division location information in row, with an optional contact button. The contact button information can be found on the Division itself.</p>
+      <p>The Locations are the only component NOT wrapped in an article or section. Because of this their width flexes to fill the box you put them in (Don't worry, you don't have to worry about any of that)</p>
+    </div>
+  </div>
+</article>
+<section class="content">
   <?php
   //Location
   ll_include_component(
@@ -314,8 +500,7 @@ ll_include_component(
     array(
       'num_locations'   => get_field('num_locations'),
       'use_interations' => get_field('use_interations')
-    ),
-    array()
+    )
   );
   ?>
-</section>
+</article>

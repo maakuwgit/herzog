@@ -223,14 +223,14 @@
                     "min": "",
                     "max": ""
                 },
-                "5af5c259d93be": {
-                    "key": "5af5c259d93be",
-                    "name": "innovation-cards",
-                    "label": "Innovation Card",
+                "5af9aaf1e76cc": {
+                    "key": "5af9aaf1e76cc",
+                    "name": "masonry-galleries",
+                    "label": "Gallery",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5afb0cfd311b7",
+                            "key": "field_5afb0cfd318b9",
                             "label": "Group Label",
                             "name": "group_label",
                             "type": "text",
@@ -249,7 +249,7 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5afb0cfd312b6",
+                            "key": "field_5afb0cfd31937",
                             "label": "Target Name",
                             "name": "target_name",
                             "type": "text",
@@ -268,9 +268,9 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5afb0cfd313db",
-                            "label": "Capability Card",
-                            "name": "component_innovation_card",
+                            "key": "field_5afb0cfd319e9",
+                            "label": "Gallery",
+                            "name": "component_gallery-masonry",
                             "type": "clone",
                             "instructions": "",
                             "required": 0,
@@ -281,7 +281,76 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_5afb1f7274d3d"
+                                "group_5afb44e178305"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5afc8308879fd": {
+                    "key": "5afc8308879fd",
+                    "name": "galleries-w-copy",
+                    "label": "Gallery w\/ Copy",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5afc8308879fe",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5afc8308879ff",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5afc830887a00",
+                            "label": "Gallery",
+                            "name": "component_gallery-w-copy",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5afc745ba8b08"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -361,6 +430,75 @@
                     "min": "",
                     "max": ""
                 },
+                "5af5c259d93be": {
+                    "key": "5af5c259d93be",
+                    "name": "innovation-cards",
+                    "label": "Innovation Card",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5afb0cfd311b7",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5afb0cfd312b6",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5afb0cfd313db",
+                            "label": "Capability Card",
+                            "name": "component_innovation_card",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5afb1f7274d3d"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "5aeb64a441816": {
                     "key": "5aeb64a441816",
                     "name": "logos-grid",
@@ -420,75 +558,6 @@
                             },
                             "clone": [
                                 "group_5af9957aabce7"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "5af9aaf1e76cc": {
-                    "key": "5af9aaf1e76cc",
-                    "name": "galleries",
-                    "label": "Gallery",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5afb0cfd318b9",
-                            "label": "Group Label",
-                            "name": "group_label",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "ll-group-label",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5afb0cfd31937",
-                            "label": "Target Name",
-                            "name": "target_name",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "ll-target-name",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "#target_name",
-                            "prepend": "#",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5afb0cfd319e9",
-                            "label": "Gallery",
-                            "name": "component_gallery",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_5aeb63c8a7521"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -738,13 +807,6 @@
                 "operator": "==",
                 "value": "innovation"
             }
-        ],
-        [
-            {
-                "param": "page",
-                "operator": "==",
-                "value": "2"
-            }
         ]
     ],
     "menu_order": 0,
@@ -755,5 +817,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Similar to Capabilities Components, but with all the additional settings for a Single Innovation",
-    "modified": 1526412662
+    "modified": 1526497216
 }

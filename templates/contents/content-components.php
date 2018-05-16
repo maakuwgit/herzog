@@ -57,21 +57,6 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
-      case 'divisions' :
-        $accordions = [
-          'accordion_background' => get_sub_field('accordion_background'),
-          'accordion_wrapper'    => get_sub_field('accordion_wrapper')
-        ];
-
-        $output .= ll_include_component(
-          'accordion',
-          $accordions,
-          array(
-            'id' => $id
-          ),
-          true
-        );
-      break;
       case 'callout-images':
         //Image w/ Blockquote
         $callout_img = array(
@@ -90,7 +75,7 @@ if( have_rows( 'components' ) ) {
         );
       break;
       case 'callout-numbers':
-
+        //Callout w/ Counter
         $callnums = array(
           'has_counting' => get_sub_field('has_counting'),
           'headline'     => get_sub_field('callout_numbers_headline'),
@@ -104,6 +89,73 @@ if( have_rows( 'components' ) ) {
         $output .= ll_include_component(
           'callout-numbers',
           $callnums,
+          array(
+            'id' => $id
+          ),
+          true
+        );
+      break;
+      case 'capability-cards':
+        while( have_rows( 'capability_right_rail' ) ) {
+          the_row();
+          $who_served     = get_sub_field('capability_who_served');
+          $past_projects  = get_sub_field('capability_past_projects');
+          $services       = get_sub_field('capability_services');
+          $process        = get_sub_field('capability_project_process');
+        }
+        while( have_rows( 'capability_left_rail' ) ) {
+          the_row();
+          $capabilites    = get_sub_field('capability_related_capabilities');
+          $related        = get_sub_field('capability_related_innovation');
+          $leader_btn     = get_sub_field('capability_leadership_btn');
+          $timeline_btn   = get_sub_field('capability_timeline_btn');
+          $case_btn       = get_sub_field('capability_case_studies_btn');
+        }
+
+        $capability_card   = array(
+          'capabilities'  => $capabilites,
+          'innovations'   => $related,
+          'who_served'    => $who_served,
+          'past_projects' => $past_projects,
+          'services'      => $services,
+          'process'       => $process,
+          'logo'          => get_field('division_logo_reversed'),
+          'leader_btn'    => $leader_btn,
+          'timeline_btn'  => $timeline_btn,
+          'case_btn'      => $case_btn
+        );
+
+        $output .= ll_include_component(
+          'capability-card',
+          $capability_card,
+          array(),
+          true
+        );
+      break;
+      case 'capability-teasers':
+        //Capability Teaser
+        $teaser = get_sub_field('teaser_columns');
+
+        $output .= ll_include_component(
+          'capability-teaser',
+          array(
+            'teaser_columns' => $teaser
+          ),
+          array(
+            'id' => $id
+          ),
+          true
+        );
+      break;
+      case 'divisions' :
+        $accordions = [
+          'accordion_background' => get_sub_field('accordion_background'),
+          'accordion_wrapper'    => get_sub_field('accordion_wrapper')
+        ];
+
+        $output .= ll_include_component(
+          'accordion',
+          $accordions,
           array(
             'id' => $id
           ),
@@ -169,18 +221,13 @@ if( have_rows( 'components' ) ) {
       case 'innovation-cards' :
         while( have_rows( 'innovation_right_rail' ) ) {
           the_row();
-          $who_served     = get_sub_field('innovation_who_served');
-          $past_projects  = get_sub_field('innovation_past_projects');
-          $services       = get_sub_field('innovation_capability_services');
-          $process        = get_sub_field('innovation_project_process');
+          $purpose     = get_sub_field('innovation_purpose');
+          $industries  = get_sub_field('innovation_industries');
         }
         while( have_rows( 'innovation_left_rail' ) ) {
           the_row();
           $capabilites    = get_sub_field('innovation_capabilities');
           $related        = get_sub_field('innovation_related');
-          $leader_btn     = get_sub_field('innovation_leadership_btn');
-          $timeline_btn   = get_sub_field('innovation_timeline_btn');
-          $case_btn       = get_sub_field('innovation_case_studies_btn');
         }
 
         $logo = get_field('use_division');
@@ -193,14 +240,9 @@ if( have_rows( 'components' ) ) {
         $innovation_card   = array(
           'capabilities'  => $capabilites,
           'innovations'   => $related,
-          'who_served'    => $who_served,
-          'past_projects' => $past_projects,
-          'services'      => $services,
-          'process'       => $process,
-          'logo'          => $logo,
-          'leader_btn'    => $leader_btn,
-          'timeline_btn'  => $timeline_btn,
-          'case_btn'      => $case_btn
+          'purpose'       => $purpose,
+          'industries'    => $industries,
+          'logo'          => $logo
         );
 
         $output .= ll_include_component(
@@ -235,6 +277,31 @@ if( have_rows( 'components' ) ) {
           $logo_grid,
           array(
             'id' => $id
+          ),
+          true
+        );
+      break;
+      case 'masonry-galleries' :
+        $output .= ll_include_component(
+          'gallery-masonry',
+          array(
+            'gallery' => get_sub_field('gallery-masonry')
+          ),
+          array(
+            'id'         => $id,
+            'cascade'    => get_sub_field('cascade')
+          ),
+          true
+        );
+      break;
+      case 'galleries-w-copy':
+        $output .= ll_include_component(
+          'gallery-w-copy',
+          array(
+            'gallery' => get_sub_field('gallery-w-copy')
+          ),
+          array(
+            'id'         => $id
           ),
           true
         );

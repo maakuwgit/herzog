@@ -1,0 +1,37 @@
+/**
+ * Masonry Gallery
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+.gallery-w-copy {
+  padding-bottom: $grid-gutter-width;
+  li {
+    figure {
+      min-height: 50vh;
+      [data-background]{
+        display: table;
+        width: 100%;
+        height: inherit;
+        min-height: inherit;
+      }
+      figcaption {
+        p:first-of-type {
+          margin-top: $grid-gutter-width;
+        }
+        strong {
+          margin-top: $grid-gutter-width;
+          padding-bottom: $grid-gutter-width;
+          border-bottom: solid 1px $smoke;
+        }
+      }
+    }
+  }
+  @include screen-lg-up {
+    padding-bottom: 120px;
+  }
+  h4 {
+    margin-top: 120px;
+  }
+}

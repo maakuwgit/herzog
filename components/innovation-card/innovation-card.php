@@ -9,10 +9,8 @@
 $default_data = [
   'capabilities'    => false,
   'innovations'     => false,
-  'who_served'      => '',
-  'past_projects'   => '',
-  'services'        => '',
-  'process'         => '',
+  'purpose'         => '',
+  'industries'      => '',
   'logo'            => array(
     'title' => '',
     'url'   => '//via.placeholder.com/264x200',
@@ -22,33 +20,6 @@ $default_data = [
       'large'     => '//via.placeholder.com/264x200',
       'medium'    => '//via.placeholder.com/132x100',
       'thumbnail' => '//via.placeholder.com/66x50'
-    )
-  ),
-  'leader_btn'      => array(
-    'icon'    => 'chevron',
-    'theme'   => 'light',
-    'link'    => array(
-      'title'   => 'Leadership Team',
-      'url'     => '/',
-      'target'  => '_self'
-    )
-  ),
-  'timeline_btn'        => array(
-    'icon'    => 'chevron',
-    'theme'   => 'light',
-    'link'    => array(
-      'title'   => 'Herzog Timeline',
-      'url'     => '/',
-      'target'  => '_self'
-    )
-  ),
-  'case_btn'           => array(
-    'icon'    => 'chevron',
-    'theme'   => 'light',
-    'link'    => array(
-      'title'   => 'Case Studies',
-      'url'     => '/',
-      'target'  => '_self'
     )
   )
 ];
@@ -73,16 +44,11 @@ if( $args['classes'] ) {
 }
 $css .= '"';
 $id           = $args['id'];
-$who_served   = $data['who_served'];
+$purpose      = $data['purpose'];
 $capabilities = $data['capabilities'];
-$projects     = $data['past_projects'];
-$services     = $data['services'];
+$industries   = $data['industries'];
 $innovations  = $data['innovations'];
-$process      = $data['process'];
 $logo         = $data['logo'];
-$leader_btn   = $data['leader_btn'];
-$timeline_btn = $data['timeline_btn'];
-$case_btn     = $data['case_btn'];
 
 $base_url     = get_bloginfo('url');
 
@@ -111,7 +77,7 @@ if( !$logo ) {
         <?php else : ?>
         <strong class="block">Related Capability</strong>
         <ul class="no-bullet">
-          <li><?php echo $capabilities->post_title; ?></li>
+          <li><?php echo $capabilities[0]->post_title; ?></li>
         </ul>
         <?php endif; ?>
       <?php endif; ?>
@@ -126,67 +92,24 @@ if( !$logo ) {
         <?php else : ?>
         <strong class="block">Related Innovation</strong>
         <ul class="no-bullet">
-          <li><?php echo $innovations->post_title; ?></li>
+          <li><?php echo $innovations[0]->post_title; ?></li>
         </ul>
         <?php endif; ?>
       <?php endif; ?>
       </figcaption>
     <?php endif; ?>
-      <nav>
-      <?php
-        ll_include_component(
-          'button',
-          array(
-            'link'    => array(
-              'title'   => 'Leadership Team',
-              'url'     => $base_url . '/team/'
-            )
-          )
-        );
-        ll_include_component(
-          'button',
-          array(
-            'link'    => array(
-              'title'   => 'Herzog Timeline',
-              'url'     => get_bloginfo('url') . '/timeline/'
-            )
-          )
-        );
-        ll_include_component(
-          'button',
-          array(
-            'link'    => array(
-              'title'   => 'Case Studies',
-              'url'     => get_bloginfo('url') . '/project/'
-            )
-          )
-        );
-      ?>
-      </nav>
     </figure>
     <dl class="col col-sm-8of12 col-md-8of12 col-lg-8of12 col-xl-8of12 center">
-    <?php if( $who_served ) : ?>
+    <?php if( $purpose ) : ?>
       <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Who We Serve</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $who_served; ?></dd>
+        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Applications + Purpose</dt>
+        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $purpose; ?></dd>
       </div>
     <?php endif; ?>
-    <?php if( $projects ) : ?>
+    <?php if( $industries ) : ?>
       <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Past Projects</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $projects; ?></dd>
-      </div>
-    <?php endif; ?>
-    <?php if( $services ) : ?>
-      <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Capability Services</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $services; ?></dd>
-      </div>
-    <?php endif; ?>
-    <?php if( $process ) : ?>
-      <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Project Process</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $process; ?></dd>
+        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Related Industries</dt>
+        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $industries; ?></dd>
       </div>
     <?php endif; ?>
     </dl>

@@ -1,12 +1,33 @@
 /**
  * Kitchen Sink
  */
-#locations {
-  margin-bottom: rem-calc(120);
-  @include screen-sm {
-    margin-top: $grid-gutter-width;
+ body.page-kitchen-sink {
+  #locations {
+    margin-bottom: rem-calc(120);
+    @include screen-sm {
+      margin-top: $grid-gutter-width;
+    }
   }
-}
-[data-slick-nav]>div {
-  justify-content: center !important;
+  [data-slick-nav]>div {
+    justify-content: center !important;
+  }
+  > aside.content,
+  > article.content {
+    padding-top: $grid-gutter-width * 2;
+    padding-bottom: $grid-gutter-width * 2;
+    box-shadow: none;
+  }
+  > article.content:nth-of-type(n+2) {
+    background-color: $grey;
+  }
+  > aside.content {
+    h2 {
+      margin-bottom: $grid-column-padding;
+    }
+    background-color: $black;
+    border-top: solid 1px $smoke;
+  }
+  .gallery-w-copy {
+    padding-top: 120px;
+  }
 }

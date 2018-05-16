@@ -43,15 +43,33 @@
 }
 
 /* Font Weights */
-.text-bold {
-  font-weight: $text-medium;
+.text-bold,
+.h1.text-bold,
+.h2.text-bold,
+.h3.text-bold,
+.h4.text-bold,
+.h5.text-bold,
+.h6.text-bold {
+    font-weight: $text-medium;
 }
 
-.text-medium {
+.text-medium,
+.h1.text-medium,
+.h2.text-medium,
+.h3.text-medium,
+.h4.text-medium,
+.h5.text-medium,
+.h6.text-medium {
   font-weight: $text-regular;
 }
 
-.text-normal {
+.text-normal,
+.h1.text-normal,
+.h2.text-normal,
+.h3.text-normal,
+.h4.text-normal,
+.h5.text-normal,
+.h6.text-normal {
   font-weight: $text-light;
 }
 

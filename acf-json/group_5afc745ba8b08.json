@@ -1,39 +1,11 @@
 {
-    "key": "group_5afb44e178305",
-    "title": "Masonry Gallery",
+    "key": "group_5afc745ba8b08",
+    "title": "Gallery w\/ Copy",
     "fields": [
         {
-            "key": "field_5afc46ca59bd8",
-            "label": "Cascade Direction",
-            "name": "cascade",
-            "type": "select",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "center": "None",
-                "lefty": "Left",
-                "righty": "Right"
-            },
-            "default_value": [
-                "center"
-            ],
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "ajax": 0,
-            "return_format": "value",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5afb44e17facf",
+            "key": "field_5afc745bb0ae4",
             "label": "Gallery",
-            "name": "gallery-masonry",
+            "name": "gallery-w-copy",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -50,7 +22,7 @@
             "button_label": "+ Image",
             "sub_fields": [
                 {
-                    "key": "field_5afb44e181a59",
+                    "key": "field_5afc745bb617c",
                     "label": "Image",
                     "name": "gallery_image",
                     "type": "image",
@@ -72,11 +44,49 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_5afc77e0639d3",
+                    "label": "Headline",
+                    "name": "gallery_headline",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Lorem Ipsum",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5afc77f7639d4",
+                    "label": "Copy",
+                    "name": "gallery_content",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
                 }
             ]
         },
         {
-            "key": "field_5afb44e17fb2b",
+            "key": "field_5afc745bb0b29",
             "label": "Group Label",
             "name": "group_label",
             "type": "text",
@@ -95,7 +105,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5afb44e17fb70",
+            "key": "field_5afc745bb0b6a",
             "label": "Target Name",
             "name": "target_name",
             "type": "text",
@@ -124,12 +134,12 @@
         ]
     ],
     "menu_order": 1,
-    "position": "acf_after_title",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526482857
+    "modified": 1526494767
 }

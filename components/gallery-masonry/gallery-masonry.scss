@@ -7,6 +7,9 @@
  */
 .gallery-masonry {
   padding-bottom: $grid-gutter-width;
+  h4 {
+    margin-top: 120px;
+  }
   .brick {
     min-height: 50vh;
     max-height: 320px;

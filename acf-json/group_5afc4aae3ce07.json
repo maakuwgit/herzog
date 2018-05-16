@@ -1,11 +1,11 @@
 {
-    "key": "group_5afb1f7274d3d",
-    "title": "Innovation Card",
+    "key": "group_5afc4aae3ce07",
+    "title": "Capability Card",
     "fields": [
         {
-            "key": "field_5afb263fcaaa9",
+            "key": "field_5afc4aae452f0",
             "label": "Left Rail",
-            "name": "innovation_left_rail",
+            "name": "capability_left_rail",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -18,9 +18,9 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5afb1f727c51e",
+                    "key": "field_5afc4aae47e7d",
                     "label": "Related Capabilities",
-                    "name": "innovation_capabilities",
+                    "name": "capability_related_capabilities",
                     "type": "post_object",
                     "instructions": "",
                     "required": 0,
@@ -40,9 +40,9 @@
                     "ui": 1
                 },
                 {
-                    "key": "field_5afb22164a703",
+                    "key": "field_5afc4aae47ecf",
                     "label": "Related Innovations",
-                    "name": "innovation_related",
+                    "name": "capability_related_innovation",
                     "type": "post_object",
                     "instructions": "",
                     "required": 0,
@@ -64,9 +64,9 @@
             ]
         },
         {
-            "key": "field_5afb1f727c5d9",
+            "key": "field_5afc4aae45343",
             "label": "Right Rail",
-            "name": "innovation_right_rail",
+            "name": "capability_right_rail",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -79,9 +79,9 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5afb1f7280fc3",
-                    "label": "Applications + Purpose",
-                    "name": "innovation_purpose",
+                    "key": "field_5afc4aae4f703",
+                    "label": "Who We Serve",
+                    "name": "capability_who_served",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -98,9 +98,47 @@
                     "new_lines": "br"
                 },
                 {
-                    "key": "field_5afb1f728101b",
-                    "label": "Related Industries",
-                    "name": "innovation_industries",
+                    "key": "field_5afc4aae4f7b3",
+                    "label": "Past Projects",
+                    "name": "capability_past_projects",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 8,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_5afc4aae4f8ee",
+                    "label": "Capability Services",
+                    "name": "capability_services",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 8,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_5afc4aae4f9bb",
+                    "label": "Project Process",
+                    "name": "capability_project_process",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -136,5 +174,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526486684
+    "modified": 1526486947
 }
