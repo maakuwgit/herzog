@@ -1,0 +1,116 @@
+[data-component="anchor-nav-home"] {
+  background: transparent;
+  position: relative;
+  li {
+    a {
+      padding: #{rem-calc(16)} 0;
+      margin-top: auto;
+    }
+  }
+  .row &[class*=col-] {
+    padding-left: 0;
+  }
+  span.grey,
+  a.grey {
+    color: $aluminum;
+  }
+  body > & {
+    margin-top: rem-calc(-116);
+    min-height: rem-calc(116);
+    z-index: 2;
+    width: 100%;
+  }
+  @include screen-md {
+    display: none;
+  }
+  ol {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding-left: 0;
+    counter-reset: lis;
+    @include screen-lg-up {
+      left: 25%;
+      margin-left: -8.3334%;
+    }
+    li {
+      a {
+        display: flex;
+        color: inherit;
+        @include screen-sm {
+          font-size: 0.875rem;
+        }
+        @include screen-md-only {
+          padding-left: 3.5vw;
+          padding-right: 3.5vw;
+        }
+        @include screen-lg-up {
+          &:hover {
+            color: $yellow;
+          }
+        }
+        &.active {
+          color: $yellow;
+        }
+        &:before {
+          counter-increment: lis;
+          content: counter(lis, decimal-leading-zeroa);
+          color: inherit;
+        }
+      }
+    }
+  }
+  ul {
+    flex-wrap: wrap;
+    flex-direction: row;
+    li {
+      @include screen-lg-up {
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  }
+  ol, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    justify-content: space-around;
+    li {
+      display: flex;
+      position: relative;
+      color: $white;
+      p {
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: 0.625rem;
+        font-size: rem-calc(14);
+        &:last-of-type {
+          margin-bottom: auto;
+        }
+      }
+      button {
+        display: flex;
+        padding: 2.0625rem 2.5rem 1.9375rem 2.5rem;
+        color: inherit;
+        @include screen-sm {
+          font-size: 0.875rem;
+        }
+        @include screen-md-only {
+          padding-left: 3.5vw;
+          padding-right: 3.5vw;
+        }
+        @include screen-lg-up {
+          &:hover {
+            color: $yellow;
+          }
+        }
+        &.active {
+          color: $yellow;
+          span {
+            width: 100%;
+            margin-left: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

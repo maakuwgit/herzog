@@ -1,0 +1,91 @@
+/**
+ * Post
+ * Used on single post pages
+ */
+$thumb-padding-big: 4.5rem;
+$thumb-padding: 1.5rem;
+
+.thumbnail {
+  position: relative;
+  width: 100%;
+  display: table;
+  padding: $thumb-padding;
+  background-color: transparent;
+  [data-background] {
+    position: relative;
+    height: 50vh;
+    min-height: 280px;
+    max-height: 330px;
+    padding: 0;
+    background-color: $smoke;
+  }
+  @include screen-sm {
+    width: 50%;
+  }
+  @include screen-sm-only {
+    width: 25%;
+  }
+  @include screen-md-up {
+    width: 33.3333%;
+  }
+  @include screen-sm-up {
+    [data-background] {
+      height: 25vw;
+    }
+  }
+  @include screen-lg-up {
+    [data-background] {
+      box-shadow: 0 0 95px rgba($black, 0.6) inset;
+      background-blend-mode: luminosity;
+      a {
+        display: none;
+      }
+      &:hover {
+        box-shadow: 0 0 0 inset;
+        background-blend-mode: initial;
+        a {
+          display: block;
+        }
+      }
+    }
+    h3, dt, dd {
+      color: $aluminum;
+    }
+    &:hover {
+      h3, dt, dd {
+        color: $white;
+      }
+    }
+  }
+  a {
+    position: absolute;
+    bottom: rem-calc(25);
+    margin: auto auto auto #{rem-calc(-16)};
+    .icon {
+      width: rem-calc(35);
+      height: rem-calc(35);
+      font-size: rem-calc(28);
+      font-weight: $text-light;
+      line-height: 1.0625;
+    }
+  }
+
+  hr {
+    width: 100%;
+    max-width: none;
+    margin-top: $thumb-padding;
+  }
+
+  .feature {
+    display: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:not([data-background]):not([data-mfp-src]):hover {
+    color: $white;
+    background-color: $black;
+  }
+}

@@ -1,0 +1,60 @@
+/**
+ * Innovation Card
+ * ----------------------------------------------------------------------------
+ *
+ * Similar to the Division Card, show the related capabilites CPTs and content about this innovation
+ *
+ */
+
+.innovation-card {
+  width: 100%;
+  padding-top: $grid-gutter-width * 2;
+  padding-bottom: $grid-gutter-width * 2;
+  figure {
+    > img {
+      margin-bottom: $grid-gutter-width + $grid-column-padding;
+    }
+    @include screen-sm {
+      &.col:not([data-component]):not([data-slick-nav]) {
+        padding-bottom: $grid-gutter-width;
+      }
+      border-bottom: solid 1px $smoke;
+    }
+    figcaption {
+      > strong {
+        margin-bottom: $grid-column-padding;
+      }
+      ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+  dl {
+    @include screen-sm-up {
+      border-left: solid 1px $smoke;
+    }
+    @include screen-sm {
+      &.col:not([data-component]):not([data-slick-nav]) {
+        padding-top: $grid-gutter-width;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      margin-top: 0;
+    }
+    > div:last-of-type {
+      dt, dd {
+        margin-bottom: auto;
+      }
+    }
+    dt, dd {
+      display: flex;
+      width: 50%;
+      flex: 0 0.5 auto;
+      margin-bottom: $grid-gutter-width;
+    }
+  }
+  nav {
+    margin-top: rem-calc(120);
+  }
+}

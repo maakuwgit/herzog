@@ -1,0 +1,196 @@
+<?php
+/**
+* Accordion
+* -----------------------------------------------------------------------------
+*
+* Accordion component
+* @since 1.3
+* @author MaakuW
+*/
+global $post;
+
+/**
+ * Default component data.
+ *
+ * @var array
+ * @see data[]
+ */
+$bg_img = get_template_directory_uri() . '/assets/img/background-accordion.png';
+
+$default_data = [
+  'accordion_background'  => array(
+        'url' => $bg_img,
+        'sizes' => array(
+          'thumbnail' => $bg_img,
+          'full'      => $bg_img,
+          'large'     => $bg_img,
+          'medium'    => $bg_img
+        )
+      ),
+  'accordion_wrapper' => array(
+    array(
+      'accordion_element' => array(
+        array(
+          'accordion_headline'    => array(
+            'post_name' => 'Lorem ipsum',
+            'guid'      => '#'
+          ),
+          'accordion_content'     => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          'target_name'           => false
+        )
+      )
+    )
+  )
+];
+
+$default_args = [
+  'classes' => array(),
+  'id' => uniqid('accordion-')
+];
+
+$data = ll_parse_args( $component_data, $default_data );
+$args = ll_parse_args( $component_args, $default_args );
+
+/**
+ * component_name_before_display hook
+ * Type: Action
+ */
+do_action( "component_name_before_display", $component_data, $component_args );
+?>
+
+<?php
+if ( ll_empty( $data ) ) return;
+$css = ' class="accordion ';
+if( is_array($args['classes'] ) ) {
+  $css .= implode( " ", $args['classes'] );
+}else{
+  $css .= ' ' . $args['classes'];
+}
+$css .= '"';
+
+$id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
+$bg       = $data['accordion_background'];
+
+$accordions = $data['accordion_wrapper'][0]['accordion_element'];
+
+?>
+<section<?php echo $id . $css; ?> data-component="accordion" data-background>
+  <figure class="feature">
+    <?php echo ll_format_image($bg); ?>
+  </figure>
+<?php if( $accordions ) : ?>
+  <dl class="wrapper row">
+<?php
+  $flag = ' active';
+  $aID = 0;
+  foreach( $accordions as $accordion ) :
+    $division = $accordion['accordion_headline'];
+    $url = '#';
+    if( $division ) {
+      $headline = $division->post_title;
+      $url = $division->guid;
+    }
+?>
+    <dt class="col-md-12of12 col-lg-2of12 col-xl-2of12 accordion--trigger<?php echo $flag; ?>" data-content-num="<?php echo $aID; ?>">
+      <?php ll_get_featured([158,100],true); ?>
+    </dt>
+    <dd class="col-md-12of12 col-lg-10of12 col-offset-lg-2of12 col-xl-10of12 col-offset-lg-2of12 col-offset-xl-2of12 accordion<?php echo $flag; ?>">
+      <div class="row">
+        <div class="col col-md-12of12 col-lg-7of12 col-xl-10of12">
+          <h3><?php echo $headline; ?></h3>
+          <?php echo format_text($accordion['accordion_content']); ?>
+          <?php
+            ll_include_component(
+              'button',
+              array(
+              'icon'    => 'chevron',
+              'theme'   => 'light',
+              'link'    => array(
+                  'title' => 'Learn More',
+                  'url'  => $url
+                )
+              )
+            );
+            ?>
+          </div>
+          <div class="col col-md-12of12 col-lg-3of12 col-xl-2of12">
+            <?php
+              ll_include_component(
+                'button',
+                array(
+                'icon'    => 'chevron',
+                'theme'   => 'dark',
+                'link'    => array(
+                    'title' => 'Capabilities',
+                    'href'  => '#'
+                  )
+                )
+              );
+              ll_include_component(
+                'button',
+                array(
+                'icon'    => 'chevron',
+                'theme'   => 'dark',
+                'link'    => array(
+                    'title' => 'Innovations',
+                    'href'  => '#'
+                  )
+                )
+              );
+              ll_include_component(
+                'button',
+                array(
+                'icon'    => 'chevron',
+                'theme'   => 'dark',
+                'link'    => array(
+                    'title' => 'Case Studies',
+                    'href'  => '#'
+                  )
+                )
+              );
+              ll_include_component(
+                'button',
+                array(
+                'icon'    => 'chevron',
+                'theme'   => 'dark',
+                'link'    => array(
+                    'title' => $headline . ' Careers',
+                    'href'  => '#'
+                  )
+                )
+              );
+              ?>
+          </div>
+      </div>
+    </dd>
+<?php
+  $flag = '';
+  $aID++;
+  endforeach;
+?>
+  </dl>
+  <nav data-accordion-nav class="wrapper row">
+    <div class="col-md-12of12 col-lg-2of12 col-xl-2of12">
+      <div class="wrapper row">
+        <button class="button light" data-accordion-prev>
+            <svg class="icon icon-chevron-left"><use xlink:href="#icon-chevron-left"></use></svg>
+        </button>
+        <button class="button light" data-accordion-next>
+            <svg class="icon icon-chevron-right"><use xlink:href="#icon-chevron-right"></use></svg>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-12of12 col-lg-10of12 col-xl-10of12">
+      Add in the icon here
+    </div>
+  </nav>
+<?php else: ?>
+  <p>Oops! No accordion elements are defined in the componenent!</p>
+<?php endif; ?>
+</section>
+<?php
+/**
+ * component_name_after_display hook
+ * Type: Action
+ */
+do_action( "component_name_after_display", $component_data, $component_args ); ?>

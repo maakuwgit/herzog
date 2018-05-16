@@ -1,0 +1,86 @@
+{
+    "key": "group_5ad6173b2dac9",
+    "title": "Headline",
+    "fields": [
+        {
+            "key": "field_5af5a69f4c2df",
+            "label": "# Columns",
+            "name": "headline_colspan",
+            "type": "range",
+            "instructions": "How many columns (of 12) does this content span?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3334",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 7,
+            "min": 1,
+            "max": 12,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5ae745618c55f",
+            "label": "Level",
+            "name": "headline_tag",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3334",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4"
+            },
+            "allow_null": 0,
+            "default_value": "h3",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5ae745618c560",
+            "label": "Text",
+            "name": "headline_text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "2"
+            }
+        ]
+    ],
+    "menu_order": 3,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1526049333
+}

@@ -1,0 +1,10 @@
+/**
+ * Single Team Member
+ */
+
+.single-team {
+  main {
+    min-height: calc(100vh - #{rem-calc(140)});
+    padding-top: rem-calc(140);
+  }
+}

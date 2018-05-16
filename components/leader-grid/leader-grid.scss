@@ -1,0 +1,38 @@
+/**
+ * leader-grid Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.leader-grid {
+  width: 100%;
+  h3 {
+    font-size: rem-calc(20);
+    padding: #{rem-calc(25)} 0;
+  }
+  dl {
+    display: flex;
+    flex-direction: column;
+    border-top: solid 1px $coal;
+    margin-top: 0;
+    padding-top: rem-calc(25);
+    div {
+      width: 100%;
+    }
+    dt, dd {
+      padding: #{rem-calc(25)} 0;
+      font-size: rem-calc(14);
+    }
+    .row dd[class*=col-] {
+      padding-right: 0;
+    }
+    .row dt[class*=col-] {
+      padding-left: 0;
+    }
+    dt {
+      font-weight: $text-medium;
+    }
+  }
+}

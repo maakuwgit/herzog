@@ -1,0 +1,410 @@
+{
+    "key": "group_5ad6232dcebe1",
+    "title": "Band",
+    "fields": [
+        {
+            "key": "field_5ad8b6fa94722",
+            "label": "Has Background?",
+            "name": "has_background",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5ad8b6d694721",
+            "label": "Background",
+            "name": "section_bg",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ad8b6fa94722",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5addf81f1f6da",
+            "label": "Pad the top?",
+            "name": "padded_top",
+            "type": "true_false",
+            "instructions": "Add some padding to the top of the band, either to prevent a crash or provide some visual separation.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5addf8ae1f6db",
+            "label": "Pad the bottom?",
+            "name": "padded_bottom",
+            "type": "true_false",
+            "instructions": "Add some padding to the bottom of the band, either to prevent a crash or provide some visual separation.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5ad6235bf9e0e",
+            "label": "Columns",
+            "name": "band_columns",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5ad623a3f9e0f",
+            "min": 1,
+            "max": 6,
+            "layout": "block",
+            "button_label": "+ Column",
+            "sub_fields": [
+                {
+                    "key": "field_5ad62a7e51140",
+                    "label": "# Columns",
+                    "name": "band_colspan",
+                    "type": "range",
+                    "instructions": "How many columns (of 12) does this content span?",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 4,
+                    "min": 1,
+                    "max": 12,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_5ae77470fc942",
+                    "label": "Style",
+                    "name": "column_style",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "light": "Grey",
+                        "dark": "Black"
+                    },
+                    "allow_null": 0,
+                    "default_value": "light",
+                    "layout": "vertical",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_5ad8af1a687d4",
+                    "label": "Alignment",
+                    "name": "band_align",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "flex-start": "Top",
+                        "center": "Middle",
+                        "flex-end": "Bottom"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "save_other_choice": 0,
+                    "default_value": "flex-start",
+                    "layout": "vertical",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_5adb4ee5f6fa5",
+                    "label": "Background",
+                    "name": "band_bg",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5ad623a3f9e0f",
+                    "label": "Content",
+                    "name": "band_content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                },
+                {
+                    "key": "field_5aeb7c6f83585",
+                    "label": "Icon",
+                    "name": "column_btn_icon",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "plus": "+",
+                        "chevron": ">"
+                    },
+                    "allow_null": 0,
+                    "default_value": "chevron",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_5ae7445009b0c",
+                    "label": "Button",
+                    "name": "column_button",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "65",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_5aeb7c29c0fdb",
+                    "label": "Style",
+                    "name": "column_btn_style",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "light": "Ivory",
+                        "dark": "Smoke"
+                    },
+                    "allow_null": 0,
+                    "default_value": "light",
+                    "layout": "vertical",
+                    "return_format": "value"
+                }
+            ]
+        },
+        {
+            "key": "field_5adc193c02844",
+            "label": "Has Navigation?",
+            "name": "has_navbar",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3334",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5adc17c51852b",
+            "label": "Navbar",
+            "name": "navbar",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5adc193c02844",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5adc199702845",
+            "min": 0,
+            "max": 4,
+            "layout": "row",
+            "button_label": "+ Button",
+            "sub_fields": [
+                {
+                    "key": "field_5aeb7b43c95f1",
+                    "label": "Icon",
+                    "name": "btn_icon",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "plus": "+",
+                        "chevron": ">"
+                    },
+                    "allow_null": 0,
+                    "default_value": "chevron",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_5adc199702845",
+                    "label": "Button",
+                    "name": "btn",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_5aeb7bbede5f2",
+                    "label": "Style",
+                    "name": "btn_style",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "light": "Grey",
+                        "dark": "Black"
+                    },
+                    "allow_null": 0,
+                    "default_value": "light",
+                    "layout": "vertical",
+                    "return_format": "value"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "2"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1526048459
+}

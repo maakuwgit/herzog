@@ -1,0 +1,59 @@
+[data-component="accordion"] {
+  position: relative;
+  background-color: transparent;
+  background-size: cover;
+  @include screen-lg-up {
+    .accordion {
+      position: absolute;
+      display: none;
+      opacity: 0;
+      background-color: $ebony;
+      box-shadow: 0 0 #{rem-calc(30)} 0 $black;
+      &.active {
+        display: block;
+        opacity: 1;
+      }
+    }
+    .accordion--trigger {
+      cursor: pointer;
+    }
+  }
+  //The accordion itself
+  dl {
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: rem-calc(420);
+    margin: auto;
+    dd, dt, dd > div{
+      display: flex;
+      align-self: flex-start;
+    }
+    //The trigger, and on mobile, the headline
+    dt {
+    }
+    dd {
+      button, a {
+        &.button {
+          margin: auto auto #{rem-calc(10)} auto;
+          font-size: rem-calc(14);
+        }
+      }
+    }
+  }
+  nav {
+    position: relative;
+    button {
+      &.muted {
+        pointer-events: none;
+        opacity: 0.3;
+      }
+    }
+  }
+  .feature {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

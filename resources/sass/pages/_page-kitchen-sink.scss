@@ -1,0 +1,12 @@
+/**
+ * Kitchen Sink
+ */
+#locations {
+  margin-bottom: rem-calc(120);
+  @include screen-sm {
+    margin-top: $grid-gutter-width;
+  }
+}
+[data-slick-nav]>div {
+  justify-content: center !important;
+}

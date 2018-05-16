@@ -1,0 +1,139 @@
+section[id*="anchor_nav"] {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  padding-top: rem-calc(100);
+  @include screen-lg-up {
+    left: 25%;
+    margin-left: -8.3334%;
+    ol {
+      padding-left: rem-calc(25);
+      li a:before {
+        padding-right: rem-calc(25);
+      }
+    }
+  }
+  nav[data-component="anchor_nav"] {
+    li a {
+      padding: #{rem-calc(10)} 0 #{rem-calc(8)} 0;
+    }
+  }
+}
+body > nav[data-component="anchor_nav"] {
+  li a {
+    padding: 2.0625rem 2.5rem 1.9375rem 2.5rem;
+  }
+}
+[data-component="anchor_nav"] {
+  position: relative;
+  .row &[class*=col-] {
+    padding-left: 0;
+  }
+  span.grey,
+  a.grey {
+    color: $aluminum;
+  }
+  body > & {
+    margin-top: rem-calc(-116);
+    min-height: rem-calc(116);
+    z-index: 2;
+    width: 100%;
+  }
+  @include screen-md {
+    display: none;
+  }
+  ol {
+    padding-left: 0;
+    counter-reset: lis;
+    @include screen-lg-up {
+      left: 25%;
+      min-width: 280px;
+    }
+    li {
+      a {
+        display: flex;
+        color: inherit;
+        @include screen-sm {
+          font-size: 0.875rem;
+        }
+        @include screen-md-only {
+          padding-left: 3.5vw;
+          padding-right: 3.5vw;
+        }
+        @include screen-lg-up {
+          &:hover {
+            color: $yellow;
+            &:before {
+              color: $yellow;
+            }
+          }
+        }
+        &.active {
+          color: $yellow;
+          &:before {
+            color: $yellow;
+          }
+        }
+        &:before {
+          counter-increment: lis;
+          content: counter(lis, decimal-leading-zero);
+          color: $aluminum;
+          margin-left: rem-calc(-25);
+        }
+      }
+    }
+  }
+  ul li {
+    @include screen-lg-up {
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+  ol, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      color: $white;
+      p {
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: 0.625rem;
+        font-size: rem-calc(14);
+        &:last-of-type {
+          margin-bottom: auto;
+        }
+      }
+      button {
+        display: flex;
+        padding: 2.0625rem 2.5rem 1.9375rem 2.5rem;
+        color: inherit;
+        @include screen-sm {
+          font-size: 0.875rem;
+        }
+        @include screen-md-only {
+          padding-left: 3.5vw;
+          padding-right: 3.5vw;
+        }
+        @include screen-lg-up {
+          &:hover {
+            color: $yellow;
+          }
+        }
+        &.active {
+          color: $yellow;
+          span {
+            width: 100%;
+            margin-left: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

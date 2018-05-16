@@ -1,0 +1,47 @@
+/**
+ * vertical-timeline Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.vertical-timeline {
+  .row {
+    padding-bottom: $grid-gutter-width * 1.5;
+    border-left: solid $ivory 1px;
+    &:first-of-type {
+      &:after {
+        top: rem-calc(-32);
+        background-color: $ebony;
+      }
+    }
+    &:last-of-type {
+      border-left-color: transparent;
+    }
+    &:first-of-type,
+    &:last-of-type {
+      &:after {
+        height: rem-calc(36);
+      }
+    }
+    &:after {
+      position: absolute;
+      top: rem-calc(-16);
+      left: -1px;
+      width: 1px;
+      height: rem-calc(68);
+      content: '•';
+      text-indent: rem-calc(-7);
+      color: $ivory;
+      font-size: rem-calc(48);
+      background-color: $ivory;
+    }
+  }
+  h3 {
+    max-width: rem-calc(250);
+    margin-left: 0;
+    font-size: rem-calc(24);
+    font-weight: $text-medium;
+  }
+}

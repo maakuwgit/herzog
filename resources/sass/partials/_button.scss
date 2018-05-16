@@ -1,0 +1,20 @@
+/**
+ * Button Styles
+ */
+input[type="submit"],
+button:not([data-nav]):not(.mfp-close):not([class*="slick"]),
+.button {
+  display: flex;
+  border: none;
+  background-color: transparent;
+  color: $white;
+  outline: none;
+  font-weight: $text-regular;
+  font-size: rem-calc(20);
+  box-shadow: none;
+}
+input[type="submit"],
+button, .button {
+  margin: auto 0;
+  padding: 0;
+}

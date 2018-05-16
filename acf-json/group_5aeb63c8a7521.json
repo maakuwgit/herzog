@@ -1,0 +1,64 @@
+{
+    "key": "group_5aeb63c8a7521",
+    "title": "Divisions",
+    "fields": [
+        {
+            "key": "field_5aeb63f2a5e51",
+            "label": "# of Locations",
+            "name": "num_locations",
+            "type": "number",
+            "instructions": "How many locations to display in our block grid",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 6,
+            "placeholder": 6,
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 12,
+            "step": ""
+        },
+        {
+            "key": "field_5aeb65e7f69be",
+            "label": "Has Interactions?",
+            "name": "has_interactions",
+            "type": "true_false",
+            "instructions": "Does hovering\/clicking on the text do anything?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "2"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1525805172
+}

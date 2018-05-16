@@ -1,0 +1,14 @@
+/**
+ * Import main.min.css for front styling of
+ * the wysiwyg
+ */
+@import 'main.min.css';
+body {
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+#tinymce {
+  font-family: 'SuisseIntl', Helvetica Neue, Arial, sans-serif;
+  padding: 1rem;
+}

@@ -1,0 +1,301 @@
+/**
+ * Header (only DIRECTLY beneath the body tag) styles
+ */
+$menu_min_width: rem-calc(224);
+
+body > header {
+  a {
+    display: inline-block;
+    font-size: rem-calc(16);
+    font-weight: $text-light;
+    text-shadow: 0 1px 4px $black;
+    @include screen-lg-up {
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  nav {
+    ul {
+      padding: 0;
+      margin: 0 auto;
+      list-style: none;
+    }
+  }
+
+  >.row {
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
+
+    figure {
+      display: flex;
+      z-index: 10;
+      a {
+        align-self: center;
+      }
+    }
+  }
+}
+
+#primary-nav {
+  display: block;
+  .menu-item a {
+    position: relative;
+    z-index: 1;
+    padding: #{rem-calc(10)} #{rem-calc(25)};
+    @include screen-sm {
+      font-size: rem-calc(14);
+    }
+    @include screen-lg-up {
+      &:hover {
+        color: $yellow;
+      }
+      padding: #{rem-calc(32)} #{rem-calc(16)};
+    }
+  }
+  @include screen-md {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0;
+    padding-top: rem-calc(84);
+    overflow: hidden;
+    width: 100%;
+    background-color: $ebony;
+    a {
+      opacity: 0;
+    }
+    &.active {
+      height: 100vh;
+      overflow: visible;
+      a {
+        opacity: 1;
+      }
+    }
+    ul {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      .menu-item {
+        width: 100%;
+        .dropdown-menu {
+          display: none;
+        }
+      }
+    }
+  }
+}
+/*Dev Note: integrate all this chaff so it's not a MESS */
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  padding: 0  $grid_gutter_width;
+  border-color: $white;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  outline: none;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+  background-color: transparent;
+  position: absolute;
+  z-index:25;
+  @include screen-md {
+    right: 0;
+    display: block;
+  }
+  @include screen-md-up {
+    right: -1rem;
+  }
+
+  .icon-bar {
+    background-color: $white;
+  }
+  &.open {
+      .navbar-toggle__inner {
+        transform: rotate(90deg);
+        background-color: transparent;
+
+        transition: transform 0.1s 0s cubic-bezier(0.215, 0.61, 0.355, 1),
+        background-color 0s 0.22s linear;
+
+        &::before {
+          top: 0;
+          transform: rotate(-45deg);
+          transition: top 0.1s 0.12s ease-out,
+          transform 0.1s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        &::after {
+          bottom: 0;
+          transform: rotate(45deg);
+          transition: bottom 0.1s 0.12s ease-out,
+          transform 0.1s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+      }
+    }
+    .menu-txt,
+    .close-txt {
+      padding-top: 0.3125rem;
+      font-size: 0.75rem;
+    }
+    &.open .menu-txt,
+    .close-txt {
+      display: none;
+    }
+    &.open .close-txt {
+      display: block;
+    }
+}
+
+.dropdown {
+  position: relative;
+  &.mega_menu {
+    position: initial;
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: rem-calc(-16);
+  left: -1 * ($menu_min_width/4);
+  right: -1 * ($menu_min_width/4);
+  min-width: $menu_min_width;
+  padding-top: rem-calc(120);
+  background-color: $ebony;
+  box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
+  @include screen-md-up {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: $grid_column_padding;
+    #primary-nav & {
+      .menu-item {
+        width: 100%;
+        flex: 0 1 auto;
+        a {
+          padding: $grid_column_padding/2 $grid_gutter_width;
+          font-size: rem-calc(14);
+        }
+      }
+    }
+  }
+  @include screen-nav-mobile {
+    position: relative;
+    overflow: hidden;
+  }
+  &.collapsed {
+    top: -100vh;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .headline > a {
+    font-weight: $text-medium;
+  }
+  .dropdown.mega_menu & {
+    right: 0;
+    left: 0;
+    align-items: flex-start;
+    #primary-nav & {
+      .menu-item {
+        flex: 0 1 auto;
+      }
+    }
+    @include screen-md-up {
+      padding-bottom: $grid_gutter_width * 2;
+      flex-direction: row;
+    }
+  }
+  .dropdown .dropdown-menu {
+    position: initial;
+    top: initial;
+    padding-left: 0;
+    padding-bottom: 0;
+    flex-direction: column;
+    background: transparent;
+    box-shadow: initial;
+  }
+  .menu-item {
+    a {
+      color: $ivory;
+    }
+    p {
+      font-weight: $text-light;
+      font-size: rem-calc(14);
+    }
+    figure {
+      flex-direction: column;
+      figcaption {
+        margin-top: $grid_column_padding;
+      }
+      img {
+        width: auto;
+        max-width: rem-calc(260);
+      }
+    }
+    figure,
+    > img {
+      padding: $grid_column_padding $grid_gutter_width;
+    }
+    small, .small {
+      font-size: rem-calc(12);
+    }
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100vw;
+  margin: 0 auto;
+  padding: $grid_gutter_width 0;
+  li.active > a {
+    color: darken($ivory, 20);
+  }
+}
+
+.navbar-toggle__box {
+  width: rem-calc(22);
+  height: calc(2px * 3 + 6px * 2);
+  display: inline-block;
+  position: relative;
+}
+
+.navbar-toggle__inner {
+  display: block;
+  top: 50%;
+  margin-top: 2px / -2;
+  transition: transform 0.1s 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19),
+              background-color 0s 0.1s linear;
+
+  &,
+  &::before,
+  &::after {
+    width: 22px;
+    height: 2px;
+    background-color: $white;
+    border-radius: 2px;
+    position: absolute;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+  }
+
+  &::before {
+    top: (4px + 2px) * -1;
+    transition: top 0.1s 0.1s ease-in,
+    transform 0.1s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  &::after {
+    bottom: (4px + 2px) * -1;
+    transition: bottom 0.1s 0.1s ease-in,
+    transform 0.1s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+}

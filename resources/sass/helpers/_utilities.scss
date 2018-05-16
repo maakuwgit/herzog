@@ -1,0 +1,281 @@
+/**
+ * Utilites & classes
+ */
+
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+
+.alignleft {
+  float: left;
+  margin: 0 15px 20px 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0 0 20px 15px;
+}
+
+.block {
+  &.button {
+    display: block;
+  }
+  display: block;
+}
+
+.iblock {
+  &.button {
+    display: inline-block;
+  }
+  display: inline-block;
+}
+
+.flex {
+  &.button {
+    display: flex;
+  }
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+/* Font Weights */
+.text-bold {
+  font-weight: $text-medium;
+}
+
+.text-medium {
+  font-weight: $text-regular;
+}
+
+.text-normal {
+  font-weight: $text-light;
+}
+
+/* List Styles */
+.no-bullet {
+  list-style: none;
+  padding-left: initial;
+}
+
+.bullet {
+  list-style: disc;
+}
+
+/* Grid Styles */
+.relative {
+  position: relative;
+}
+
+.row--full {
+  margin: 0;
+}
+
+.col--full {
+  padding: 0;
+}
+
+%col {
+  position: relative;
+  min-height: 1px;
+  float: left;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Vertical align
+%vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Clearfix
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+      content: " ";
+      display: table;
+  }
+  &:after {
+      clear: both;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+// Visually hide an element
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+// Overlay
+// Use in a pseudo element
+%overlay {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+// Cover
+// Makes videos or images work like background-size: cover;
+// as long as the parent is relative and has overflow: hidden
+%cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/**
+ * Alignment styles
+ * ----------------------------------------------------------------------------
+ *
+ * Utility classes for adjusting content alignment
+ */
+
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.vertical-center > * {
+  flex: 0 0 auto;
+}
+
+/**
+ * Text styles
+ * ----------------------------------------------------------------------------
+ *
+ * Utility classes for affecting text display
+ */
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.text-muted {
+  color: $grey;
+}
+
+//theme specific colors
+a, p, dt, dd, span, small, li, time, address, ul {
+  &.black {
+    color: $black;
+  }
+  &.white {
+    color: $white;
+  }
+  &.ivory {
+    color: $ivory;
+  }
+  &.aluminum {
+    color: $aluminum;
+  }
+  &.silver {
+    color: $silver;
+  }
+  &.grey {
+    color: $grey;
+  }
+  &.smoke {
+    color: $smoke;
+  }
+  &.coal {
+    color: $coal;
+  }
+  &.yellow {
+    color: $yellow;
+  }
+}
+
+aside, article, main, div, header, footer, section, nav, main, menu, code, hr {
+  &.white {
+    background-color: $white;
+  }
+  &.ivory {
+    background-color: $ivory;
+  }
+  &.aluminum {
+    background-color: $aluminum;
+  }
+  &.silver {
+    background-color: $silver;
+  }
+  &.grey {
+    background-color: $grey;
+  }
+  &.smoke {
+    background-color: $smoke;
+  }
+  &.coal {
+    background-color: $coal;
+  }
+  &.ebony {
+    background-color: $ebony;
+  }
+  &.black {
+    background-color: $black;
+  }
+  &.yellow {
+    background-color: $yellow;
+  }
+}
+
+[data-background] {
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 0 #{rem-calc(40)} black;
+  .feature img {
+    opacity: 0;
+  }
+}
+
+[data-slider] {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}

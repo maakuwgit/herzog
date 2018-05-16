@@ -1,0 +1,80 @@
+{
+    "key": "group_5ae3360088fd2",
+    "title": "Location Details",
+    "fields": [
+        {
+            "key": "field_5ae336d4e4fc7",
+            "label": "Phone",
+            "name": "location_phone",
+            "type": "text",
+            "instructions": "The country code will automatically be appended to all phone numbers. For the desired result, please use only numbers, parenthesis and dashes.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "816-233-9001",
+            "placeholder": "123-456-7890",
+            "prepend": "",
+            "append": "",
+            "maxlength": 12
+        },
+        {
+            "key": "field_5ae3377fe4fc8",
+            "label": "Address",
+            "name": "location_address",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "600 S Riverside Rd.",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5af499c5e8350",
+            "label": "Contact",
+            "name": "location_contact",
+            "type": "email",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "contact@email.com",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "location"
+            }
+        ]
+    ],
+    "menu_order": -1,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1525979276
+}

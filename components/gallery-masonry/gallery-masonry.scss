@@ -1,0 +1,51 @@
+/**
+ * Masonry Gallery
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+.gallery-masonry {
+  padding-bottom: $grid-gutter-width;
+  .brick {
+    min-height: 50vh;
+    max-height: 320px;
+    margin-top: $grid-column-padding;
+    margin-bottom: $grid-column-padding;
+    picture {
+      display: table;
+      width: 100%;
+      height: inherit;
+      min-height: inherit;
+    }
+  }
+  @include screen-lg-up {
+    padding-bottom: calc(50vh + 120px);
+    &:not(.lefty):not(.righty) {
+      padding-bottom: 120px;
+    }
+    &.lefty {
+      .brick {
+        &:nth-of-type(2),
+        &:nth-of-type(2n+3) {
+          transform: translateY(25vh);
+        }
+        &:nth-of-type(3n+3) {
+          transform: translateY(50vh);
+        }
+      }
+    }
+    &.righty {
+      .brick {
+        &:first-of-type,
+        &:nth-of-type(4n) {
+          transform: translateY(50vh);
+        }
+        &:nth-of-type(2),
+        &:nth-of-type(2n+5) {
+          transform: translateY(25vh);
+        }
+      }
+    }
+  }
+}

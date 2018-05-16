@@ -1,0 +1,54 @@
+a,
+[data-background] {
+  transition: all 300ms ease-in-out;
+  &:hover {
+    transition: all 300ms ease-in-out;
+  }
+}
+
+.dropdown-menu {
+  transition: top 300ms ease-out;
+  &.collapsed {
+    transition: top 150ms ease-in;
+  }
+}
+.navbar__toggle {
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+}
+
+.button,
+button,
+input[type="submit"] {
+  transition: all 150ms ease-out;
+  &:hover {
+    transition: all 50ms ease-out;
+  }
+}
+
+[data-component="media-box"] {
+  figure > {
+    .button, button {
+      transition: all 300ms ease-out;
+      &:hover {
+        transition: all 300ms ease-out;
+      }
+    }
+  }
+}
+
+#primary-nav .menu-item {
+  transition: all 150ms ease-out;
+  a {
+    transition: opacity 150ms ease-out, background 300ms ease-in-out, color 200ms ease-out;
+  }
+  @include screen-md {
+    &.active {
+      transition: all 300ms ease-in;
+      a {
+        transition: opacity 200ms ease-out;
+      }
+    }
+  }
+}

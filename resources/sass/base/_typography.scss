@@ -1,0 +1,107 @@
+/**
+ * Typography
+ */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i');
+
+*, .roboto {
+  font-family: $font-family;
+}
+
+a {
+  color: currentColor;
+  text-decoration: $link-decoration;
+  &:hover {
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+h1,.h1, h2, .h2, h3,.h3, h4, .h4, h5, .h5, h6, .h6 {
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+h1, .h1,
+h3, .h3,
+h4, .h4 {
+  font-weight: $text-regular;
+}
+
+h2,.h2,
+h5, .h5 {
+  font-weight: $text-medium;
+}
+
+h1,
+.h1 {
+  font-size: 2.875rem;
+  @include screen-lg-up {
+    font-size: 3.75rem;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 1.875rem;
+  @include screen-lg-up {
+    font-size: 2.25rem;
+  }
+}
+
+h3,
+.h3 {
+  font-size: 1.375rem;
+  @include screen-lg-up {
+    font-size: 1.75rem;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 1.25rem;
+  @include screen-lg-up {
+    font-size: 1.5rem;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 1.0625rem;
+  @include screen-lg-up {
+    font-size: 1.3125rem;
+  }
+}
+
+h6,
+.h6 {
+  font-size: 0.9375rem;
+  @include screen-lg-up {
+    font-size: 1.125rem;
+  }
+}
+
+p, .p, td, li, dd, dt, address {
+  font-size: 0.875rem;
+  @include screen-lg-up {
+    font-size: 1rem;
+  }
+}
+
+small, p.small, .p.small, li.small, td.small, th.small, a.small, dt.small, dd.small, span.small {
+  font-size: 0.75rem;
+  @include screen-lg-up {
+    font-size: 0.875rem;
+  }
+}
+
+p, .p, li, td, th, a, dt, dd, span {
+  &.large {
+    font-size: 1;
+    @include screen-lg-up {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+p {
+  font-weight: $text-regular;
+}

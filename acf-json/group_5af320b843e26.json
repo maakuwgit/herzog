@@ -1,0 +1,102 @@
+{
+    "key": "group_5af320b843e26",
+    "title": "Homepage Anchor Navigation",
+    "fields": [
+        {
+            "key": "field_5af320b84b615",
+            "label": "Buttons",
+            "name": "anchor_btn",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5ade2fc9c4949",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "+ Button",
+            "sub_fields": [
+                {
+                    "key": "field_5af320dc37c0a",
+                    "label": "Title",
+                    "name": "anchor_btn_abbr",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "HCC",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5af320b84d426",
+                    "label": "Subtitle",
+                    "name": "anchor_btn_label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Link Text",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5af320b84d485",
+                    "label": "Target",
+                    "name": "anchor_btn_target",
+                    "type": "text",
+                    "instructions": "Where should the link \"jump\" to when clicked? This should correspond to an \"id\" in the page somewhere",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#",
+                    "placeholder": "#anchor_id",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates\/template-home.php"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1525883297
+}

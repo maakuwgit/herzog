@@ -1,0 +1,65 @@
+$nav-width: #{rem-calc(80)};
+
+[data-component="section-nav"] {
+  position: fixed;
+  z-index: 5;
+  align-items: center;
+  top: calc(100vh - #{$nav-width});
+  left: $nav-width;
+  bottom: 0;
+  height: $nav-width;
+  width: 100vh;
+  transform-origin: bottom left;
+  transform: rotate(270deg);
+  font-weight: $text-medium;
+  color: $white;
+  .wrap {
+    width: inherit;
+    align-items: center;
+  }
+  @include screen-md {
+    display: none;
+  }
+  dl,
+  nav {
+    display: flex;
+  }
+  button {
+    &.section-prev,
+    &.section-next {
+      padding-right: rem-calc(12.5);
+      padding-left: rem-calc(12.5);
+    }
+    svg {
+      height: rem-calc(25);
+      width: rem-calc(25);
+      fill: $white;
+    }
+  }
+  dl {
+    justify-content: center;
+    margin: auto;
+    dd, dt {
+      position: relative;
+      margin: auto;
+    }
+    dt.flex {
+      margin-right: rem-calc(16);
+      margin-left: auto;
+      padding-top: rem-calc(16);
+      border-top: solid 2px silver;
+      color: $aluminum;
+      font-size: rem-calc(14);
+      transform: rotate(90deg);
+    }
+    dd.flex {
+      margin-left: 0;
+      padding-left: rem-calc(16);
+    }
+  }
+  progress {
+    width: calc(100% - #{rem-calc(70)});
+    margin: #{rem-calc(16)} auto auto;
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,46 @@
+{
+    "key": "group_5afb379c149de",
+    "title": "Related Division",
+    "fields": [
+        {
+            "key": "field_5afb39c6b3c4a",
+            "label": "Use Division",
+            "name": "use_division",
+            "type": "post_object",
+            "instructions": "Which Division should we pull the logo from?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "location"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "innovation"
+            }
+        ]
+    ],
+    "menu_order": -1,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1526413347
+}

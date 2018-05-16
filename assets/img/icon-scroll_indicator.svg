@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="38px" viewBox="0 0 25 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="About-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="About/Principles" transform="translate(-202.000000, -668.000000)">
+            <g id="Landing-Screen" transform="translate(201.000000, 0.000000)">
+                <g id="Scroll-Indicator" transform="translate(1.000000, 668.000000)">
+                    <rect id="Rectangle" stroke="#FFFFFF" x="0.5" y="0.5" width="24" height="37" rx="12"></rect>
+                    <path d="M13.2547114,15.8370142 L16.0677264,15.7863779 L11.926778,19.9273263 L7.93227361,15.9328219 L10.7468578,15.8821574 C10.7456929,15.8599927 10.7451031,15.8376756 10.7451031,15.8152207 L10.7451031,10.2548969 C10.7451031,9.56183646 11.3069396,9 12,9 C12.6930604,9 13.2548969,9.56183646 13.2548969,10.2548969 L13.2548969,15.8152207 C13.2548969,15.8224998 13.2548349,15.8297645 13.2547114,15.8370142 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,33 @@
+/**
+ * logo-grid Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.logo-grid {
+  padding-top: $grid-gutter-width * 2;
+  padding-bottom: $grid-gutter-width * 2;
+  h4 {
+    margin-bottom: $grid-gutter-width;
+  }
+  p {
+    max-width: 480px;
+  }
+  + .logo-grid {
+    padding-top: 0;
+    .container {
+      padding-top: $grid-gutter-width * 2;
+      border-top: solid 1px $coal;
+    }
+  }
+  .box-grid .col {
+    padding-top: $grid-gutter-width;
+    padding-bottom: $grid-gutter-width;
+  }
+  ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

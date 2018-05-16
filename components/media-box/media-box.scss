@@ -1,0 +1,107 @@
+/**
+ * Media Box Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+$fig_height : 520px;
+
+[data-component="media-box"] {
+  > .row {
+    align-items: flex-start;
+  }
+  article {
+    &:first-of-type {
+      padding-left: 0;
+    }
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+  [data-slick-nav] {
+    button, .button {
+      svg {
+        width: rem-calc(24);
+        height: rem-calc(24);
+        fill: $white;
+      }
+    }
+    .slick-next {
+      order: 3;
+    }
+    .slick-prev {
+      order: 2;
+    }
+    progress {
+      order: 4;
+    }
+    [data-slick-details] {
+      order: 1;
+      width: calc(100% - #{rem-calc(48)});
+    }
+  }
+
+  div[data-rel] {
+    display: none;
+    overflow: hidden;
+    height: 0;
+    min-height: inherit;
+    width: 100%;
+    margin: 0;
+    .slick-list,
+    .slick-slide,
+    .slick-slider {
+      height: 0;
+      min-height: $fig_height;
+    }
+  }
+
+  article {
+    margin-top: rem-calc(170);
+    color: $grey;
+    &.active {
+      color: $white;
+      cursor: initial;
+      + figure {
+        > button,
+        > .button {
+          left: initial;
+          right: rem-calc(-16);
+          transform: scale(-1);
+        }
+      }
+    }
+    @include screen-lg-up {
+      cursor: pointer;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+  figure {
+    position: relative;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    overflow: visible;
+    padding: 0 !important;
+    min-height: $fig_height;
+    > button,
+    > .button {
+      position: absolute;
+      top: 0;
+      z-index: 10;
+      margin: #{rem-calc(200)} auto auto #{rem-calc(-16)};
+      svg {
+        width: rem-calc(32);
+        height: rem-calc(32);
+        margin: auto;
+      }
+    }
+    img {
+      position: absolute;
+      display: none;
+    }
+  }
+}

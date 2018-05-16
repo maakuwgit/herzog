@@ -1,0 +1,125 @@
+/**
+ * Hero with Nav Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ * Dev Note: need to come in and clean this up after the separation
+ */
+.hero-w-nav {
+  min-height: 100vh;
+  > .wrapper {
+    min-height: inherit;
+  }
+
+  h1, h2 {
+    position: relative;
+    z-index: 1;
+    @include screen-lg-up {
+      margin-left: 15.75%;
+      margin-right: auto;
+    }
+  }
+  picture {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    display: flex;
+    overflow: hidden;
+    @include screen-lg-up {
+      left: initial;
+    }
+    align-items: center;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    color: $white;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &.background {
+      background-attachment: fixed;
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba($black,0.4);
+      }
+    }
+    &[data-background] {
+      min-height: 100vh;
+      &.background {
+        @include screen-lg-up {
+          margin-left: rem-calc(-16);
+          margin-right: rem-calc(-16);
+          width: calc(100% + #{rem-calc(32)};
+          max-width: none;
+        }
+      }
+    }
+
+    & > .container {
+      position: relative;
+      align-self: stretch;
+      z-index: 1;
+    }
+
+    .button {
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature {
+      img {
+        opacity: 0;
+      }
+    }
+
+    .loop-video-container {
+      z-index: 0
+    }
+
+    .play-video-button {
+      position:absolute;
+      z-index: 1;
+      bottom: 0;
+      display: inline-flex;
+      margin: auto;
+      padding: 2rem;
+      color: white;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  + .hero-nav {
+    body > & {
+      > .wrapper {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+    figure {
+      @include screen-md {
+        display: none;
+      }
+      @include screen-lg-up {
+        position: absolute;
+        margin-top: rem-calc(77);
+        left: 25%;
+        margin-left: -8.3334%;
+      }
+    }
+    progress {
+      width: 50%;
+    }
+    [data-slick-details] {
+      margin-right: rem-calc(50);
+    }
+  }
+}

@@ -1,0 +1,59 @@
+/**
+ * locations Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+[data-component="locations"] {
+  width: 100%;
+  a {
+    font-weight: $text-regular;
+  }
+  address, a[href*="tel:"] {
+    font-weight: $text-light;
+  }
+  dt {
+    img {
+      max-height: 50px;
+      width: auto;
+      margin-bottom: rem-calc(25);
+    }
+  }
+  dd {
+    figure {
+      position: absolute;
+      bottom: 0;
+      left: 100%;
+      z-index: 11;
+      display: none;
+      width: 100%;
+    }
+  }
+  h6 {
+    margin-bottom: rem-calc(10);
+  }
+  article & {
+    h6,
+    a.button {
+      font-size: rem-calc(14);
+      font-weight: $text-medium;
+    }
+    @include screen-lg-up {
+      div {
+        cursor: pointer;
+        a.button {
+          opacity: 0;
+        }
+        &:hover {
+          a.button {
+            opacity: 1;
+          }
+          figure {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

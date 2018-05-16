@@ -1,0 +1,52 @@
+[data-component="callout-numbers"]{
+  min-height: 50vh;
+  padding-top: $grid-gutter-width;
+  padding-bottom: $grid-gutter-width;
+  background-color: #191919;
+  h2, h3, dt {
+    color: $white;
+  }
+  dl {
+    margin-top: 0;
+    margin-bottom: 0;
+    div {
+      @include screen-sm {
+        border-bottom: solid 1px $smoke;
+        &.col:not([data-component]):not([data-slick-nav]) {
+          padding-top: $grid-gutter-width;
+          padding-bottom: $grid-column-padding;
+          &:first-of-type {
+            padding-top: 0;
+          }
+          &:last-of-type {
+            padding-bottom: 0;
+            border-bottom: none;
+          }
+        }
+      }
+      @include screen-sm-up {
+        border-right: solid 1px $smoke;
+        border-left: solid 1px $smoke;
+        &:first-of-type {
+          border-left: none;
+        }
+        &:last-of-type {
+          border-right: none;
+        }
+      }
+    }
+  }
+  dt {
+    font-size: rem-calc(28);
+    font-weight: $text-regular;
+  }
+  dd {
+    font-size: rem-calc(16);
+    font-weight: $text-medium;
+    color: $aluminum;
+  }
+  p {
+    font-size: rem-calc(21);
+    line-height: 1.75;
+  }
+}

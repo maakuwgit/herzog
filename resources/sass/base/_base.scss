@@ -1,0 +1,242 @@
+/**
+ * Base styles
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  min-height: 100vh;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: $white;
+  background-color: $ebony;
+  font-size: 16px;
+  font-size: rem-calc(16);
+  line-height: 1.5;
+
+  /**
+   * Set after content to use for easily checking
+   * mobile or desktop state. Hidden from view and
+   * screen readers because it's purely for javascript.
+   * Check app.js for more info
+   */
+  &::after {
+    content: 'desktop';
+    display: none;
+
+    @include screen-nav-mobile {
+      content: 'mobile';
+    }
+  }
+}
+
+::selection {
+  text-shadow: none;
+  color: $selection;
+  background: $selection-bg;
+}
+
+::-moz-selection {
+  text-shadow: none;
+  color: $selection;
+  background: $selection-bg;
+}
+
+address {
+  font-style: normal;
+}
+
+blockquote {
+  position: relative;
+  margin-left: rem-calc(50);
+  margin-right: rem-calc(50);
+  font-size: rem-calc(20);
+  font-weight: $text-light;
+  p {
+    margin: 0 auto auto;
+    font-weight: inherit;
+    font-size: inherit;
+    &:before {
+      content: "“";
+      margin-left: rem-calc(-6);
+    }
+    &:after {
+      content: "”";
+    }
+  }
+  cite {
+    font-size: rem-calc(16);
+    font-weight: $text-medium;
+    font-style: normal;
+  }
+}
+
+code {
+  white-space: normal;
+}
+
+form {
+  flex: 0 1 auto;
+  width: 100%;
+  padding-top: rem-calc(25);
+  padding-bottom: rem-calc(25);
+  align-self: flex-start;
+  @include screen-lg-up {
+    margin-left: rem-calc(-25);
+    margin-right: rem-calc(-25);
+    width: calc(100% + #{rem-calc(50)});
+  }
+}
+
+body {
+  h2 {
+    margin-bottom: $grid-gutter-width;
+    @include screen-lg-up {
+      line-height: 1.4375;
+      margin-bottom: $grid-gutter-width * 2;
+    }
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: $grid-column-padding;
+    line-height: 1.5;
+    @include screen-lg-up {
+      line-height: 1.75;
+    }
+  }
+}
+
+hr {
+  background-color: rgba(86,86,86,0.6);
+  width: 80%;
+  margin-left: 0;
+}
+
+img, svg.logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input:not([type="button"]):not([type="image"]):not([type="submit"]) {
+  @include input_base;
+  &[type="file"]{
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $ebony;
+    }
+    &:after {
+      content: 'Browse';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      color: $white;
+      white-space: nowrap;
+      background-color: $aluminum;
+    }
+  }
+}
+
+body > article {
+  background-color: #121212;
+  box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
+}
+
+label {
+  display: inline-block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+main,
+main + nav {
+  background-color: $black;
+}
+
+main {
+  overflow: hidden;
+}
+
+/*Dev Note: these cannot be stacked!*/
+progress[value] {
+  height: 1px;
+  margin-top: calc(1rem - 0.5px);
+  margin-bottom: calc(1rem - 0.5px);
+  background: $grey;
+  box-shadow: none;
+  border-radius: 0;
+}
+progress[value]::-webkit-progress-bar,
+progress[value]::-moz-progress-bar {
+  background-color: $grey;
+  border-radius: 0;
+}
+progress[value]::-webkit-progress-value {
+  background: $ivory;
+}
+
+select {
+  @include input_base;
+  padding-right: 3.5rem;
+  background-image: url('../img/svg/chevron-down.svg');
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+textarea {
+  @include input_base;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 2rem;
+  a {
+    color: #762123;
+  }
+  th {
+    padding-bottom: 2rem;
+    font-size: 1rem;
+    font-weight: $text-medium;
+  }
+  td {
+    padding-bottom: 1rem;
+  }
+  td, th {
+    text-align: center;
+    border-bottom: solid 1px $white;
+    padding-top: 1rem;
+
+    &:first-of-type {
+      text-align: left;
+    }
+    &:last-of-type {
+      text-align: right;
+    }
+  }
+}
+
+.logo {
+  path {
+    fill: white;
+    stroke: none;
+  }
+}

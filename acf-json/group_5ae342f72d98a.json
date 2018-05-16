@@ -1,0 +1,45 @@
+{
+    "key": "group_5ae342f72d98a",
+    "title": "Country Details",
+    "fields": [
+        {
+            "key": "field_5ae342fdf3e79",
+            "label": "Country Code",
+            "name": "country_code",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "placeholder": 1,
+            "prepend": "+",
+            "append": "",
+            "min": 1,
+            "max": 100,
+            "step": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "location_state"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1524844032
+}

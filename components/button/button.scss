@@ -1,0 +1,33 @@
+/* Styles are inherited from the default _button.scss file */
+a.button,
+button.button {
+  margin-top: rem-calc(25);
+}
+.button {
+  @include flexible(flex-start, center);
+  font-size: rem-calc(16);
+  cursor: pointer;
+  body.page-template-template-home & {
+    font-size: rem-calc(20);
+  }
+  .icon {
+    width: rem-calc(20);
+    height: rem-calc(20);
+    margin-right: rem-calc(10);
+    padding: #{rem-calc(3)};
+    border-radius: 100px;
+    color: $black;
+    font-size: rem-calc(16);
+    line-height: 1;
+    text-align: center;
+    fill: $black;
+    background-color: $white;
+  }
+  &.dark {
+    .icon {
+      color: $white;
+      fill: $white;
+      background-color: $grey;
+    }
+  }
+}
