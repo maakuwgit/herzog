@@ -2,11 +2,8 @@
  * Kitchen Sink
  */
  body.page-kitchen-sink {
-  #locations {
+  [data-component="locations"] {
     margin-bottom: rem-calc(120);
-    @include screen-sm {
-      margin-top: $grid-gutter-width;
-    }
   }
   [data-slick-nav]>div {
     justify-content: center !important;
@@ -17,7 +14,7 @@
     padding-bottom: $grid-gutter-width * 2;
     box-shadow: none;
   }
-  > article.content:nth-of-type(n+2) {
+  > article.content {
     background-color: $grey;
   }
   > aside.content {
@@ -27,7 +24,7 @@
     background-color: $black;
     border-top: solid 1px $smoke;
   }
-  .gallery-w-copy {
+  section:not(.accordion):not(.locations):not([class*="-card"]) {
     padding-top: 120px;
   }
 }

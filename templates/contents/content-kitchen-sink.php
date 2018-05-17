@@ -3,93 +3,40 @@
 $id = false;
 $output = '';
 ?>
+<article id="callout-numbers" class="content">
+  <div class="container row start">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-2of12 center">
+      <h3>Headline</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-9of12 col-lg-10of12 center">
+      <p>Select a heading tag and drop in some text. Easy!</p>
+    </div>
+  </div>
+</article>
 <?php
-//Callout w/ Counter
-while( have_rows( 'callout_numbers_columns' ) ) {
-  the_row();
-  $cols = get_field('callout_numbers_columns');
-}
-
-$callnums = array(
-  'has_counting' => get_field('has_counting'),
-  'headline'     => get_field('callout_numbers_headline'),
-  'big_prefix'   => get_field('callout_numbers_prefix'),
-  'big_number'   => get_field('callout_numbers'),
-  'big_suffix'   => get_field('callout_numbers_suffix'),
-  'subheadline'  => get_field('callout_numbers_subheadline'),
-  'columns'      => $cols
-);
-
-$output .= ll_include_component(
-  'callout-numbers',
-  $callnums,
-  array(),
-  true
-);
-
-//Headline
 $headline   = array(
   'text'      => get_field('headline_text'),
   'tag'       => get_field('headline_tag'),
   'colspan'   => get_field('headline_colspan')
 );
 
-$output .= ll_include_component(
+ll_include_component(
   'headline',
   $headline,
-  array(),
-  true
+  array()
 );
-
-//Logo Grid
-$logo_grid   = array(
-  'headline'      => get_field('logo_grid_headline'),
-  'subheadline'       => get_field('logo_grid_subheadline'),
-  'logos'   => get_field('logo_grid_content')
-);
-
-$output .= ll_include_component(
-  'logo-grid',
-  $logo_grid,
-  array(),
-  true
-);
-
-// Media Box
-$cols = [];
-
-while( have_rows( 'mediabox_columns' ) ) {
-  the_row();
-  $cols[] = array(
-    'mediabox_bg'           => get_sub_field('mediabox_bg'),
-    'mediabox_button'       => get_sub_field('mediabox_button'),
-    'mediabox_button_style' => get_sub_field('mediabox_button_style'),
-    'mediabox_headline'     => get_sub_field('mediabox_headline'),
-    'mediabox_subheadline'  => get_sub_field('mediabox_subheadline'),
-    'mediabox_content'      => get_sub_field('mediabox_content'),
-    'mediabox_type'         => get_sub_field('mediabox_type'),
-    'hero_gallery'          => array(
-      'hero_gallery_image'  => get_sub_field('hero_gallery_image')
-    ),
-    'hero_video'            => get_sub_field('hero_video')
-  );
-}
-
-$media   = array(
-  'padded_top'        => get_sub_field('padded_top'),
-  'padded_bottom'     => get_sub_field('padded_bottom'),
-  'mediabox_columns'  => $cols
-);
-
-$output .= ll_include_component(
-  'media-box',
-  $media,
-  array(
-    'id' => $id
-  ),
-  true
-);
-
+?>
+<article id="callout-numbers" class="content">
+  <div class="container row start">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-2of12 center">
+      <h3>Band</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-5of12 col-md-6of12 col-lg-7of12 center">
+      <p>By far the most used and useful component. A band has up to 6 adjustable columns. When you add a column, you will have the following options to acheive the desired look</p>
+    </div>
+  </div>
+</article>
+<?php
 //Band
 $cols = [];
 
@@ -120,8 +67,138 @@ $band   = array(
   'band_columns'   => $cols
 );
 
+ll_include_component(
+  'band',
+  $band,
+  array(
+    'id'  => $id
+  )
+);
+?>
+<article id="callout-numbers" class="content">
+  <div class="container row start">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 center">
+      <h3>Logo Grid</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-9of12 col-lg-9of12 center">
+      <p class="h5">Display your logos 4-up (2-up tablet / 1-up mobile)</p>
+    </div>
+  </div>
+</article>
+<?php
+$logo_grid   = array(
+  'headline'      => get_field('logo_grid_headline'),
+  'subheadline'       => get_field('logo_grid_subheadline'),
+  'logos'   => get_field('logo_grid_content')
+);
 
-//Vertical Timeline
+$output .= ll_include_component(
+  'logo-grid',
+  $logo_grid,
+  array()
+);
+?>
+<aside class="content" id="specialized">
+  <div class="container row">
+    <h2 class="block">Specialized</h2>
+    <p class="h5 text-center">These components are sparsely used, or used only on one Page in the site.</p>
+  </div>
+</aside>
+<article id="callout-numbers" class="content">
+  <div class="container row start">
+    <div class="col col-xs-6of12 col-sm-2of12 col-md-3of12 col-lg-3of12 center">
+      <h3>Media Box</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-5of12 col-lg-5of12 center">
+      <p>Display 2 Videos, 2 Slideshows or 1 Slideshow / 1 Slideshow with this component. Used originally on the page Home</p>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
+      <ul>
+        <li>Slideshows display navigation below the imagery</li>
+        <li>An optional button appears below the content*</li>
+      </ul>
+      <small class="ivory">*best used with a video, where there is no navigation</small>
+    </div>
+  </div>
+</article>
+<?php
+$cols = [];
+
+while( have_rows( 'mediabox_columns' ) ) {
+  the_row();
+  $cols[] = array(
+    'mediabox_bg'           => get_sub_field('mediabox_bg'),
+    'mediabox_button'       => get_sub_field('mediabox_button'),
+    'mediabox_button_style' => get_sub_field('mediabox_button_style'),
+    'mediabox_headline'     => get_sub_field('mediabox_headline'),
+    'mediabox_subheadline'  => get_sub_field('mediabox_subheadline'),
+    'mediabox_content'      => get_sub_field('mediabox_content'),
+    'mediabox_type'         => get_sub_field('mediabox_type'),
+    'hero_gallery'          => array(
+      'hero_gallery_image'  => get_sub_field('hero_gallery_image')
+    ),
+    'hero_video'            => get_sub_field('hero_video')
+  );
+}
+
+$media   = array(
+  'padded_top'        => get_sub_field('padded_top'),
+  'padded_bottom'     => get_sub_field('padded_bottom'),
+  'mediabox_columns'  => $cols
+);
+
+ll_include_component(
+  'media-box',
+  $media,
+  array(
+    'id' => $id
+  )
+);
+?>
+<article id="callout-numbers" class="content">
+  <div class="container row start">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
+      <h3>A Callout with Counting&nbsp;Numbers</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
+      <p>If you'd like to showcase a large number statistic, this is the way to go.</p>
+    </div>
+  </div>
+</article>
+<?php
+//Callout w/ Counter
+while( have_rows( 'callout_numbers_columns' ) ) {
+  the_row();
+  $cols = get_field('callout_numbers_columns');
+}
+
+$callnums = array(
+  'has_counting' => get_field('has_counting'),
+  'headline'     => get_field('callout_numbers_headline'),
+  'big_prefix'   => get_field('callout_numbers_prefix'),
+  'big_number'   => get_field('callout_numbers'),
+  'big_suffix'   => get_field('callout_numbers_suffix'),
+  'subheadline'  => get_field('callout_numbers_subheadline'),
+  'columns'      => $cols
+);
+
+ll_include_component(
+  'callout-numbers',
+  $callnums,
+  array()
+);
+?>
+<article id="callout-numbers" class="content">
+  <div class="container row start">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
+      <h3>Vertical Timeline</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
+      <p class="h5 text-center">The most used components, these are here to plug in regular text, images, lists and anything else you'd like to organize in columns or rows.</p>
+    </div>
+  </div>
+</article>
+<?php
 $cols = [];
 
 while( have_rows( 'vertical_timeline_columns' ) ) {
@@ -140,15 +217,13 @@ $vertical_timeline   = array(
   'columns'   => $cols
 );
 
-$output .= ll_include_component(
+ll_include_component(
   'vertical-timeline',
   $vertical_timeline,
   array(
    'id'      => $id
-  ),
-  true
+  )
 );
-echo $output;
 ?>
 <aside class="content" id="general">
   <div class="container row">
@@ -186,7 +261,7 @@ ll_include_component(
   )
 );
 ?>
-<aside class="content">
+<aside class="content" id="images">
   <div class="container row">
     <h2 class="block">Imagery</h2>
     <p class="h5 text-center">Whether you're looking for a slideshow, a grid or simply a single image with some padding around it, we've provided several options for images.</p>
@@ -269,10 +344,10 @@ ll_include_component(
   ?>
 <article id="masonry" class="content">
   <div class="container row">
-    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
       <h3>The Masonry Gallery</h3>
     </div>
-    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12 center">
       <p>Showcase your images in a card-like grid. The option "Left" steps the images down from the top-left corner (highest), to the lower right corner (lowest). The option "Right" reverses this visual. Lastly, "Center" shows the images in the classic 3-up fashion.</p>
     </div>
   </div>
@@ -291,10 +366,10 @@ ll_include_component(
   ?>
 <article id="masonry" class="content">
   <div class="container row">
-    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
       <h3>A Gallery with Image and Copy</h3>
     </div>
-    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12 center">
       <p>Showcase your images in a card-like grid, only in this version you can showcase a headline and copy beneath each image.</p>
     </div>
   </div>
@@ -306,7 +381,7 @@ ll_include_component(
       'gallery' => get_field('gallery-w-copy')
     ),
     array(
-      'id'         => $id
+      'id' => $id
     )
   );
   ?>
