@@ -1,5 +1,6 @@
 [data-component="accordion"] {
   position: relative;
+  width: 100%;
   background-color: transparent;
   background-size: cover;
   @include screen-lg-up {

@@ -23,5 +23,9 @@
   <?php endwhile; ?>
   </div>
 </section>
-<?php get_template_part('templates/contents/content', 'kitchen-sink'); ?>
+<article <?php post_class('content'); ?>>
+  <div class="container row">
+  <?php get_template_part('templates/contents/content', 'kitchen-sink'); ?>
+  </div>
+</article>
 <?php get_template_part('templates/contents/content', 'callout'); ?>
