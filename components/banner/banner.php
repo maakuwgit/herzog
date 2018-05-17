@@ -41,7 +41,7 @@ $data_background = '';
 if( $background &&  $type === 'image' ) {
   $data_background = ' data-background="'.$background['url'].'"';
 }
-$css = ' class="col';
+$css = ' class="picture col';
 if( is_array($args['classes'] ) ) {
   $css .= implode( " ", $args['classes'] );
 }else{

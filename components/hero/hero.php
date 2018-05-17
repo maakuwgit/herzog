@@ -75,7 +75,7 @@ $nav_id = $args['nav_id'];
     <?php if ( $headline['text'] ) : ?>
     <h1 class="col col-lg-6of12 col-xl-5of12 center"><?php echo $headline['text']; ?></h1>
     <?php endif; ?>
-    <picture class="col<?php echo $classes; ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?> data-component="hero" data-gallery-nav="<?php echo $nav_id; ?>"<?php echo $data_background;?>>
+    <picture class="picture col<?php echo $classes; ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?> data-component="hero" data-gallery-nav="<?php echo $nav_id; ?>"<?php echo $data_background;?>>
       <?php if ( $type === 'image' && $background ) : ?>
       <div class="feature">
         <?php echo ll_format_image($background); ?>

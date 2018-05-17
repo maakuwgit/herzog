@@ -1,6 +1,6 @@
 {
     "key": "group_5ad67505882a0",
-    "title": "Divisions Accordion",
+    "title": "Accordion",
     "fields": [
         {
             "key": "field_5af465adda309",
@@ -39,9 +39,9 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_5ad6cd0e90905",
             "min": 1,
-            "max": 10,
+            "max": 1,
             "layout": "block",
             "button_label": "",
             "sub_fields": [
@@ -145,6 +145,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": "",
-    "modified": 1525966407
+    "description": "Used only on the homepage to display \"Divisions\"",
+    "modified": 1526564521
 }

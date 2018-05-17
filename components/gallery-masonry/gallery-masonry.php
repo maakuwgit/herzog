@@ -81,7 +81,7 @@ $handed = $args['cascade'];
       <ul class="row no-bullet<?php echo implode( " ", $classes ); ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?>>
         <?php foreach($gallery as $slides) : ?>
         <li class="brick col col-sm-6of12 col-md-4of12 col-lg-4of12 col-xl-4of12">
-          <picture data-background>
+          <picture class="picture" data-background>
             <?php $slide = $slides['gallery_image'];?>
             <div class="feature">
             <?php echo ll_format_image($slide); ?>
