@@ -84,6 +84,11 @@ section + .hero-nav {
   display: none;
   float: left;
   height: 100vh;
+  &.slick-active {
+    .feature {
+      display: block !important;
+    }
+  }
   &.slick-loading img {
     display: none;
   }
@@ -95,9 +100,6 @@ section + .hero-nav {
   }
   .slick-initialized & {
     display: block;
-  }
-  .slick-loading & {
-    visibility: hidden;
   }
   .slick-vertical & {
     display: block;
