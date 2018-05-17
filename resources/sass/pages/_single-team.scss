@@ -1,10 +1,23 @@
 /**
  * Single Team Member
  */
-
 .single-team {
   main {
-    min-height: calc(100vh - #{rem-calc(140)});
-    padding-top: rem-calc(140);
+    padding-top: rem-calc(120);
+    padding-bottom: rem-calc(120);
+    hr {
+      height: 1px;
+      margin-bottom: $grid-gutter-width;
+    }
+    h1 {
+      font-weight: $text-light;
+    }
+    h1, h6 {
+      margin-bottom: $grid-gutter-width;
+    }
+    p {
+      font-size: rem-calc(14);
+      font-weight: $text-light;
+    }
   }
 }

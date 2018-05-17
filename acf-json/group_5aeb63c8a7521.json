@@ -59,6 +59,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": "",
-    "modified": 1525805172
+    "description": "A component for displaying the Divisions with hover effect and an image",
+    "modified": 1526590584
 }

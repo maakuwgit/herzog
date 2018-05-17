@@ -53,11 +53,5 @@ $id       = $args['id'];
   ?>
   </div>
 </section>
-<?php
-    while ( $members->have_posts() ) {
-      $members->the_post();
-      include( locate_template('templates/partials/modal-member.php') );
-    }
-    wp_reset_postdata();
-?>
+<?php wp_reset_postdata(); ?>
 <?php endif; ?>

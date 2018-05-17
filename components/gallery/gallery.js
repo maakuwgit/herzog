@@ -58,7 +58,7 @@
           }
         }
 
-        $("[data-component='"+_this.className+"']").each(function(){
+        gallery.each(function(){
           var sliderNav = $(this).attr('data-gallery-nav');
           if( sliderNav ) {
             sliderNav = $('#'+sliderNav);

@@ -38,4 +38,7 @@
       font-weight: $text-medium;
     }
   }
+  .thumbnail:hover {
+    background-color: transparent !important;
+  }
 }
