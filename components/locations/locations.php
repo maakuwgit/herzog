@@ -11,8 +11,10 @@ $default_data  = [
   'use_interactions' => true
 ];
 $default_args   = [
-  'classes' => array(),
-  'id'      => uniqid('locations-')
+  'use_muted' => false,
+  'use_dark'  => false,
+  'classes'  => array(),
+  'id'       => uniqid('locations-')
 ];
 
 $data = ll_parse_args( $component_data, $default_data );
@@ -121,7 +123,13 @@ if ( $locations->have_posts() ) : ?>
           $contact = false;
 
           $hero = $location['hero'];
-          $abbr = get_field('division_logo_reversed');
+          if( $args['use_muted'] == true ) {
+            $abbr = get_field('division_logo_muted');
+          }elseif( $args['use_dark'] == true) {
+            $abbr = get_field('division_logo');
+          }else{
+            $abbr = get_field('division_logo_reversed');
+          }
           if( $abbr ){
             $abbr = ll_format_image($abbr);
           }else{
@@ -132,7 +140,7 @@ if ( $locations->have_posts() ) : ?>
         <div class="col col-sm-4of12 col-md-6of12 col-lg-3of12 col-xl-3of12 text-center"<?php if( $use_interactions ) echo ' data-clickthrough';?>>
           <dt class="col text-left"><?php echo $abbr; ?></dt>
           <dd class="col text-left">
-            <h6><?php echo $location['title']; ?></h6>
+            <p class="text-bold"><?php echo $location['title']; ?></p>
             <?php if( $use_interactions !== true) : ?>
               <?php echo $phone; ?>
               <?php echo $address; ?>

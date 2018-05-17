@@ -22,6 +22,8 @@ section.locations {
     font-weight: $text-regular;
   }
   address, a[href*="tel:"] {
+    margin-bottom: $grid-column-padding;
+    font-size: rem-calc(14);
     font-weight: $text-light;
   }
   dt {

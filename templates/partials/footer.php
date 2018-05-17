@@ -23,6 +23,7 @@
         'use_interactions' => false
       ),
       array(
+        'use_muted' => true,
         'classes' => array('footer__divisions', 'footer__menu')
       )
     );
