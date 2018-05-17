@@ -1,15 +1,19 @@
 section[id*="anchor_nav"] {
-  position: absolute;
   z-index: 1;
-  top: 50%;
-  padding-top: rem-calc(100);
+  padding-top: $grid-gutter-width;
   @include screen-lg-up {
-    left: 25%;
-    margin-left: -8.3334%;
+    margin-left: 15%;
+    padding-left: rem-calc(15);
     ol {
       padding-left: rem-calc(25);
-      li a:before {
-        padding-right: rem-calc(25);
+      li {
+        a {
+          font-size: rem-calc(14);
+          &:before {
+            padding-right: rem-calc(25);
+            font-weight: $text-medium;
+          }
+        }
       }
     }
   }

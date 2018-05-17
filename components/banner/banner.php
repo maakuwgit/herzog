@@ -51,10 +51,10 @@ if( !$css ) {
   if( $type === 'image' ) {
     $css = ' background';
   }else{
-    $css = ' col-lg-8of12 col-xl-9of12 col-offset-lg-4of12 col-offset-xl-3of12';
+    $css = ' col col-lg-8of12 col-xl-9of12 col-offset-lg-4of12 col-offset-xl-3of12';
   }
 }else{
-  $css = ' ' . $css . ' col-lg-9of12 col-xl-8of12';
+  $css = ' ' . $css . ' col-lg-8of12 col-xl-9of12';
 }
 $css .= '"';
 

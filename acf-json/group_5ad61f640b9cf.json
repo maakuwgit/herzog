@@ -156,8 +156,8 @@
                 },
                 "5ad6760ff2360": {
                     "key": "5ad6760ff2360",
-                    "name": "divisions",
-                    "label": "Divisions",
+                    "name": "big-images",
+                    "label": "Big Image",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -200,6 +200,75 @@
                         },
                         {
                             "key": "field_5ad67618f2361",
+                            "label": "Image",
+                            "name": "component_big_image",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5af9f9b8640b2"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5afdc286b4a7a": {
+                    "key": "5afdc286b4a7a",
+                    "name": "divisions",
+                    "label": "Divisions",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5afdc286b4a7b",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5afdc286b4a7c",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5afdc286b4a7d",
                             "label": "Division",
                             "name": "component_accordion",
                             "type": "clone",
@@ -496,7 +565,7 @@
                         {
                             "key": "field_5af20d96cee05",
                             "label": "Members Grid",
-                            "name": "componenet_location",
+                            "name": "componenet_members",
                             "type": "clone",
                             "instructions": "",
                             "required": 0,
@@ -562,6 +631,6 @@
         "the_content"
     ],
     "active": 1,
-    "description": "",
-    "modified": 1526412685
+    "description": "Used on almost every page",
+    "modified": 1526580492
 }

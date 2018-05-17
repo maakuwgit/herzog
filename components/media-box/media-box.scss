@@ -8,6 +8,12 @@
 $fig_height : 520px;
 
 [data-component="media-box"] {
+  padding-top: $grid-gutter-width;
+  padding-bottom: $grid-gutter-width;
+  @include screen-lg-up {
+    padding-top: rem-calc(120);
+    padding-bottom: rem-calc(120);;
+  }
   > .row {
     align-items: flex-start;
   }

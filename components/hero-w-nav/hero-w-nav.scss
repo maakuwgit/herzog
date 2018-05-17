@@ -6,17 +6,24 @@
  * Dev Note: need to come in and clean this up after the separation
  */
 .hero-w-nav {
-  min-height: 100vh;
+  @include screen-md {
+    min-height: 50vh;
+    h1, h2 {
+      margin-top: 25vh;
+    }
+  }
   > .wrapper {
     min-height: inherit;
+    flex-direction: column
   }
 
   h1, h2 {
     position: relative;
     z-index: 1;
     @include screen-lg-up {
-      margin-left: 15.75%;
+      margin-top: rem-calc(225);
       margin-right: auto;
+      margin-left: 15%;
     }
   }
   .picture {

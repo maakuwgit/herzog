@@ -185,13 +185,13 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
-      case 'slideshows' :
-        $slideshow = get_sub_field('slideshow');
+      case 'galleries' :
+        $slideshow = get_sub_field('gallery');
 
         $output .= ll_include_component(
-          'slideshow',
+          'gallery',
           array(
-            'slideshow' => $slideshow
+            'gallery' => $slideshow
           ),
           array(
             'is_hero'    => false,
