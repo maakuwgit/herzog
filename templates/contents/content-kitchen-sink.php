@@ -578,4 +578,4 @@ ll_include_component(
     )
   );
   ?>
-</article>
+</section>
