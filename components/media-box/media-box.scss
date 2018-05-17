@@ -26,6 +26,9 @@ $fig_height : 520px;
     }
   }
   [data-slick-nav] {
+    > div {
+      padding-bottom: 0;
+    }
     button, .button {
       svg {
         width: rem-calc(24);

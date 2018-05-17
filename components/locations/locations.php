@@ -121,8 +121,13 @@ if ( $locations->have_posts() ) : ?>
           $contact = false;
 
           $hero = $location['hero'];
-
-          $abbr = ll_get_featured([158,100]);
+          $abbr = get_field('division_logo_reversed');
+          if( $abbr ){
+            $abbr = ll_format_image($abbr);
+          }else{
+            $abbr = '<img alt="" src="//via.placeholder.com/158x100"
+  srcset="//via.placeholder.com/632x400 2x, //via.placeholder.com/948x600 3x" data-src-md="//via.placeholder.com/316x200" data-src-lg="//via.placeholder.com/632x400 data-src-xl="//via.placeholder.com/948x600">';
+          }
       ?>
         <div class="col col-sm-4of12 col-md-6of12 col-lg-3of12 col-xl-3of12 text-center"<?php if( $use_interactions ) echo ' data-clickthrough';?>>
           <dt class="col text-left"><?php echo $abbr; ?></dt>
