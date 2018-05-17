@@ -8,6 +8,11 @@
   [data-slick-nav]>div {
     justify-content: center !important;
   }
+  section {
+    max-width: 925px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   > aside.content,
   > article.content {
     padding-top: $grid-gutter-width * 2;
