@@ -8,8 +8,11 @@
 
 .leader-grid {
   width: 100%;
+  padding-top: $grid-gutter-width;
+  padding-bottom: $grid-gutter-width;
   h3 {
     font-size: rem-calc(20);
+    font-weight: $text-light;
     padding: #{rem-calc(25)} 0;
   }
   dl {

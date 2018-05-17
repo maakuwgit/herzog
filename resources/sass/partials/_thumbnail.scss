@@ -35,7 +35,7 @@ $thumb-padding: 1.5rem;
   }
   @include screen-lg-up {
     [data-background] {
-      box-shadow: 0 0 95px rgba($black, 0.6) inset;
+      box-shadow: 0 0 #{rem-calc(40)} $black, 0 0 #{rem-calc(95)} rgba($black, 0.6) inset;
       background-blend-mode: luminosity;
       a {
         display: none;

@@ -8,6 +8,14 @@
   &.padded-bottom {
     padding-bottom: $grid-gutter-width * 2;
   }
+  @include screen-lg-up {
+    &.padded-top {
+      padding-top: rem-calc(120);
+    }
+    &.padded-bottom {
+      padding-bottom: rem-calc(120);
+    }
+  }
   .col {
     margin-bottom: $grid-column-padding;
   }
