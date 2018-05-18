@@ -35,16 +35,12 @@ $fullwidth    = ( $args['is_fullwidth'] ? ' fullwidth' : '');
   <section class="slideshow<?php echo $fullwidth; ?>">
     <div class="container row end">
 <?php endif; ?>
-  <ul class="col slick-carousel gallery <?php echo implode( " ", $classes ); ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?> data-component="gallery" data-gallery-nav="<?php echo $nav_id; ?>">
+  <div class="col slick-carousel gallery <?php echo implode( " ", $classes ); ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?> data-component="gallery" data-gallery-nav="<?php echo $nav_id; ?>">
     <?php foreach($gallery as $slides) : ?>
-    <li data-background>
       <?php $slide = $slides['gallery_image'];?>
-      <div class="feature">
       <?php echo ll_format_image($slide); ?>
-      </div>
-    </li>
   <?php endforeach; ?>
-  </ul>
+  </div>
 <?php if( !$is_hero ) : ?>
     </div>
   </section>

@@ -1,6 +1,7 @@
 <?php
   if( function_exists( 'll_format_post_banner' ) ) {
     $cat = get_queried_object();
+    $targets = array();
 
     $hero_banner = array(
       'headline'        => array(
@@ -17,9 +18,32 @@
       'popup_video' => get_field( 'archive_popup_video', 'options' )
     );
 
+    $margs = array(
+      'posts_per_page' => -1,
+      'order'          => 'ASC',
+      'orderby'        => 'menu_order',
+      'post_status'    => 'publish',
+      'post_type'      => 'team',
+    );
+
+    $members = new WP_Query( $margs );
+
+    if( $members->have_posts() ) {
+      while ( $members->have_posts() ) {
+        $members->the_post();
+        $targets[] = array(
+          'anchor_btn_label' => get_the_title(),
+          'anchor_btn_target' => '#'.basename(get_permalink())
+        );
+      }
+    }
+
     ll_include_component(
       'hero-w-nav',
-      $hero_banner
+      $hero_banner,
+      array(
+        'targets' => $targets
+      )
     );
   }
 ?>

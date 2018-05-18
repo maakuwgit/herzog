@@ -26,6 +26,7 @@ $args = [
   'id' => uniqid('hero-w-nav-'),
   'nav_id' => uniqid('gallery-'),
   'classes' => array(),
+  'targets' => false,
   'is_hero'    => false
 ];
 
@@ -38,6 +39,7 @@ if ( ll_empty( $data ) ) return;
 //Assign the reusable values to a variable
 $nav_id = $args['nav_id'];
 $headline = $data['headline'];
+$targets = $args['targets'];
 ?>
 <main class="content hero-w-nav ebony">
   <div class="wrapper row">
@@ -45,7 +47,9 @@ $headline = $data['headline'];
     <h1 class="hero center col col-lg-9of12 col-xl-8of12"><?php echo $headline['text']; ?></h1>
     <?php endif; ?>
     <?php
-      $targets = get_field('anchor_btn');
+      if(!$targets) {
+        $targets = get_field('anchor_btn');
+      }
 
       if( $targets ) {
         ll_include_component(

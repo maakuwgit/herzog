@@ -69,9 +69,7 @@
 
           $(this).on('init', setProgress).slick({
             infinite: true,
-            centerMode: false,
             fade: true,
-            slidesToShow: 1,
             prevArrow: prevArrow,
             nextArrow: nextArrow,
             appendArrows: sliderNav
