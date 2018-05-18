@@ -5,7 +5,7 @@ $nav-width: #{rem-calc(80)};
   z-index: 5;
   align-items: center;
   top: calc(100vh - #{$nav-width});
-  left: $nav-width;
+  left: -1 * $nav-width;
   bottom: 0;
   height: $nav-width;
   width: 100vh;
@@ -13,6 +13,9 @@ $nav-width: #{rem-calc(80)};
   transform: rotate(270deg);
   font-weight: $text-medium;
   color: $white;
+  &.left {
+    left: $nav-width;
+  }
   .wrap {
     width: inherit;
     align-items: center;

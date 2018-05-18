@@ -5,6 +5,7 @@
 *
 * locations component
 */
+$id = uniqid('locations-');
 
 $default_data  = [
   'num_locations'   => 6,
@@ -14,7 +15,7 @@ $default_args   = [
   'use_muted' => false,
   'use_dark'  => false,
   'classes'  => array(),
-  'id'       => uniqid('locations-')
+  'id'       => $id
 ];
 
 $data = ll_parse_args( $component_data, $default_data );

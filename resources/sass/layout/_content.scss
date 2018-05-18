@@ -11,7 +11,7 @@
     padding-left: rem-calc(17.5);
   }
 
-  ul {
+  ul:not(.no-bullet) {
     list-style: none;
     padding-left: $grid-column-padding;
     li {

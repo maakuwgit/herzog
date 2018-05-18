@@ -29,13 +29,11 @@ $default_data = [
 
 $default_args = [
   'classes' => array(),
-  'section' => 'Lorem Ipsum',
-  'index'   => '00',
   'id'      => $id
 ];
 
 $data = ll_parse_args( $component_data, $default_data );
-$args = ll_parse_args( $component_data, $default_args );
+$args = ll_parse_args( $component_args, $default_args );
 
 $classes        = $args['classes'] ?: array();
 

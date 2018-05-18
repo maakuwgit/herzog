@@ -38,8 +38,6 @@ $default_data = [
 
 $default_args = [
   'classes' => array(),
-  'section' => 'Lorem Ipsum',
-  'index'   => '00',
   'id'      => $id
 ];
 
@@ -67,14 +65,13 @@ $css = ' class="band content';
 if( $args['classes'] ) {
   $css .= 'flex-start ';
 
-  if ( $background_image ) $css .= 'has-image ';
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );
   }else{
     $css .= ' ' . $args['classes'];
   }
-  if( $data['has_background'] && $has_background ) {
-    $css .=  ' ';
+  if( $has_background ) {
+    $css .=  ' has-image';
   }else{
     $css .= ' no_bg';
   }
@@ -90,7 +87,7 @@ if( $padded_bottom === true ) {
 }
 $css .= '"';
 
-$id = ' id="' . $id . '"';
+$id = ' id="' . $args['id'] . '"';
 
 //Background for the section element
 if ( $section_bg ) {
@@ -150,7 +147,7 @@ if ( $section_bg ) {
       $col_xl = 'col-xl-' . $col_span_xl . $col_suff;
       $col_class = ' class="col '.$col_xs.' '.$col_sm.' '.$col_md.' '.$col_lg.' '.$col_xl.$align.'"';
 ?>
-    <div<?php echo $col_class . $col_style; ?>><?php echo $band['band_content']; ?>
+    <div<?php echo $id . $col_class . $col_style; ?> data-component="band"><?php echo $band['band_content']; ?>
       <?php
       if( $col_btn ) {
         $button = array(

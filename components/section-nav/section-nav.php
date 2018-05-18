@@ -45,10 +45,10 @@ $id = ($args['id'] ? ' id="' . $args['id'] . '" ' : '"');
 <aside<?php echo $id . $css;?> data-component="section-nav" data-section="<?php echo $sections[0]['anchor_btn_target'];?>" data-component="section-nav">
   <div class="wrap row">
     <nav class="col-2of12">
-      <button type="button" class="section-next">
+      <button type="button" class="section-next muted">
         <svg><use xlink:href="#icon-chevron-left"></use></svg>
       </button>
-      <button type="button" class="section-prev">
+      <button type="button" class="section-prev muted">
         <svg><use xlink:href="#icon-chevron-right"></use></svg>
       </button>
     </nav>

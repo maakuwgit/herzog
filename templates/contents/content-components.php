@@ -1,8 +1,10 @@
 <?php
-$index = 0;
-$sections = array();
-
 if( have_rows( 'components' ) ) {
+  //Section Nav variables
+  $index = 0;
+  $sections = array();
+
+  //We're gonna dump it into a string, so let's define it
   $output = '';
 
   while( have_rows( 'components' ) ) {
@@ -10,7 +12,6 @@ if( have_rows( 'components' ) ) {
     $id = ( get_sub_field('target_name') ? get_sub_field('target_name') : false );
 
     switch( get_row_layout() ) {
-
       case 'bands' :
         $cols = [];
 
@@ -41,7 +42,6 @@ if( have_rows( 'components' ) ) {
           'band',
           $band,
           array(
-            'section' => get_sub_field('group_label'),
             'id' => $id
           ),
           true
@@ -131,7 +131,9 @@ if( have_rows( 'components' ) ) {
         $output .= ll_include_component(
           'capability-card',
           $capability_card,
-          array(),
+          array(
+            'id' => $id
+          ),
           true
         );
       break;
@@ -251,7 +253,9 @@ if( have_rows( 'components' ) ) {
         $output .= ll_include_component(
           'innovation-card',
           $innovation_card,
-          array(),
+          array(
+            'id' => $id
+          ),
           true
         );
       break;
@@ -328,7 +332,6 @@ if( have_rows( 'components' ) ) {
       break;
       case 'mediaboxes' :
         $cols = [];
-
         while( have_rows( 'mediabox_columns' ) ) {
           the_row();
           $cols[] = array(
@@ -390,6 +393,7 @@ if( have_rows( 'components' ) ) {
         the_content();
       break;
     }
+    //If there's an target_name, let's push it into an array
     if( $id ) {
       if( get_sub_field('target_name') ) {
         $sections[] = array(
@@ -401,12 +405,13 @@ if( have_rows( 'components' ) ) {
       }
     }
   }
+  //Now that we've got all our sections, let's call up the nav!
   ll_include_component(
     'section-nav',
     array(
       'sections' => $sections
     )
   );
+  echo $output;
 }
 ?>
-<?php echo $output; ?>

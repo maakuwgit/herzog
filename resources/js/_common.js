@@ -73,26 +73,63 @@
       //checkAdminBar();
 
       $(function() {
+        function enterSection(e) {
+          var target = $(e.target.triggerElement());
+          target.addClass('enter');
+        }
+
+        function leaveSection(e) {
+          var target = $(e.target.triggerElement());
+          target.removeClass('enter');
+        }
+
         //If theres a controller for ScrollMagic, spool it up!
         if( typeof ScrollMagic !== 'undefined' ) {
+
           var controller  = new ScrollMagic.Controller(),
               adminHeight = ( $('#wpadminbar').length > 0 ? $('#wpadminbar').outerHeight() : 0 ),
-              anchor_nav  = '.anchor_nav',
+              section_nav = '.section-nav',
+              footer      = 'body > footer',
+              prefooter   = 'body > .callout',
               hero        = '.hero, .hero-w-nav',
               primary_nav = 'body > header',
+              sections    = $('body > article section, body > article picture'),
               offset      = 0;
 
           if ( $(hero) ) {
             offset = ( $(hero).height() + $(primary_nav).height() - adminHeight );
 
             //Adding styles to the anchor nav and pinning
-            if( $(anchor_nav) ) {
-              var anchor_navs_pin = new ScrollMagic.Scene({
+            if( $(section_nav) ) {
+              var section_navs_pin = new ScrollMagic.Scene({
                 triggerElement: hero,
-                triggerHook: 'onStart',
                 offset: offset
               })
-              .setClassToggle(anchor_nav,'top')
+              .setClassToggle(section_nav,'left')
+              .addTo(controller);
+
+              if( $(prefooter) ) {
+                var section_navs_release = new ScrollMagic.Scene({
+                  triggerElement: prefooter,
+                  offset: $(prefooter).height()
+                })
+                .on("enter", function () {
+                  $(section_nav).removeClass('left');
+                })
+                .on("leave", function () {
+                  $(section_nav).addClass('left');
+                })
+                .addTo(controller);
+              }
+            }
+
+            //Animate the Prefooter elements
+            if( $(prefooter) ) {
+              var prefooter_anim = new ScrollMagic.Scene({
+                triggerElement: prefooter,
+                offset: -1 * $(prefooter).height()/2
+              })
+              .setClassToggle(prefooter,'enter')
               .addTo(controller);
             }
 
@@ -103,6 +140,23 @@
                 offset: offset
               })
               .setClassToggle(primary_nav,'top')
+              .addTo(controller);
+            }
+          }
+
+          //Animate the Sections in a general fashion
+          if ( $(sections) ) {
+            for( s = 0; s < sections.length; s++ ) {
+              section = sections[s];
+
+              offset = -1.334 * $(section).height();
+
+              var section_animate = new ScrollMagic.Scene({
+                triggerElement: section,
+                offset: offset
+              })
+              .on("enter", enterSection)
+              .on("leave", leaveSection)
               .addTo(controller);
             }
           }

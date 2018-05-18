@@ -236,6 +236,12 @@ table {
   }
 }
 
+article.content {
+  section[data-component], aside[data-component] {
+    width: 100%;
+  }
+}
+
 .logo {
   path {
     fill: white;
