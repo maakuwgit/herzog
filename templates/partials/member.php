@@ -31,7 +31,7 @@
 
   $thumb = ll_get_featured([267,330]);
 ?>
-<figure id="member-thumb-<?php the_ID(); ?>" class="thumbnail col" data-clickthrough>
+<figure id="<?php echo basename(get_permalink()); ?>" class="thumbnail col" data-clickthrough>
   <a href="<?php the_permalink(); ?>" class="hide"></a>
   <div data-background>
     <div class="feature">
