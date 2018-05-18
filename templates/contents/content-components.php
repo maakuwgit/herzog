@@ -1,6 +1,5 @@
 <?php
 $index = 0;
-$first_section = false;
 $sections = array();
 
 if( have_rows( 'components' ) ) {
@@ -392,7 +391,6 @@ if( have_rows( 'components' ) ) {
       break;
     }
     if( $id ) {
-      if($index == 0) $first_section = $id;
       if( get_sub_field('target_name') ) {
         $sections[] = array(
           'index' => $index,
@@ -403,32 +401,12 @@ if( have_rows( 'components' ) ) {
       }
     }
   }
+  ll_include_component(
+    'section-nav',
+    array(
+      'sections' => $sections
+    )
+  );
 }
 ?>
-<aside id="section-nav" data-component="section-nav" data-section="<?php echo $first_section;?>">
-  <div class="wrap row">
-    <nav class="col-2of12">
-      <button type="button" class="section-prev">
-        <svg><use xlink:href="#icon-chevron-left"></use></svg>
-      </button>
-      <button type="button" class="section-next">
-        <svg><use xlink:href="#icon-chevron-right"></use></svg>
-      </button>
-    </nav>
-    <dl class="col-10of12">
-      <?php
-        $s = 1;
-        foreach( $sections as $section ) :
-          $sindex = $s;
-          if($section['index'] < 10) $sindex = '0'.$sindex;
-      ?>
-      <dt class="flex<?php if( $s == 1 ) echo ' active'; ?>"><?php echo $sindex; ?></dt>
-      <dd class="flex<?php if( $s == 1 ) echo ' active'; ?>"><?php echo $section['anchor_btn_label']; ?></dd>
-      <?php
-          $s++;
-        endforeach;
-      ?>
-    </dl>
-  </div>
-</aside>
 <?php echo $output; ?>

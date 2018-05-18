@@ -12,6 +12,12 @@ button:not([data-nav]):not(.mfp-close):not([class*="slick"]),
   font-weight: $text-regular;
   font-size: rem-calc(20);
   box-shadow: none;
+  &.muted {
+    color: $aluminum;
+    svg {
+      fill: $aluminum;
+    }
+  }
 }
 input[type="submit"],
 button, .button {

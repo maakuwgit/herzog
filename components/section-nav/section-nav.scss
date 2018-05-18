@@ -27,12 +27,12 @@ $nav-width: #{rem-calc(80)};
   button {
     &.section-prev,
     &.section-next {
-      padding-right: rem-calc(12.5);
-      padding-left: rem-calc(12.5);
+      padding-right: $grid-column-padding;
+      padding-left: $grid-column-padding;
     }
     svg {
-      height: rem-calc(25);
-      width: rem-calc(25);
+      height: $grid-gutter-width;
+      width: $grid-gutter-width;
       fill: $white;
     }
   }
@@ -47,9 +47,9 @@ $nav-width: #{rem-calc(80)};
       }
     }
     dt.flex {
-      margin-right: rem-calc(16);
-      margin-left: auto;
-      padding-top: rem-calc(16);
+      margin-right: $grid-column-padding;
+      margin-left: $grid-gutter-width;
+      padding-top: $grid-column-padding;
       border-top: solid 2px silver;
       color: $aluminum;
       font-size: rem-calc(14);
@@ -57,7 +57,7 @@ $nav-width: #{rem-calc(80)};
     }
     dd.flex {
       margin-left: 0;
-      padding-left: rem-calc(16);
+      padding-left: $grid-column-padding;
     }
   }
   progress {
