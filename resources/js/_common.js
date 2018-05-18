@@ -73,6 +73,48 @@
       //checkAdminBar();
 
       $(function() {
+        //If theres a controller for ScrollMagic, spool it up!
+        if( typeof ScrollMagic !== 'undefined' ) {
+          var controller  = new ScrollMagic.Controller(),
+              adminHeight = ( $('#wpadminbar').length > 0 ? $('#wpadminbar').outerHeight() : 0 ),
+              anchor_nav  = '.anchor_nav',
+              hero        = '.hero, .hero-w-nav',
+              primary_nav = 'body > header',
+              offset      = 0;
+
+          if ( $(hero) ) {
+            offset = ( $(hero).height() + $(primary_nav).height() - adminHeight );
+
+            //Adding styles to the anchor nav and pinning
+            if( $(anchor_nav) ) {
+              var anchor_navs_pin = new ScrollMagic.Scene({
+                triggerElement: hero,
+                triggerHook: 'onStart',
+                offset: offset
+              })
+              .setClassToggle(anchor_nav,'top')
+              .addTo(controller);
+            }
+
+            //Adding styles to the primary nav and pinning
+            if( $(primary_nav) ) {
+              var primary_pin = new ScrollMagic.Scene({
+                triggerElement: hero,
+                offset: offset
+              })
+              .setClassToggle(primary_nav,'top')
+              .addTo(controller);
+            }
+          }
+
+          //Animate everything with this one class
+          $('body').addClass('loaded');
+          var setAnimated = setTimeout(function(){
+            $('body').addClass('animated');
+            //Dev Note:
+          }, 2000);
+        }
+
         $('a[href*="#"]:not(.js-no-scroll):not([href="#"])').click(function() {
           if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
             var target = $(this.hash);

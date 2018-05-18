@@ -3,37 +3,46 @@
  */
 $menu_min_width: rem-calc(224);
 
-body > header {
-  a {
-    display: inline-block;
-    font-size: rem-calc(16);
-    font-weight: $text-light;
-    text-shadow: 0 1px 4px $black;
-    @include screen-lg-up {
-      &:hover {
-        color: $link-hover-color;
+body {
+  &.locked {
+    height: 100vh;
+    overflow: hidden;
+  }
+  > header {
+    &.top {
+      background: rgba(0,0,0,0.6);
+    }
+    a {
+      display: inline-block;
+      font-size: rem-calc(16);
+      font-weight: $text-light;
+      text-shadow: 0 1px 4px $black;
+      @include screen-lg-up {
+        &:hover {
+          color: $link-hover-color;
+        }
       }
     }
-  }
 
-  nav {
-    ul {
-      padding: 0;
-      margin: 0 auto;
-      list-style: none;
+    nav {
+      ul {
+        padding: 0;
+        margin: 0 auto;
+        list-style: none;
+      }
     }
-  }
 
-  >.row {
-    justify-content: space-between;
-    align-content: stretch;
-    align-items: stretch;
+    >.row {
+      justify-content: space-between;
+      align-content: stretch;
+      align-items: stretch;
 
-    figure {
-      display: flex;
-      z-index: 10;
-      a {
-        align-self: center;
+      figure {
+        display: flex;
+        z-index: 10;
+        a {
+          align-self: center;
+        }
       }
     }
   }

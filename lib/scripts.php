@@ -59,6 +59,12 @@ function roots_scripts() {
     wp_enqueue_script('comment-reply');
   }
 
+  //Animation Packet
+  wp_enqueue_script('TweenMax', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js', array('jquery'), '1.20.3', true);
+  wp_enqueue_script('ScrollMagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array('TweenMax'), '2.0.5', true);
+  wp_enqueue_script('animation.gsap', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', array('jquery'), '2.0.5', true);
+  wp_enqueue_script('indicators', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js', array('jquery'), '2.0.5', true);
+
   wp_enqueue_script('jquery');
   if ( $maps_api ) {
     wp_enqueue_script( 'google-maps', '//maps.googleapis.com/maps/api/js?key=' . $maps_api . '&libraries=places' );

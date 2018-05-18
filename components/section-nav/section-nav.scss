@@ -42,6 +42,9 @@ $nav-width: #{rem-calc(80)};
     dd, dt {
       position: relative;
       margin: auto;
+      &:not(.active) {
+        display: none;
+      }
     }
     dt.flex {
       margin-right: rem-calc(16);
