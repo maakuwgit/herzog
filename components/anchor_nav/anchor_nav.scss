@@ -4,6 +4,11 @@ section[id*="anchor_nav"] {
   @include screen-lg-up {
     margin-left: 15%;
     padding-left: rem-calc(15);
+    body.single & {
+      ol {
+        padding-bottom: rem-calc(120);
+      }
+    }
     ol {
       padding-left: rem-calc(25);
       li {

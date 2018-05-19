@@ -83,6 +83,18 @@
           target.removeClass('enter');
         }
 
+        function enterCounter(e) {
+          var target = $(e.target.triggerElement());
+          enterSection(e);
+          app.components['callout-numbers'].startCounter(target.find('[data-count]'));
+        }
+
+        function leaveCounter(e) {
+          var target = $(e.target.triggerElement());
+          leaveSection(e);
+          app.components['callout-numbers'].resetCounter(target.find('[data-count]'));
+        }
+
         //If theres a controller for ScrollMagic, spool it up!
         if( typeof ScrollMagic !== 'undefined' ) {
 
@@ -93,6 +105,7 @@
               prefooter   = 'body > .callout',
               hero        = '.hero, .hero-w-nav',
               primary_nav = 'body > header',
+              counters    = $('[data-component="callout-numbers"]'),
               sections    = $('body > article section, body > article picture'),
               offset      = 0;
 
@@ -157,6 +170,23 @@
               })
               .on("enter", enterSection)
               .on("leave", leaveSection)
+              .addTo(controller);
+            }
+          }
+
+          //Animate the Counters inside Callouts
+          if ( $(counters) ) {
+            for( c = 0; c < counters.length; c++ ) {
+              counter = counters[c];
+
+              offset = -1.334 * $(counter).height();
+
+              var count_start = new ScrollMagic.Scene({
+                triggerElement: counter,
+                offset: offset
+              })
+              .on("enter", enterCounter)
+              .on("leave", leaveCounter)
               .addTo(controller);
             }
           }

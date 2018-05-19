@@ -59,7 +59,7 @@
       }
     }
     &[data-background] {
-      min-height: 100vh;
+      /*Dev Note: this is likely deprecated min-height: 100vh;*/
       &.background {
         @include screen-lg-up {
           margin-left: rem-calc(-16);

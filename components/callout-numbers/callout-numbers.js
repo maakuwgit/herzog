@@ -15,31 +15,35 @@
       return '.' + this.className;
     },
 
+    startCounter: function(target){
+          max    = parseInt($(target).attr('data-count')),
+          curr   = 0,
+          incr   = max * 0.001;
+
+      var countUp = setInterval(function(){
+        if( curr < max ) {
+          curr+=incr;
+        }else{
+          curr = max;
+          clearInterval(countUp);
+        }
+        $(target).html(addCommas(curr));
+      }, 1);
+    },
+
+    resetCounter: function(target){
+      $(target).html('0');
+    },
 
     // Fires after common.init, before .finalize and common.finalize
     init: function() {
+      addCommas = function(num){
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
 
       var _this   = this,
           callout = $("[data-component='"+_this.className+"']"),
           counter = $(callout).find('[data-count]');
-
-      $(counter).each(function(){
-        var target = $(this),
-            max    = parseInt($(target).attr('data-count')),
-            curr   = 0,
-            incr   = max * 0.001;
-
-        var countUp = setInterval(function(){
-          if( curr < max ) {
-            curr+=incr;
-          }else{
-            curr = max;
-            clearInterval(countUp);
-          }
-          $(target).html(curr);
-        }, 1);
-      });
-
     },
 
 
