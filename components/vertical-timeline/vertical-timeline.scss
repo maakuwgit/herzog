@@ -34,13 +34,14 @@
       content: '•';
       text-indent: rem-calc(-7);
       color: $ivory;
-      font-size: rem-calc(48);
+      font-size: $grid-gutter-width * 2;
       background-color: $ivory;
     }
   }
   h3 {
     max-width: rem-calc(250);
-    margin-left: 0;
+    margin-top: rem-calc(-15);
+    margin-left: $grid-gutter-width * 2;
     font-size: rem-calc(24);
     font-weight: $text-medium;
   }
