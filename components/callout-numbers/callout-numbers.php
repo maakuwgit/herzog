@@ -31,17 +31,17 @@ $default_args = [
 $data = ll_parse_args( $component_data, $default_data );
 $args = ll_parse_args( $component_args, $default_args );
 
-/**
- * component_name_before_display hook
- * Type: Action
- */
 do_action( "component_name_before_display", $component_data, $component_args );
 
 if ( ll_empty( $data ) ) return;
 
-$css = ' class="callout-numbers flex ';
+$css = 'class="testimonial-grid';
 if( $args['classes'] ) {
-  if( $args['classes'] ) $css .= implode( " ", $args['classes'] );
+  if( is_array($args['classes'] ) ) {
+    $css .= implode( " ", $args['classes'] );
+  }else{
+    $css .= ' ' . $args['classes'];
+  }
 }
 $css .= '"';
 $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');

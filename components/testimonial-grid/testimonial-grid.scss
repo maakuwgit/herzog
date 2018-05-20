@@ -1,0 +1,51 @@
+/**
+ * testimonial-grid Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.testimonial-grid {
+  padding-bottom: $grid-gutter-width;
+  .thumbnail:hover {
+    background-color: transparent !important;
+  }
+  li {
+    figure {
+      min-height: 50vh;
+      [data-background]{
+        display: table;
+        width: 100%;
+        height: inherit;
+        min-height: inherit;
+      }
+      figcaption {
+        p:first-of-type {
+          margin-top: $grid-gutter-width;
+        }
+        strong {
+          margin-top: $grid-gutter-width;
+          padding-bottom: $grid-gutter-width;
+          border-bottom: solid 1px $smoke;
+        }
+      }
+    }
+  }
+  @include screen-lg-up {
+    padding-bottom: 120px;
+  }
+  h4 {
+    margin-top: 120px;
+  }
+  p {
+    font-size: rem-calc(14);
+    font-weight: $text-light;
+  }
+  .thumbnail {
+    width: 100%;
+    .button {
+      margin-left: rem-calc(-30);
+    }
+  }
+}

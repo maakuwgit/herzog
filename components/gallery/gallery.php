@@ -24,18 +24,28 @@ $args = ll_parse_args( $component_args, $default_args );
 if ( ll_empty( $data ) ) return;
 
 $classes = $args['classes'] ?: array();
-$id      = $args['id'];
 
 $gallery      = $data['gallery'];
 $is_hero      = $args['is_hero'];
 $nav_id       = $args['nav_id'];
 $fullwidth    = ( $args['is_fullwidth'] ? ' fullwidth' : '');
+
+$css = 'class="col slick-carousel gallery';
+if( $args['classes'] ) {
+  if( is_array($args['classes'] ) ) {
+    $css .= implode( " ", $args['classes'] );
+  }else{
+    $css .= ' ' . $args['classes'];
+  }
+}
+$css .= '"';
+$id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 ?>
 <?php if( !$is_hero ) : ?>
   <section class="slideshow<?php echo $fullwidth; ?>">
     <div class="container row end">
 <?php endif; ?>
-  <div class="col slick-carousel gallery <?php echo implode( " ", $classes ); ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?> data-component="gallery" data-gallery-nav="<?php echo $nav_id; ?>">
+  <div<?php echo $id . $css; ?> data-component="gallery" data-gallery-nav="<?php echo $nav_id; ?>">
     <?php foreach($gallery as $slides) : ?>
       <?php $slide = $slides['gallery_image'];?>
       <?php echo ll_format_image($slide); ?>

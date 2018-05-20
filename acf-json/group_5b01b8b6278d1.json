@@ -1,35 +1,30 @@
 {
-    "key": "group_5af20d0418bc7",
-    "title": "Leader Grid",
+    "key": "group_5b01b8b6278d1",
+    "title": "Testimonial",
     "fields": [
         {
-            "key": "field_5af20d22d2c9e",
-            "label": "Number of members to show?",
-            "name": "num_members",
-            "type": "number",
+            "key": "field_5b01b8c01640f",
+            "label": "Video URL",
+            "name": "testimonial_video_url",
+            "type": "url",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": -1,
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": -1,
-            "max": 12,
-            "step": ""
+            "default_value": "",
+            "placeholder": "http:\/\/video_url"
         }
     ],
     "location": [
         [
             {
-                "param": "page",
+                "param": "post_type",
                 "operator": "==",
-                "value": "2"
+                "value": "testimonial"
             }
         ]
     ],
@@ -41,5 +36,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526832550
+    "modified": 1526839677
 }

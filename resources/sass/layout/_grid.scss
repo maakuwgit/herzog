@@ -102,7 +102,7 @@
       margin-left: calc(#{$j} / #{$i} * 100%);
     }
 
-    @include screen-sm {
+    @include screen-xs-only {
       .col-xs-#{$j}of#{$i} {
         width: $col_width;
         max-width: $col_width;

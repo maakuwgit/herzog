@@ -46,7 +46,11 @@ if ( ll_empty( $data ) ) return;
 
 $css = ' class="callout-image flex';
 if( $args['classes'] ) {
-  if( $args['classes'] ) $css .= implode( " ", $args['classes'] );
+  if( is_array($args['classes'] ) ) {
+    $css .= implode( " ", $args['classes'] );
+  }else{
+    $css .= ' ' . $args['classes'];
+  }
 }
 $css .= '"';
 $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');

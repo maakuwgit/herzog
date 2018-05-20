@@ -53,7 +53,7 @@ if( sizeof($data['gallery']) > 0 ){
       <?php if( $gallery ) : ?>
       <ul class="row no-bullet<?php echo implode( " ", $classes ); ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?>>
         <?php foreach($gallery as $slide) : ?>
-        <li class="col col-sm-6of12 col-md-4of12 col-lg-4of12 col-xl-4of12">
+        <li class="col col-xs-6of12 col-sm-4of13 col-md-4of12 col-lg-4of12 col-xl-4of12">
           <figure>
             <div data-background>
               <div class="feature">
@@ -68,7 +68,7 @@ if( sizeof($data['gallery']) > 0 ){
             <figcaption>
               <strong class="h5 text-normal block"><?php echo $slide['gallery_headline']; ?></strong>
               <?php echo format_text($slide['gallery_content']); ?>
-              </figcaption>
+            </figcaption>
           </figure>
         </li>
         <?php endforeach; ?>

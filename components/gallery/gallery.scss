@@ -5,10 +5,12 @@
  * About the module
  *
  */
-.slideshow.fullwidth {
-  .row.container {
-    max-width: none;
-    padding: 0;
+.slideshow {
+  &.fullwidth {
+    .row.container {
+      max-width: none;
+      padding: 0;
+    }
   }
 }
 section + .hero-nav {

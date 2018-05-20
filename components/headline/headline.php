@@ -36,13 +36,22 @@ $text = $data['text'];
 $tag  = $data['tag'];
 $id   = ($args['id'] ? ' id="'.$args['id'].'"' : false);
 $colspan = $data['colspan'];
+$css = 'class="headline';
+if( $args['classes'] ) {
+  if( is_array($args['classes'] ) ) {
+    $css .= implode( " ", $args['classes'] );
+  }else{
+    $css .= ' ' . $args['classes'];
+  }
+}
+$css .= '"';
 /**
  * component_name_before_display hook
  * Type: Action
  */
 do_action( "component_name_before_display", $component_data, $component_args );
 ?>
-<section<?php echo $id; ?> class="headline<?php echo implode( " ", $args['classes'] ); ?>" data-component="headline">
+<section<?php echo $id . $css; ?> data-component="headline">
   <div class="container row start">
     <?php if ( $text ) : ?>
       <header class="col col-sm-<?php echo $colspan;?>of12 col-md-<?php echo $colspan;?>of12 col-lg-<?php echo $colspan;?>of12 col-xl-<?php echo $colspan;?>of12">

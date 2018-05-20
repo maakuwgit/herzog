@@ -1,11 +1,11 @@
 {
-    "key": "group_5af20d0418bc7",
-    "title": "Leader Grid",
+    "key": "group_5b019d00a27b6",
+    "title": "Testimonials",
     "fields": [
         {
-            "key": "field_5af20d22d2c9e",
-            "label": "Number of members to show?",
-            "name": "num_members",
+            "key": "field_5b019d721421f",
+            "label": "Number of Testimonials to show?",
+            "name": "num_testimonials",
             "type": "number",
             "instructions": "",
             "required": 1,
@@ -27,6 +27,20 @@
     "location": [
         [
             {
+                "param": "post_type",
+                "operator": "==",
+                "value": "career"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "career_type"
+            }
+        ],
+        [
+            {
                 "param": "page",
                 "operator": "==",
                 "value": "2"
@@ -41,5 +55,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526832550
+    "modified": 1526832943
 }

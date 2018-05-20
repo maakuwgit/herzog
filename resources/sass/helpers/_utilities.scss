@@ -283,6 +283,10 @@ aside, article, main, div, header, footer, section, nav, main, menu, code, hr {
   }
 }
 
+[data-clickthrough] {
+  cursor: pointer;
+}
+
 [data-background] {
   background-position: center;
   background-size: cover;

@@ -23,7 +23,9 @@ $headline   = array(
 ll_include_component(
   'headline',
   $headline,
-  array()
+  array(
+    'classes' => 'enter'
+  )
 );
 ?>
 <article id="callout-numbers" class="content">
@@ -71,6 +73,7 @@ ll_include_component(
   'band',
   $band,
   array(
+    'classes' => 'enter',
     'id'  => $id
   )
 );
@@ -95,7 +98,9 @@ $logo_grid   = array(
 $output .= ll_include_component(
   'logo-grid',
   $logo_grid,
-  array()
+  array(
+    'classes' => 'enter'
+  )
 );
 ?>
 <aside class="content" id="specialized">
@@ -151,6 +156,7 @@ ll_include_component(
   'media-box',
   $media,
   array(
+    'classes' => 'enter',
     'id' => $id
   )
 );
@@ -185,9 +191,33 @@ $callnums = array(
 ll_include_component(
   'callout-numbers',
   $callnums,
-  array()
+  array(
+    'classes' => 'enter'
+  )
 );
 ?>
+<article id="testimonial" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
+      <h3>The Testimonial Slider</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12 center">
+      <p>Showcase your Testimonials in the same card-like grid as a Gallery w/ Image</p>
+    </div>
+  </div>
+</article>
+  <?php
+  ll_include_component(
+    'testimonial-grid',
+    array(
+      'num_testimonials' => get_field('num_testimonials')
+    ),
+    array(
+    'classes' => 'enter',
+    'id'      => $id
+    )
+  );
+  ?>
 <article id="callout-numbers" class="content">
   <div class="container row start">
     <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
@@ -221,6 +251,7 @@ ll_include_component(
   'vertical-timeline',
   $vertical_timeline,
   array(
+   'classes' => 'enter',
    'id'      => $id
   )
 );
@@ -257,7 +288,8 @@ ll_include_component(
     'teaser_columns' => $teaser
   ),
   array(
-    'id'         => $id
+    'classes' => 'enter',
+    'id'      => $id
   )
 );
 ?>
@@ -283,6 +315,10 @@ ll_include_component(
     'picture',
     array(
       'image' => get_field('big_image')
+    ),
+    array(
+    'classes' => 'enter',
+    'id'      => $id
     )
   );
 ?>
@@ -307,7 +343,10 @@ ll_include_component(
   ll_include_component(
     'callout-image',
     $callout_img,
-    array()
+    array(
+    'classes' => 'enter',
+    'id'      => $id
+    )
   );
 ?>
 <article id="gallery" class="content">
@@ -336,6 +375,7 @@ ll_include_component(
         'gallery' => $gallery
       ),
       array(
+        'classes'    => 'enter',
         'is_hero'    => false,
         'nav_id'     => uniqid($id.'-'),
         'id'         => $id
@@ -359,12 +399,13 @@ ll_include_component(
       'gallery' => get_field('gallery-masonry')
     ),
     array(
+      'classes'    => 'enter',
       'id'         => $id,
       'cascade'    => get_field('cascade')
     )
   );
   ?>
-<article id="masonry" class="content">
+<article id="gallery-w-copy" class="content">
   <div class="container row">
     <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12 center">
       <h3>A Gallery with Image and Copy</h3>
@@ -381,7 +422,8 @@ ll_include_component(
       'gallery' => get_field('gallery-w-copy')
     ),
     array(
-      'id' => $id
+    'classes' => 'enter',
+    'id'      => $id
     )
   );
   ?>
@@ -442,7 +484,10 @@ ll_include_component(
   ll_include_component(
     'capability-card',
     $capability_card,
-    array()
+    array(
+    'classes' => 'enter',
+    'id'      => $id
+    )
   );
 ?>
 <article id="division_card" class="content">
@@ -480,7 +525,10 @@ ll_include_component(
   ll_include_component(
     'division-card',
     $division_card,
-    array()
+    array(
+    'classes' => 'enter',
+    'id'      => $id
+    )
   );
   ?>
 <article id="innovation_card" class="content">
@@ -524,7 +572,10 @@ ll_include_component(
   ll_include_component(
     'innovation-card',
     $innovation_card,
-    array()
+    array(
+    'classes' => 'enter',
+    'id'      => $id
+    )
   ); ?>
 <aside class="content" id="misc">
   <div class="container row">
@@ -552,7 +603,8 @@ ll_include_component(
   'accordion',
   $accordions,
   array(
-    'id' => $id
+  'classes' => 'enter',
+  'id'      => $id
   )
 );
 ?>
@@ -575,6 +627,10 @@ ll_include_component(
     array(
       'num_locations'   => get_field('num_locations'),
       'use_interations' => get_field('use_interations')
+    ),
+    array(
+    'classes' => 'enter',
+    'id'      => $id
     )
   );
   ?>

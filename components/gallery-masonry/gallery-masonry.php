@@ -59,10 +59,20 @@ $default_args = [
 $data = ll_parse_args( $component_data, $default_data );
 $args = ll_parse_args( $component_args, $default_args );
 
-//if ( ll_empty( $data ) ) return;
-/*Dev Note: we are using placeholders, so show it even if it's empty for placement*/
-$classes = $args['classes'] ?: array();
-$id      = $args['id'];
+/*Dev Note: this variable will stagger the image.
+It's totally functional :)
+$handed = $args['cascade'];
+*/
+$handed = '';
+$css = ' class="gallery-masonry' . $handed;
+if( $args['classes'] ) {
+  if( is_array($args['classes'] ) ) {
+    $css .= implode( " ", $args['classes'] );
+  }else{
+    $css .= ' ' . $args['classes'];
+  }
+}
+$id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 $gallery = false;
 
 if( sizeof($data['gallery']) > 0 ){
@@ -72,13 +82,11 @@ if( sizeof($data['gallery']) > 0 ){
     $gallery = $default_data['gallery'];
   }
 }
-
-$handed = $args['cascade'];
 ?>
-  <section class="gallery-masonry <?php echo $handed; ?>" data-component="gallery-masonry">
+  <section<?php echo $id . $css; ?>" data-component="gallery-masonry">
     <div class="container row end">
       <?php if( $gallery ) : ?>
-      <ul class="row no-bullet<?php echo implode( " ", $classes ); ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?>>
+      <ul class="row no-bullet">
         <?php foreach($gallery as $slides) : ?>
         <li class="brick col col-sm-6of12 col-md-4of12 col-lg-4of12 col-xl-4of12">
           <picture class="picture" data-background>

@@ -35,8 +35,6 @@ $default_args = [
 $data = ll_parse_args( $component_data, $default_data );
 $args = ll_parse_args( $component_args, $default_args );
 
-$classes        = $args['classes'] ?: array();
-
 if ( ll_empty( $data ) ) return;
 
 $id           = $args['id'];
@@ -82,8 +80,18 @@ $id           = $args['id'];
       $first = false;
     }
   }
+  $css = 'class="media-box';
+  if( $args['classes'] ) {
+    if( is_array($args['classes'] ) ) {
+      $css .= implode( " ", $args['classes'] );
+    }else{
+      $css .= ' ' . $args['classes'];
+    }
+  }
+  $css .= '"';
+  $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 ?>
-<section class="media-box <?php echo implode( " ", $classes ); ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?> data-component="media-box">
+<section<?php $id . $css; ?> data-component="media-box">
   <div class="container row">
     <article class="col col-lg-4of12 col-xl-4of12 active" data-rel="left" data-btn-href="<?php echo $lbtn['url']; ?>" data-btn-title="<?php echo $lbtn['title']; ?>">
       <div class="row">

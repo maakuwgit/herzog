@@ -26,7 +26,7 @@ if ( ! function_exists('register_testimonial_custom_post_type') ) {
       'label'               => 'testimonial',
       'description'         => 'Testimonial description',
       'labels'              => $labels,
-      'supports'            => array( 'title', 'page-attributes' ),
+      'supports'            => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
       'hierarchical'        => true,
       'public'              => true,
       'show_ui'             => true,

@@ -340,6 +340,11 @@
                 "param": "post_type",
                 "operator": "!=",
                 "value": "team"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "testimonial"
             }
         ]
     ],
@@ -351,5 +356,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526568007
+    "modified": 1526835180
 }
