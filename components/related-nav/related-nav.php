@@ -43,16 +43,24 @@ $id       = $args['id'];
 </svg>
   </button>
   <nav class="row">
-    <h6>Related Pages</h6>
+    <h6 class="h5 text-normal">Related Pages</h6>
     <dl>
-      <dt>About</dt>
-      <dd>About Us</dd>
-      <dt>About</dt>
-      <dd>History Timeline</dd>
-      <dt>About</dt>
-      <dd>Leadership</dd>
-      <dt>About</dt>
-      <dd>Inquiries, Comments &amp; Questions</dd>
+      <div class="row start">
+        <dt class="col col-4of12 flex-start">About</dt>
+        <dd class="col col-8of12 flex-start">About Us</dd>
+      </div>
+      <div class="row start">
+        <dt class="col col-4of12 flex-start">About</dt>
+        <dd class="col col-8of12 flex-start">History Timeline</dd>
+      </div>
+      <div class="row start">
+        <dt class="col col-4of12 flex-start">About</dt>
+        <dd class="col col-8of12 flex-start">Leadership</dd>
+      </div>
+      <div class="row start">
+        <dt class="col col-4of12 flex-start">Contact Us</dt>
+        <dd class="col col-8of12 flex-start">Inquiries, Comments &amp; Questions</dd>
+      </div>
     </dl>
   </nav>
 </aside>
