@@ -5,15 +5,18 @@ h1, h2, h3, h4, h5, h6, p, .picture img {
   transition: all 500ms ease-out;
 }
 
+//Animate every attribute at 'normal' speed
 a,
 [data-background],
-.capability-card * {
+.capability-card *,
+.callout-numbers * {
   transition: all 300ms ease-in-out;
   &:hover {
     transition: all 300ms ease-in-out;
   }
 }
 
+//Animate every attribute at 'fast' speed w/hover at 'hyper' speed
 .button,
 button,
 .button svg,
@@ -26,6 +29,9 @@ input[type="submit"],
   }
 }
 
+/*
+ * Generic Navbar Animations
+ */
 .dropdown-menu {
   transition: top 300ms ease-out;
   &.collapsed {
@@ -36,26 +42,6 @@ input[type="submit"],
   transition-property: opacity, filter;
   transition-duration: 0.15s;
   transition-timing-function: linear;
-}
-
-.button,
-button,
-input[type="submit"] {
-  transition: all 150ms ease-out;
-  &:hover {
-    transition: all 50ms ease-out;
-  }
-}
-
-[data-component="media-box"] {
-  figure > {
-    .button, button {
-      transition: all 300ms ease-out;
-      &:hover {
-        transition: all 300ms ease-out;
-      }
-    }
-  }
 }
 
 #primary-nav .menu-item {
@@ -72,7 +58,7 @@ input[type="submit"] {
     }
   }
 }
-//Nav
+
 body.home > header.navbar {
   transform: translateY(-100px);
 }
@@ -102,6 +88,10 @@ body.home > header {
               color 200ms ease-out;
 }
 
+/*
+ * Component Animations
+ */
+
 //Section Nav
 .section-nav {
   transition: left 50ms ease-out;,
@@ -118,7 +108,21 @@ body.home > header {
   }
 }
 
-//Everything that animates on load...
+//Media Box
+[data-component="media-box"] {
+  figure > {
+    .button, button {
+      transition: all 300ms ease-out;
+      &:hover {
+        transition: all 300ms ease-out;
+      }
+    }
+  }
+}
+
+/*
+ * OnLoad Animations
+ */
 body.loaded {
   .hero,
   .hero-w-nav {
@@ -375,6 +379,24 @@ picture.enter {
       transition-delay: 350ms;
     }
   }
+
+  //Callout with Numbers
+  &.callout-numbers {
+    dl {
+      div {
+        border-left-width: 1px;
+        border-right-width: 1px;
+      }
+      dt {
+        transition-delay: 300ms;
+        opacity: 1;
+      }
+      dd {
+        opacity: 1;
+        transition-delay: 350ms;
+      }
+    }
+  }
 }
 
 //Prefooter
@@ -470,5 +492,18 @@ a.button {
   }
   figure img {
     transform: scale(0.6);
+  }
+}
+
+//Callout with Numbers
+.callout-numbers {
+  dl {
+    div {
+      border-right-width: 0;
+      border-left-width: 0;
+    }
+    dd, dt {
+      opacity: 0;
+    }
   }
 }

@@ -55,7 +55,7 @@ $col_css = ' class="col col-md-'.$colspan.'of12 col-lg-'.$colspan.'of12 col-xl-'
   <div class="container row">
     <div class="col text-center">
       <h2 class="h5"><?php echo $data['headline']; ?></h2>
-      <h3 class="h2"><?php echo $pref; ?><span data-count="<?php echo $data['big_number']; ?>">0</span><?php echo $suff; ?></h3>
+      <h3 class="h1 text-normal"><?php echo $pref; ?><span data-count="<?php echo $data['big_number']; ?>">0</span><?php echo $suff; ?></h3>
       <?php echo format_text($data['subheadline']); ?>
     </div>
     <?php if( $columns ) : ?>

@@ -1,8 +1,9 @@
 [data-component="callout-numbers"]{
-  min-height: 50vh;
-  padding-top: $grid-gutter-width;
-  padding-bottom: $grid-gutter-width;
+  min-height: 300px;
+  padding-top: rem-calc(120);
+  padding-bottom: rem-calc(120);
   background-color: #191919;
+  box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
   h2, h3, dt {
     color: $white;
   }
@@ -41,12 +42,16 @@
     font-weight: $text-regular;
   }
   dd {
+    padding: #{$grid-column-padding} #{$grid-column-padding * 4.25} 0 #{$grid-column-padding * 4.25};
     font-size: rem-calc(16);
     font-weight: $text-medium;
+    line-height: 1.875;
     color: $aluminum;
   }
   p {
-    font-size: rem-calc(21);
+    margin-bottom: $grid-gutter-width * 2;
+    font-size: rem-calc(16);
     line-height: 1.75;
+    color: $aluminum;
   }
 }
