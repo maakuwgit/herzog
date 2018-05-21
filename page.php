@@ -8,10 +8,12 @@
 </article>
 <?php get_template_part('templates/contents/content', 'callout'); ?>
 <?php
+  $links = get_field('relationships');
+
   ll_include_component(
     'related-nav',
     array(
-      'links' => false
+      'links' => $links
     )
   );
 ?>

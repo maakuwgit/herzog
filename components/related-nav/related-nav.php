@@ -8,7 +8,11 @@
 
 
 $default_data = [
-  'links'
+  'links' => array(
+    array(
+      'relationship' => array()
+    )
+  )
 ];
 
 $default_args = [
@@ -44,23 +48,18 @@ $id       = $args['id'];
   </button>
   <nav class="row">
     <h6 class="h5 text-normal">Related Pages</h6>
+    <?php if( $data['links'] ) : ?>
     <dl>
+    <?php
+      foreach( $data['links'] as $link) :
+        $page = $link['relationship'];
+    ?>
       <div class="row start">
-        <dt class="col col-4of12 flex-start">About</dt>
-        <dd class="col col-8of12 flex-start">About Us</dd>
+        <dt class="col col-4of12 flex-start"><?php echo $page['rel_parent'];?></dt>
+        <dd class="col col-8of12 flex-start"><a href="<?php echo $page['rel_url'];?>" target="_self"><?php echo $page['rel_label'];?></a></dd>
       </div>
-      <div class="row start">
-        <dt class="col col-4of12 flex-start">About</dt>
-        <dd class="col col-8of12 flex-start">History Timeline</dd>
-      </div>
-      <div class="row start">
-        <dt class="col col-4of12 flex-start">About</dt>
-        <dd class="col col-8of12 flex-start">Leadership</dd>
-      </div>
-      <div class="row start">
-        <dt class="col col-4of12 flex-start">Contact Us</dt>
-        <dd class="col col-8of12 flex-start">Inquiries, Comments &amp; Questions</dd>
-      </div>
+    <?php endforeach; ?>
     </dl>
+  <?php endif; ?>
   </nav>
 </aside>

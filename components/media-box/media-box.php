@@ -80,7 +80,7 @@ $id           = $args['id'];
       $first = false;
     }
   }
-  $css = 'class="media-box';
+  $css = ' class="media-box';
   if( $args['classes'] ) {
     if( is_array($args['classes'] ) ) {
       $css .= implode( " ", $args['classes'] );

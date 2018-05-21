@@ -36,7 +36,7 @@ $text = $data['text'];
 $tag  = $data['tag'];
 $id   = ($args['id'] ? ' id="'.$args['id'].'"' : false);
 $colspan = $data['colspan'];
-$css = 'class="headline';
+$css = ' class="headline';
 if( $args['classes'] ) {
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );

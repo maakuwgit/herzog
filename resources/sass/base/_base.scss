@@ -160,6 +160,9 @@ body > article {
   padding-bottom: rem-calc(150);
   background-color: #121212;
   box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
+  *:last-child {
+    padding-bottom: 0;
+  }
 }
 
 label {

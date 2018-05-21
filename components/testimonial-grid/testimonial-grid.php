@@ -29,7 +29,7 @@ $targs = array(
 $testimonials = new WP_Query( $targs );
 
 if( $testimonials->have_posts() ) :
-$css = 'class="testimonial-grid';
+$css = ' class="testimonial-grid';
 if( $args['classes'] ) {
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );
@@ -72,5 +72,13 @@ $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
     <h4 class="col text-center">No images were selected for this Gallery with Copy</h4>
 <?php endif; ?>
   </div>
+  <footer class="container row">
+    <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
+      <p class="small aluminum"><em>It is the policy of Herzog Contracting Corp. to provide equal opportunity in employment for all qualified individuals regardless of race, color, religion, ethnicity, national origin, ancestry, disability, medical condition, age, citizenship, sex, sexual orientation, gender,</em></p>
+    </div>
+    <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
+      <p class="small aluminum"><em>gender identity, gender expression, marital status, pregnancy, genetic information, military status, veteran status, and any other characteristic protected by law.</em></p>
+    </div>
+  </footer>
 </section>
 <?php wp_reset_postdata(); ?>

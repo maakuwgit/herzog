@@ -35,8 +35,9 @@
   @include screen-lg-up {
     padding-bottom: 120px;
   }
+  footer,
   h4 {
-    margin-top: 120px;
+    margin-top: rem-calc(120);
   }
   p {
     font-size: rem-calc(14);

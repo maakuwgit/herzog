@@ -152,6 +152,19 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
+      case 'testimonial-grids':
+        //Testimonial Grid
+        $output .= ll_include_component(
+          'testimonial-grid',
+          array(
+            'num_testimonials' => get_sub_field('num_testimonials')
+          ),
+          array(
+          'id'      => $id
+          ),
+          true
+        );
+      break;
       case 'divisions' :
         $accordions = [
           'accordion_background' => get_sub_field('accordion_background'),

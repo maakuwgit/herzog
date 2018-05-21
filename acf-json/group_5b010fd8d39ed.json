@@ -3,8 +3,8 @@
     "title": "Relationships",
     "fields": [
         {
-            "key": "field_5b0197a150d59",
-            "label": "Related Pages",
+            "key": "field_5b02bb4611da3",
+            "label": "Pages",
             "name": "relationships",
             "type": "repeater",
             "instructions": "",
@@ -15,17 +15,17 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5b0197ba50d5a",
+            "collapsed": "",
             "min": 0,
-            "max": 12,
-            "layout": "block",
-            "button_label": "+ Page",
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
             "sub_fields": [
                 {
                     "key": "field_5b0197ba50d5a",
                     "label": "Select a Page",
                     "name": "relationship",
-                    "type": "page_link",
+                    "type": "group",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -34,16 +34,66 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "location",
-                        "project",
-                        "innovation",
-                        "page"
-                    ],
-                    "taxonomy": [],
-                    "allow_null": 0,
-                    "allow_archives": 1,
-                    "multiple": 0
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b02ba819076a",
+                            "label": "Parent",
+                            "name": "rel_parent",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b02baa69076b",
+                            "label": "Label",
+                            "name": "rel_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b02bab69076c",
+                            "label": "Url",
+                            "name": "rel_url",
+                            "type": "page_link",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [],
+                            "taxonomy": [],
+                            "allow_null": 0,
+                            "allow_archives": 1,
+                            "multiple": 0
+                        }
+                    ]
                 }
             ]
         }
@@ -107,5 +157,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526832350
+    "modified": 1526905732
 }

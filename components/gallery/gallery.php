@@ -30,7 +30,7 @@ $is_hero      = $args['is_hero'];
 $nav_id       = $args['nav_id'];
 $fullwidth    = ( $args['is_fullwidth'] ? ' fullwidth' : '');
 
-$css = 'class="col slick-carousel gallery';
+$css = ' class="col slick-carousel gallery';
 if( $args['classes'] ) {
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );
