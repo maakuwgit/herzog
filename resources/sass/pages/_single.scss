@@ -5,4 +5,39 @@
   > article {
     background-color: #0d0d0d;
   }
+  &.single-post {
+    main.hero,
+    main.hero .picture[data-background] {
+      min-height: rem-calc(550);
+      h1 {
+        align-self: flex-end;
+        padding-bottom: rem-calc(120);
+        text-align: left;
+      }
+    }
+    .hentry {
+      .container > {
+        h4, h3, h2, figure {
+          margin-bottom: $grid-gutter-width * 3;
+        }
+        h5, h6 {
+          margin-bottom: $grid-gutter-width;
+        }
+        ol, ul, dl, p {
+          margin-bottom: $grid-gutter-width * 2;
+        }
+        p {
+          font-size: rem-calc(16);
+          font-weight: $text-light;
+        }
+        * {
+          margin-left: 0;
+          &:last-child {
+            margin-bottom: auto;
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
 }

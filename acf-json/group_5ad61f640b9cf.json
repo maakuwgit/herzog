@@ -693,6 +693,11 @@
                 "param": "post_type",
                 "operator": "!=",
                 "value": "testimonial"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "post"
             }
         ]
     ],
@@ -706,5 +711,5 @@
     ],
     "active": 1,
     "description": "Used on almost every page",
-    "modified": 1526874400
+    "modified": 1526922904
 }

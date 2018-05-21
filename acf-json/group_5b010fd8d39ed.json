@@ -154,6 +154,13 @@
                 "operator": "==",
                 "value": "location"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
         ]
     ],
     "menu_order": 0,
@@ -164,5 +171,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Controls related pages that appear in the fixed side-nav",
-    "modified": 1526912676
+    "modified": 1526922968
 }
