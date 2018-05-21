@@ -40,7 +40,7 @@ if( $args['classes'] ) {
 $css .= '"';
 $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 ?>
-<section <?php echo 'id="'.$id.'"'; ?> data-component="testimonial-grid"<?php echo $css; ?>>
+<section <?php echo $id . $css; ?> data-component="testimonial-grid">
   <div class="container row end">
     <header class="col">
       <h2>Testimonials</h2>

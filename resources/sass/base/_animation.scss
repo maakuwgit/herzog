@@ -1,13 +1,14 @@
 /*
 * Global or General Animations
 */
-h1, h2, h3, h4, h5, h6, p, .picture img {
+h1, h2, h3, h4, h5, h6, p, [data-component="picture"] img {
   transition: all 500ms ease-out;
 }
 
 //Animate every attribute at 'normal' speed
 a,
 [data-background],
+.capability-teaser *,
 .capability-card *,
 .callout-numbers *,
 .vertical-timeline * {
@@ -189,7 +190,7 @@ body.loaded {
 */
 section.enter,
 aside.enter,
-picture.enter {
+[data-component="picture"].enter {
   //Prefooter
   &.callout {
     h2 {
@@ -325,6 +326,21 @@ picture.enter {
     dd {
       opacity: 1;
       transition-delay: 350ms;
+    }
+  }
+
+  //Capability Teasers
+  &.capability-teaser {
+    .picture,
+    a.button,
+    dd, dd p, dt {
+      opacity: 1;
+    }
+    dt {
+      transform: translateX(0);
+    }
+    a.button svg {
+      transform: scale(1);
     }
   }
 
@@ -468,6 +484,21 @@ picture.enter {
       transform: translateX(-5vw);
     }
     figure img {
+      transform: scale(0.6);
+    }
+  }
+
+  //Capability Teasers
+  .capability-teaser {
+    a.button,
+    dd, dd p, dt,
+    .picture {
+      opacity: 0;
+    }
+    dt {
+      transform: translateX(5vw);
+    }
+    a.button svg {
       transform: scale(0.6);
     }
   }

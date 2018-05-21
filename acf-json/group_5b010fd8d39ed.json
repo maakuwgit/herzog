@@ -147,6 +147,13 @@
                 "operator": "==",
                 "value": "team_position"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "location"
+            }
         ]
     ],
     "menu_order": 0,
@@ -156,6 +163,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": "",
-    "modified": 1526905732
+    "description": "Controls related pages that appear in the fixed side-nav",
+    "modified": 1526912676
 }

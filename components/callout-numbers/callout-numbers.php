@@ -35,7 +35,7 @@ do_action( "component_name_before_display", $component_data, $component_args );
 
 if ( ll_empty( $data ) ) return;
 
-$css = 'class="testimonial-grid';
+$css = ' class="callout-numbers';
 if( $args['classes'] ) {
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );

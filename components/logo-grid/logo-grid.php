@@ -56,7 +56,7 @@ $logos       = $data['logos'];
   <div class="container row start">
     <header class="col">
     <?php if( $headline ) :?>
-      <h4><?php echo $headline; ?></h4>
+      <h2 class="text-medium"><?php echo $headline; ?></h2>
     <?php endif;?>
     <?php if( $subheadline ) :?>
       <?php echo format_text($subheadline); ?>

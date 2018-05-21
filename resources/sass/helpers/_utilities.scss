@@ -283,6 +283,12 @@ aside, article, main, div, header, footer, section, nav, main, menu, code, hr {
   }
 }
 
+.no-shadow {
+  img & {
+    box-shadow: none;
+  }
+}
+
 [data-clickthrough] {
   cursor: pointer;
 }

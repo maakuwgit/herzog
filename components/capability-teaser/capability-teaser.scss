@@ -7,6 +7,13 @@
  */
 
 .capability-teaser {
+  @include screen-lg-up {
+    dl {
+      &.col:not([data]) {
+        padding-left: $grid-gutter-width * 4;
+      }
+    }
+  }
   dt, p {
     margin-bottom: $grid-gutter-width;
   }
@@ -19,7 +26,7 @@
   a.button {
     position: absolute;
     bottom: $grid-gutter-width * 2;
-    margin-left: rem-calc(-14);
+    margin-left: rem-calc(-26);
     .icon {
       width: rem-calc(28);
       height: rem-calc(28);

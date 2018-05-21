@@ -21,17 +21,201 @@ add_filter( 'mce_buttons_2', 'll_new_mce_button' );
  * @return array       Tinyce data
  */
 function ll_format_tinymce( $data ) {
-    $style_formats = array(
-
-      array(
-         'title'    => 'Button',
-         'classes'  => 'btn',
-         'selector' => 'a',
-         'wrapper'  => false
-       ),
-    );
+  $style_formats = array(
+    array(
+      'title'    => 'Heading Sizes',
+      'items'  => array(
+        array(
+          'title'    => 'Hero',
+          'classes'  => 'large-paragraph-text',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Heading 1',
+          'classes'  => 'h1',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Heading 2',
+          'classes'  => 'h2',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Heading 3',
+          'classes'  => 'h3',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Heading Style Four',
+          'classes'  => 'h4',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Heading Style Five',
+          'classes'  => 'h5',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Heading Style Six',
+          'classes'  => 'h6',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+      ),
+    ),
+    array(
+      'title'    => 'Font Weights',
+      'items'  => array(
+        array(
+          'title'    => 'Unstyled',
+          'classes'  => '',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Light',
+          'classes'  => 'text-normal',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Normal',
+          'classes'  => 'text-medium',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Bold',
+          'classes'  => 'text-bold',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
+      ),
+    ),
+    array(
+      'title' => 'Images',
+      'items' => array(
+        array(
+          'title'    => 'No Shadow',
+          'classes'  => 'no-shadow',
+          'selector' => 'img, figure',
+          'wrapper'  => false
+        ),
+      ),
+    ),
+    array(
+      'title' => 'Buttons & Links',
+      'items' => array(
+        array(
+          'title'    => 'Button',
+          'classes'  => 'button',
+          'selector' => 'a, button',
+          'wrapper'  => false
+        ),
+      ),
+    ),
+    array(
+      'title' => 'Lists',
+      'items' => array(
+        array(
+          'title'    => 'No Bullets',
+          'classes'  => 'no-bullet',
+          'selector' => 'ul, ol',
+          'wrapper'  => false
+        ),
+      ),
+    ),
+    array(
+        'title' => 'Colors',
+        'items' => array(
+          array(
+            'title'    => 'Yellow',
+            'classes'  => 'yellow',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+          array(
+            'title'    => 'Black',
+            'classes'  => 'black',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+          array(
+            'title'    => 'Ebony',
+            'classes'  => 'ebony',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+          array(
+            'title'    => 'Coal',
+            'classes'  => 'coal',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+          array(
+            'title'    => 'Smoke',
+            'classes'  => 'smoke',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+          array(
+            'title'    => 'Grey',
+            'classes'  => 'grey',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+          array(
+            'title'    => 'Silver',
+            'classes'  => 'silver',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+          array(
+            'title'    => 'Aluminum',
+            'classes'  => 'aluminum',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+          array(
+            'title'    => 'Ivory',
+            'classes'  => 'ivory',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+          array(
+            'title'    => 'White',
+            'classes'  => 'white',
+            'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd, address, code',
+            'wrapper'  => false
+          ),
+        ),
+    )
+  );
 
   $data['style_formats'] = json_encode( $style_formats );
+
+  $custom_colours = '
+        "FFF900", "Yellow",
+        "000000", "Black",
+        "121212", "Ebony",
+        "2A2A2A", "Coal",
+        "383838", "Smoke",
+        "505050", "Grey",
+        "7E7E7E", "Silver",
+        "959595", "Aluminum",
+        "E4E4E4", "Ivory",
+        "ffffff", "White"
+    ';
+
+    // build colour grid default+custom colors
+  $data['textcolor_map'] = '['.$custom_colours.']';
+
   return $data;
 }
 

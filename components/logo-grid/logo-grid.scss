@@ -7,24 +7,28 @@
  */
 
 .logo-grid {
-  padding-top: $grid-gutter-width * 2;
+  padding-top: rem-calc(120);
   padding-bottom: $grid-gutter-width * 2;
-  h4 {
-    margin-bottom: $grid-gutter-width;
+  h2 {
+    margin-top: $grid-gutter-width;
+    margin-bottom: $grid-column-padding;
   }
   p {
     max-width: 480px;
+    margin-bottom: $grid-column-padding * 3;
+    font-size: rem-calc(20);
+    font-weight: $text-light;
   }
   + .logo-grid {
     padding-top: 0;
     .container {
       padding-top: $grid-gutter-width * 2;
-      border-top: solid 1px $coal;
+      border-top: solid 1px $grey;
     }
   }
   .box-grid .col {
-    padding-top: $grid-gutter-width;
-    padding-bottom: $grid-gutter-width;
+    padding-top: $grid-column-padding * 3;
+    padding-bottom: $grid-column-padding * 3;
   }
   ul {
     margin-top: 0;

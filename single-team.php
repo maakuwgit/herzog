@@ -35,3 +35,13 @@
 <?php endwhile; ?>
   </div>
 </main>
+<?php
+  $links = get_field('relationships');
+
+  ll_include_component(
+    'related-nav',
+    array(
+      'links' => $links
+    )
+  );
+?>

@@ -48,14 +48,14 @@ if( $args['classes'] ) {
 
 $id = ' id="' . $id . '"';
 ?>
-<section<?php echo $id . $css; ?>>
+<section<?php echo $id . $css; ?> data-component="capability-teaser">
 <?php
     foreach( $data['teaser_columns'] as $teaser ) :
       $capabilities = $teaser['teaser_capability'];
       if( $capabilities ) :
 ?>
   <div class="container row start">
-    <picture class="col col-sm-4of12 col-md-6of12 col-lg-6of12 col-xl-6of12">
+    <picture class="picture col col-sm-4of12 col-md-6of12 col-lg-6of12 col-xl-6of12 stretch" data-background>
       <?php
         $blog_url = get_bloginfo('url') . '/';
         $feature = wp_get_attachment_metadata(get_post_thumbnail_id($capabilities->ID));
@@ -76,7 +76,9 @@ $id = ' id="' . $id . '"';
           //Dev Note: there's a MUCh easier, better way, but for now this will do as I've wasted an hour looking
           $feature = '<img alt="" src="'.get_bloginfo('url') . '/wp-content/uploads/'.$feature['file'].'">';
         }
-        echo $feature;
+      ?>
+      <div class="feature"><?php echo $feature; ?></div>
+      <?php
         $button = array(
           'link'  => array(
             'title' => $capabilities->post_title,
