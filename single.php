@@ -6,6 +6,7 @@
 <?php endwhile; ?>
   </div>
 </article>
+<?php get_template_part('templates/contents/content', 'related_news_and_media'); ?>
 <?php get_template_part('templates/contents/content', 'callout'); ?>
 <?php
   $links = get_field('relationships');
