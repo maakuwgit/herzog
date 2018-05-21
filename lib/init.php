@@ -14,6 +14,12 @@ function roots_setup() {
     'secondary_navigation' => __('Page Navigation', 'roots')
   ));
 
+  register_sidebar(array(
+    'name' => __('Primary Nav News', 'll'),
+    'id'   => 'sidebar-primary-news',
+    'description' => __('This sidebar holds the widgets for the primary nav. Any MegaMenu can showcase widgets')
+  ));
+
   // Add post thumbnails
   // http://codex.wordpress.org/Post_Thumbnails
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size

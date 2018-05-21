@@ -182,7 +182,8 @@ body {
       flex-direction: column;
       padding-bottom: $grid_column_padding;
       #primary-nav & {
-        .menu-item {
+        .menu-item,
+        .widget {
           width: 100%;
           flex: 0 1 auto;
           a {

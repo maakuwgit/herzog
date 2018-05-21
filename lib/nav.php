@@ -21,6 +21,18 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
     $output .= "\n<ul class=\" collapsed dropdown-menu\" id=\"dropdown-".$this->curItem."\"  data-content=\"collapse\">\n";
   }
 
+  function end_lvl(&$output, $depth = 0, $args = array()) {
+    if( $depth == 0 ) {
+      //Since the sidebar is created dynamically, lets buffer the
+      //output, then push it into a variable, then dump the output
+      ob_start();
+      dynamic_sidebar('sidebar-primary-news');
+      $output .= ob_get_contents();
+      ob_end_clean();
+    }
+    $output .= "</ul>";
+  }
+
   function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
     $this->curItem = $item->ID;
     $item_html = '';
@@ -28,6 +40,7 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
     $menu = wp_get_nav_menu_object($args->menu);
     $menu_hero = get_field('menu_hero', $item);
     $is_mega = get_field('is_megamenu', $item);
+    $use_sidebar = get_field('use_sidebar', $item);
     $title = $item->post_excerpt;
     $description = $item->post_content;
     if ($item->is_dropdown && ($depth === 0)) {
@@ -58,10 +71,15 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
 
   function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output) {
     $element->is_dropdown = ((!empty($children_elements[$element->ID]) && (($depth + 1) < $max_depth || ($max_depth === 0))));
-    $element->is_mega = get_field('is_megamenu', $element);
+    $element->is_mega     = get_field('is_megamenu', $element);
+    $element->use_sidebar = get_field('use_sidebar', $element);
 
     if( $element->is_mega ) {
      $element->classes[] = 'mega_menu';
+    }
+
+    if( $element->use_sidebar ) {
+     $element->classes[] = 'has_sidebar';
     }
 
     if ($element->is_dropdown) {

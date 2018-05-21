@@ -1,93 +1,24 @@
 /**
  * Navbar styles
  */
-.primary-nav {
-  display: block;
-
-  @include screen-md {
-    display: none;
-  }
-}
-
-.dropdown-menu {
-}
-
-// navbar-toggle
-// ==================================================
-.navbar-toggle {
-  .icon-bar {
-    background-color: #000;
-  }
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  &.open {
-    .navbar-toggle__inner {
-      transform: rotate(90deg);
-      background-color: transparent;
-
-      transition: transform 0.1s 0s cubic-bezier(0.215, 0.61, 0.355, 1),
-      background-color 0s 0.22s linear;
-
-      &::before {
-        top: 0;
-        transform: rotate(-45deg);
-        transition: top 0.1s 0.12s ease-out,
-        transform 0.1s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
-      }
-
-      &::after {
-        bottom: 0;
-        transform: rotate(45deg);
-        transition: bottom 0.1s 0.12s ease-out,
-        transform 0.1s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+#primary-nav {
+  .dropdown {
+    .widget{
+      display: none;
+    }
+    &.has_sidebar {
+      > .dropdown-menu {
+          > li {
+          width: 20%;
+          &.menu-timeline {
+            width: 30%;
+          }
+        }
+        .widget {
+          display: block;
+          width: 50%;
+        }
       }
     }
-  }
-
-}
-
-.navbar-toggle__box {
-  width: rem-calc(22);
-  height: calc(2px * 3 + 6px * 2);
-  display: inline-block;
-  position: relative;
-}
-
-.navbar-toggle__inner {
-  display: block;
-  top: 50%;
-  margin-top: 2px / -2;
-  transition: transform 0.1s 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19),
-              background-color 0s 0.1s linear;
-
-  &,
-  &::before,
-  &::after {
-    width: 22px;
-    height: 2px;
-    background-color: $white;
-    border-radius: 2px;
-    position: absolute;
-  }
-
-  &::before,
-  &::after {
-    content: "";
-    display: block;
-  }
-
-  &::before {
-    top: (4px + 2px) * -1;
-    transition: top 0.1s 0.1s ease-in,
-    transform 0.1s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  }
-
-  &::after {
-    bottom: (4px + 2px) * -1;
-    transition: bottom 0.1s 0.1s ease-in,
-    transform 0.1s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 }

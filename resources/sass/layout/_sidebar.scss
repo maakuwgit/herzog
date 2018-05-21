@@ -1,6 +1,16 @@
 /**
  * Sidebar styles
  */
+.widgettitle {
+  display: none;
+}
 
-.sidebar {
+.widget {
+  align-self: stretch;
+  ul li {
+    border-top: solid 1px $coal;
+    &:last-child {
+      border-bottom: solid 1px $coal;
+    }
+  }
 }
