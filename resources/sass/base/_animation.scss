@@ -105,8 +105,17 @@ body.home > header {
 //Hero
 .hero, .hero-w-nav {
   h1, h2 {
-    transform: translateX(-5vw);
     opacity: 0;
+  }
+}
+.hero {
+  h1, h2 {
+    transform: translateY(5vh);
+  }
+}
+.hero-w-nav {
+  h1, h2 {
+    transform: translateX(-5vw);
   }
 }
 
@@ -130,9 +139,20 @@ body.loaded {
   .hero-w-nav {
     h1,
     h2 {
-      transform: translateX(0);
       opacity: 1;
       transition-delay: 750ms;
+    }
+  }
+  .hero {
+    h1,
+    h2 {
+      transform: translateY(0);
+    }
+  }
+  .hero-w-nav {
+    h1,
+    h2 {
+      transform: translateX(0);
     }
   }
 

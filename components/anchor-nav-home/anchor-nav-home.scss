@@ -5,6 +5,7 @@
     a {
       padding: #{rem-calc(16)} 0;
       margin-top: auto;
+      font-size: rem-calc(14);
     }
   }
   .row &[class*=col-] {

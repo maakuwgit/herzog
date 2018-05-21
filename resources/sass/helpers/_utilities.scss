@@ -220,7 +220,8 @@
 }
 
 //theme specific colors
-a, p, dt, dd, span, small, li, time, address, ul {
+h1, h2, h3, h4, h5, h6, a, p, dt, dd, span, small, li, time, address, ul,
+.thumbnail h3, .thumbnail h4, .thumbnail h5 {
   &.black {
     color: $black;
   }

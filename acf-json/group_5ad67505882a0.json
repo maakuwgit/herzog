@@ -123,6 +123,94 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b02d9df4084c",
+                            "label": "Capabilities",
+                            "name": "accordion_capabilities",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "capability"
+                            ],
+                            "taxonomy": [],
+                            "allow_null": 0,
+                            "multiple": 1,
+                            "return_format": "object",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_5b02da2a4084d",
+                            "label": "Case Studies",
+                            "name": "accordion_case_studies",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "project"
+                            ],
+                            "taxonomy": [],
+                            "allow_null": 0,
+                            "multiple": 1,
+                            "return_format": "object",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_5b02da4b4084e",
+                            "label": "Careers",
+                            "name": "accordion_careers",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "career"
+                            ],
+                            "taxonomy": [],
+                            "allow_null": 0,
+                            "multiple": 1,
+                            "return_format": "object",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_5b02da7a4084f",
+                            "label": "Leaders",
+                            "name": "accordion_leaders",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "team"
+                            ],
+                            "taxonomy": [],
+                            "allow_null": 0,
+                            "multiple": 1,
+                            "return_format": "object",
+                            "ui": 1
                         }
                     ]
                 }
@@ -146,5 +234,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Used only on the homepage to display \"Divisions\"",
-    "modified": 1526564521
+    "modified": 1526913856
 }

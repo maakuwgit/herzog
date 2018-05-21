@@ -36,7 +36,11 @@ $default_data = [
             'guid'      => '#'
           ),
           'accordion_content'     => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-          'target_name'           => false
+          'target_name'            => false,
+          'accordion_capabilities'   => false,
+          'accordion_case_studies' => false,
+          'accordion_careers'      => false,
+          'accordion_leaders'      => false
         )
       )
     )
@@ -86,6 +90,13 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
   foreach( $accordions as $accordion ) :
     $division = $accordion['accordion_headline'];
     $url = '#';
+    $img_base_url = get_bloginfo('url') . '/wp-content/uploads/';
+
+    $capabilities = $accordion['accordion_capabilities'];
+    $case_studies = $accordion['accordion_case_studies'];
+    $careers      = $accordion['accordion_careers'];
+    $leaders      = $accordion['accordion_leaders'];
+
     if( $division ) {
       $headline = $division->post_title;
       $url = $division->guid;
@@ -122,7 +133,7 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
                 'theme'   => 'dark',
                 'link'    => array(
                     'title' => 'Capabilities',
-                    'href'  => '#'
+                    'url'  => get_bloginfo('url') . '/capability'
                   )
                 )
               );
@@ -133,7 +144,7 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
                 'theme'   => 'dark',
                 'link'    => array(
                     'title' => 'Innovations',
-                    'href'  => '#'
+                    'url'  => get_bloginfo('url') . '/innovation'
                   )
                 )
               );
@@ -144,7 +155,7 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
                 'theme'   => 'dark',
                 'link'    => array(
                     'title' => 'Case Studies',
-                    'href'  => '#'
+                    'url'  => get_bloginfo('url') . '/case_study'
                   )
                 )
               );
@@ -155,13 +166,157 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
                 'theme'   => 'dark',
                 'link'    => array(
                     'title' => $headline . ' Careers',
-                    'href'  => '#'
+                    'url'  => get_bloginfo('url') . '/careers'
                   )
                 )
               );
               ?>
           </div>
       </div>
+    <?php if( $capabilities || $case_studies || $careers || $leaders ) : ?>
+      <ul class="container row start no-bullet">
+    <?php
+      //Capabilities
+      if( $capabilities ) :
+        foreach( $capabilities as $capability ) :
+          $cimg = wp_get_attachment_metadata(get_post_thumbnail_id($capability));
+      ?>
+        <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
+          <h6 class="text-normal silver">Capabilities</h6>
+          <figure class="thumbnail col" data-clickthrough>
+            <?php
+            ll_include_component(
+              'button',
+              array(
+                'icon'    => 'plus',
+                'theme'   => 'dark',
+                'link'    => array(
+                  'url'   => $capability->guid,
+                  'title' => false
+                )
+              ),
+              array()
+            );
+            ?>
+            <div data-background>
+              <div class="feature">
+                <img alt="" src="<?php echo $img_base_url.$cimg['file'];?>">
+              </div>
+              <figcaption>
+                <h3 class="h5 text-medium white"><?php echo $capability->post_title;?></h3>
+              </figcaption>
+            </div>
+          </figure>
+        </li>
+      <?php endforeach; ?>
+    <?php endif; ?>
+    <?php
+      //Case Studies
+      if( $case_studies) :
+        foreach( $case_studies as $case_study ) :
+          $pimg = wp_get_attachment_metadata(get_post_thumbnail_id($case_study));
+      ?>
+        <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
+          <h6 class="text-normal silver">Case Study</h6>
+          <figure class="thumbnail col" data-clickthrough>
+            <?php
+            ll_include_component(
+              'button',
+              array(
+                'icon'    => 'plus',
+                'theme'   => 'dark',
+                'link'    => array(
+                  'url'   => $case_study->guid,
+                  'title' => false
+                )
+              ),
+              array()
+            );
+            ?>
+            <div data-background>
+              <div class="feature">
+                <img alt="" src="<?php echo $img_base_url.$pimg['file'];?>">
+              </div>
+              <figcaption>
+                <h3 class="h5 text-medium white"><?php echo $case_study->post_title;?></h3>
+              </figcaption>
+            </div>
+          </figure>
+        </li>
+      <?php endforeach; ?>
+    <?php endif; ?>
+    <?php
+      //Careers
+      if( $careers) :
+        foreach( $careers as $career ) :
+          $jimg = wp_get_attachment_metadata(get_post_thumbnail_id($career));
+      ?>
+        <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
+          <h6 class="text-normal silver">Careers</h6>
+          <figure class="thumbnail col" data-clickthrough>
+            <?php
+            ll_include_component(
+              'button',
+              array(
+                'icon'    => 'plus',
+                'theme'   => 'dark',
+                'link'    => array(
+                  'url'   => $career->guid,
+                  'title' => false
+                )
+              ),
+              array()
+            );
+            ?>
+            <div data-background>
+              <div class="feature">
+                <img alt="" src="<?php echo $img_base_url.$jimg['file'];?>">
+              </div>
+              <figcaption>
+                <h3 class="h5 text-medium white"><?php echo $career->post_title;?></h3>
+              </figcaption>
+            </div>
+          </figure>
+        </li>
+      <?php endforeach; ?>
+    <?php endif; ?>
+    <?php
+      //Leadership
+      if( $leaders ) :
+        foreach( $leaders as $leader ) :
+          $limg = wp_get_attachment_metadata(get_post_thumbnail_id($leader));
+      ?>
+        <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
+          <h6 class="text-normal silver">Leadership</h6>
+          <figure class="thumbnail col" data-clickthrough>
+            <?php
+            ll_include_component(
+              'button',
+              array(
+                'icon'    => 'plus',
+                'theme'   => 'dark',
+                'link'    => array(
+                  'url'   => $leader->guid,
+                  'title' => false
+                )
+              ),
+              array()
+            );
+            ?>
+            <div data-background>
+              <div class="feature">
+                <img alt="" src="<?php echo $img_base_url.$limg['file'];?>">
+              </div>
+              <figcaption>
+                <h3 class="h5 text-medium white"><?php echo $leader->post_title;?></h3>
+              </figcaption>
+            </div>
+          </figure>
+        </li>
+      <?php endforeach; ?>
+      <?php endif; ?>
+      </ul>
+    <?php endif; ?>
     </dd>
 <?php
   $flag = '';

@@ -47,20 +47,22 @@ $use_modal = $args['modal'];
 if( $use_modal ) {
   $modal = ' data-mfp-src="#'.$args['modal_id'].'"';
 }
-$css = ' class="button ';
+$css = ' class="button';
 if( is_array($args['classes'] ) ) {
   $css .= implode( " ", $args['classes'] );
 }else{
   $css .= ' ' . $args['classes'];
 }
 $css .= ' ' . $data['theme'] . '"';
+
+$id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
+
+$title = ($data['link']['title'] ? ' title="'.$data['link']['title'].'"' : '');
 ?>
 <a
-  <?php echo $css ?>
-  title="<?php echo $data['link']['title']; ?>"
+  <?php echo $id . $css . $title ?>
   href="<?php echo $data['link']['url']; ?>"
-  <?php echo $args['id'] ? 'id="' . $args['id'] . '"' : ''; ?>
-  data-component="button",
+  data-component="button"
   target="<?php echo $data['link']['target']; ?>"
 >
   <?php if( $data['icon'] === 'chevron' ) : ?>

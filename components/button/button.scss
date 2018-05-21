@@ -7,7 +7,7 @@ button.button {
   @include flexible(flex-start, center);
   font-size: rem-calc(16);
   cursor: pointer;
-  body.page-template-template-home & {
+  body.page-template-template-home .content & {
     font-size: rem-calc(20);
   }
   .icon {

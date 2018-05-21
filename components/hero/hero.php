@@ -73,7 +73,7 @@ $nav_id = $args['nav_id'];
 <main class="content hero">
   <div class="wrapper row start">
     <?php if ( $headline['text'] ) : ?>
-    <h1 class="col col-lg-6of12 col-xl-5of12 center"><?php echo $headline['text']; ?></h1>
+    <h1 class="col col-lg-6of12 col-xl-5of12 center text-center"><?php echo $headline['text']; ?></h1>
     <?php endif; ?>
     <picture class="picture col<?php echo $classes; ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?> data-component="hero" data-gallery-nav="<?php echo $nav_id; ?>"<?php echo $data_background;?>>
       <?php if ( $type === 'image' && $background ) : ?>

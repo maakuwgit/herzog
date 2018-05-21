@@ -3,6 +3,21 @@
   width: 100%;
   background-color: transparent;
   background-size: cover;
+  .thumbnail {
+    width: 100%;
+    [data-background] {
+      min-height: 100px;
+      height: rem-calc(230);
+    }
+    button,
+    .button {
+      bottom: rem-calc(-18);
+      display: block;
+      z-index: 1;
+      margin-left: rem-calc(25);
+      margin-bottom: auto;
+    }
+  }
   @include screen-lg-up {
     .accordion {
       position: absolute;
@@ -39,6 +54,17 @@
           font-size: rem-calc(14);
         }
       }
+    }
+  }
+  figcaption {
+    > * {
+      padding-top: $grid-gutter-width;
+      padding-left: $grid-gutter-width;
+    }
+  }
+  li {
+    h6 {
+      margin-bottom: $grid-column-padding;
     }
   }
   nav {
