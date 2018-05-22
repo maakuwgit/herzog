@@ -158,7 +158,7 @@ if( have_rows( 'components' ) ) {
         'scope'       => get_sub_field('case_study_scope'),
         'outcome'     => get_sub_field('case_study_outcome'),
         'additionals' => get_sub_field('case_study_additionals'),
-        'headline'    => 'FPO Case Study'
+        'headline'    => get_sub_field('case_study_headline'),
       ];
 
       $output .= ll_include_component(
