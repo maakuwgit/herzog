@@ -837,6 +837,11 @@
                 "param": "post_type",
                 "operator": "!=",
                 "value": "client"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "timeline"
             }
         ]
     ],
@@ -850,5 +855,5 @@
     ],
     "active": 1,
     "description": "Used on almost every page",
-    "modified": 1527019080
+    "modified": 1527022488
 }
