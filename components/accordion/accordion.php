@@ -49,7 +49,10 @@ $default_data = [
 
 $default_args = [
   'classes' => array(),
-  'id' => uniqid('accordion-')
+  'id' => uniqid('accordion-'),
+  'default_thumb' => array(
+    'file' => '//via.placeholder.com/345x345'
+  )
 ];
 
 $data = ll_parse_args( $component_data, $default_data );
@@ -180,6 +183,11 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
       if( $capabilities ) :
         foreach( $capabilities as $capability ) :
           $cimg = wp_get_attachment_metadata(get_post_thumbnail_id($capability));
+          if( !$cimg ) {
+            $cimg = $args['default_thumb'];
+          }else{
+            $cimg = $img_base_url . $cimg['file'];
+          }
       ?>
         <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
           <h6 class="text-normal silver">Capabilities</h6>
@@ -197,10 +205,11 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
               ),
               array()
             );
+
             ?>
             <div data-background>
               <div class="feature">
-                <img alt="" src="<?php echo $img_base_url.$cimg['file'];?>">
+                <img alt="" src="<?php echo $cimg['file'];?>">
               </div>
               <figcaption>
                 <h3 class="h5 text-medium white"><?php echo $capability->post_title;?></h3>
@@ -215,6 +224,11 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
       if( $case_studies) :
         foreach( $case_studies as $case_study ) :
           $pimg = wp_get_attachment_metadata(get_post_thumbnail_id($case_study));
+          if( !$pimg ) {
+            $pimg = $args['default_thumb'];
+          }else{
+            $pimg = $img_base_url . $pimg['file'];
+          }
       ?>
         <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
           <h6 class="text-normal silver">Case Study</h6>
@@ -235,7 +249,7 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
             ?>
             <div data-background>
               <div class="feature">
-                <img alt="" src="<?php echo $img_base_url.$pimg['file'];?>">
+                <img alt="" src="<?php echo $pimg['file'];?>">
               </div>
               <figcaption>
                 <h3 class="h5 text-medium white"><?php echo $case_study->post_title;?></h3>
@@ -250,6 +264,11 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
       if( $careers) :
         foreach( $careers as $career ) :
           $jimg = wp_get_attachment_metadata(get_post_thumbnail_id($career));
+          if( !$jimg ) {
+            $jimg = $args['default_thumb'];
+          }else{
+            $jimg = $img_base_url . $jimg['file'];
+          }
       ?>
         <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
           <h6 class="text-normal silver">Careers</h6>
@@ -270,7 +289,7 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
             ?>
             <div data-background>
               <div class="feature">
-                <img alt="" src="<?php echo $img_base_url.$jimg['file'];?>">
+                <img alt="" src="<?php echo $jimg['file'];?>">
               </div>
               <figcaption>
                 <h3 class="h5 text-medium white"><?php echo $career->post_title;?></h3>
@@ -285,6 +304,11 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
       if( $leaders ) :
         foreach( $leaders as $leader ) :
           $limg = wp_get_attachment_metadata(get_post_thumbnail_id($leader));
+          if( !$limg ) {
+            $limg = $args['default_thumb'];
+          }else{
+            $limg = $img_base_url . $limg['file'];
+          }
       ?>
         <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
           <h6 class="text-normal silver">Leadership</h6>
@@ -305,7 +329,7 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
             ?>
             <div data-background>
               <div class="feature">
-                <img alt="" src="<?php echo $img_base_url.$limg['file'];?>">
+                <img alt="" src="<?php echo $limg;?>">
               </div>
               <figcaption>
                 <h3 class="h5 text-medium white"><?php echo $leader->post_title;?></h3>
