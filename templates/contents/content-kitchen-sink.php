@@ -663,6 +663,26 @@ ll_include_component(
   );
   ?>
 </section>
+<article id="accordions" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <h3>Filterable Locations</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
+      <p>Similar to standard locations, only these have optional fields for showing ONLY certain locations/divisions</p>
+    </div>
+  </div>
+</article>
+<?php
+  ll_include_component(
+    'locations-filterable',
+    array(),
+    array(
+      'classes' => 'enter',
+      'id' => $id
+    )
+  );
+?>
 <?php
   $links = get_field('relationships');
 

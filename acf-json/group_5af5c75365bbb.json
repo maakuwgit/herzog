@@ -8,7 +8,7 @@
             "name": "division_logo",
             "type": "image",
             "instructions": "The original, all solid black version of the logo",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -32,7 +32,7 @@
             "name": "division_logo_reversed",
             "type": "image",
             "instructions": "This image should be the inverse of the standard black logo.",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -101,5 +101,5 @@
     ],
     "active": 1,
     "description": "The abbreviation logos for each Division",
-    "modified": 1526057826
+    "modified": 1527017259
 }

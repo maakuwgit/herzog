@@ -5,15 +5,10 @@
 *
 * locations component
 */
-$id = uniqid('locations-');
+$id = uniqid('locations-filterable-');
 
-$default_data  = [
-  'num_locations'   => 6,
-  'use_interactions' => true
-];
+$default_data  = [];
 $default_args   = [
-  'use_muted' => false,
-  'use_dark'  => false,
   'classes'  => array(),
   'id'       => $id
 ];
@@ -21,9 +16,7 @@ $default_args   = [
 $data = ll_parse_args( $component_data, $default_data );
 $args = ll_parse_args( $component_args, $default_args );
 
-do_action( "component_name_before_display", $data, $args );
-
-$css = 'class="locations-filterable container row content';
+$css = 'class="locations-filterable content';
 if( $args['classes'] ) {
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );
@@ -32,21 +25,46 @@ if( $args['classes'] ) {
   }
 }
 $css .= '"';
-$id           = $args['id'];
-$use_interactions = $data['use_interactions'];
-$num              = $data['num_locations'];
+$id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 
-$qargs    = array(
-              'post_type'     => 'location',
-              'post_status'   => 'publish',
-              'order'         => 'ASC',
-              'showposts'     => $num
-            );
+$groups = get_terms( array(
+  'taxonomy' => 'location_group',
+  'hide_empty' => true
+));
 
-$locations = new WP_Query( $qargs );
+if ( $groups ) :
 
-if ( $locations->have_posts() ) : ?>
-  <dl <?php echo $id . $css ?> data-component="locations"">
+?>
+<section <?php echo $id . $css ?> data-component="locations-filterable">
+  <div class="container row start">
+    <header class="col">
+      <h2>Offices &amp; Locations</h2>
+    </header>
+  </div>
+<?php foreach( $groups as $group ) : ?>
+  <div class="container row start">
+    <div class="col col-md-4of12 col-lg-3of12 col-xl-3of12">
+      <h3 class="h5"><?php echo $group->name; ?></h3>
+    </div>
+  <?php
+    $qargs    = array(
+                  'post_type'     => 'location',
+                  'post_status'   => 'publish',
+                  'order'         => 'ASC',
+                  'showposts'     => -1,
+                  'tax_query'     => array(
+                    array(
+                      'taxonomy'   => 'location_group',
+                      'field'      => 'slug',
+                      'terms'      => $group->slug
+                    )
+                  )
+                );
+
+    $locations = new WP_Query( $qargs );
+    if ( $locations->have_posts() ) : ?>
+    <div class="col col-md-8of12 col-lg-9of12 col-xl-9of12">
+      <dl class="row start">
       <?php
         while( $locations->have_posts() ) :
           $locations->the_post();
@@ -56,8 +74,7 @@ if ( $locations->have_posts() ) : ?>
             'title'   => get_the_title(),
             'phone'   => get_field('location_phone'),
             'address' => get_field('location_address'),
-            'state'   => get_the_terms(get_the_ID(), 'location_state'),
-            'hero'    => get_field('hero_background_image')
+            'state'   => get_the_terms(get_the_ID(), 'location_state')
           );
 
           $address = $city = $state = $country = '';
@@ -121,50 +138,27 @@ if ( $locations->have_posts() ) : ?>
 
           $contact = get_field('location_contact');
           $contact = '<a href="mailto:'.$contact.'">Send a message</a>';
-
-          $hero = $location['hero'];
-          if( $args['use_muted'] == true ) {
-            $abbr = get_field('division_logo_muted');
-          }elseif( $args['use_dark'] == true) {
-            $abbr = get_field('division_logo');
-          }else{
-            $abbr = get_field('division_logo_reversed');
-          }
-          if( $abbr ){
-            $abbr = ll_format_image($abbr);
-          }else{
-            $abbr = '<img alt="" src="//via.placeholder.com/158x100"
-  srcset="//via.placeholder.com/632x400 2x, //via.placeholder.com/948x600 3x" data-src-md="//via.placeholder.com/316x200" data-src-lg="//via.placeholder.com/632x400 data-src-xl="//via.placeholder.com/948x600">';
-          }
       ?>
-        <div class="col col-sm-4of12 col-md-6of12 col-lg-3of12 col-xl-3of12 text-center"<?php if( $use_interactions ) echo ' data-clickthrough';?>>
-          <dt class="col text-left"><?php echo $abbr; ?></dt>
+        <div class="col col-sm-4of12 col-md-6of12 col-lg-4of12 col-xl-4of12 text-center">
+          <dt class="col text-left text-medium"><?php echo $location['title']; ?></dt>
           <dd class="col text-left">
-            <p class="text-bold"><?php echo $location['title']; ?></p>
-            <?php if( $use_interactions !== true) : ?>
-              <?php echo $phone; ?>
-              <?php echo $address; ?>
-              <?php echo $contact; ?>
-            <?php else : ?>
-            <a class="button dark" href="<?php the_permalink();?>">
-              <span class="icon icon-plus">+</span>Learn More
-            </a>
-              <?php if( $hero ) : ?>
-            <figure>
-              <?php echo ll_format_image($hero); ?>
-            </figure>
-              <?php endif; ?>
-            <?php endif; ?>
+            <?php echo $phone; ?>
+            <?php echo $address; ?>
+            <?php echo $contact; ?>
           </dd>
         </div>
       <?php
         endwhile;
         wp_reset_postdata();
       ?>
-  </dl><!-- Locations -->
-<?php endif; ?>
-
+      </dl><!-- Locations Filterable -->
+    </div>
+  <?php endif; ?>
+  </div>
+<?php endforeach; ?>
+</section>
 <?php
+endif;
 /**
  * component_name_after_display hook
  * Type: Action

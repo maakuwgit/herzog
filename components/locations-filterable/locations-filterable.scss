@@ -1,0 +1,34 @@
+/**
+ * locations-filterable Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.locations-filterable {
+  h2 {
+    width: 100%;
+  }
+  @include screen-lg-up {
+    padding-top: rem-calc(120);
+    padding-bottom: rem-calc(120);
+  }
+  a {
+    font-weight: $text-regular;
+  }
+  address, a[href*="tel:"] {
+    margin-bottom: $grid-column-padding;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  dl {
+    margin-top: 0;
+  }
+  dt {
+    margin-bottom: rem-calc(10);
+  }
+  dd, dt {
+    font-size: rem-calc(14);
+  }
+}
