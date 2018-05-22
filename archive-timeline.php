@@ -1,4 +1,6 @@
 <?php
+$img_base_url = get_bloginfo('url') . '/wp-content/uploads/';
+
 $yargs = array(
   'posts_per_page' => -1,
   'order'          => 'ASC',
@@ -8,18 +10,40 @@ $yargs = array(
 );
 
 $years = new WP_Query( $yargs );
-
-if( $years->have_posts() ) : ?>
-  <div class="hope-testimonial-columns" id="timeline" data-component="testimonial-columns">
+$first_image = '';
+if( $years->have_posts() ) :
+  while( $years->have_posts() ) :
+    $years->the_post();
+    if( ! $first_image ) $first_image = wp_get_attachment_metadata(get_post_thumbnail_id(get_the_ID()));
+  endwhile;
+  wp_reset_query();
+?>
+  <div class="hope-testimonial-columns" id="timeline" data-component="testimonial-columns" style="background-image: url(<?php echo $img_base_url . $first_image['file'];?> )">
 <?php
   while( $years->have_posts() ) :
     $years->the_post();
     $division = 'HCC';//FPO
-    $thumb = false;
-     //style="background-image: url(<?php echo get_the_post_thumbnail($years[0]->ID); )"
+    $thumb = wp_get_attachment_metadata(get_post_thumbnail_id(get_the_ID()));
+    if( !$thumb ) {
+      $thumb = $args['client_hero'];
+    }else{
+      $thumb = array(
+        'image' => array(
+          'title' => $thumb['image_meta']['title'],
+          'url' => $img_base_url . $thumb['file'],
+          'sizes' => array(
+            'full' => $img_base_url . $thumb['sizes']['large']['file'],
+            'xlarge' => $img_base_url . $thumb['sizes']['large']['file'],
+            'large' => $img_base_url . $thumb['sizes']['large']['file'],
+            'medium' => $img_base_url . $thumb['sizes']['medium']['file'],
+            'thumbnail' => $img_base_url . $thumb['sizes']['sm']['file']
+          )
+        )
+      );
+    }
 ?>
 
-    <div class="hope-testimonial-columns__column" data-bg="<?php echo $thumb; ?>">
+    <div class="hope-testimonial-columns__column" data-bg="<?php echo $thumb['image']['url']; ?>">
 
       <span class="hope-testimonial-columns__tab sub-heading"><?php echo $division; ?></span>
 
