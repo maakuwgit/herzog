@@ -233,6 +233,13 @@
                 "operator": "==",
                 "value": "team_settings"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "category"
+            }
         ]
     ],
     "menu_order": 1,
@@ -243,5 +250,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1525877944
+    "modified": 1526994974
 }

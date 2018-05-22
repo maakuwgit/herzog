@@ -48,7 +48,6 @@ function roots_setup() {
 }
 add_action('after_setup_theme', 'roots_setup');
 
-
 //Now let's register the widgets
 function ll_register_widget() {
   register_widget( 'Recent_Articles' );

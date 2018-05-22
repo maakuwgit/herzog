@@ -19,6 +19,9 @@ $thumb-padding: 1.5rem;
     padding: 0;
     background-color: $smoke;
   }
+  &.row {
+    width: 100%;
+  }
   @include screen-sm {
     width: 50%;
   }

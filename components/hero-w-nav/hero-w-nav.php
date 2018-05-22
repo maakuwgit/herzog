@@ -41,7 +41,7 @@ $nav_id = $args['nav_id'];
 $headline = $data['headline'];
 $targets = $args['targets'];
 ?>
-<main class="content hero-w-nav ebony">
+<main class="content hero-w-nav">
   <div class="wrapper row">
     <?php if ( $headline['text'] ) : ?>
     <h1 class="hero center col col-lg-9of12 col-xl-8of12"><?php echo $headline['text']; ?></h1>
