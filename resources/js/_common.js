@@ -199,6 +199,44 @@
           }, 2000);
         }
 
+        //Timeline
+        $('.hope-testimonial-columns__column').hover(function() {
+          if ( !$(this).hasClass('no-hover') ) {
+            var bg_image = $(this).data('bg');
+            var image = new Image();
+            image.src = bg_image;
+            image.onload = function() {
+              $('.hope-testimonial-columns').css('background-image', 'url(' + bg_image + ')');
+            };
+          }
+        });
+
+        $('.open-testimonial:not(.open-close-testimonial)').click(function() {
+          $('.open').removeClass('open');
+          $(this).parent().parent().addClass('open');
+          $('.hope-testimonial-columns__column').not('.open').addClass('closed');
+          $('.hope-testimonial-columns__column').addClass('no-hover');
+        });
+
+        $('.close-testimonial').click(function() {
+          $(this).parent().removeClass('open');
+          $('.hope-testimonial-columns__column').removeClass('closed');
+          $('.hope-testimonial-columns__column').addClass('no-hover');
+          setTimeout(function() {
+            $('.hope-testimonial-columns__column').removeClass('no-hover');
+          }, 1300);
+        });
+
+        $('.open-close-testimonial').click(function() {
+          $(this).parent().parent().removeClass('open');
+          $('.hope-testimonial-columns__column').removeClass('closed');
+          $('.hope-testimonial-columns__column').addClass('no-hover');
+          setTimeout(function() {
+            $('.hope-testimonial-columns__column').removeClass('no-hover');
+          }, 1300);
+        });
+        //EOF
+
         $('a[href*="#"]:not(.js-no-scroll):not([href="#"])').click(function() {
           if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
             var target = $(this.hash);

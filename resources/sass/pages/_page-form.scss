@@ -1,0 +1,15 @@
+/**
+ * Archive
+ */
+body.page-template-template-form {
+  > article {
+    padding-bottom: 0;
+  }
+  #gform_1 {
+    .gfield:last-of-type {
+      position: absolute;
+      top: rem-calc(73);
+      right: 0;
+    }
+  }
+}
