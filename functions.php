@@ -23,6 +23,7 @@ $roots_includes = array(
 
   'lib/tgm/required-plugins.php',   // Required plugins
   'lib/metabox/main.php',           // ACF Metabox Settings
+  'lib/widget/main.php',            // Custom functions
   'lib/custom/main.php',            // Custom functions
   'lib/cpt/main.php',               // Custom post type module
 );

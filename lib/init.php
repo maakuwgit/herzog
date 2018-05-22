@@ -14,10 +14,17 @@ function roots_setup() {
     'secondary_navigation' => __('Page Navigation', 'roots')
   ));
 
+  //Register the sidebar that we're using int he primary nav
   register_sidebar(array(
     'name' => __('Primary Nav News', 'll'),
     'id'   => 'sidebar-primary-news',
-    'description' => __('This sidebar holds the widgets for the primary nav. Any MegaMenu can showcase widgets')
+    'description' => __('This sidebar holds the widgets for the primary nav. Any MegaMenu can showcase widgets'),
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_article' => '<dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12 stretch">',
+    'after_article' => '</dd>',
+    'before_title' => '<dt class="widgettitle col col-md-6of12 col-lg-6of12 col-xl-6of12">',
+    'after_title' => '</dt>'
   ));
 
   // Add post thumbnails
@@ -41,6 +48,12 @@ function roots_setup() {
 }
 add_action('after_setup_theme', 'roots_setup');
 
+
+//Now let's register the widgets
+function ll_register_widget() {
+  register_widget( 'Recent_Articles' );
+}
+add_action( 'widgets_init', 'll_register_widget' );
 /**
  * Show/Hide/Modify Existing post types
  */

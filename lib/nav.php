@@ -25,10 +25,12 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
     if( $depth == 0 ) {
       //Since the sidebar is created dynamically, lets buffer the
       //output, then push it into a variable, then dump the output
+      $output .= '<li class="news widget"><dl class="row">';
       ob_start();
-      dynamic_sidebar('sidebar-primary-news');
+      get_sidebar();
       $output .= ob_get_contents();
       ob_end_clean();
+      $output .= '</dl></li>';
     }
     $output .= "</ul>";
   }

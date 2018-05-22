@@ -1,3 +1,68 @@
 /**
  * Widget styles
  */
+.widgettitle {
+  border-top: solid 1px $coal;
+  font-size: rem-calc(14);
+  font-weight: $text-medium;
+  color: $white;
+  &.col[data] {
+    padding-top: $grid-column-padding;
+  }
+  &:nth-of-type(n+7) {
+    display: none;
+  }
+  &:first-of-type {
+    order: 1;
+  }
+  &:nth-of-type(2) {
+    order: 2;
+  }
+  &:nth-of-type(3) {
+    order: 5;
+  }
+  &:nth-of-type(4) {
+    order: 6;
+  }
+  &:nth-of-type(5) {
+    order: 9;
+  }
+  &:nth-of-type(6) {
+    order: 10;
+  }
+}
+
+.widget {
+  align-self: stretch;
+  dl {
+    dd {
+      &.col:not([data-component]):not([data-slick-nav]) {
+        padding-bottom: $grid-column-padding;
+      }
+      border-bottom: solid 1px $coal;
+      font-size: rem-calc(14);
+      color: $ivory;
+      &:nth-of-type(n+7) {
+        display: none;
+      }
+      &:first-of-type {
+        order: 3;
+      }
+      &:nth-of-type(2) {
+        order: 4;
+      }
+      &:nth-of-type(3) {
+        order: 7;
+      }
+      &:nth-of-type(4) {
+        order: 8;
+      }
+      &:nth-of-type(5) {
+        order: 11;
+      }
+      &:nth-of-type(6) {
+        order: 12;
+      }
+    }
+  }
+}
