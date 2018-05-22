@@ -171,6 +171,18 @@ if( have_rows( 'components' ) ) {
         true
       );
       break;
+      case 'locations-filterable':
+        //Filterable Locations
+        $output .= ll_include_component(
+          'locations-filterable',
+          array(),
+          array(
+            'classes' => 'enter',
+            'id' => $id
+          ),
+          true
+        );
+      break;
       case 'testimonial-grids':
         //Testimonial Grid
         $output .= ll_include_component(

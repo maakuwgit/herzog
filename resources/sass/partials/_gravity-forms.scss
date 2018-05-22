@@ -8,19 +8,29 @@
 
 .gform_wrapper {
   width: 100%;
+  .gform_title {
+    font-size: rem-calc(32);
+    font-weight: $text-medium;
+  }
 }
 
 .gform_fields {
-  @extend %clearfix;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  @include flexible(start, start, column);
+  .content & {
+    &:not(.no-bullet) {
+      padding: 0;
+      margin: 0;
+      li:before {
+        position: initial;
+        content: initial;
+      }
+    }
+  }
+  .gfield {
+    width: 50%;
+    flex: 0 0.5 auto;
+  }
 }
-
-.gfield {
-  margin-bottom: rem-calc(15);
-}
-
 
 /**
  * Validation

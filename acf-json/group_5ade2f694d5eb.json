@@ -97,6 +97,13 @@
                 "operator": "==",
                 "value": "category"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates\/template-form.php"
+            }
         ]
     ],
     "menu_order": 2,
@@ -107,5 +114,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526994538
+    "modified": 1527020549
 }

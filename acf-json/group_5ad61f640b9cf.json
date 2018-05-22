@@ -225,8 +225,8 @@
                 },
                 "5afdc286b4a7a": {
                     "key": "5afdc286b4a7a",
-                    "name": "callout-images",
-                    "label": "Image w\/ Blockquote",
+                    "name": "locations-filterable",
+                    "label": "Locations w\/ Filters",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -269,6 +269,71 @@
                         },
                         {
                             "key": "field_5afdc286b4a7d",
+                            "label": "Locations w Filters",
+                            "name": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "There are no options for this component. Sit back, and enjoy!",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b0475e000a3a": {
+                    "key": "5b0475e000a3a",
+                    "name": "callout-images",
+                    "label": "Image w\/ Blockquote",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b0475e000a3b",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0475e000a3c",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0475e000a3d",
                             "label": "Image w Blockquote",
                             "name": "component_callout_image",
                             "type": "clone",
@@ -284,7 +349,7 @@
                                 "group_5af60a1f423a5"
                             ],
                             "display": "seamless",
-                            "layout": "",
+                            "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0
                         }
@@ -772,11 +837,6 @@
                 "param": "post_type",
                 "operator": "!=",
                 "value": "client"
-            },
-            {
-                "param": "page",
-                "operator": "!=",
-                "value": "349"
             }
         ]
     ],
@@ -790,5 +850,5 @@
     ],
     "active": 1,
     "description": "Used on almost every page",
-    "modified": 1527013407
+    "modified": 1527019080
 }

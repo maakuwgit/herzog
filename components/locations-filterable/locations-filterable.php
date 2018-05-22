@@ -42,7 +42,7 @@ if ( $groups ) :
     </header>
   </div>
 <?php foreach( $groups as $group ) : ?>
-  <div class="container row start">
+  <div class="container row start" id="<?php echo $group->slug;?>">
     <div class="col col-md-4of12 col-lg-3of12 col-xl-3of12">
       <h3 class="h5"><?php echo $group->name; ?></h3>
     </div>

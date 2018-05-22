@@ -24,6 +24,7 @@
   }
   dl {
     margin-top: 0;
+    margin-bottom: $grid-gutter-width * 3;
   }
   dt {
     margin-bottom: rem-calc(10);

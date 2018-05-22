@@ -66,9 +66,9 @@
 /**
  * Flexi-box an element
  */
-@mixin flexible($justify: center, $align-items: flex-start) {
+@mixin flexible($justify: center, $align-items: flex-start, $direction: row) {
   display: flex;
-  flex-direction: row;
+  flex-direction: $direction;
   flex-wrap: wrap;
   justify-content: $justify;
   align-content: space-between;

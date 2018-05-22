@@ -23,7 +23,7 @@ $args = ll_parse_args( $component_args, $default_args );
 
 do_action( "component_name_before_display", $data, $args );
 
-$css = 'class="locations-filterable container row content';
+$css = 'class="locations container row content';
 if( $args['classes'] ) {
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );
@@ -32,7 +32,8 @@ if( $args['classes'] ) {
   }
 }
 $css .= '"';
-$id           = $args['id'];
+$id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
+
 $use_interactions = $data['use_interactions'];
 $num              = $data['num_locations'];
 

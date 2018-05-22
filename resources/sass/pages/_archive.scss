@@ -1,47 +1,15 @@
 /**
  * Archive
  */
-.archive.category {
-  padding-bottom: $grid-gutter-width;
-  .thumbnail {
-    .button {
-      margin-left: rem-calc(-30);
+body.page-template-template-form {
+  > article {
+    padding-bottom: 0;
+  }
+  #gform_1 {
+    .gfield:last-of-type {
+      position: absolute;
+      top: rem-calc(73);
+      right: 0;
     }
-    &:hover {
-      background-color: transparent !important;
-    }
-  }
-  li {
-    figure {
-      min-height: 50vh;
-      [data-background]{
-        display: table;
-        width: 100%;
-        height: inherit;
-        min-height: inherit;
-        background-blend-mode: initial;
-      }
-      figcaption {
-        p:first-of-type {
-          margin-top: $grid-gutter-width;
-        }
-        strong {
-          margin-top: $grid-gutter-width;
-          padding-bottom: $grid-gutter-width;
-          border-bottom: solid 1px $smoke;
-        }
-      }
-    }
-  }
-  @include screen-lg-up {
-    padding-bottom: 120px;
-  }
-  footer,
-  h4 {
-    margin-top: rem-calc(120);
-  }
-  p {
-    font-size: rem-calc(14);
-    font-weight: $text-light;
   }
 }
