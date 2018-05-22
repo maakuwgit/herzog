@@ -36,7 +36,7 @@ if ( ! function_exists('register_timeline_custom_post_type') ) {
       'show_in_nav_menus'   => false,
       'show_in_admin_bar'   => true,
       'menu_position'       => 21,
-      'menu_icon'           => 'dashicons-groups',
+      'menu_icon'           => 'dashicons-chart-area',
       'can_export'          => true,
       'has_archive'         => true,
       'exclude_from_search' => true,

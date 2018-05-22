@@ -26,7 +26,7 @@ if ( ! function_exists('register_capability_custom_post_type') ) {
       'label'               => 'capability',
       'description'         => 'Capability description',
       'labels'              => $labels,
-      'supports'            => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
+      'supports'            => array( 'title', 'page-attributes' ),
       'hierarchical'        => true,
       'public'              => true,
       'show_ui'             => true,

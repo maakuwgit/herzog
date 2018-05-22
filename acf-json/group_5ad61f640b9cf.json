@@ -698,6 +698,11 @@
                 "param": "post_type",
                 "operator": "!=",
                 "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "client"
             }
         ]
     ],
@@ -711,5 +716,5 @@
     ],
     "active": 1,
     "description": "Used on almost every page",
-    "modified": 1526922904
+    "modified": 1527003745
 }

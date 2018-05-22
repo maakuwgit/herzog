@@ -1,0 +1,27 @@
+/**
+ * case-study Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.case-study {
+  .picture {
+    padding: 0 0 #{$grid-gutter-width * 2} 0;
+  }
+  ul  {
+    @include flexible;
+    justify-content: flex-start;
+    li {
+      width: 50%;
+      flex: 0 0.5 auto;
+    }
+  }
+  dd {
+    margin-bottom: $grid-gutter-width * 2;
+    *:last-child {
+      margin-bottom: auto;
+    }
+  }
+}

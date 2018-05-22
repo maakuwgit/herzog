@@ -608,6 +608,34 @@ ll_include_component(
   )
 );
 ?>
+<article id="case-study" class="content">
+  <div class="container row">
+    <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">
+      <h3>A Case Study</h3>
+    </div>
+    <div class="col col-xs-6of12 col-sm-8of12 col-md-8of12 col-lg-8of12">
+      <p>Highlight an acheivement you're proud of with this component.*<br><small class="danger">*Information for this component all lives in the Porfolio element, not the component itself.</small></p>
+    </div>
+  </div>
+</article>
+<?php
+$portfolio = [
+  'client'      => get_field('case_study_client'),
+  'scope'       => get_field('case_study_scope'),
+  'outcome'     => get_field('case_study_outcome'),
+  'additionals' => get_field('case_study_additionals'),
+  'headline'    => 'FPO Case Study'
+];
+
+ll_include_component(
+  'case-study',
+  $portfolio,
+  array(
+  'classes' => 'enter',
+  'id'      => $id
+  )
+);
+?>
 <article id="locations" class="content">
   <div class="container row">
     <div class="col col-xs-6of12 col-sm-4of12 col-md-4of12 col-lg-4of12">

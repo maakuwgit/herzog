@@ -35,6 +35,7 @@ function roots_setup() {
   add_image_size( 'sm', 768, 480 );
   add_image_size( 'xs', 480, 320 );
   add_image_size( 'xxs', 400, 300 );
+  add_image_size( 'xlarge', 1600, 1200 );
   // Add post formats
   // http://codex.wordpress.org/Post_Formats
   // add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio'));

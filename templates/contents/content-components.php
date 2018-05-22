@@ -152,6 +152,25 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
+      case 'case-studies':
+      $cases = [
+        'client'      => get_sub_field('case_study_client'),
+        'scope'       => get_sub_field('case_study_scope'),
+        'outcome'     => get_sub_field('case_study_outcome'),
+        'additionals' => get_sub_field('case_study_additionals'),
+        'headline'    => 'FPO Case Study'
+      ];
+
+      $output .= ll_include_component(
+        'case-study',
+        $cases,
+        array(
+        'classes' => 'enter',
+        'id'      => $id
+        ),
+        true
+      );
+      break;
       case 'testimonial-grids':
         //Testimonial Grid
         $output .= ll_include_component(
