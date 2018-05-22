@@ -104,9 +104,26 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
       $headline = $division->post_title;
       $url = $division->guid;
     }
+
+    $logos = array(
+      'muted'     => get_field('division_logo_muted', $division),
+      'reversed'  => get_field('division_logo_reversed', $division)
+    );
+
+    if( $logos['muted'] ){
+      $logo    = ll_format_image($logos['muted']);
+      $logo_ov = ll_format_image($logos['reversed']);
+    }else{
+      $logo    = '<img alt="Placeholder Image" src="http://via.placeholder.com/158x100"
+srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x600 3x" data-src-md="http://via.placeholder.com/316x200" data-src-lg="http://via.placeholder.com/632x400 data-src-xl="http://via.placeholder.com/948x600">';
+      $logo_ov = '<img alt="Placeholder Image" src="//via.placeholder.com/158x100"
+srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x600 3x" data-src-md="http://via.placeholder.com/316x200" data-src-lg="http://via.placeholder.com/632x400 data-src-xl="http://via.placeholder.com/948x600">';
+    }
 ?>
-    <dt class="col-md-12of12 col-lg-2of12 col-xl-2of12 accordion--trigger<?php echo $flag; ?>" data-content-num="<?php echo $aID; ?>">
-      <?php ll_get_featured([158,100],true); ?>
+    <dt class="col-md-12of12 col-lg-2of12 col-xl-2of12 no-shadow accordion--trigger<?php echo $flag; ?>" data-content-num="<?php echo $aID; ?>" data-background>
+      <div class="feature">
+        <?php echo $logo . $logo_ov; ?>
+      </div>
     </dt>
     <dd class="col-md-12of12 col-lg-10of12 col-offset-lg-2of12 col-xl-10of12 col-offset-lg-2of12 col-offset-xl-2of12 accordion<?php echo $flag; ?>">
       <div class="row">

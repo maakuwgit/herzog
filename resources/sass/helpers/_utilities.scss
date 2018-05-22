@@ -194,6 +194,12 @@
   flex: 0 0 auto;
 }
 
+.no-shadow,
+[data-background].no-shadow {
+  text-shadow: none;
+  box-shadow: none;
+}
+
 /**
  * Text styles
  * ----------------------------------------------------------------------------

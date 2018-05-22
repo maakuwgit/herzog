@@ -1,6 +1,8 @@
 [data-component="accordion"] {
   position: relative;
   width: 100%;
+  padding-top: rem-calc(120);
+  padding-bottom: rem-calc(120);
   background-color: transparent;
   background-size: cover;
   .thumbnail {
@@ -32,6 +34,9 @@
     }
     .accordion--trigger {
       cursor: pointer;
+      background-size: 30%;
+      padding: $grid-column-padding;
+      min-height:75px;
     }
   }
   //The accordion itself
@@ -46,6 +51,24 @@
     }
     //The trigger, and on mobile, the headline
     dt {
+      background-size:contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      img {
+        width: 100%;
+        height: auto;
+        &:nth-of-type(2) {
+          display: none;
+        }
+      }
+      &:hover {
+        img {
+          display: none;
+          &:nth-of-type(2) {
+            display: intial;
+          }
+        }
+      }
     }
     dd {
       button, a {

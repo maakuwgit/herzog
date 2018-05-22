@@ -47,7 +47,7 @@ $use_modal = $args['modal'];
 if( $use_modal ) {
   $modal = ' data-mfp-src="#'.$args['modal_id'].'"';
 }
-$css = ' class="button';
+$css = ' class="button ';
 if( is_array($args['classes'] ) ) {
   $css .= implode( " ", $args['classes'] );
 }else{
