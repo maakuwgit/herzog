@@ -24,6 +24,13 @@ button.button {
     fill: $black;
     background-color: $white;
   }
+  &.button-large {
+    font-size: rem-calc(32);
+    .icon {
+      width: rem-calc(32);
+      height: rem-calc(32);
+    }
+  }
   &.dark {
     .icon {
       color: $white;

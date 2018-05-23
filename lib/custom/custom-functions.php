@@ -24,8 +24,8 @@ function format_text( $content ) {
 /*
  *
  */
-function ll_format_image( $hero ) {
-  return '<img alt="'.$hero['title'].'" src="'.$hero['sizes']['medium'].'"
+function ll_format_image( $hero, $data='' ) {
+  return '<img' . ($data ? ' '.$data : '') . ' alt="'.$hero['title'].'" src="'.$hero['sizes']['medium'].'"
   srcset="'.$hero['sizes']['large'].' 2x, '.$hero['url'].' 3x" data-src-md="'.$hero['sizes']['medium'].'" data-src-lg="'.$hero['sizes']['large'].'" data-src-xl="'.$hero['url'].'">';
 }
 

@@ -81,7 +81,13 @@
           $(pBtn).addClass('muted').off('click.prevContent');
         }
 
-        triggers.removeClass('active');
+        triggers.each(function(){
+          $(this).removeClass('active');
+          $(this).css('background-image','url('+$(this).find('.feature img:not([data-hover_img])').attr('src')+')');
+        });
+
+        $(this).css('background-image','url('+$(this).find('[data-hover_img]').attr('src')+')');
+
         showAccordion(trigger);
       }
 

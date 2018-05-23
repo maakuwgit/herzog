@@ -4,7 +4,31 @@
   padding-top: rem-calc(120);
   padding-bottom: rem-calc(120);
   background-color: transparent;
-  background-size: cover;
+  background-size: 125% auto;
+  background-position: top center;
+  .slider {
+    &.row li[class*="col"] {
+      padding-left: $grid-column-padding;
+      padding-right: $grid-column-padding;
+      &:first-of-type {
+        padding-left: 0;
+      }
+      &:last-of-type {
+        padding-right: 0;
+      }
+    }
+  }
+  .accordion-nav {
+    margin-top: $grid-gutter-width;
+    .accordion-nav__info {
+      svg {
+        margin-left: $grid-column-padding;
+        margin-top: rem-calc(16);
+        transform: rotate(-45deg);
+        margin-right: rem-calc(64);
+      }
+    }
+  }
   .thumbnail {
     width: 100%;
     [data-background] {
@@ -22,8 +46,8 @@
   }
   @include screen-lg-up {
     .accordion {
-      position: absolute;
       display: none;
+      padding: $grid-gutter-width * 3;
       opacity: 0;
       background-color: $ebony;
       box-shadow: 0 0 #{rem-calc(30)} 0 $black;
@@ -31,12 +55,46 @@
         display: block;
         opacity: 1;
       }
+      h2 {
+        margin-bottom: $grid-gutter-width;
+      }
+      p {
+        font-weight: $text-light;
+        font-size: rem-calc(16);
+        margin-bottom: $grid-gutter-width;
+      }
+      .button-cta {
+        margin-bottom: $grid-gutter-width * 2;
+        svg {
+          transform: scale(1.25);
+        }
+      }
     }
     .accordion--trigger {
+      position: absolute;
       cursor: pointer;
-      background-size: 30%;
+      background-size: auto 66.667%;
+      background-position: 33.334% center;
       padding: $grid-column-padding;
-      min-height:75px;
+      height: rem-calc(75);
+      &:nth-of-type(2) {
+        top: rem-calc(75);
+      }
+      &:nth-of-type(3) {
+        top: rem-calc(150);
+      }
+      &:nth-of-type(4) {
+        top: rem-calc(225);
+      }
+      &:nth-of-type(5) {
+        top: rem-calc(300);
+      }
+      &:nth-of-type(6) {
+        top: rem-calc(450);
+      }
+      &:nth-of-type(7) {
+        top: rem-calc(600);
+      }
     }
   }
   //The accordion itself
@@ -74,7 +132,6 @@
       button, a {
         &.button {
           margin: auto auto #{rem-calc(10)} auto;
-          font-size: rem-calc(14);
         }
       }
     }
