@@ -18,7 +18,7 @@ if( $years->have_posts() ) :
   endwhile;
   wp_reset_query();
 ?>
-<main class="hope-testimonial-columns" id="timeline" data-component="testimonial-columns" style="background-image: url(<?php echo $img_base_url . $first_image['file'];?> )" data-hover-panels>
+<main class="hope-testimonial-columns row start" id="timeline" data-component="testimonial-columns" style="background-image: url(<?php echo $img_base_url . $first_image['file'];?> )" data-hover-panels>
 <?php
   while( $years->have_posts() ) :
     $years->the_post();
@@ -42,50 +42,78 @@ if( $years->have_posts() ) :
     }
 ?>
 
-    <figure class="panel hope-testimonial-columns__column" data-background>
+    <div class="panel hope-testimonial-columns__column col col-md-6of12 col-lg-3of12 col-xl-3of12 stretch" data-background>
       <div class="feature"><?php echo ll_format_image($thumb); ?></div>
-      <span class="hope-testimonial-columns__tab sub-heading"><?php echo $division; ?></span>
 
-      <div class="hope-testimonial-columns__intro">
+      <section class="hope-testimonial-columns__intro row">
+        <div class="col">
+          <h2><?php the_title(); ?></h2>
+          <h3><?php echo $division; ?></h3>
+          <?php the_excerpt(); ?>
+          <?php
+            $button = array(
+              'icon'    => 'plus',
+              'theme'   => 'light',
+              'link'    => array(
+                  'title'   => '',
+                  'url'     => '#hover',
+                  'target'  => '_self'
+                )
+            );
 
-        <h2 class="display-heading"><?php the_title(); ?></h2>
-        <h3 class="sub-heading"><?php echo $division; ?></h3>
-        <?php the_excerpt(); ?>
-        <?php
-          $button = array(
-            'icon'    => 'plus',
-            'theme'   => 'light',
-            'link'    => array(
-                'title'   => '',
-                'url'     => '#hover',
-                'target'  => '_self'
+            ll_include_component(
+              'button',
+              $button,
+              array(
+                'classes' => array('button-open open-testimonial')
               )
-          );
-
-          ll_include_component(
-            'button',
-            $button,
-            array(
-              'classes' => array('button-open open-testimonial')
-            )
-          );
-        ?>
-      </div> <!-- /.hope-testimonial-columns__intro -->
-
-      <div class="hope-testimonial-columns__main">
-
-        <div class="hope-testimonial-columns__main-info">
-          <h2 class="display-heading"><?php the_title(); ?></h2>
-          <h3 class="sub-heading"><?php echo $division; ?></h3>
+            );
+          ?>
         </div>
+      </section> <!-- /.hope-testimonial-columns__intro -->
 
-        <?php echo the_content(); ?>
+      <article class="hope-testimonial-columns__main row">
+        <div class="col">
+        <?php
+            echo the_content();
 
-      </div> <!-- /.hope-testimonial-columns__main -->
+            $button = array(
+              'link'    => array(
+                  'title'   => 'Learn More',
+                  'url'     => get_the_permalink(),
+                  'target'  => '_self'
+                )
+            );
 
-      <button class="close-testimonial"></button>
-    </figure> <!-- /.hope-testimonial-columns__column -->
+            ll_include_component(
+              'button',
+              $button,
+              array(
+                'classes' => array('button-cta')
+              )
+            );
 
+            $button = array(
+              'icon'    => 'plus',
+              'theme'   => 'light',
+              'link'    => array(
+                  'title'   => '',
+                  'url'     => '#hover',
+                  'target'  => '_self'
+                )
+            );
+
+            ll_include_component(
+              'button',
+              $button,
+              array(
+                'classes' => array('button-close close-testimonial')
+              )
+            );
+          ?>
+          </div>
+      </article> <!-- /.hope-testimonial-columns__main -->
+    </div> <!-- /.hope-testimonial-columns__column -->
   <?php endwhile; wp_reset_query();?>
 </main>
 <?php endif; ?>

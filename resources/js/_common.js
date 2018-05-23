@@ -203,8 +203,12 @@
         var panels = $('[data-hover-panels] .panel');
 
         function updatePanels(e) {
-          $(panels).addClass('dim');
-          $(this).removeClass('dim');
+          $(panels).each(function(){
+            if( !$(this).hasClass('open') ){
+              $(this).addClass('dim');
+            }
+          });
+          $(this).removeClass('dim').find('.button-open');
         }
 
         function openPanel(e) {

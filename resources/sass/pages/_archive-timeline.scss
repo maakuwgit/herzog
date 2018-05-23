@@ -1,18 +1,16 @@
 /**
- * Single Timeline
+ * Timeline Archive
  */
 .hope-testimonial-columns {
-  overflow: hidden;
-  display: flex;
-  align-items: stretch;
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
   transition: 0.15s ease-in-out;
+  .feature {
+    display: inline !important;
+  }
   @include screen-lg-up {
     background-attachment: fixed;
-  }
-  @include screen-sm {
-    flex-wrap: wrap;
   }
 
   h3 {
@@ -22,8 +20,11 @@
   }
 
   .panel {
-    background-size: auto cover;
     @include screen-lg-up {
+      &.col:not([data]) {
+        padding-left: 0;
+        padding-right: 0;
+      }
       background-attachment: fixed;
     }
     &.dim {
@@ -43,15 +44,17 @@
   }
 
   .hope-testimonial-columns__column {
-    flex: 0 0 auto;
-    width: 20%;
-    height: calc(100vh - 80px);
     position: relative;
-    display: flex;
-    align-items: flex-end;
     color: $white;
     transition: 0.35s 1s ease-in-out;
     z-index: 0;
+    button,
+    .button {
+      margin-top: auto;
+    }
+    .button-open {
+      transform: scale(1.5);
+    }
     @include screen-lg-up {
       &:hover {
         box-shadow: 0 0 #{rem-calc(40)} $black;
@@ -111,6 +114,19 @@
                     transform 0.35s ease-in-out,
                     visibility 0.35s ease-in-out;
         }
+        .button-cta,
+        .button-close {
+          margin-top: auto;
+          svg, span {
+            opacity: 1;
+          }
+        }
+        .button-close {
+          position: absolute;
+          left: rem-calc(-8);
+          top: 50%;
+          transform: scale(1.5) rotate(45deg);
+        }
       }
 
       .open-testimonial {
@@ -123,10 +139,6 @@
           }
         }
       }
-    }
-
-    &.closed { // Handles the testimonials that are closed / not currently open
-      transition: width 0.35s 0.5s ease-in-out;
     }
   }
 
@@ -173,7 +185,7 @@
       transform: inherit;
     }
 
-    .display-heading {
+    h2 {
       margin-top: 0;
       font-size: rem-calc(60);
       font-weight: $text-light;
@@ -183,38 +195,6 @@
       position: absolute;
       top: 50%;
       left: rem-calc(-16);
-    }
-
-    .open-close-testimonial {
-      display: none;
-
-      @include screen-sm {
-        position: absolute;
-        top: 50%;
-        right: 1em;
-        transform: translateY(-50%) rotate(45deg);
-        opacity: 1;
-        visibility: 1;
-      }
-
-      &::after {
-        content: '+';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -56%);
-        font-size: 2.5em;
-        color: $grey;
-      }
-
-      &:hover {
-        background-color: darken( $white, 20% );
-        transform: rotate(180deg);
-
-        @include screen-sm {
-          transform: translateY(-50%) rotate(45deg);
-        }
-      }
     }
   }
 
@@ -249,21 +229,5 @@
         display: none;
       }
     }
-  }
-}
-
-
-
-@keyframes radiate {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
   }
 }
