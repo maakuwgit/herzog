@@ -138,7 +138,7 @@ if ( $locations->have_posts() ) : ?>
   srcset="//via.placeholder.com/632x400 2x, //via.placeholder.com/948x600 3x" data-src-md="//via.placeholder.com/316x200" data-src-lg="//via.placeholder.com/632x400 data-src-xl="//via.placeholder.com/948x600">';
           }
       ?>
-        <div class="col col-sm-4of12 col-md-6of12 col-lg-3of12 col-xl-3of12 text-center"<?php if( $use_interactions ) echo ' data-clickthrough';?>>
+        <div class="col col-xs-6of12 col-sm-4of12 col-md-6of12 col-lg-3of12 col-xl-3of12 text-center"<?php if( $use_interactions ) echo ' data-clickthrough';?>>
           <dt class="col text-left"><?php echo $abbr; ?></dt>
           <dd class="col text-left">
             <p class="text-bold"><?php echo $location['title']; ?></p>

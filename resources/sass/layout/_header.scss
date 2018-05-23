@@ -178,7 +178,7 @@ body {
   }
 }
 
-@include screen-lg-up {
+@include screen-md-up {
   .dropdown-menu {
     position: absolute;
     top: rem-calc(-16);
