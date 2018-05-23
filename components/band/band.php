@@ -87,7 +87,7 @@ if( $padded_bottom === true ) {
 }
 $css .= '"';
 
-$id = ' id="' . $args['id'] . '"';
+$id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 
 //Background for the section element
 if ( $section_bg ) {

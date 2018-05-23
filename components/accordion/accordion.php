@@ -67,7 +67,7 @@ do_action( "component_name_before_display", $component_data, $component_args );
 
 <?php
 if ( ll_empty( $data ) ) return;
-$css = ' class="accordion ';
+$css = ' class="accordion';
 if( is_array($args['classes'] ) ) {
   $css .= implode( " ", $args['classes'] );
 }else{
@@ -99,11 +99,13 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
     $case_studies = $accordion['accordion_case_studies'];
     $careers      = $accordion['accordion_careers'];
     $leaders      = $accordion['accordion_leaders'];
+    $target       = '';
 
     if( $division ) {
       $headline = $division->post_title;
       $abbr = get_field('division_abbreviation', $division->ID);
       $url = $division->guid;
+      $target = ' id="'.$abbr.'"';
     }
 
     $logos = array(
@@ -126,7 +128,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
         <?php echo $logo . $logo_ov; ?>
       </div>
     </dt>
-    <dd class="col-md-12of12 col-lg-10of12 col-offset-lg-2of12 col-xl-10of12 col-offset-lg-2of12 col-offset-xl-2of12 accordion<?php echo $flag; ?>">
+    <dd<?php echo $target; ?> class="col-md-12of12 col-lg-10of12 col-offset-lg-2of12 col-xl-10of12 col-offset-lg-2of12 col-offset-xl-2of12 accordion<?php echo $flag; ?>">
       <div class="container row between">
         <div class="col col-md-12of12 col-lg-7of12 col-xl-10of12">
           <h2><?php echo $headline; ?></h2>
@@ -148,7 +150,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
             );
             ?>
           </div>
-          <div class="col col-md-12of12 col-lg-3of12 col-xl-2of12">
+          <nav class="col col-md-12of12 col-lg-3of12 col-xl-2of12">
             <?php
               ll_include_component(
                 'button',
@@ -195,7 +197,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
                 )
               );
               ?>
-          </div>
+          </nav>
       </div>
     <?php if( $capabilities || $case_studies || $careers || $leaders ) : ?>
       <ul class="slider container row start no-bullet">

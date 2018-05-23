@@ -12,11 +12,19 @@
           width: 20%;
           &.menu-timeline {
             width: 30%;
+            @include screen-md {
+              figure {
+                display: none;
+              }
+            }
           }
         }
-        .widget {
-          display: block;
-          width: 50%;
+
+        @include screen-lg-up {
+          .widget {
+            display: block;
+            width: 50%;
+          }
         }
       }
     }

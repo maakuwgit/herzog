@@ -23,7 +23,7 @@ $default_args = [
 $data = ll_parse_args( $component_data, $default_data );
 $args = ll_parse_args( $component_args, $default_args );
 
-//if ( ll_empty( $component_data ) ) return;
+if ( ll_empty( $data['links'] ) ) return;
 
 $css = 'class="related-nav';
 if( $args['classes'] ) {
@@ -36,6 +36,7 @@ if( $args['classes'] ) {
 $css .= '"';
 
 $id       = $args['id'];
+
 ?>
 <aside<?php echo ' id="'.$id.'"'; ?> data-component="related-nav"<?php echo $css; ?>>
   <button class="button" data-trigger="related-nav">

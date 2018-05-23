@@ -19,10 +19,30 @@
     path {
       fill: $white;
     }
+    @include screen-lg-up {
+      &:hover {
+        path {
+          fill: $yellow;
+        }
+        svg {
+          animation: animateIcon 1s linear 0s infinite;
+        }
+      }
+    }
+
     &.active {
       path {
         fill: $yellow;
       }
+    }
+  }
+
+  @keyframes animateIcon {
+    from {
+      transform: rotate(0deg);
+    },
+    to {
+      transform: rotate(360deg)
     }
   }
   dl {
@@ -48,8 +68,8 @@
     bottom: rem-calc(104);
     right: 0;
     z-index: 10;
-    display: none;
     width: auto;
+    display: none;
     padding: $grid-gutter-width * 2;
     background-color: #121212;
     box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} 0 $black;

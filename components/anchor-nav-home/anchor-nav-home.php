@@ -50,7 +50,7 @@ $btns = '';
 
 foreach( $data as $btn ) {
   $btns .= '<li>';
-  $btns .= '<a target="' . $btn['anchor_btn_target'] . '" class="block button">';
+  $btns .= '<a href="' . $btn['anchor_btn_target'] . '" class="block button">';
   $btns .= '<small class="block aluminum">' . $btn['anchor_btn_abbr'] . '</small>';
   $btns .= $btn['anchor_btn_label'].'</a>';
   $btns .= '</a>';

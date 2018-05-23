@@ -50,6 +50,12 @@ body {
 
 #primary-nav {
   display: block;
+  @include screen-md {
+    .dropdown-menu {
+      padding-left: $grid_column_padding;
+      padding-bottom: $grid_column_padding;
+    }
+  }
   .menu-item a {
     position: relative;
     z-index: 1;
@@ -189,6 +195,9 @@ body {
           a {
             padding: $grid_column_padding/2 $grid_gutter_width;
             font-size: rem-calc(14);
+          }
+          @include screen-md {
+            display: none !important;
           }
         }
       }
