@@ -45,12 +45,12 @@ $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
   <section class="slideshow<?php echo $fullwidth; ?>">
     <div class="container row end">
 <?php endif; ?>
-  <div<?php echo $id . $css; ?> data-component="gallery" data-gallery-nav="<?php echo $nav_id; ?>">
-    <?php foreach($gallery as $slides) : ?>
-      <?php $slide = $slides['gallery_image'];?>
-      <?php echo ll_format_image($slide); ?>
-  <?php endforeach; ?>
-  </div>
+      <div<?php echo $id . $css; ?> data-component="gallery" data-gallery-nav="<?php echo $nav_id; ?>" style="width:100%;display:block;align-items: initial;flex: 0 0 auto;">
+        <?php foreach($gallery as $slides) : ?>
+          <?php $slide = $slides['gallery_image'];?>
+          <?php echo ll_format_image($slide); ?>
+      <?php endforeach; ?>
+      </div>
 <?php if( !$is_hero ) : ?>
     </div>
   </section>

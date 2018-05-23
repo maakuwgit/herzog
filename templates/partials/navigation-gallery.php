@@ -1,4 +1,4 @@
-<aside class="hero-nav">
+<aside class="hero-nav<?php echo $fullwidth; ?>">
   <div class="wrapper row">
     <nav id="<?php echo $nav_id; ?>" class="slick-nav col" data-slick-nav>
       <div>

@@ -7,10 +7,8 @@
  */
 
 .testimonial-grid {
+  width: 100%;
   padding-bottom: $grid-gutter-width;
-  .thumbnail:hover {
-    background-color: transparent !important;
-  }
   li {
     figure {
       min-height: 50vh;
@@ -43,8 +41,18 @@
     font-size: rem-calc(14);
     font-weight: $text-light;
   }
+  .slick-slider {
+    margin-left: auto;
+    margin-right: 0;
+    .slick-arrow {
+      display: none;
+    }
+  }
   .thumbnail {
     width: 100%;
+    &:hover {
+      background-color: transparent !important;
+    }
     .button {
       margin-left: rem-calc(-30);
     }

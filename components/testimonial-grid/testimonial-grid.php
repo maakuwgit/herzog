@@ -59,7 +59,7 @@ $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
         ?>
     </header>
   </div>
-  <div class="container row end">
+  <div class="container row">
     <ul class="row no-bullet">
       <?php
         while ( $testimonials->have_posts() ) {
