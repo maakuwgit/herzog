@@ -1,5 +1,5 @@
 /**
- * Hero Banner Styles
+ * Hero Styles
  * ----------------------------------------------------------------------------
  *
  * About the module
@@ -19,6 +19,9 @@ main.hero {
       padding-left: $grid-gutter-width;
       padding-right: $grid-gutter-width;
     }
+  }
+  .hero__logo {
+    z-index: 1;
   }
   .picture {
     position: absolute;

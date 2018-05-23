@@ -5,7 +5,9 @@
     $hero = array(
       'headline'        => array(
         'text'  => $headline['text'],
-        'tag'   => $headline['tag']
+        'style' => $headline['hero_headline_style'],
+        'tag'   => $headline['tag'],
+        'image' => $headline['image']
       ),
       'has_cta'     => get_field( 'hero_has_cta' ),
       'show_icons'  => get_field( 'hero_show_icons' ),
