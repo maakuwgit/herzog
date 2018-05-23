@@ -28,8 +28,9 @@ $css .= '"';
 $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 
 $groups = get_terms( array(
-  'taxonomy' => 'location_group',
-  'hide_empty' => true
+  'taxonomy'   => 'location_group',
+  'hide_empty' => true,
+  'order'      => 'DESC'
 ));
 
 if ( $groups ) :

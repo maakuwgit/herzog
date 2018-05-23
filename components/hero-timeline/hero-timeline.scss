@@ -1,0 +1,122 @@
+/**
+ * Hero Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ * Dev Note: need to come in and clean this up after the separation
+ */
+main.hero-timeline {
+  min-height: 100vh;
+  width: 100%;
+  flex: 0 0 auto;
+  > .wrapper {
+    align-content: center;
+  }
+
+  .graphics {
+    &.col:not([data-component]):not([data-slick-nav]) {
+      padding-left: $grid-gutter-width;
+      padding-right: $grid-gutter-width;
+    }
+  }
+
+  .graphic-finger {
+    margin-left: $grid-column-padding;
+    transform: rotate(-45deg);
+  }
+
+  h1, h2 {
+    position: relative;
+    z-index: 1;
+    &.col:not([data-component]):not([data-slick-nav]) {
+      padding-left: $grid-gutter-width;
+      padding-right: $grid-gutter-width;
+    }
+  }
+
+  h1 {
+    margin-bottom: $grid-column-padding * 3;
+    &.col:not([data-component]):not([data-slick-nav]) {
+      margin-top: rem-calc(120);
+    }
+  }
+
+  h2 {
+    margin-bottom: $grid-gutter-width * 4;
+  }
+  .hero__logo {
+    z-index: 1;
+  }
+  .picture {
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    overflow:hidden;
+    padding-left: 0;
+    padding-right: 0;
+    color: $white;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &.background {
+      @include screen-lg-up {
+        background-attachment: fixed;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba($black,0.4);
+      }
+    }
+    &[data-background] {
+      min-height: 100vh;
+      &.background {
+        @include screen-lg-up {
+          margin-left: rem-calc(-16);
+          margin-right: rem-calc(-16);
+          width: calc(100% + #{rem-calc(32)};
+          max-width: none;
+        }
+      }
+    }
+
+    & > .container {
+      position: relative;
+      align-self: stretch;
+      z-index: 1;
+    }
+
+    .button {
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature {
+      img {
+        opacity: 0;
+      }
+    }
+
+    .loop-video-container {
+      z-index: 0
+    }
+
+    .play-video-button {
+      position:absolute;
+      z-index: 1;
+      bottom: 0;
+      display: inline-flex;
+      margin: auto;
+      padding: rem-calc(32);
+      color: white;
+      left: 0;
+      right: 0;
+    }
+  }
+}

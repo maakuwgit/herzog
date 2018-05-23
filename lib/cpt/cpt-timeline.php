@@ -24,7 +24,7 @@ if ( ! function_exists('register_timeline_custom_post_type') ) {
     );
     $args = array(
       'label'               => 'timeline',
-      'description'         => 'Timeline description',
+      'description'         => 'Learn about our company history',
       'supports'            => array( 'title', 'excerpt', 'editor', 'thumbnail', 'page-attributes' ),
       'labels'              => $labels,
       'with_front'          => true,
@@ -33,7 +33,7 @@ if ( ! function_exists('register_timeline_custom_post_type') ) {
       'public'              => true,
       'show_ui'             => true,
       'show_in_menu'        => true,
-      'show_in_nav_menus'   => false,
+      'show_in_nav_menus'   => true,
       'show_in_admin_bar'   => true,
       'menu_position'       => 21,
       'menu_icon'           => 'dashicons-chart-area',
@@ -89,4 +89,17 @@ if ( ! function_exists('register_timeline_taxonomies') ) {
 
   add_action( 'init', 'register_timeline_taxonomies', 0 );
 
+}
+
+/**
+ * Create ACF setting page under CPT menu
+ */
+if ( function_exists( 'acf_add_options_sub_page' ) ){
+ acf_add_options_sub_page(array(
+   'page_title' => 'Timeline Settings',
+   'menu_title' => 'Settings',
+   'menu_slug'  => 'timeline_settings',
+   'parent'     => 'edit.php?post_type=timeline',
+   'capability' => 'manage_options'
+ ));
 }

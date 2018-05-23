@@ -240,6 +240,13 @@
                 "operator": "==",
                 "value": "category"
             }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "testimonial_settings"
+            }
         ]
     ],
     "menu_order": 1,
@@ -250,5 +257,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526994974
+    "modified": 1527097956
 }

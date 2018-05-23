@@ -85,7 +85,8 @@ section + .hero-nav {
 .slick-slide {
   display: none;
   float: left;
-  height: 100vh;
+  /*height: 100vh;*/
+  height: auto;
   &.slick-active {
     .feature {
       display: block !important;

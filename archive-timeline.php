@@ -1,10 +1,39 @@
 <?php
+if( function_exists( 'll_format_post_banner' ) ) {
+  $cat = get_queried_object();
+  $targets = array();
+  $headline = get_field('timeline_archive_hero_text', 'options' );
+  if( !$headline['headline'] ) {
+    $headline['headline'] = get_bloginfo('title') . ' ' . ucfirst($cat->name);
+  }
+  $text = array(
+    'headline'    => $headline['headline'],
+    'subheadline' => $headline['subheadline']
+  );
+
+  $hero_banner = array(
+    'text'          => array(
+      'headline'    => $text['headline'],
+      'subheadline' => $text['subheadline']
+    ),
+    'bg_image'    => get_field( 'timeline_archive_background_image', 'options' )
+  );
+
+  ll_include_component(
+    'hero-timeline',
+    $hero_banner,
+    array(
+      'targets' => $targets
+    )
+  );
+}
+
 $img_base_url = get_bloginfo('url') . '/wp-content/uploads/';
 
 $yargs = array(
   'posts_per_page' => -1,
   'order'          => 'ASC',
-  'orderby'        => 'menu_order',
+  'orderby'        => 'slug',
   'post_status'    => 'publish',
   'post_type'      => 'timeline',
 );
@@ -18,7 +47,7 @@ if( $years->have_posts() ) :
   endwhile;
   wp_reset_query();
 ?>
-<main class="hope-testimonial-columns row start" id="timeline" data-component="testimonial-columns" style="background-image: url(<?php echo $img_base_url . $first_image['file'];?> )" data-hover-panels>
+<div class="hope-testimonial-columns row start" id="timeline" data-component="testimonial-columns" style="background-image: url(<?php echo $img_base_url . $first_image['file'];?> )" data-hover-panels>
 <?php
   while( $years->have_posts() ) :
     $years->the_post();
@@ -114,5 +143,5 @@ if( $years->have_posts() ) :
       </article> <!-- /.hope-testimonial-columns__main -->
     </div> <!-- /.hope-testimonial-columns__column -->
   <?php endwhile; wp_reset_query();?>
-</main>
+</div>
 <?php endif; ?>

@@ -8,11 +8,12 @@
 */
 $defaults = [
   'headline' => array(
-    'text' => null,
-    'tag'  => 'h1',
-    'image' => false
+    'text'   => null,
+    'tag'    => 'h1',
+    'image'  => false,
+    'style'  => 'text',
   ),
-  'type'    => 'text',
+  'type'    => 'image',
   'has_cta' => false,
   'button' => null,
   'show_icon' => true,

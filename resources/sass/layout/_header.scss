@@ -85,7 +85,7 @@ body {
     }
     &.active {
       height: 100vh;
-      overflow: visible;
+      overflow: scroll;
       a {
         opacity: 1;
       }
@@ -95,8 +95,13 @@ body {
       flex-direction: column;
       .menu-item {
         width: 100%;
-        .dropdown-menu.collapsed {
-          display: none;
+        .dropdown-menu {
+          &.collapsed {
+            display: none;
+          }
+          .dropdown-menu {
+            display: block;
+          }
         }
       }
     }

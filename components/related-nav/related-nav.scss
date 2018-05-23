@@ -9,7 +9,7 @@
 .related-nav {
   button:not([data-nav]):not(.mfp-close):not([class*=slick]) {
     position: fixed;
-    z-index: 15;
+    z-index: 9;
     right: 0;
     bottom: $grid-gutter-width;
     margin: auto;

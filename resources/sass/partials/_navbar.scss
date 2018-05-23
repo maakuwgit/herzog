@@ -9,7 +9,9 @@
     &.has_sidebar {
       > .dropdown-menu {
           > li {
-          width: 20%;
+          @include screen-lg-up {
+            width: 20%;
+          }
           &.menu-timeline {
             width: 30%;
             @include screen-md {

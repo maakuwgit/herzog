@@ -1,8 +1,20 @@
 /**
  * Timeline Archive
  */
+.post-type-archive-timeline {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  > footer {
+    display: none;
+  }
+}
 .hope-testimonial-columns {
   flex-flow: nowrap;
+  flex: 0 0 auto;
   width: auto;
   overflow-x: visible;
   min-height: 100vh;
@@ -24,9 +36,11 @@
 
   .panel {
     position: relative;
+    max-width: 250px;
     color: $white;
     transition: 0.35s 1s ease-in-out;
     z-index: 0;
+    overflow: visible;
     button,
     .button {
       margin-top: auto;
