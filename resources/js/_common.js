@@ -200,41 +200,24 @@
         }
 
         //Timeline
-        $('.hope-testimonial-columns__column').hover(function() {
-          if ( !$(this).hasClass('no-hover') ) {
-            var bg_image = $(this).data('bg');
-            var image = new Image();
-            image.src = bg_image;
-            image.onload = function() {
-              $('.hope-testimonial-columns').css('background-image', 'url(' + bg_image + ')');
-            };
-          }
-        });
+        var panels = $('[data-hover-panels] .panel');
 
-        $('.open-testimonial:not(.open-close-testimonial)').click(function() {
-          $('.open').removeClass('open');
-          $(this).parent().parent().addClass('open');
-          $('.hope-testimonial-columns__column').not('.open').addClass('closed');
-          $('.hope-testimonial-columns__column').addClass('no-hover');
-        });
+        function updatePanels(e) {
+          $(panels).addClass('dim');
+          $(this).removeClass('dim');
+        }
 
-        $('.close-testimonial').click(function() {
-          $(this).parent().removeClass('open');
-          $('.hope-testimonial-columns__column').removeClass('closed');
-          $('.hope-testimonial-columns__column').addClass('no-hover');
-          setTimeout(function() {
-            $('.hope-testimonial-columns__column').removeClass('no-hover');
-          }, 1300);
-        });
+        function openPanel(e) {
+          var wrapper = $(this).parent();
+          $(panels).removeClass('open').addClass('transparent');
+          $(this).addClass('open').removeClass('transparent');
+          wrapper.css('background-image', 'url('+$(this).find('.feature img').attr('src')+')');
+        }
 
-        $('.open-close-testimonial').click(function() {
-          $(this).parent().parent().removeClass('open');
-          $('.hope-testimonial-columns__column').removeClass('closed');
-          $('.hope-testimonial-columns__column').addClass('no-hover');
-          setTimeout(function() {
-            $('.hope-testimonial-columns__column').removeClass('no-hover');
-          }, 1300);
-        });
+        $('[data-hover-panels]').each( function(i) {
+          $(panels).addClass('dim');
+            $(this).find('.panel').on('click.openPanel', openPanel).on('mouseenter.updatePanels', updatePanels);
+        } );
         //EOF
 
         $('a[href*="#"]:not(.js-no-scroll):not([href="#"])').click(function() {

@@ -1,0 +1,269 @@
+/**
+ * Single Timeline
+ */
+.hope-testimonial-columns {
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  background-size: cover;
+  background-position: center;
+  transition: 0.15s ease-in-out;
+  @include screen-lg-up {
+    background-attachment: fixed;
+  }
+  @include screen-sm {
+    flex-wrap: wrap;
+  }
+
+  h3 {
+    margin-bottom: $grid-column-padding;
+    font-size: rem-calc(16);
+    font-weight: $text-medium;
+  }
+
+  .panel {
+    background-size: auto cover;
+    @include screen-lg-up {
+      background-attachment: fixed;
+    }
+    &.dim {
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right:0;
+        bottom:0;
+        top: 0;
+        background-color: rgba($black, 0.3);
+      }
+    }
+    &.transparent {
+      background-image: none !important;
+    }
+  }
+
+  .hope-testimonial-columns__column {
+    flex: 0 0 auto;
+    width: 20%;
+    height: calc(100vh - 80px);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    color: $white;
+    transition: 0.35s 1s ease-in-out;
+    z-index: 0;
+    @include screen-lg-up {
+      &:hover {
+        box-shadow: 0 0 #{rem-calc(40)} $black;
+        button,
+        .button {
+          svg, span {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    @include screen-sm {
+      height: auto;
+      width: 100%;
+      display: block;
+    }
+
+    &::after {
+      @extend %overlay;
+      background-color: rgba( $black, 0.3 );
+      z-index: -1;
+    }
+
+    &.open { // Handles the testimonial that is currently open
+
+      .hope-testimonial-columns__intro {
+        visibility: hidden;
+        transform: translate3d(0, 10%, 0);
+        opacity: 0;
+        transition: opacity 0.35s ease-in-out,
+                    transform 0.35s ease-in-out,
+                    visibility 0.35s ease-in-out;
+
+        @include screen-sm {
+          visibility: visible;
+          transform: translateY(0);
+          opacity: 1;
+          width: 100%;
+          padding-bottom: 0;
+        }
+      }
+
+      .hope-testimonial-columns__main {
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        height: auto;
+        transition: opacity 0.35s 1s ease-in-out,
+                    transform 0.35s 1s ease-in-out,
+                    visibility 0.35s 1s ease-in-out;
+
+        @include screen-sm {
+          transition: opacity 0.35s ease-in-out,
+                    transform 0.35s ease-in-out,
+                    visibility 0.35s ease-in-out;
+        }
+      }
+
+      .open-testimonial {
+        @include screen-sm {
+          display: none;
+          transform: translateY(-50%) rotate(225deg);
+
+          &:hover {
+            transform: translateY(-50%) rotate(315deg);
+          }
+        }
+      }
+    }
+
+    &.closed { // Handles the testimonials that are closed / not currently open
+      transition: width 0.35s 0.5s ease-in-out;
+    }
+  }
+
+
+
+
+
+  .hope-testimonial-columns__tab {
+    visibility: hidden;
+    position: absolute;
+    top: 15em;
+    right: 0;
+    transform: rotate(270deg);
+    width: 100%;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.35s 0.5s ease-in-out,
+                visibility 0.35s 0.5s ease-in-out,
+                transform 0.35s 0.5s ease-in-out;
+  }
+
+  .hope-testimonial-columns__intro {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+    padding: 0 6em 0 2em;
+    font-size: 0.9em;
+    height: auto;
+    transition: opacity 0.35s 1.5s ease-in-out,
+                transform 0.35s 1.5s ease-in-out,
+                visibility 0.35s 1.5s ease-in-out;
+
+    @include screen-md {
+      font-size: 0.8em;
+    }
+
+    @include screen-sm {
+      padding: 2em;
+      width: 100%;
+      position: relative;
+      top: inherit;
+      left: inherit;
+      transform: inherit;
+    }
+
+    .display-heading {
+      margin-top: 0;
+      font-size: rem-calc(60);
+      font-weight: $text-light;
+    }
+
+    .open-testimonial {
+      position: absolute;
+      top: 50%;
+      left: rem-calc(-16);
+    }
+
+    .open-close-testimonial {
+      display: none;
+
+      @include screen-sm {
+        position: absolute;
+        top: 50%;
+        right: 1em;
+        transform: translateY(-50%) rotate(45deg);
+        opacity: 1;
+        visibility: 1;
+      }
+
+      &::after {
+        content: '+';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -56%);
+        font-size: 2.5em;
+        color: $grey;
+      }
+
+      &:hover {
+        background-color: darken( $white, 20% );
+        transform: rotate(180deg);
+
+        @include screen-sm {
+          transform: translateY(-50%) rotate(45deg);
+        }
+      }
+    }
+  }
+
+  .hope-testimonial-columns__main {
+    position: absolute;
+    padding: 0 2em 5em;
+    font-size: 0.9em;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20%);
+    max-width: 450px;
+    pointer-events: none;
+    transition: opacity 0.35s ease-in-out,
+                transform 0.35s ease-in-out,
+                visibility 0.35s ease-in-out;
+
+    @include screen-xl {
+      padding: 0 2em 2em;
+    }
+
+    @include screen-sm {
+      padding: 0 1.5em 5em;
+      transition: none;
+
+      .hope-testimonial-columns__main-info {
+        display: none;
+      }
+    }
+
+    .hope-testimonial-columns__main-info {
+      @include screen-sm {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+@keyframes radiate {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
