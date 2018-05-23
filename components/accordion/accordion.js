@@ -28,6 +28,17 @@
       var numAcc  = triggers.length,
           currAcc = 0;
 
+      var gallery = $("[data-component='"+_this.className+"']");
+      gallery.find('ul.slider').each(function(){
+        $(this).slick({
+          infinite: false,
+          fade: false,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          arrows: false
+        });
+      });
+
       $(window).on('resize.refactorAccordions', refactorAccordions );
       refactorAccordions();
 

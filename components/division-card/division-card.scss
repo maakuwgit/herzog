@@ -33,6 +33,13 @@
   dl {
     @include screen-sm-up {
       border-left: solid 1px $smoke;
+      margin-left: $grid-column-padding;
+      width: calc(66.6667% - #{$grid-column-padding});
+    }
+    @include screen-md-up {
+      dt {
+        padding-left: $grid-gutter-width * 2 !important;
+      }
     }
     @include screen-sm {
       &.col:not([data-component]):not([data-slick-nav]) {
@@ -51,7 +58,10 @@
       display: flex;
       width: 50%;
       flex: 0 0.5 auto;
-      margin-bottom: $grid-gutter-width;
+      margin-bottom: $grid-gutter-width * 2;
     }
+  }
+  nav {
+    margin-top: rem-calc(120);
   }
 }
