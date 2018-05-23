@@ -26,17 +26,16 @@ if( $years->have_posts() ) :
     $thumb = wp_get_attachment_metadata(get_post_thumbnail_id(get_the_ID()));
     if( !$thumb ) {
       $thumb = false;//Dev Note: add placeholder $args['client_hero'];
-      var_dump($thumb);
     }else{
       $thumb = array(
         'title' => $thumb['image_meta']['title'],
         'url' => $img_base_url . $thumb['file'],
         'sizes' => array(
-          'full' => $img_base_url . $thumb['sizes']['large']['file'],
-          'xlarge' => $img_base_url . $thumb['sizes']['large']['file'],
-          'large' => $img_base_url . $thumb['sizes']['large']['file'],
-          'medium' => $img_base_url . $thumb['sizes']['medium']['file'],
-          'thumbnail' => $img_base_url . $thumb['sizes']['sm']['file']
+          'full' => $img_base_url . $thumb['file'],
+          'xlarge' => $img_base_url . $thumb['file'],
+          'large' => $img_base_url . $thumb['file'],
+          'medium' => $img_base_url . $thumb['file'],
+          'thumbnail' => $img_base_url . $thumb['file']
         )
       );
     }

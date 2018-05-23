@@ -208,19 +208,30 @@
               $(this).addClass('dim');
             }
           });
-          $(this).removeClass('dim').find('.button-open');
+          $(this).removeClass('dim');
         }
 
         function openPanel(e) {
+          console.log('open');
           var wrapper = $(this).parent();
           $(panels).removeClass('open').addClass('transparent');
           $(this).addClass('open').removeClass('transparent');
           wrapper.css('background-image', 'url('+$(this).find('.feature img').attr('src')+')');
         }
 
+        function closePanel(e) {
+          console.log('close');
+          $(panels).off('mouseenter.updatePanels').off('click.openPanel');
+          $(panels).removeClass('open').removeClass('transparent').removeClass('dim');
+          setTimeout(function(){
+            $(panels).on('mouseenter.updatePanels', updatePanels).on('click.openPanel', openPanel);
+          }, 300);
+        }
+
         $('[data-hover-panels]').each( function(i) {
           $(panels).addClass('dim');
-            $(this).find('.panel').on('click.openPanel', openPanel).on('mouseenter.updatePanels', updatePanels);
+          $(this).find('.panel').on('click.openPanel', openPanel).on('mouseenter.updatePanels', updatePanels);
+          $(this).find('.button-close').on('click.closePanel', closePanel);
         } );
         //EOF
 

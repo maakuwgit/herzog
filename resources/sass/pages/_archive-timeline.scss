@@ -2,6 +2,9 @@
  * Timeline Archive
  */
 .hope-testimonial-columns {
+  flex-flow: nowrap;
+  width: auto;
+  overflow-x: visible;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
@@ -20,30 +23,6 @@
   }
 
   .panel {
-    @include screen-lg-up {
-      &.col:not([data]) {
-        padding-left: 0;
-        padding-right: 0;
-      }
-      background-attachment: fixed;
-    }
-    &.dim {
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        right:0;
-        bottom:0;
-        top: 0;
-        background-color: rgba($black, 0.3);
-      }
-    }
-    &.transparent {
-      background-image: none !important;
-    }
-  }
-
-  .hope-testimonial-columns__column {
     position: relative;
     color: $white;
     transition: 0.35s 1s ease-in-out;
@@ -54,8 +33,11 @@
     }
     .button-open {
       transform: scale(1.5);
+      left: rem-calc(-8);
     }
     @include screen-lg-up {
+      flex: 0 0 auto;
+      background-attachment: fixed;
       &:hover {
         box-shadow: 0 0 #{rem-calc(40)} $black;
         button,
@@ -64,6 +46,10 @@
             opacity: 1;
           }
         }
+      }
+      &.col:not([data]) {
+        padding-left: 0;
+        padding-right: 0;
       }
     }
 
@@ -128,39 +114,26 @@
           transform: scale(1.5) rotate(45deg);
         }
       }
+    }
 
-      .open-testimonial {
-        @include screen-sm {
-          display: none;
-          transform: translateY(-50%) rotate(225deg);
-
-          &:hover {
-            transform: translateY(-50%) rotate(315deg);
-          }
-        }
+    &.dim {
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right:0;
+        bottom:0;
+        top: 0;
+        background-color: rgba($black, 0.3);
       }
+    }
+
+    &.transparent {
+      background-image: none !important;
     }
   }
 
-
-
-
-
-  .hope-testimonial-columns__tab {
-    visibility: hidden;
-    position: absolute;
-    top: 15em;
-    right: 0;
-    transform: rotate(270deg);
-    width: 100%;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.35s 0.5s ease-in-out,
-                visibility 0.35s 0.5s ease-in-out,
-                transform 0.35s 0.5s ease-in-out;
-  }
-
-  .hope-testimonial-columns__intro {
+  section {
     position: absolute;
     top: 50%;
     left: 0;
@@ -194,11 +167,11 @@
     .open-testimonial {
       position: absolute;
       top: 50%;
-      left: rem-calc(-16);
+      left: rem-calc(-8);
     }
   }
 
-  .hope-testimonial-columns__main {
+  article {
     position: absolute;
     padding: 0 2em 5em;
     font-size: 0.9em;
