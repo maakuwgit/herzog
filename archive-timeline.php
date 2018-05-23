@@ -68,6 +68,18 @@ if( $years->have_posts() ) :
         )
       );
     }
+
+    $tags = '';
+    $groups = get_the_terms(get_the_ID(), 'type');
+    if( is_array( $groups ) ) {
+      $tags = '<ul class="no-bullet tags">';
+      foreach( $groups as $group ) {
+        $tags .= '<li class="aluminum"><b>' . $group->name . '</b></li>';
+      }
+      $tags .= '</ul>';
+    }else{
+      $groups = '';
+    }
 ?>
 
     <div class="panel hope-testimonial-columns__column col col-md-6of12 col-lg-3of12 col-xl-3of12 stretch" data-background>
@@ -78,6 +90,7 @@ if( $years->have_posts() ) :
           <h2><?php the_title(); ?></h2>
           <h3><?php echo $division; ?></h3>
           <?php the_excerpt(); ?>
+          <?php echo $tags; ?>
           <?php
             $button = array(
               'icon'    => 'plus',

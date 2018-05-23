@@ -62,7 +62,7 @@ $id   = $args['id'];
       <?php echo get_mouse_icon(); ?>
       <?php echo get_finger_icon(); ?>
       <figcaption>
-        <p>Scroll or click and drag to explore our company milestones &amp; innovations</p>
+        <p class="text-normal">Scroll or click and drag to explore our <br>company milestones &amp; innovations</p>
       </figcaption>
     </figure>
   </div>

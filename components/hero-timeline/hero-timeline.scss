@@ -18,6 +18,11 @@ main.hero-timeline {
       padding-left: $grid-gutter-width;
       padding-right: $grid-gutter-width;
     }
+    p {
+      margin-bottom: auto;
+      margin-top: $grid-column-padding;
+      font-size: rem-calc(14);
+    }
   }
 
   .graphic-finger {
