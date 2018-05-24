@@ -41,8 +41,12 @@
   h3 {
     max-width: rem-calc(250);
     margin-top: rem-calc(-15);
-    margin-left: $grid-gutter-width * 2;
+    margin-bottom: $grid-gutter-width;
+    margin-left: 0;
     font-size: rem-calc(24);
     font-weight: $text-medium;
+    @include screen-lg-up {
+      margin-left: $grid-gutter-width * 2;
+    }
   }
 }

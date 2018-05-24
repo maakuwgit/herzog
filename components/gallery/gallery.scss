@@ -96,6 +96,7 @@ section + .hero-nav {
   &.slick-active {
     .feature {
       display: block !important;
+      background-color: transparent !important;
     }
   }
   &.slick-loading img {

@@ -39,9 +39,15 @@
     }
   }
   .container {
-    margin-bottom: rem-calc(125);
+    margin-bottom: $grid-gutter-width * 2;
+    @include screen-lg-up {
+      margin-bottom: rem-calc(125);
+    }
   }
   .picture {
     min-height: 140px;
+    @include screen-sm {
+      margin-bottom: $grid-gutter-width;
+    }
   }
 }

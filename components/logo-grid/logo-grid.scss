@@ -7,8 +7,11 @@
  */
 
 .logo-grid {
-  padding-top: rem-calc(120);
+  padding-top: $grid-gutter-width * 2;
   padding-bottom: $grid-gutter-width * 2;
+  @include screen-md-up {
+    padding-top: rem-calc(120);
+  }
   h2 {
     margin-top: $grid-gutter-width;
     margin-bottom: $grid-column-padding;
@@ -26,12 +29,20 @@
       border-top: solid 1px $grey;
     }
   }
-  .box-grid .col {
-    padding-top: $grid-column-padding * 3;
-    padding-bottom: $grid-column-padding * 3;
+  .box-grid [class*=col],
+  .box-grid [class^=col] {
+    .row & {
+      padding-top: $grid-column-padding * 3;
+      padding-bottom: $grid-column-padding * 3;
+    }
   }
   ul {
     margin-top: 0;
     margin-bottom: 0;
+  }
+  @include screen-sm {
+    img {
+      margin: auto;
+    }
   }
 }

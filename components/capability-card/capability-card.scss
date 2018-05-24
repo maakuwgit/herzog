@@ -44,12 +44,16 @@
       }
     }
     @include screen-sm {
+      margin-top: 0;
       &.col:not([data-component]):not([data-slick-nav]) {
         padding-top: $grid-gutter-width;
         padding-left: 0;
         padding-right: 0;
       }
-      margin-top: 0;
+      .row {
+        margin-left: $grid-column-padding;
+        margin-right: $grid-column-padding;
+      }
     }
     > div:last-of-type {
       dt, dd {
@@ -64,6 +68,10 @@
     }
   }
   nav {
-    margin-top: rem-calc(120);
+    margin-top: $grid-gutter-width * 2;
+    margin-bottom: $grid-gutter-width * 2;
+    @include screen-lg-up {
+      margin-top: rem-calc(120);
+    }
   }
 }

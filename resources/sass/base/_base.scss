@@ -156,12 +156,12 @@ input:not([type="button"]):not([type="image"]):not([type="submit"]) {
 }
 
 body > article {
-  padding-top: rem-calc(111);
-  /* this is causing more harm than good methinks
-  padding-bottom: rem-calc(150);*/
+  @include screen-lg-up {
+    padding-top: rem-calc(111);
+  }
   background-color: #121212;
   box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
-  *:last-child {
+  > .container > *:last-child {
     padding-bottom: 0;
   }
   @include screen-md {

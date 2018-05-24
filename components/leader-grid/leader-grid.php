@@ -29,7 +29,7 @@ $margs = array(
 $members = new WP_Query( $margs );
 
 if( $members->have_posts() ) :
-$css = 'class="leader-grid';
+$css = 'class="leader-grid content';
 if( $args['classes'] ) {
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );

@@ -70,7 +70,7 @@ $logos       = $data['logos'];
           }
       ?>
         <?php if( is_array($logo) && sizeof($logo) > 0 ) : ?>
-        <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12"><?php echo ll_format_image($logo['logo_image']); ?></li>
+        <li class="col-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12"><?php echo ll_format_image($logo['logo_image']); ?></li>
         <?php endif; ?>
       <?php endforeach; ?>
     </ul>

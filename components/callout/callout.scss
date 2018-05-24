@@ -2,9 +2,19 @@
   padding-top: $grid-gutter-width;
   padding-bottom: $grid-gutter-width;
   background-color: #191919;
+  @include screen-sm {
+    padding-left: $grid-gutter-width;
+    padding-right: $grid-gutter-width;
+  }
   @include screen-lg-up {
     padding-top: rem-calc(124);
     padding-bottom: rem-calc(124);
+    p {
+      font-size: rem-calc(21);
+    }
+    .hero, nav {
+      width: 50%;
+    }
   }
   * {
     color: $white;
@@ -23,14 +33,5 @@
     font-size: rem-calc(18);
     font-weight: $text-light;
     line-height: 1.75;
-  }
-
-  @include screen-lg-up {
-    p {
-      font-size: rem-calc(21);
-    }
-    .hero, nav {
-      width: 50%;
-    }
   }
 }

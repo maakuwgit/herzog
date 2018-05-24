@@ -27,11 +27,24 @@
     }
   }
   .gfield {
-    width: 50%;
-    flex: 0 0.5 auto;
+    width: 100%;
+    flex: 0 1 auto;
+    @include screen-lg-up {
+      width: 50%;
+      flex: 0 0.5 auto;
+      padding-left: $grid-column-padding;
+      padding-right: $grid-column-padding;
+    }
   }
 }
-
+.gform_title {
+  margin-bottom: $grid-gutter-width;
+  @include screen-lg-up {
+    margin-bottom: rem-calc(120);
+    padding-left: $grid-column-padding;
+    padding-right: $grid-column-padding;
+  }
+}
 /**
  * Validation
  */

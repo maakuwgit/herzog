@@ -20,6 +20,12 @@
       font-size: rem-calc(36);
       line-height: 1.9375;
     }
+    @include screen-sm {
+      &.col:not([data-component]):not([data-slick-nav]) {
+        padding-left: $grid-column-padding * 3;
+        padding-right: $grid-column-padding * 3;
+      }
+    }
   }
 
   .container {

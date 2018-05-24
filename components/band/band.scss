@@ -1,7 +1,5 @@
 .band {
   width: 100%;
-  padding-top: $grid-gutter-width;
-  padding-bottom: $grid-gutter-width;
   &.padded-top {
     padding-top: $grid-gutter-width * 2;
   }

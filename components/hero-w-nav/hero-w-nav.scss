@@ -7,7 +7,7 @@
  */
 .hero-w-nav {
   @include screen-md {
-    min-height: 50vh;
+    min-height: 270px;
     h1, h2 {
       margin-top: 25vh;
     }
@@ -24,6 +24,14 @@
       margin-top: rem-calc(225);
       margin-right: auto;
       margin-left: 15%;
+    }
+    @include screen-sm {
+      &.col:not([data-component]):not([data-slick-nav]) {
+        padding-left: $grid-column-padding * 3;
+        padding-right: $grid-column-padding * 3;
+      }
+      text-shadow: 0 0 #{rem-calc(10)} black;
+      line-height: 1.25;
     }
   }
   .picture {
@@ -105,10 +113,12 @@
   }
 
   + .hero-nav {
-    body > & {
-      > .wrapper {
-        padding-right: 0;
-        padding-left: 0;
+    @include screen-lg-up {
+      body > & {
+        > .wrapper {
+          padding-right: 0;
+          padding-left: 0;
+        }
       }
     }
     figure {

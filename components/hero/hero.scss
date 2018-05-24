@@ -19,6 +19,10 @@ main.hero {
       padding-left: $grid-gutter-width;
       padding-right: $grid-gutter-width;
     }
+    @include screen-sm {
+      text-shadow: 0 0 #{rem-calc(10)} black;
+      line-height: 1.25;
+    }
   }
   .hero__logo {
     z-index: 1;
