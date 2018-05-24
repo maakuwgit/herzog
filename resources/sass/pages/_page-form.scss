@@ -3,10 +3,13 @@
  */
 body.page-template-template-form {
   > article {
+    background-color: $black;
+  }
+  > article {
     padding-bottom: 0;
   }
   @include screen-lg-up {
-    padding-bottom: rem-calc(120);
+    padding-bottom: $padding-large;
     #gform_1 {
       .gfield:last-of-type {
         position: absolute;

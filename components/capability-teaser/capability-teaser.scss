@@ -15,7 +15,7 @@
     }
   }
   dt, p {
-    margin-bottom: $grid-gutter-width;
+    margin-bottom: $padding-small;
   }
   p, li {
     &:last-child {
@@ -30,7 +30,7 @@
       margin-top: rem-calc(60);
     }
     @include screen-md-up {
-      bottom: $grid-gutter-width * 2;
+      bottom: $padding-medium;
     }
     .icon {
       width: rem-calc(28);
@@ -39,7 +39,7 @@
     }
   }
   .container {
-    margin-bottom: $grid-gutter-width * 2;
+    margin-bottom: $padding-medium;
     @include screen-lg-up {
       margin-bottom: rem-calc(125);
     }
@@ -47,7 +47,7 @@
   .picture {
     min-height: 140px;
     @include screen-sm {
-      margin-bottom: $grid-gutter-width;
+      margin-bottom: $padding-small;
     }
   }
 }

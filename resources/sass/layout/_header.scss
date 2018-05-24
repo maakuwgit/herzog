@@ -185,7 +185,7 @@ body {
     left: -1 * ($menu_min_width/4);
     right: -1 * ($menu_min_width/4);
     min-width: $menu_min_width;
-    padding-top: rem-calc(120);
+    padding-top: $padding-large;
     background-color: $ebony;
     box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
     @include screen-md-up {

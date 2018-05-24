@@ -97,15 +97,15 @@ form {
 
 body {
   h2 {
-    margin-bottom: $grid-gutter-width;
+    margin-bottom: $padding-small;
     @include screen-lg-up {
       line-height: 1.4375;
-      margin-bottom: $grid-gutter-width * 2;
+      margin-bottom: $padding-medium;
     }
   }
   p {
     margin-top: 0;
-    margin-bottom: $grid-column-padding;
+    margin-bottom: $padding-xsmall;
     line-height: 1.5;
     @include screen-lg-up {
       line-height: 1.75;
@@ -137,7 +137,7 @@ input:not([type="button"]):not([type="image"]):not([type="submit"]) {
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: $ebony;
+      background-color: transparent;
     }
     &:after {
       content: 'Browse';
@@ -206,9 +206,14 @@ progress[value]::-webkit-progress-value {
 select {
   @include input_base;
   padding-right: 3.5rem;
-  background-image: url('../img/svg/chevron-down.svg');
+  background-image: url('../img/svg/chevron-down-w.svg');
   background-repeat: no-repeat;
   background-position: right center;
+  @include screen-lg-up {
+    &:hover {
+      background-image: url('../img/svg/chevron-down-y.svg');
+    }
+  }
 }
 
 textarea {

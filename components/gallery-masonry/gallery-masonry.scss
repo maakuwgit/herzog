@@ -6,15 +6,15 @@
  *
  */
 .gallery-masonry {
-  padding-bottom: $grid-gutter-width;
+  padding-bottom: $padding-small;
   h4 {
     margin-top: 120px;
   }
   .brick {
     min-height: 50vh;
     max-height: 320px;
-    margin-top: $grid-column-padding;
-    margin-bottom: $grid-column-padding;
+    margin-top: $padding-xsmall;
+    margin-bottom: $padding-xsmall;
     .picture {
       display: table;
       width: 100%;

@@ -3,17 +3,17 @@
  */
 .single-team {
   main {
-    padding-top: rem-calc(120);
-    padding-bottom: rem-calc(120);
+    padding-top: $padding-large;
+    padding-bottom: $padding-large;
     hr {
       height: 1px;
-      margin-bottom: $grid-gutter-width;
+      margin-bottom: $padding-small;
     }
     h1 {
       font-weight: $text-light;
     }
     h1, h6 {
-      margin-bottom: $grid-gutter-width;
+      margin-bottom: $padding-small;
     }
     p {
       font-size: rem-calc(14);

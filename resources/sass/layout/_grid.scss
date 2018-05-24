@@ -8,8 +8,8 @@
 .wrapper {
   body > *:not(main):not(footer):not(.callout) > & {
     max-width: calc(#{$site-width} + #{rem-calc(32)});
-    padding-left: $grid-gutter-width;
-    padding-right: $grid-gutter-width;
+    padding-left: $padding-small;
+    padding-right: $padding-small;
     .row {
       padding-left: 0;
       padding-right: 0;

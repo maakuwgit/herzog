@@ -10,8 +10,8 @@
   padding-top: $grid-gutter-width * 5;
   padding-bottom: $grid-gutter-width * 5;
   @include screen-lg-up {
-    padding-left: $grid-gutter-width;
-    padding-right: $grid-gutter-width;
+    padding-left: $padding-small;
+    padding-right: $padding-small;
   }
   img {
     box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} 0 $black;

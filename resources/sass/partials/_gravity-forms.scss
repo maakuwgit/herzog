@@ -38,9 +38,8 @@
   }
 }
 .gform_title {
-  margin-bottom: $grid-gutter-width;
+  margin-bottom: $padding-small;
   @include screen-lg-up {
-    margin-bottom: rem-calc(120);
     padding-left: $grid-column-padding;
     padding-right: $grid-column-padding;
   }

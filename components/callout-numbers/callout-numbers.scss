@@ -1,12 +1,12 @@
 [data-component="callout-numbers"].callout-numbers{
   min-height: 300px;
   article.content .container & {
-    width: calc(100% + #{$grid-gutter-width * 2});
+    width: calc(100% + #{$padding-medium});
   }
   margin-left: $grid-gutter-width * -1;
   margin-right: $grid-gutter-width * -1;
-  padding-top: rem-calc(120);
-  padding-bottom: rem-calc(120);
+  padding-top: $padding-large;
+  padding-bottom: $padding-large;
   background-color: #191919;
   box-shadow: 0 #{rem-calc(2)} #{rem-calc(20)} $black;
   h2, h3, dt {
@@ -54,7 +54,7 @@
     color: $aluminum;
   }
   p {
-    margin-bottom: $grid-gutter-width * 2;
+    margin-bottom: $padding-medium;
     font-size: rem-calc(16);
     line-height: 1.75;
     color: $aluminum;

@@ -11,14 +11,16 @@
     width: 100%;
   }
   @include screen-lg-up {
-    padding-top: rem-calc(120);
-    padding-bottom: rem-calc(120);
+    article.content & {
+      padding-top: $padding-large;
+      padding-bottom: $padding-large;
+    }
   }
   a {
     font-weight: $text-regular;
   }
   address, a[href*="tel:"] {
-    margin-bottom: $grid-column-padding;
+    margin-bottom: $padding-xsmall;
     font-size: inherit;
     font-weight: inherit;
   }
@@ -31,5 +33,19 @@
   }
   dd, dt {
     font-size: rem-calc(14);
+  }
+  .filters {
+    margin-bottom: $padding-large;
+    input:not([type="button"]):not([type="image"]):not([type="submit"]) {
+      padding-bottom: rem-calc(19);
+    }
+    input:not([type="button"]):not([type="image"]):not([type="submit"]),
+    select {
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }

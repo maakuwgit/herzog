@@ -2,7 +2,7 @@
  * Archive
  */
 .archive.category {
-  padding-bottom: $grid-gutter-width;
+  padding-bottom: $padding-small;
   .thumbnail {
     .button {
       margin-left: rem-calc(-30);
@@ -27,7 +27,7 @@
         }
         strong {
           margin-top: $grid-gutter-width;
-          padding-bottom: $grid-gutter-width;
+          padding-bottom: $padding-small;
           border-bottom: solid 1px $smoke;
         }
       }
@@ -38,7 +38,7 @@
   }
   footer,
   h4 {
-    margin-top: rem-calc(120);
+    margin-top: $padding-large;
   }
   p {
     font-size: rem-calc(14);

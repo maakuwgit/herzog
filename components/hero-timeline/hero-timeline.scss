@@ -15,18 +15,18 @@ main.hero-timeline {
 
   .graphics {
     &.col:not([data-component]):not([data-slick-nav]) {
-      padding-left: $grid-gutter-width;
-      padding-right: $grid-gutter-width;
+      padding-left: $padding-small;
+      padding-right: $padding-small;
     }
     p {
       margin-bottom: auto;
-      margin-top: $grid-column-padding;
+      margin-top: $padding-xsmall;
       font-size: rem-calc(14);
     }
   }
 
   .graphic-finger {
-    margin-left: $grid-column-padding;
+    margin-left: $padding-xsmall;
     transform: rotate(-45deg);
   }
 
@@ -34,15 +34,15 @@ main.hero-timeline {
     position: relative;
     z-index: 1;
     &.col:not([data-component]):not([data-slick-nav]) {
-      padding-left: $grid-gutter-width;
-      padding-right: $grid-gutter-width;
+      padding-left: $padding-small;
+      padding-right: $padding-small;
     }
   }
 
   h1 {
     margin-bottom: $grid-column-padding * 3;
     &.col:not([data-component]):not([data-slick-nav]) {
-      margin-top: rem-calc(120);
+      margin-top: $padding-large;
     }
   }
 

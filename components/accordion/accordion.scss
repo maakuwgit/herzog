@@ -1,8 +1,8 @@
 [data-component="accordion"] {
   position: relative;
-  min-width: calc(100% + #{$grid-gutter-width * 2});
-  padding-top: rem-calc(120);
-  padding-bottom: rem-calc(120);
+  min-width: calc(100% + #{$padding-medium});
+  padding-top: $padding-large;
+  padding-bottom: $padding-large;
   background-color: transparent;
   background-size: 150% auto;
   background-position: top center;
@@ -28,7 +28,7 @@
     margin-top: $grid-gutter-width;
     .accordion-nav__info {
       svg {
-        margin-left: $grid-column-padding;
+        margin-left: $padding-xsmall;
         margin-top: rem-calc(16);
         transform: rotate(-45deg);
         margin-right: rem-calc(64);
@@ -62,15 +62,15 @@
         opacity: 1;
       }
       h2 {
-        margin-bottom: $grid-gutter-width;
+        margin-bottom: $padding-small;
       }
       p {
         font-weight: $text-light;
         font-size: rem-calc(16);
-        margin-bottom: $grid-gutter-width;
+        margin-bottom: $padding-small;
       }
       .button-cta {
-        margin-bottom: $grid-gutter-width * 2;
+        margin-bottom: $padding-medium;
         svg {
           transform: scale(1.25);
         }
@@ -145,12 +145,12 @@
   figcaption {
     > * {
       padding-top: $grid-gutter-width;
-      padding-left: $grid-gutter-width;
+      padding-left: $padding-small;
     }
   }
   li {
     h6 {
-      margin-bottom: $grid-column-padding;
+      margin-bottom: $padding-xsmall;
     }
   }
   nav {

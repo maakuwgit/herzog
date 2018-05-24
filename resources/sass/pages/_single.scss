@@ -2,36 +2,36 @@
  * Single Team Member
  */
 .single {
-    padding-bottom: $grid-gutter-width;
+    padding-bottom: $padding-small;
   > article {
     background-color: #0d0d0d;
   }
   &.single-post {
     @include screen-lg-up {
-      padding-bottom: rem-calc(120);
+      padding-bottom: $padding-large;
     }
     main.hero,
     main.hero .picture[data-background] {
       min-height: rem-calc(550);
       h1 {
         align-self: flex-end;
-        padding-bottom: rem-calc(120);
+        padding-bottom: $padding-large;
         text-align: left;
       }
     }
     .hentry {
       header {
-        margin-top: rem-calc(120);
+        margin-top: $padding-large;
       }
       .container > {
         h4, h3, h2, figure {
           margin-bottom: $grid-gutter-width * 3;
         }
         h5, h6 {
-          margin-bottom: $grid-gutter-width;
+          margin-bottom: $padding-small;
         }
         ol, ul, dl, p {
-          margin-bottom: $grid-gutter-width * 2;
+          margin-bottom: $padding-medium;
         }
         p {
           font-size: rem-calc(16);
@@ -47,10 +47,10 @@
       }
     }
     .related_news_and_media {
-      margin-top: rem-calc(120);
+      margin-top: $padding-large;
       h3 {
         margin-left: 0;
-        margin-bottom: $grid-gutter-width * 2;
+        margin-bottom: $padding-medium;
       }
       figure {
         min-height: 50vh;
@@ -72,7 +72,7 @@
           }
           strong {
             margin-top: $grid-gutter-width;
-            padding-bottom: $grid-gutter-width;
+            padding-bottom: $padding-small;
             border-bottom: solid 1px $smoke;
           }
         }

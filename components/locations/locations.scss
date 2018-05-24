@@ -8,21 +8,21 @@
 section.locations {
   width: calc(100% + (2 * #{$grid-gutter-width}));
   padding-top: $grid-gutter-width;
-  padding-bottom: $grid-gutter-width;
+  padding-bottom: $padding-small;
   margin-left: -1 * $grid-gutter-width;
   margin-right: -1 * $grid-gutter-width;
 }
 [data-component="locations"] {
   width: inherit;
   @include screen-lg-up {
-    padding-top: rem-calc(120);
-    padding-bottom: rem-calc(120);
+    padding-top: $padding-large;
+    padding-bottom: $padding-large;
   }
   a {
     font-weight: $text-regular;
   }
   address, a[href*="tel:"] {
-    margin-bottom: $grid-column-padding;
+    margin-bottom: $padding-xsmall;
     font-size: rem-calc(14);
     font-weight: $text-light;
   }
@@ -30,7 +30,7 @@ section.locations {
     img {
       max-height: 50px;
       width: auto;
-      margin-bottom: $grid-column-padding;
+      margin-bottom: $padding-xsmall;
     }
   }
   dd {

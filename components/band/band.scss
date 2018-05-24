@@ -1,21 +1,21 @@
 .band {
   width: 100%;
   &.padded-top {
-    padding-top: $grid-gutter-width * 2;
+    padding-top: $padding-medium;
   }
   &.padded-bottom {
-    padding-bottom: $grid-gutter-width * 2;
+    padding-bottom: $padding-medium;
   }
   @include screen-lg-up {
     &.padded-top {
-      padding-top: rem-calc(120);
+      padding-top: $padding-large;
     }
     &.padded-bottom {
-      padding-bottom: rem-calc(120);
+      padding-bottom: $padding-large;
     }
   }
   .col {
-    margin-bottom: $grid-column-padding;
+    margin-bottom: $padding-xsmall;
   }
   @include screen-md-up {
     .container {
@@ -23,7 +23,7 @@
     }
   }
   h2, h3, h4, h5, h6 {
-    margin-bottom: $grid-column-padding;
+    margin-bottom: $padding-xsmall;
   }
   ol {
     @include flexible(center);

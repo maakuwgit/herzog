@@ -6,7 +6,7 @@ section[id*="anchor_nav"] {
     padding-left: rem-calc(15);
     body.single & {
       ol {
-        padding-bottom: rem-calc(120);
+        padding-bottom: $padding-large;
       }
     }
     ol {

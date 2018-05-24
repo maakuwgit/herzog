@@ -14,7 +14,7 @@
   <?php endif; ?>
     </a>
     <figcaption>
-      <img width="262" src="<?php echo get_template_directory_uri() . '/assets/img/text-tagline.svg'; ?>"" alt="<?php bloginfo('description'); ?>"></figcaption>
+      <img width="262" src="<?php echo get_template_directory_uri() . '/assets/img/text-tagline.svg'; ?>" alt="<?php bloginfo('description'); ?>"></figcaption>
   </figure>
   <?php
     ll_include_component(
@@ -38,3 +38,19 @@
     </li><!-- .footer__ll-logo -->
   </ul>
 </footer>
+<script  id="locations-filterable_script">
+
+  $('#filter_divisions').change(function() {
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+    $.post(
+        ajaxurl,
+        {
+            'action'  :   'fetch_posts',
+            'fetch' :   'divisions',
+        },
+        function(output){
+          $('[data-component="locations-filterable"] .output').html(output);
+        });
+  });
+
+</script>

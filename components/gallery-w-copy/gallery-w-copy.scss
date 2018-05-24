@@ -6,7 +6,7 @@
  *
  */
 .gallery-w-copy {
-  padding-bottom: $grid-gutter-width;
+  padding-bottom: $padding-small;
   li {
     figure {
       min-height: 50vh;
@@ -22,7 +22,7 @@
         }
         strong {
           margin-top: $grid-gutter-width;
-          padding-bottom: $grid-gutter-width;
+          padding-bottom: $padding-small;
           border-bottom: solid 1px $smoke;
         }
       }

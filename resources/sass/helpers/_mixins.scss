@@ -96,7 +96,7 @@
   color: $ivory;
   appearance: none;
   -webkit-appearance: none;
-  background-color: $ebony;
+  background-color: transparent;
   @include screen-lg-up {
     font-size: rem-calc(14);
     &:hover {

@@ -50,7 +50,7 @@ $nav-width: #{rem-calc(80)};
       }
     }
     dt.flex {
-      margin-right: $grid-column-padding;
+      margin-right: $padding-xsmall;
       margin-left: $grid-gutter-width;
       padding-top: $grid-column-padding;
       border-top: solid 2px silver;

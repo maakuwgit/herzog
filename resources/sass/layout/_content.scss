@@ -5,7 +5,7 @@
   article &,
   section & {
     padding-top: $grid-gutter-width;
-    padding-bottom: $grid-gutter-width;
+    padding-bottom: $padding-small;
   }
   ol {
     padding-left: rem-calc(17.5);
@@ -15,7 +15,7 @@
     list-style: none;
     padding-left: $grid-column-padding;
     li {
-      margin-bottom: $grid-column-padding;
+      margin-bottom: $padding-xsmall;
       &:before {
         position: absolute;
         content: '•';

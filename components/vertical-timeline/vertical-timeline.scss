@@ -34,19 +34,19 @@
       content: '•';
       text-indent: rem-calc(-7);
       color: $ivory;
-      font-size: $grid-gutter-width * 2;
+      font-size: $padding-medium;
       background-color: $ivory;
     }
   }
   h3 {
     max-width: rem-calc(250);
     margin-top: rem-calc(-15);
-    margin-bottom: $grid-gutter-width;
+    margin-bottom: $padding-small;
     margin-left: 0;
     font-size: rem-calc(24);
     font-weight: $text-medium;
     @include screen-lg-up {
-      margin-left: $grid-gutter-width * 2;
+      margin-left: $padding-medium;
     }
   }
 }

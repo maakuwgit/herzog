@@ -23,7 +23,7 @@ $args = ll_parse_args( $component_args, $default_args );
 
 do_action( "component_name_before_display", $data, $args );
 
-$css = 'class="locations container row content';
+$css = ' class="locations container row content ';
 if( $args['classes'] ) {
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );
@@ -47,7 +47,7 @@ $qargs    = array(
 $locations = new WP_Query( $qargs );
 
 if ( $locations->have_posts() ) : ?>
-  <dl <?php echo $id . $css ?> data-component="locations"">
+  <dl<?php echo $id . $css ?> data-component="locations">
       <?php
         while( $locations->have_posts() ) :
           $locations->the_post();
@@ -135,7 +135,7 @@ if ( $locations->have_posts() ) : ?>
             $abbr = ll_format_image($abbr);
           }else{
             $abbr = '<img alt="" src="//via.placeholder.com/158x100"
-  srcset="//via.placeholder.com/632x400 2x, //via.placeholder.com/948x600 3x" data-src-md="//via.placeholder.com/316x200" data-src-lg="//via.placeholder.com/632x400 data-src-xl="//via.placeholder.com/948x600">';
+  srcset="//via.placeholder.com/632x400 2x, //via.placeholder.com/948x600 3x" data-src-md="//via.placeholder.com/316x200" data-src-lg="//via.placeholder.com/632x400" data-src-xl="//via.placeholder.com/948x600">';
           }
       ?>
         <div class="col col-xs-6of12 col-sm-4of12 col-md-6of12 col-lg-3of12 col-xl-3of12 text-center"<?php if( $use_interactions ) echo ' data-clickthrough';?>>

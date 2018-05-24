@@ -10,7 +10,7 @@
   width: 100%;
   @include screen-lg-up {
     &.content {
-      padding-bottom: rem-calc(120);
+      padding-bottom: $padding-large;
     }
   }
   h3 {

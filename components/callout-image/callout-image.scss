@@ -3,7 +3,7 @@
   overflow: hidden;
   position: relative;
   article.content .container & {
-    width: calc(100% + #{$grid-gutter-width * 2});
+    width: calc(100% + #{$padding-medium});
   }
   margin-left: $grid-gutter-width * -1;
   margin-right: $grid-gutter-width * -1;

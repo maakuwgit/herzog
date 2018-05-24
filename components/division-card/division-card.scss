@@ -8,21 +8,21 @@
 
 .division-card {
   width: 100%;
-  padding-top: $grid-gutter-width * 2;
-  padding-bottom: $grid-gutter-width * 2;
+  padding-top: $padding-medium;
+  padding-bottom: $padding-medium;
   figure {
     > img {
       margin-bottom: $grid-gutter-width + $grid-column-padding;
     }
     @include screen-sm {
       &.col:not([data-component]):not([data-slick-nav]) {
-        padding-bottom: $grid-gutter-width;
+        padding-bottom: $padding-small;
       }
       border-bottom: solid 1px $smoke;
     }
     figcaption {
       > strong {
-        margin-bottom: $grid-column-padding;
+        margin-bottom: $padding-xsmall;
       }
       ul {
         margin-top: 0;
@@ -33,12 +33,12 @@
   dl {
     @include screen-sm-up {
       border-left: solid 1px $smoke;
-      margin-left: $grid-column-padding;
+      margin-left: $padding-xsmall;
       width: calc(66.6667% - #{$grid-column-padding});
     }
     @include screen-md-up {
       dt {
-        padding-left: $grid-gutter-width * 2 !important;
+        padding-left: $padding-medium !important;
       }
     }
     @include screen-sm {
@@ -49,8 +49,8 @@
         padding-right: 0;
       }
       .row {
-        margin-left: $grid-column-padding;
-        margin-right: $grid-column-padding;
+        margin-left: $padding-xsmall;
+        margin-right: $padding-xsmall;
       }
     }
     > div:last-of-type {
@@ -62,10 +62,10 @@
       display: flex;
       width: 50%;
       flex: 0 0.5 auto;
-      margin-bottom: $grid-gutter-width * 2;
+      margin-bottom: $padding-medium;
     }
   }
   nav {
-    margin-top: rem-calc(120);
+    margin-top: $padding-large;
   }
 }

@@ -98,13 +98,19 @@ $screen-lg-min: $screen-lg !default;
 // Choose from any of the "Media query variables"
 $screen-nav-mobile: $screen-md-maximum;
 
+//Padding Options
+$padding-xsmall: rem-calc(12.5);
+$padding-small: rem-calc(25);
+$padding-medium: rem-calc(50);
+$padding-large: rem-calc(120);
+
 // The point at which the navbar becomes uncollapsed (do not modify)
 $grid-float-breakpoint: $screen-nav-mobile + 1;
 
 // Grid
 $grid-columns: 12;
-$grid-gutter-width: rem-calc(25);
-$grid-column-padding: rem-calc(12.5);
+$grid-gutter-width: $padding-small;
+$grid-column-padding: $padding-xsmall;
 
 // Container widths
 $container-sm:    (rem-calc($screen-sm) - $grid-gutter-width);

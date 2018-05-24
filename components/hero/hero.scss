@@ -16,8 +16,8 @@ main.hero {
     z-index: 1;
     font-weight: $text-medium;
     &.col:not([data-component]):not([data-slick-nav]) {
-      padding-left: $grid-gutter-width;
-      padding-right: $grid-gutter-width;
+      padding-left: $padding-small;
+      padding-right: $padding-small;
     }
     @include screen-sm {
       text-shadow: 0 0 #{rem-calc(10)} black;

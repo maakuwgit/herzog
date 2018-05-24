@@ -8,7 +8,7 @@
 
 .case-study {
   .picture {
-    padding: 0 0 #{$grid-gutter-width * 2} 0;
+    padding: 0 0 #{$padding-medium} 0;
   }
   ul  {
     @include flexible;
@@ -19,7 +19,7 @@
     }
   }
   dd {
-    margin-bottom: $grid-gutter-width * 2;
+    margin-bottom: $padding-medium;
     *:last-child {
       margin-bottom: auto;
     }
