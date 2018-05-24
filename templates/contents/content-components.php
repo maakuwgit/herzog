@@ -274,8 +274,6 @@ if( have_rows( 'components' ) ) {
           'columns'  => get_sub_field('columns')
         );
 
-        var_dump($info);
-
         $output .= ll_include_component(
           'inforgraphic',
           $info,
