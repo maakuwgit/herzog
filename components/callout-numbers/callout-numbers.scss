@@ -1,5 +1,10 @@
-[data-component="callout-numbers"]{
+[data-component="callout-numbers"].callout-numbers{
   min-height: 300px;
+  article.content .container & {
+    width: calc(100% + #{$grid-gutter-width * 2});
+  }
+  margin-left: $grid-gutter-width * -1;
+  margin-right: $grid-gutter-width * -1;
   padding-top: rem-calc(120);
   padding-bottom: rem-calc(120);
   background-color: #191919;

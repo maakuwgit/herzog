@@ -6,6 +6,16 @@
  *
  */
 
-.ll-inforgraphic {
-
+.inforgraphic {
+  background: url(../img/background-map.png) #{rem-calc(340)} #{rem-calc(80)} no-repeat;
+  background-size: #{rem-calc(700)} auto;
+  .flex-end {
+    align-items: flex-end;
+  }
+  h2 {
+    margin-bottom: rem-calc(250);
+  }
+  h6 {
+    margin-bottom: $grid-column-padding;
+  }
 }

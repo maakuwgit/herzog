@@ -35,9 +35,6 @@ body > nav[data-component="anchor_nav"] {
 }
 [data-component="anchor_nav"] {
   position: relative;
-  .row &[class*=col-] {
-    padding-left: 0;
-  }
   span.grey,
   a.grey {
     color: $aluminum;

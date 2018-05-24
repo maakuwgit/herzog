@@ -7,7 +7,7 @@ ll_include_component(
   'leader-grid',
   $members,
   array(
-    'classes' => 'ebony'
+    'classes' => 'ebony enter'
   )
 );
 ?>

@@ -5,6 +5,12 @@
   background-color: $black;
   padding-top: rem-calc(25);
   padding-bottom: rem-calc(25);
+  @include screen_xs {
+    .row div[class^=col] {
+      padding-left: 25%;
+      padding-right: 25%;
+    }
+  }
   dl {
     margin-bottom: rem-calc(46);
     padding-top: 0;

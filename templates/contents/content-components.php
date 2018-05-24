@@ -267,6 +267,24 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
+      case 'inforgraphics' :
+        $info   = array(
+          'headline' => get_sub_field('infor_headline'),
+          'content'  => get_sub_field('infor_content'),
+          'columns'  => get_sub_field('columns')
+        );
+
+        var_dump($info);
+
+        $output .= ll_include_component(
+          'inforgraphic',
+          $info,
+          array(
+            'id' => $id
+          ),
+          true
+        );
+      break;
       case 'innovation-cards' :
         while( have_rows( 'innovation_right_rail' ) ) {
           the_row();
