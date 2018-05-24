@@ -86,9 +86,7 @@ $case_btn     = $data['case_btn'];
 
 $base_url     = get_bloginfo('url');
 
-if( !$logo ) {
-  $logo = $default_data['logo'];
-}
+if( !$logo ) $logo = $default_data['logo'];
 ?>
 <section<?php echo ' id="'.$id.'"'; ?> data-component="capability-card"<?php echo $css; ?>>
   <div class="container row stretch">

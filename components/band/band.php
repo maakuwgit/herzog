@@ -4,7 +4,7 @@
 * -----------------------------------------------------------------------------
 *
 * Band component
-* @since 1.6.5
+* @since 1.7
 * @author MaakuW
 */
 global $post;
@@ -18,16 +18,11 @@ global $post;
 $id = uniqid('band-');
 
 $default_data = [
-  'has_background' => false,
-  'section_bg'     => array(),
-  'is_stretched'   => false,
-  'navbar'         => array(),
   'padded_top'     => false,
   'padded_bottom'  => false,
   'band_columns'   => array(
     array(
       'band_colspan'        => '3',
-      'band_bg'             => array(),
       'column_button'       => false,
       'button_style'        => 'light',
       'band_align'          => 'flex-start',
@@ -49,17 +44,10 @@ $args = ll_parse_args( $component_args, $default_args );
  * Type: Action
  */
 do_action( "component_name_before_display", $component_data, $component_args );
-?>
 
-<?php
 if ( ll_empty( $data ) ) return;
-
-$has_background = $data['has_background'];
-$section_bg     = $data['section_bg'];
-$stretch        = $data['is_stretched'];
 $padded_top     = $data['padded_top'];
 $padded_bottom  = $data['padded_bottom'];
-$navbar         = $data['navbar'];
 $css = ' class="band content';
 
 if( $args['classes'] ) {
@@ -70,14 +58,7 @@ if( $args['classes'] ) {
   }else{
     $css .= ' ' . $args['classes'];
   }
-  if( $has_background ) {
-    $css .=  ' has-image';
-  }else{
-    $css .= ' no_bg';
-  }
-  if( $stretch ) {
-    $css .= ' stretch';
-  }
+
 }
 if( $padded_top === true ) {
   $css .= ' padded-top';
@@ -89,14 +70,8 @@ $css .= '"';
 
 $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 
-//Background for the section element
-if ( $section_bg ) {
- $style = ' style="background-image: url( '. $section_bg['url'] .' );"';
-} else {
- $style = '';
-}
 ?>
-<section<?php echo $id . $css . $style; ?>>
+<section<?php echo $id . $css; ?>>
   <div class="container row start">
 <?php
   if( $data['band_columns'] ) :
@@ -169,31 +144,7 @@ if ( $section_bg ) {
       }
       ?>
     </div>
-<?php
-  endforeach;
-?>
-  <?php if( $navbar ) : ?>
-    <nav class="col-12of12">
-    <?php
-      foreach( $navbar as $band_btn ) {
-        if( $band_btn ) {
-          $button = array(
-            'text' => $band_btn['btn']['title'],
-            'link' => array(
-              'title' => $band_btn['btn']['title'],
-              'href'  => $band_btn['btn']['url']
-            )
-          );
-
-          ll_include_component(
-            'button',
-            $button
-          );
-        }
-      }
-      ?>
-    </nav>
-  <?php endif; ?>
+  <?php endforeach;?>
   </div>
 <?php endif; ?>
 </section>

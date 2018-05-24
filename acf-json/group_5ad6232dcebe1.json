@@ -3,6 +3,44 @@
     "title": "Band",
     "fields": [
         {
+            "key": "field_5b072694a6ea6",
+            "label": "Padding Top?",
+            "name": "padded_top",
+            "type": "true_false",
+            "instructions": "Do we need more padding at the top?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3334",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5b0726cea6ea7",
+            "label": "Padding Bottom?",
+            "name": "padded_bottom",
+            "type": "true_false",
+            "instructions": "Do we need more padding at the bottom?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3334",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5ad6235bf9e0e",
             "label": "Columns",
             "name": "band_columns",
@@ -139,5 +177,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Create Row + Column based grid structure",
-    "modified": 1527077374
+    "modified": 1527195599
 }
