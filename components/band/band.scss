@@ -1,5 +1,8 @@
 .band {
   width: 100%;
+  > * {
+    z-index: 2;
+  }
   &.padded-top {
     padding-top: $padding-medium;
   }

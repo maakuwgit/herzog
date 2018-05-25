@@ -13,6 +13,7 @@ section.locations {
   margin-right: -1 * $grid-gutter-width;
 }
 [data-component="locations"] {
+  position: static;
   width: inherit;
   @include screen-lg-up {
     padding-top: $padding-large;
@@ -36,9 +37,10 @@ section.locations {
   dd {
     figure {
       position: absolute;
+      right: 0;
       bottom: 0;
-      left: 100%;
-      z-index: 11;
+      left: 0;
+      z-index: -1;
       display: none;
       width: 100%;
     }
@@ -64,6 +66,17 @@ section.locations {
           }
           figure {
             display: block;
+            height: 100%;
+            &:after {
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 0;
+              background-color: rgba($black, 0.3);
+            }
           }
         }
       }

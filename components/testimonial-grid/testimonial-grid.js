@@ -50,9 +50,7 @@
       });
     },
 
-
     finalize: function() {
-
       var _this = this;
     }
   };

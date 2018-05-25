@@ -26,6 +26,15 @@
       breakpoints.lg  = 1199;
       breakpoints.xl  = 1599;
 
+      var adminHeight = ( $('#wpadminbar').length > 0 ? $('#wpadminbar').outerHeight() : 0 ),
+          section_nav = '.section-nav',
+          footer      = 'body > footer',
+          prefooter   = 'body > .callout',
+          hero        = '.hero, .hero-w-nav',
+          primary_nav = 'body > header',
+          counters    = $('[data-component="callout-numbers"]'),
+          sections    = $('body > article section, body > article picture');
+
       window.userLoggedIn = false;
       window.adminBarHeight = 0;
 
@@ -74,13 +83,23 @@
 
       $(function() {
         function enterSection(e) {
-          var target = $(e.target.triggerElement());
+          var target = $(e.target.triggerElement()),
+              id     = target.attr('id');
+
           target.addClass('enter');
+          if( id ) {
+            app.components['section-nav'].setActive(id);
+          }
         }
 
         function leaveSection(e) {
-          var target = $(e.target.triggerElement());
+          var target = $(e.target.triggerElement()),
+              id     = target.attr('id');
+
           target.removeClass('enter');
+          if( id ) {
+            app.components['section-nav'].setActive(id);
+          }
         }
 
         function enterCounter(e) {
@@ -99,14 +118,6 @@
         if( typeof ScrollMagic !== 'undefined' ) {
 
           var controller  = new ScrollMagic.Controller(),
-              adminHeight = ( $('#wpadminbar').length > 0 ? $('#wpadminbar').outerHeight() : 0 ),
-              section_nav = '.section-nav',
-              footer      = 'body > footer',
-              prefooter   = 'body > .callout',
-              hero        = '.hero, .hero-w-nav',
-              primary_nav = 'body > header',
-              counters    = $('[data-component="callout-numbers"]'),
-              sections    = $('body > article section, body > article picture'),
               offset      = 0;
 
           if ( $(hero) ) {
@@ -212,7 +223,6 @@
         }
 
         function openPanel(e) {
-          console.log('open');
           var wrapper = $(this).parent();
           $(panels).removeClass('open').addClass('transparent');
           $(this).addClass('open').removeClass('transparent');
@@ -220,7 +230,6 @@
         }
 
         function closePanel(e) {
-          console.log('close');
           $(panels).off('mouseenter.updatePanels').off('click.openPanel');
           $(panels).removeClass('open').removeClass('transparent').removeClass('dim');
           setTimeout(function(){

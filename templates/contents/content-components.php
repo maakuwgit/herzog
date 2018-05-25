@@ -321,7 +321,7 @@ if( have_rows( 'components' ) ) {
       break;
       case 'locations' :
         //Since the Locations are used in the footer and other places as well, the markup for the section needs to be injected here
-        $output .= '<section class="locations">';
+        $output .= '<section class="locations"><div class="wrapper row">';
         $output .= ll_include_component(
           'locations',
           array(
@@ -333,7 +333,7 @@ if( have_rows( 'components' ) ) {
           ),
           true
         );
-        $output .= '</section>';
+        $output .= '</div></section>';
       break;
       case 'logos-grid' :
         $logo_grid   = array(

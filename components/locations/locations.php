@@ -151,8 +151,10 @@ if ( $locations->have_posts() ) : ?>
               <span class="icon icon-plus">+</span>Learn More
             </a>
               <?php if( $hero ) : ?>
-            <figure>
-              <?php echo ll_format_image($hero); ?>
+            <figure data-background>
+              <div class="feature">
+                <?php echo ll_format_image($hero); ?>
+              </div>
             </figure>
               <?php endif; ?>
             <?php endif; ?>

@@ -59,13 +59,13 @@ body {
         padding-right: 0;
       }
     }
-  }
-  .mega_menu.has_sidebar {
-    .menu-item .menu-item a {
-      font-size: rem-calc(16);
-    }
-    .headline > a {
-      display: none;
+    .mega_menu.has_sidebar {
+      .menu-item .menu-item a {
+        font-size: rem-calc(16);
+      }
+      .headline > a {
+        display: none;
+      }
     }
   }
   .headline > a {
