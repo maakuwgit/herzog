@@ -4,7 +4,7 @@
 .content {
   article &,
   section & {
-    padding-top: $grid-gutter-width;
+    padding-top: $padding-small;
     padding-bottom: $padding-small;
   }
   ol {
@@ -13,13 +13,14 @@
 
   ul:not(.no-bullet) {
     list-style: none;
-    padding-left: $grid-column-padding;
+    padding-left: $padding-xsmall;
+    padding-right: $padding-small;
     li {
       margin-bottom: $padding-xsmall;
       &:before {
         position: absolute;
         content: '•';
-        margin-left: calc( -1 * #{$grid-column-padding});
+        margin-left: calc( -1 * #{$padding-xsmall});
         font-size: rem-calc(16);
       }
     }

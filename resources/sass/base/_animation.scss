@@ -1,7 +1,7 @@
 /*
 * Global or General Animations
 */
-h1, h2, h3, h4, h5, h6, p, [data-component="picture"] img, .related-nav nav {
+h1, h2, h3, h4, h5, h6, p, [data-component="picture"] img, .related-nav nav, #primary-nav .menu-item {
   transition: all 500ms ease-out;
 }
 
@@ -15,7 +15,8 @@ a,
 .callout-numbers *,
 .vertical-timeline *,
 .accordion *,
-.leader-grid * {
+.leader-grid *,
+#primary-nav .menu-item a {
   transition: all 300ms ease-in-out;
   &:hover {
     transition: all 300ms ease-in-out;

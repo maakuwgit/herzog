@@ -22,10 +22,20 @@
       min-height: inherit;
     }
   }
+  @include screen-md {
+    .brick {
+      min-height: initial;
+      height: rem-calc(170);
+    }
+    .picture {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
   @include screen-lg-up {
-    padding-bottom: calc(50vh + 120px);
+    padding-bottom: calc(50vh + #{$padding-large});
     &:not(.lefty):not(.righty) {
-      padding-bottom: 120px;
+      padding-bottom: $padding-large;
     }
     &.lefty {
       .brick {

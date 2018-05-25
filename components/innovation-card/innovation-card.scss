@@ -5,7 +5,6 @@
  * Similar to the Division Card, show the related capabilites CPTs and content about this innovation
  *
  */
-
 .innovation-card {
   width: 100%;
   padding-top: $padding-medium;
@@ -27,10 +26,45 @@
       ul {
         margin-top: 0;
         margin-bottom: $padding-medium;
-        &:last-of-type {
+        &:last-child {
           margin-bottom: 0;
         }
       }
+    }
+  }
+  dl {
+    @include screen-sm-up {
+      border-left: solid 1px $smoke;
+      margin-left: $padding-xsmall;
+      width: calc(66.6667% - #{$grid-column-padding});
+    }
+    @include screen-md-up {
+      dt {
+        padding-left: $padding-medium !important;
+      }
+    }
+    @include screen-sm {
+      margin-top: 0;
+      &.col:not([data-component]):not([data-slick-nav]) {
+        padding-top: $grid-gutter-width;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .row {
+        margin-left: $padding-xsmall;
+        margin-right: $padding-xsmall;
+      }
+    }
+    > div:last-of-type {
+      dt, dd {
+        margin-bottom: auto;
+      }
+    }
+    dt, dd {
+      display: flex;
+      width: 50%;
+      flex: 0 0.5 auto;
+      margin-bottom: $padding-medium;
     }
   }
 
