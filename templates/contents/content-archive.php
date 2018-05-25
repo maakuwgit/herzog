@@ -3,7 +3,7 @@
     <ul class="row no-bullet">
     <?php
       $args = array(
-        'numberposts' => 9,
+        'posts_per_page'=> 9,
         'post_status' => 'publish',
         'post_type'   => 'post',
       );
@@ -14,6 +14,9 @@
         $articles->the_post();
         include( locate_template('templates/partials/thumbnail.php') );
       }
+
+//      previous_posts_link( 'Older Posts' );
+      //next_posts_link( 'Newer Posts', $articles->max_num_pages );
 
       wp_reset_postdata();
     ?>

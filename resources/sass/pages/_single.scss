@@ -10,6 +10,29 @@
     @include screen-lg-up {
       padding-bottom: $padding-large;
     }
+    aside {
+      * {
+        font-size: rem-calc(14);
+      }
+      h6 {
+        margin-top: $padding-medium;
+        &:first-of-type {
+          margin-top: auto;
+        }
+      }
+      ul {
+        list-style: none;
+        li {
+          font-weight: $text-normal;
+          padding-left: 0;
+          &:before,
+          &:after {
+            content: '';
+            position: initial;
+          }
+        }
+      }
+    }
     main.hero,
     main.hero .picture[data-background] {
       min-height: rem-calc(550);

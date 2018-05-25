@@ -6,6 +6,18 @@
 * Creates a flexible image and video component that levages the gallery and
 * anchor-nav components.
 */
+$default_image = [
+  'title' => '',
+  'url' => '//via.placeholder.com/1312x550',
+  'sizes' => array(
+    'full' => '//via.placeholder.com/2624x900',
+    'xlarge' => '//via.placeholder.com/1818x626',
+    'large' => '//via.placeholder.com/1312x550',
+    'medium' => '//via.placeholder.com/909x313',
+    'thumbnail' => '//via.placeholder.com/606x275'
+  )
+];
+
 $defaults = [
   'headline' => array(
     'text'   => null,
@@ -45,8 +57,8 @@ $background      = $data['bg_image'];
 $type            = $data['type'];
 
 $data_background = '';
-if( $background &&  $type === 'image' ) {
-  $data_background = ' data-background="'.$background['url'].'"';
+if( $type === 'image' ) {
+  $data_background = ' data-background="'. ( $background ? $background['url'] : $default_image['url'] ).'"';
 }
 
 $classes = ( $args['classes'] ? $args['classes'] : array() );
@@ -81,9 +93,15 @@ $nav_id = $args['nav_id'];
     </div>
     <?php endif; ?>
     <picture class="picture col<?php echo $classes; ?>" <?php echo ( $id ? 'id="'.$id.'"' : '' ) ?> data-component="hero" data-gallery-nav="<?php echo $nav_id; ?>"<?php echo $data_background;?>>
-      <?php if ( $type === 'image' && $background ) : ?>
+      <?php if ( $type === 'image' ) : ?>
       <div class="feature">
-        <?php echo ll_format_image($background); ?>
+        <?php
+          if( $background ) {
+            echo ll_format_image($background);
+          }else{
+            echo ll_format_image($default_image);
+          }
+        ?>
       </div>
       <?php elseif ( $loop_video ) : ?>
         <?php
