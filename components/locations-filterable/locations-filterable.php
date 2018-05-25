@@ -64,7 +64,7 @@ if ( $groups ) :
       $locations = new WP_Query( $largs );
       if ( $locations->have_posts() ) : ?>
     <div class="col col-md-4of12 col-lg-3of12 col-xl-3of12">
-      <select id="filter_locations">
+      <select name="filter_locations" id="filter_locations">
         <option value="">Filter by Location</option>
       <?php
         while( $locations->have_posts() ) :

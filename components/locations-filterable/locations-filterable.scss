@@ -10,6 +10,9 @@
   h2 {
     width: 100%;
   }
+  h3 {
+    margin-bottom: $padding-small;
+  }
   @include screen-lg-up {
     article.content & {
       padding-top: $padding-large;
@@ -27,12 +30,20 @@
   dl {
     margin-top: 0;
     margin-bottom: $grid-gutter-width * 3;
-  }
-  dt {
-    margin-bottom: rem-calc(10);
-  }
-  dd, dt {
-    font-size: rem-calc(14);
+    div:last-of-type {
+      dd {
+        margin-bottom: auto;
+      }
+    }
+    dd {
+      margin-bottom: $padding-medium;
+    }
+    dt {
+      margin-bottom: rem-calc(10);
+    }
+    dd, dt {
+      font-size: rem-calc(14);
+    }
   }
   .filters {
     margin-bottom: $padding-large;

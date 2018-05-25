@@ -474,143 +474,143 @@ add_action( 'wp_head', 'll_generate_schema_json'  );
 * -----------------------------------------------------------------------------
 * Update the component Locations Filterable content
 *
-*/
-function ll_update_filterable_divisions() {
-  if($_REQUEST['fetch'] == 'divisions'){
-      $query_args = array(
-            'post_type'     => 'location',
-            'post_status'   => 'publish',
-            'order'         => 'ASC',
-            'showposts'     => -1,
-            'tax_query'     => array(
-              array(
-                'taxonomy'   => 'location_group',
-                'field'      => 'slug',
-                'terms'      => $group->slug
-              )
+function ll_filter_locations() {
+  $fetch = esc_sql( $_POST );
+  if( $fetch ){
+    $query_args = array(
+          'post_type'     => 'location',
+          'post_status'   => 'publish',
+          'order'         => 'ASC',
+          'showposts'     => -1,
+          'tax_query'     => array(
+            array(
+              'taxonomy'   => 'location_group',
+              'field'      => 'slug',
+              'terms'      => $group->slug
             )
-          );
-          $the_query = new WP_Query( $query_args );
+          )
+        );
+        $the_query = new WP_Query( $query_args );
 
-      if ( $the_query->have_posts() ) {
-        while ( $the_query->have_posts() ) {
-          $the_query->the_post();
-          $slug = get_post_field('post_name');
-          $return_str.= '<div class="container row start" id="' . $slug . '">';
-          $return_str.= '<div class="col col-md-4of12 col-lg-3of12 col-xl-3of12">';
-          $return_str.= '<h3 class="h5">' . get_the_title() . '</h3>';
-          $return_str.= '</div>';
+    if ( $the_query->have_posts() ) {
+      while ( $the_query->have_posts() ) {
+        $the_query->the_post();
+        $slug = get_post_field('post_name');
+        $return_str.= '<div class="container row start" id="' . $slug . '">';
+        $return_str.= '<div class="col col-md-4of12 col-lg-3of12 col-xl-3of12">';
+        $return_str.= '<h3 class="h5">' . get_the_title() . '</h3>';
+        $return_str.= '</div>';
 
-          $qargs    = array(
-                        'post_type'     => 'location',
-                        'post_status'   => 'publish',
-                        'order'         => 'ASC',
-                        'showposts'     => -1,
-                        'tax_query'     => array(
-                          array(
-                            'taxonomy'   => 'location_group',
-                            'field'      => 'slug',
-                            'terms'      => $slug
-                          )
+        $qargs    = array(
+                      'post_type'     => 'location',
+                      'post_status'   => 'publish',
+                      'order'         => 'ASC',
+                      'showposts'     => -1,
+                      'tax_query'     => array(
+                        array(
+                          'taxonomy'   => 'location_group',
+                          'field'      => 'slug',
+                          'terms'      => $slug
                         )
-                      );
+                      )
+                    );
 
-          $locations = new WP_Query( $qargs );
-          if ( $locations->have_posts() ) {
-            $return_str.= '<div class="col col-md-8of12 col-lg-9of12 col-xl-9of12">';
-            $return_str.= '<dl class="row start">';
+        $locations = new WP_Query( $qargs );
+        if ( $locations->have_posts() ) {
+          $return_str.= '<div class="col col-md-8of12 col-lg-9of12 col-xl-9of12">';
+          $return_str.= '<dl class="row start">';
 
-            while( $locations->have_posts() ) {
-              $locations->the_post();
+          while( $locations->have_posts() ) {
+            $locations->the_post();
 
-              //Location Info
-              $location = array(
-                'title'   => get_the_title(),
-                'phone'   => get_field('location_phone'),
-                'address' => get_field('location_address'),
-                'state'   => get_the_terms(get_the_ID(), 'location_state')
-              );
+            //Location Info
+            $location = array(
+              'title'   => get_the_title(),
+              'phone'   => get_field('location_phone'),
+              'address' => get_field('location_address'),
+              'state'   => get_the_terms(get_the_ID(), 'location_state')
+            );
 
-              $address = $city = $state = $country = '';
-              if( $location['address'] ) {
-                $address = '<address>' . $location['address'];
-                if ( $location['state'] ) {
-                  $location_ordered = [];
+            $address = $city = $state = $country = '';
+            if( $location['address'] ) {
+              $address = '<address>' . $location['address'];
+              if ( $location['state'] ) {
+                $location_ordered = [];
 
-                  foreach( $location['state'] as $term ){
+                foreach( $location['state'] as $term ){
 
-                      $depth = count( get_ancestors( $term->term_id, 'location_state' ) );
+                    $depth = count( get_ancestors( $term->term_id, 'location_state' ) );
 
-                      if( ! array_key_exists( $depth, $location_ordered ) ){
-                          $location_ordered[$depth] = [];
-                      }
-
-                      $location_ordered[$depth][] = $term;
-
-                  }
-
-                  //First, parse the Country (for later use in the phone)
-                  $country = $location_ordered[0];
-                  if( $country ) {
-                    if( $country[0]->slug === 'us' ) {
-                      $country_code = 1;//get_field('country_code', 'location_state');
-                      $country = strtoupper( $country[0]->slug );
-                    }else{
-                      $country = lcfirst( $country[0]->name );
+                    if( ! array_key_exists( $depth, $location_ordered ) ){
+                        $location_ordered[$depth] = [];
                     }
-                  }
-                  //Parse the State
-                  if( sizeof( $location_ordered ) > 1) {
-                    $state = $location_ordered[1];
-                    if( $state ) {
-                      $state = strtoupper( $state[0]->slug );
-                    }
+
+                    $location_ordered[$depth][] = $term;
+
+                }
+
+                //First, parse the Country (for later use in the phone)
+                $country = $location_ordered[0];
+                if( $country ) {
+                  if( $country[0]->slug === 'us' ) {
+                    $country_code = 1;//get_field('country_code', 'location_state');
+                    $country = strtoupper( $country[0]->slug );
                   }else{
-                    $state = false;
-                  }
-
-                  if( sizeof( $location_ordered ) > 1 ) {
-                    //First, get the city since it's last in the heirarchy
-                    $city = $location_ordered[2];
-                    if( $city ) {
-                      $city = $city[0]->name;
-                    }
-                  }else{
-                    $city = false;
-                  }
-
-                  if( $city && $state ) {
-                    //Now add it all to the string
-                    $address .=  '<br>' . $city . ',&nbsp;' . $state;
+                    $country = lcfirst( $country[0]->name );
                   }
                 }
-                $address .= '</address>';
+                //Parse the State
+                if( sizeof( $location_ordered ) > 1) {
+                  $state = $location_ordered[1];
+                  if( $state ) {
+                    $state = strtoupper( $state[0]->slug );
+                  }
+                }else{
+                  $state = false;
+                }
+
+                if( sizeof( $location_ordered ) > 1 ) {
+                  //First, get the city since it's last in the heirarchy
+                  $city = $location_ordered[2];
+                  if( $city ) {
+                    $city = $city[0]->name;
+                  }
+                }else{
+                  $city = false;
+                }
+
+                if( $city && $state ) {
+                  //Now add it all to the string
+                  $address .=  '<br>' . $city . ',&nbsp;' . $state;
+                }
               }
-
-              $phone = str_replace( '-', '', $location['phone'] );
-              $phone = '<a class="block" href="tel:+' . $country_code . $phone . '">' . $location['phone'] . '</a>';
-
-              $contact = get_field('location_contact');
-              $contact = '<a href="mailto:'.$contact.'">Send a message</a>';
-
-              $return_str.= '<div class="col col-sm-4of12 col-md-6of12 col-lg-4of12 col-xl-4of12 text-center">';
-              $return_str.= '<dt class="col text-left text-medium">' . $location['title'] . '</dt>';
-              $return_str.= '<dd class="col text-left">';
-              $return_str.= $phone;
-              $return_str.= $address;
-              $return_str.= $contact;
-              $return_str.= '</dd></div>';
+              $address .= '</address>';
             }
 
-            wp_reset_postdata();
-            $return_str.= '</dl><!-- Locations Filterable -->';
-            $return_str.= '</div>';
+            $phone = str_replace( '-', '', $location['phone'] );
+            $phone = '<a class="block" href="tel:+' . $country_code . $phone . '">' . $location['phone'] . '</a>';
+
+            $contact = get_field('location_contact');
+            $contact = '<a href="mailto:'.$contact.'">Send a message</a>';
+
+            $return_str.= '<div class="col col-sm-4of12 col-md-6of12 col-lg-4of12 col-xl-4of12 text-center">';
+            $return_str.= '<dt class="col text-left text-medium">' . $location['title'] . '</dt>';
+            $return_str.= '<dd class="col text-left">';
+            $return_str.= $phone;
+            $return_str.= $address;
+            $return_str.= $contact;
+            $return_str.= '</dd></div>';
           }
 
-          $return_str .= '</div>';
+          wp_reset_postdata();
+          $return_str.= '</dl><!-- Locations Filterable -->';
+          $return_str.= '</div>';
         }
-        wp_reset_postdata();
+
+        $return_str .= '</div>';
       }
+      wp_reset_postdata();
+    }
 
   echo $return_str;
   var_dump($return_str);
@@ -618,5 +618,6 @@ function ll_update_filterable_divisions() {
   }
 }
 
-add_action('wp_ajax_fetch_posts', 'll_update_filterable_divisions');
-add_action('wp_ajax_nopriv_fetch_posts', 'll_update_filterable_divisions');
+add_action( 'wp_ajax_load-filter', 'll_filter_locations' );
+add_action( 'wp_ajax_nopriv_load-filter', 'll_filter_locations' );
+*/

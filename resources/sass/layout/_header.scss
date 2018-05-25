@@ -54,20 +54,43 @@ body {
     .dropdown-menu {
       padding-left: $grid_column_padding;
       padding-bottom: $grid_column_padding;
+      .dropdown-menu {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
-  .menu-item a {
-    position: relative;
-    z-index: 1;
-    padding: #{rem-calc(10)} #{rem-calc(25)};
-    @include screen-sm {
-      font-size: rem-calc(14);
+  .headline > a {
+    font-weight: $text-medium;
+  }
+  .menu-item {
+    a {
+      position: relative;
+      z-index: 1;
+      padding: $padding-xsmall $padding-small;
+    }
+    @include screen-md {
+      a {
+        font-size: rem-calc(18);
+      }
+      .menu-item {
+        a {
+          font-size: rem-calc(16);
+        }
+        .menu-item a {
+          padding-top: $padding-xsmall/2;
+          padding-bottom: $padding-xsmall/2;
+          font-size: rem-calc(14);
+        }
+      }
     }
     @include screen-lg-up {
-      &:hover {
-        color: $yellow;
+      a {
+        &:hover {
+          color: $yellow;
+        }
+        padding: #{rem-calc(32)} #{rem-calc(16)};
       }
-      padding: #{rem-calc(32)} #{rem-calc(16)};
     }
   }
   @include screen-md {
@@ -101,6 +124,36 @@ body {
           }
           .dropdown-menu {
             display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown {
+    .widget{
+      display: none;
+    }
+    &.has_sidebar {
+      > .dropdown-menu {
+          > li {
+          @include screen-lg-up {
+            width: 20%;
+          }
+          &.menu-timeline {
+            width: 30%;
+            @include screen-md {
+              figure {
+                display: none;
+              }
+            }
+          }
+        }
+
+        @include screen-lg-up {
+          .widget {
+            display: block;
+            width: 50%;
           }
         }
       }

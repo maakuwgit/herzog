@@ -9,7 +9,8 @@
   @include screen-md {
     min-height: 270px;
     h1, h2 {
-      margin-top: 25vh;
+      margin-top: auto;
+      margin-bottom: auto;
     }
   }
   > .wrapper {

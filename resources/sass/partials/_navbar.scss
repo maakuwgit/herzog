@@ -1,34 +1,3 @@
 /**
  * Navbar styles
  */
-#primary-nav {
-  .dropdown {
-    .widget{
-      display: none;
-    }
-    &.has_sidebar {
-      > .dropdown-menu {
-          > li {
-          @include screen-lg-up {
-            width: 20%;
-          }
-          &.menu-timeline {
-            width: 30%;
-            @include screen-md {
-              figure {
-                display: none;
-              }
-            }
-          }
-        }
-
-        @include screen-lg-up {
-          .widget {
-            display: block;
-            width: 50%;
-          }
-        }
-      }
-    }
-  }
-}

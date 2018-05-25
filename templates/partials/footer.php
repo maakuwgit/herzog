@@ -38,19 +38,27 @@
     </li><!-- .footer__ll-logo -->
   </ul>
 </footer>
+<?php /*
+Dev Note: was able to get this to trigger, but it's a 400 error so...
 <script  id="locations-filterable_script">
 
   $('#filter_divisions').change(function() {
-    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
-    $.post(
-        ajaxurl,
-        {
-            'action'  :   'fetch_posts',
-            'fetch' :   'divisions',
-        },
-        function(output){
-          $('[data-component="locations-filterable"] .output').html(output);
-        });
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>",
+        filter_locations = $('#filter_locations');
+
+    $.ajax({
+    type: "POST",
+    url: ajaxurl,
+    dataType: "json",
+    data: {
+        'action': 'll_filter_locations',
+    },
+    success: function(response) {
+        $('[data-component="locations-filterable"] .output').html(output);
+    }
+   });
   });
 
 </script>
+*/
+?>
