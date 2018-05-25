@@ -48,7 +48,19 @@
       display: none;
     }
   }
-  .thumbnail:hover {
-    background-color: transparent !important;
+  .thumbnail {
+    @include screen-sm {
+      width: 100%;
+    }
+    @include screen-md {
+      margin-bottom: $padding-medium;
+      [data-background] {
+        min-height: initial;
+        height: $thumbnail-height;
+      }
+    }
+    &:hover {
+      background-color: transparent !important;
+    }
   }
 }

@@ -12,6 +12,10 @@
   li {
     figure {
       min-height: 50vh;
+      @include screen-md {
+        min-height: initial;
+        height: $thumbnail-height;
+      }
       [data-background]{
         display: table;
         width: 100%;
@@ -35,7 +39,12 @@
   }
   footer,
   h4 {
-    margin-top: $padding-large;
+    @include screen-md {
+      margin-bottom: $padding-medium;
+    }
+    @include screen-lg-up {
+      margin-top: $padding-large;
+    }
   }
   p {
     font-size: rem-calc(14);

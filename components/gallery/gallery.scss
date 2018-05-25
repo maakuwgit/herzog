@@ -11,9 +11,11 @@
       max-width: none;
       padding: 0;
     }
-    width:  calc(100vw - #{$padding-medium});
   }
   width: $container-width;
+  .slick-slide {
+    max-width:  calc(100vw - #{$padding-medium});
+  }
 }
 section + .hero-nav {
   max-width: $container-width;

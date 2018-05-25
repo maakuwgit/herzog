@@ -8,7 +8,7 @@
 
   var COMPONENT = {
 
-    className: 'll-gallery-masonry',
+    className: 'gallery-masonry',
 
 
     selector : function() {

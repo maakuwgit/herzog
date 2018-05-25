@@ -104,6 +104,9 @@ $padding-small: rem-calc(25);
 $padding-medium: rem-calc(50);
 $padding-large: rem-calc(120);
 
+//Thumbnails
+$thumbnail-height: rem-calc(170);
+
 // The point at which the navbar becomes uncollapsed (do not modify)
 $grid-float-breakpoint: $screen-nav-mobile + 1;
 

@@ -7,8 +7,18 @@
  */
 
 .inforgraphic {
-  background: url(../img/background-map.png) #{rem-calc(340)} #{rem-calc(80)} no-repeat;
-  background-size: #{rem-calc(700)} auto;
+  background-image: url(../img/background-map.png);
+  background-size: #{rem-calc(370)} auto;
+  background-position: center #{rem-calc(140)};
+  background-repeat: no-repeat;
+  @include screen-sm-only {
+    background-size: #{rem-calc(600)} auto;
+    background-position-y: rem-calc(50);
+  }
+  @include screen-md-up {
+    background-position: #{rem-calc(340)} #{rem-calc(80)};
+    background-size: #{rem-calc(700)} auto;
+  }
   .flex-end {
     align-items: flex-end;
   }

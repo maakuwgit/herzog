@@ -25,7 +25,7 @@
   @include screen-md {
     .brick {
       min-height: initial;
-      height: rem-calc(170);
+      height: $thumbnail-height;
     }
     .picture {
       padding-top: 0;
