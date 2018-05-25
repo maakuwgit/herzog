@@ -72,7 +72,9 @@
             fade: true,
             prevArrow: prevArrow,
             nextArrow: nextArrow,
-            appendArrows: sliderNav
+            appendArrows: sliderNav,
+            centerMode: true,
+            adaptiveHeight: true
           }).on('afterChange', setProgress);
         });
 
