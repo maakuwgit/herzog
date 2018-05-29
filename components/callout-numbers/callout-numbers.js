@@ -18,7 +18,7 @@
     startCounter: function(target){
           max    = parseInt($(target).attr('data-count')),
           curr   = 0,
-          incr   = max * 0.001;
+          incr   = Math.round(max * 0.001);
 
       var countUp = setInterval(function(){
         if( curr < max ) {
