@@ -71,6 +71,9 @@
 .h5.text-normal,
 .h6.text-normal {
   font-weight: $text-light;
+  main.hero & {
+    font-weight: $text-light;
+  }
 }
 
 /* List Styles */

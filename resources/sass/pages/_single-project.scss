@@ -1,0 +1,21 @@
+/**
+ * Single Project
+ */
+.single-project {
+  > article {
+    padding-top: 0;
+  }
+  main {
+    flex-direction: column;
+    > div {
+      margin-top: 0;
+      &:first-of-type {
+        margin-top: auto;
+        margin-bottom: 0;
+      }
+    }
+  }
+  main.hero {
+    pointer-events: none;
+  }
+}

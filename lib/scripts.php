@@ -15,6 +15,7 @@
  * - You're not logged in as an administrator
  */
 function roots_scripts() {
+  $post_type = get_post_type();
 
   $maps_api = get_field( 'global_google_maps_api_key', 'option' );
   $street_address = get_field( 'contact_street_address', 'option' );
@@ -65,6 +66,20 @@ function roots_scripts() {
   wp_enqueue_script('animation.gsap', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', array('jquery'), '2.0.5', true);
   wp_enqueue_script('indicators', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js', array('jquery'), '2.0.5', true);
 
+  //Project/Case Study Dependencies
+  wp_register_script('Detector', get_template_directory_uri() . '/resources/js/vendor/Detector.js', array(), '69');
+  wp_register_script('Three.min', get_template_directory_uri() . '/resources/js/vendor/three.min.js', array(), '1');
+  wp_register_script('Tween', get_template_directory_uri() . '/resources/js/vendor/Tween.js', array(), '1');
+  wp_register_script('globe', get_template_directory_uri() . '/resources/js/vendor/globe.js', array(), '1');
+
+  if( is_single() && 'project' === $post_type ) {
+    wp_enqueue_script('Detector');
+    wp_enqueue_script('Three.min');
+    wp_enqueue_script('Tween');
+    wp_enqueue_script('globe');
+  }
+
+// Maps
   wp_enqueue_script('jquery');
   if ( $maps_api ) {
     wp_enqueue_script( 'google-maps', '//maps.googleapis.com/maps/api/js?key=' . $maps_api . '&libraries=places' );

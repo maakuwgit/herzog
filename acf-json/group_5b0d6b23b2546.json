@@ -68,7 +68,7 @@
         {
             "key": "field_5b0d6c46fd2cf",
             "label": "Division",
-            "name": "division",
+            "name": "project_division",
             "type": "post_object",
             "instructions": "",
             "required": 1,
@@ -90,7 +90,7 @@
         {
             "key": "field_5b0d6c68fd2d0",
             "label": "Capabilities",
-            "name": "capabilities",
+            "name": "project_capabilities",
             "type": "post_object",
             "instructions": "",
             "required": 1,
@@ -134,5 +134,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1527606883
+    "modified": 1527617579
 }
