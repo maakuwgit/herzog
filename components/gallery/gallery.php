@@ -7,7 +7,21 @@
 */
 
 $default_data = [
-  'gallery' => array()
+  'gallery' => array(
+    array(
+      'gallery_image' => array(
+        'title' => 'Placeholder',
+        'url' => '//via.placeholder.com/1280x1024',
+        'sizes' => array(
+          'full' => '//via.placeholder.com/1280x1024',
+          'xlarge' => '//via.placeholder.com/1600x1200',
+          'large' => '//via.placeholder.com/1024x768',
+          'medium' => '//via.placeholder.com/968x660',
+          'thumbnail' => '//via.placeholder.com/640x560'
+        )
+      )
+    )
+  )
 ];
 
 $default_args = [
@@ -21,11 +35,10 @@ $default_args = [
 $data = ll_parse_args( $component_data, $default_data );
 $args = ll_parse_args( $component_args, $default_args );
 
-if ( ll_empty( $data ) ) return;
+//if ( ll_empty( $data ) ) return;
 
 $classes = $args['classes'] ?: array();
 
-$gallery      = $data['gallery'];
 $is_hero      = $args['is_hero'];
 $nav_id       = $args['nav_id'];
 $fullwidth    = ( $args['is_fullwidth'] ? ' fullwidth' : '');
@@ -40,6 +53,18 @@ if( $args['classes'] ) {
 }
 $css .= '"';
 $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
+
+$gallery = false;
+
+if( sizeof($data['gallery']) > 0 ){
+  if( $data['gallery'][0]['gallery_image'] ) {
+    $gallery = $data['gallery'];
+  }else{
+    foreach( $data['gallery'] as $temp ){
+      $gallery[] = $default_data['gallery'][0];
+    }
+  }
+}
 ?>
 <?php if( !$is_hero ) : ?>
   <section class="slideshow<?php echo $fullwidth; ?>">

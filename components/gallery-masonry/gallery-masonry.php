@@ -10,33 +10,7 @@ $default_data = [
   'gallery' => array(
     array(
       'gallery_image' => array(
-        'title' => 'Image 1',
-        'url' => '//via.placeholder.com/1200x805',
-        'sizes' => array(
-          'full' => '//via.placeholder.com/1200x805',
-          'xlarge' => '//via.placeholder.com/800x550',
-          'large' => '//via.placeholder.com/600x402',
-          'medium' => '//via.placeholder.com/400x275',
-          'thumbnail' => '//via.placeholder.com/200x135'
-        )
-      )
-    ),
-    array(
-      'gallery_image' => array(
-        'title' => 'Image 2',
-        'url' => '//via.placeholder.com/1200x805',
-        'sizes' => array(
-          'full' => '//via.placeholder.com/1200x805',
-          'xlarge' => '//via.placeholder.com/800x550',
-          'large' => '//via.placeholder.com/600x402',
-          'medium' => '//via.placeholder.com/400x275',
-          'thumbnail' => '//via.placeholder.com/200x135'
-        )
-      )
-    ),
-    array(
-      'gallery_image' => array(
-        'title' => 'Image 3',
+        'title' => 'Placeholder',
         'url' => '//via.placeholder.com/1200x805',
         'sizes' => array(
           'full' => '//via.placeholder.com/1200x805',
