@@ -911,6 +911,11 @@
                 "param": "post_type",
                 "operator": "!=",
                 "value": "timeline"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "project"
             }
         ]
     ],
@@ -924,5 +929,5 @@
     ],
     "active": 1,
     "description": "Used on almost every page",
-    "modified": 1527130960
+    "modified": 1527606694
 }

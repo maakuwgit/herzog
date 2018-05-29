@@ -127,6 +127,13 @@
                 "operator": "==",
                 "value": "innovation"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "project"
+            }
         ]
     ],
     "menu_order": 0,
@@ -137,5 +144,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526585554
+    "modified": 1527609989
 }

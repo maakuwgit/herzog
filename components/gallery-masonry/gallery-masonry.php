@@ -23,7 +23,7 @@ $default_data = [
     ),
     array(
       'gallery_image' => array(
-        'title' => 'Image 1',
+        'title' => 'Image 2',
         'url' => '//via.placeholder.com/1200x805',
         'sizes' => array(
           'full' => '//via.placeholder.com/1200x805',
@@ -36,7 +36,7 @@ $default_data = [
     ),
     array(
       'gallery_image' => array(
-        'title' => 'Image 1',
+        'title' => 'Image 3',
         'url' => '//via.placeholder.com/1200x805',
         'sizes' => array(
           'full' => '//via.placeholder.com/1200x805',
@@ -79,7 +79,9 @@ if( sizeof($data['gallery']) > 0 ){
   if( $data['gallery'][0]['gallery_image'] ) {
     $gallery = $data['gallery'];
   }else{
-    $gallery = $default_data['gallery'];
+    foreach( $data['gallery'] as $temp ){
+      $gallery[] = $default_data['gallery'][0];
+    }
   }
 }
 ?>

@@ -1,0 +1,526 @@
+{
+    "key": "group_5b0d6d1b7f2d7",
+    "title": "Project Components",
+    "fields": [
+        {
+            "key": "field_5b0d6d1b886b7",
+            "label": "Components",
+            "name": "components",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "5ad61fbb153cf": {
+                    "key": "5ad61fbb153cf",
+                    "name": "headlines",
+                    "label": "Headline",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b0d6d1b8b5da",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d6d1b8b681",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d6d1b8b72f",
+                            "label": "Headline",
+                            "name": "component_headline",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5ad6173b2dac9"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5ad628799915e": {
+                    "key": "5ad628799915e",
+                    "name": "bands",
+                    "label": "Band",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b0d6d1b8b7db",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d6d1b8b85f",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d6d1b8b925",
+                            "label": "Band",
+                            "name": "component_band",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5ad6232dcebe1"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5ad6760ff2360": {
+                    "key": "5ad6760ff2360",
+                    "name": "big-images",
+                    "label": "Big Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b0d6d1b8b99e",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d6d1b8ba4b",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d6d1b8bb0f",
+                            "label": "Image",
+                            "name": "component_big_image",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5af9f9b8640b2"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b062ae627ec0": {
+                    "key": "5b062ae627ec0",
+                    "name": "callout-numbers",
+                    "label": "Callout w\/ Counter",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b0d6d1b8bfa1",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d6d1b8c056",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d6d1b8c10a",
+                            "label": "Callout w Counter",
+                            "name": "component_callout_numbers",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5af5e6d00b2ce"
+                            ],
+                            "display": "seamless",
+                            "layout": "",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b0d73ace1324": {
+                    "key": "5b0d73ace1324",
+                    "name": "callout-images",
+                    "label": "Image w\/ Blockquote",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b0d73ace1325",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d73ace1326",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d73ace1327",
+                            "label": "Image w Blockquote",
+                            "name": "component_callout_image",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5af60a1f423a5"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5ae78b40cec69": {
+                    "key": "5ae78b40cec69",
+                    "name": "masonry-galleries",
+                    "label": "Masonry Gallery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b0d6d1b8c4b4",
+                            "label": "Fullwidth?",
+                            "name": "is_fullwidth",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "This gallery stretches the entire width of the screen from left-to-right?",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5b0d6d1b8c563",
+                            "label": "Masonry Gallery",
+                            "name": "component_gallery_masonry",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5afb44e178305"
+                            ],
+                            "display": "seamless",
+                            "layout": "",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b0d7400e1328": {
+                    "key": "5b0d7400e1328",
+                    "name": "galleries",
+                    "label": "Slideshow",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b0d7400e1329",
+                            "label": "Group Label",
+                            "name": "group_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-group-label",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d7400e132a",
+                            "label": "Target Name",
+                            "name": "target_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "ll-target-name",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "#target_name",
+                            "prepend": "#",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b0d7400e132b",
+                            "label": "Fullwidth?",
+                            "name": "is_fullwidth",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "This gallery stretches the entire width of the screen from left-to-right?",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5b0d7400e132c",
+                            "label": "Slideshow",
+                            "name": "component_gallery",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5ae786e6c4c70"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "+ Component",
+            "min": 0,
+            "max": 20
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "project"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Used only on Projects (Case Studies)",
+    "modified": 1527608673
+}

@@ -98,6 +98,24 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
+      case 'completion-details':
+        $output .= ll_include_component(
+          'completion-details',
+          array(
+            'headline'      => get_field('project_headline'),
+            'divisions'     => get_field('project_divisions'),
+            'capabilities'  => get_field('project_capabilities'),
+            'started'       => get_field('project_started'),
+            'completed'     => get_field('project_completed'),
+            'delivery'      => get_field('project_delivery'),
+            'overview'      => get_field('project_overview')
+          ),
+          array(
+            'id'         => $id
+          ),
+          true
+        );
+      break;
       case 'capability-cards':
         while( have_rows( 'capability_right_rail' ) ) {
           the_row();
@@ -251,6 +269,18 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
+      case 'galleries-w-copy':
+        $output .= ll_include_component(
+          'gallery-w-copy',
+          array(
+            'gallery' => get_sub_field('gallery-w-copy')
+          ),
+          array(
+            'id'         => $id
+          ),
+          true
+        );
+      break;
       case 'headlines' :
         $headline   = array(
           'text'      => get_sub_field('headline_text'),
@@ -360,18 +390,6 @@ if( have_rows( 'components' ) ) {
           array(
             'id'         => $id,
             'cascade'    => get_sub_field('cascade')
-          ),
-          true
-        );
-      break;
-      case 'galleries-w-copy':
-        $output .= ll_include_component(
-          'gallery-w-copy',
-          array(
-            'gallery' => get_sub_field('gallery-w-copy')
-          ),
-          array(
-            'id'         => $id
           ),
           true
         );
