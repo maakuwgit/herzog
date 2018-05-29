@@ -107,7 +107,6 @@ body {
     right: 0;
     left: 0;
     height: 0;
-    padding-top: rem-calc(84);
     overflow: hidden;
     width: 100%;
     background-color: $ebony;
@@ -117,6 +116,7 @@ body {
     &.active {
       height: 100vh;
       overflow: scroll;
+      padding-top: rem-calc(84);
       a {
         opacity: 1;
       }
@@ -183,10 +183,12 @@ body {
   overflow: visible;
   background-color: transparent;
   position: absolute;
+  height: 100%;
   z-index:25;
+  align-self: stretch;
   @include screen-md {
     right: 0;
-    display: block;
+    display: flex;
   }
   @include screen-md-up {
     right: -1rem;
@@ -338,7 +340,10 @@ body {
   z-index: 10;
   width: 100vw;
   margin: 0 auto;
-  padding: $grid_gutter_width 0;
+  padding: $padding-xsmall 0;
+  > .row {
+    align-items: center;
+  }
   li.active > a {
     color: darken($ivory, 20);
   }
@@ -346,9 +351,10 @@ body {
 
 .navbar-toggle__box {
   width: rem-calc(22);
-  height: calc(2px * 3 + 6px * 2);
+  height: calc(#{rem-calc(2)} * 3 + #{rem-calc(6)} * 2 - #{rem-calc(3)});
   display: inline-block;
   position: relative;
+  margin-top: rem-calc(-6);
 }
 
 .navbar-toggle__inner {

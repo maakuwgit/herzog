@@ -1,34 +1,36 @@
 /**
- * Single Team Member
+ * Single (Global)
  */
 .single {
-    padding-bottom: $padding-small;
+  padding-bottom: $padding-small;
   > article {
     background-color: #0d0d0d;
   }
   &.single-post {
-    @include screen-lg-up {
-      padding-bottom: $padding-large;
-    }
-    aside {
-      * {
-        font-size: rem-calc(14);
+    article {
+      @include screen-lg-up {
+        padding-bottom: $padding-large;
       }
-      h6 {
-        margin-top: $padding-medium;
-        &:first-of-type {
-          margin-top: auto;
+      aside {
+        * {
+          font-size: rem-calc(14);
         }
-      }
-      ul {
-        list-style: none;
-        li {
-          font-weight: $text-normal;
-          padding-left: 0;
-          &:before,
-          &:after {
-            content: '';
-            position: initial;
+        h6 {
+          margin-top: $padding-medium;
+          &:first-of-type {
+            margin-top: auto;
+          }
+        }
+        ul {
+          list-style: none;
+          li {
+            font-weight: $text-regular;
+            padding-left: 0;
+            &:before,
+            &:after {
+              content: '';
+              position: initial;
+            }
           }
         }
       }

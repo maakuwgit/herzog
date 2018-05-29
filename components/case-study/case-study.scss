@@ -10,12 +10,14 @@
   .picture {
     padding: 0 0 #{$padding-medium} 0;
   }
-  ul  {
-    @include flexible;
-    justify-content: flex-start;
-    li {
-      width: 50%;
-      flex: 0 0.5 auto;
+  @include screen-md-up {
+    ul  {
+      @include flexible;
+      justify-content: flex-start;
+      li {
+        width: 50%;
+        flex: 0 0.5 auto;
+      }
     }
   }
   dd {

@@ -45,7 +45,7 @@ body > nav[data-component="anchor_nav"] {
     z-index: 2;
     width: 100%;
   }
-  @include screen-md {
+  @include screen-lg {
     display: none;
   }
   ol {

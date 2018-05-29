@@ -22,13 +22,13 @@ $thumb-padding: 1.5rem;
   &.row {
     width: 100%;
   }
-  @include screen-sm {
+  @include screen-sm-only {
     width: 50%;
   }
-  @include screen-sm-only {
+  @include screen-md-only {
     width: 25%;
   }
-  @include screen-md-up {
+  @include screen-lg-up {
     width: 33.3333%;
   }
   @include screen-sm-up {

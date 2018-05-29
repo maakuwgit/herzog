@@ -26,10 +26,12 @@
       margin-right: auto;
       margin-left: 15%;
     }
-    @include screen-sm {
+    @include screen-md {
       &.col:not([data-component]):not([data-slick-nav]) {
-        padding-left: $grid-column-padding * 3;
-        padding-right: $grid-column-padding * 3;
+        padding-top: $padding-large;
+        padding-right: $padding-medium;
+        padding-left: $padding-medium;
+        padding-bottom: $padding-small;
       }
       text-shadow: 0 0 #{rem-calc(10)} black;
       line-height: 1.25;
