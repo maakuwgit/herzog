@@ -10,7 +10,7 @@ $default_data = [
   'headline'      => 'Lorem Ipsum',
   'divisions'     => false,
   'capabilities'  => false,
-  'started'       => false
+  'started'       => false,
   'completed'     => 'Ongoing',
   'delivery'      => 'Sin dolor',
   'overview'      => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
@@ -40,7 +40,7 @@ $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 $headline     = $data['headline'];
 $divisions    = $data['divisions'];
 $capabilities = $data['capabilities'];
-$started      = $data['completed'];
+$started      = $data['started'];
 $completed    = $data['completed'];
 $delivery     = $data['delivery'];
 $overview     = $data['overview'];
@@ -53,12 +53,44 @@ $overview     = $data['overview'];
   </div>
   <div class="container row stretch">
     <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
-      <h5>Details</h5>
+      <h3 class="h6 text-bold">Details</h3>
       <dl>
+      <?php if( $divisions ) : ?>
+        <?php if( sizeof($divisions) > 1 ) : ?>
+        <dt>Divisions</dt>
+        <dd>
+          <ul class="no-bullet">
+          <?php
+            foreach( $divisions as $division ) :
+              $abbr = get_field('division_abbreviation', $division->ID);
+            ?>
+            <li><?php echo $abbr; ?></li>
+          <?php endforeach;?>
+          </ul>
+        </dd>
+        <?php
+          else :
+          $abbr = get_field('division_abbreviation', $divisions[0]->ID);
+        ?>
         <dt>Division</dt>
-        <dd><?php echo $divisions; ?></dd>
+        <dd><?php echo $abbr; ?></dd>
+        <?php endif; ?>
+      <?php endif; ?>
+      <?php if( $capabilities ) : ?>
+        <?php if( sizeof($capabilities) > 1 ) : ?>
         <dt>Capabilities</dt>
-        <dd><?php echo $capabilities; ?></dd>
+        <dd>
+          <ul class="no-bullet">
+          <?php foreach( $capabilities as $capability ) : ?>
+            <li><?php echo $capability->post_title; ?></li>
+          <?php endforeach;?>
+          </ul>
+        </dd>
+        <?php else : ?>
+        <dt>Capability</dt>
+        <dd><?php echo $capabilities[0]->post_title; ?></dd>
+        <?php endif; ?>
+      <?php endif; ?>
       <?php if( $started) : ?>
         <dt>Year Started</dt>
         <dd><?php echo $started; ?></dd>
@@ -68,7 +100,7 @@ $overview     = $data['overview'];
       </dl>
     </div>
     <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
-      <h5>Overview</h5>
+      <h3 class="h6 text-bold">Overview</h3>
       <?php echo format_text($overview); ?>
     </div>
   </div>

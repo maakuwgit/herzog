@@ -102,13 +102,13 @@ if( have_rows( 'components' ) ) {
         $output .= ll_include_component(
           'completion-details',
           array(
-            'headline'      => get_field('project_headline'),
-            'divisions'     => get_field('project_divisions'),
-            'capabilities'  => get_field('project_capabilities'),
-            'started'       => get_field('project_started'),
-            'completed'     => get_field('project_completed'),
-            'delivery'      => get_field('project_delivery'),
-            'overview'      => get_field('project_overview')
+            'headline'      => get_sub_field('project_details_headline'),
+            'divisions'     => get_sub_field('project_details_divisions'),
+            'capabilities'  => get_sub_field('project_details_capabilities'),
+            'started'       => get_sub_field('project_details_started'),
+            'completed'     => get_sub_field('project_details_completed'),
+            'delivery'      => get_sub_field('project_details_delivery'),
+            'overview'      => get_sub_field('project_details_overview')
           ),
           array(
             'id'         => $id
