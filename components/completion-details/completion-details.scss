@@ -7,5 +7,21 @@
  */
 
 .completion-details {
-
+  padding-top: $padding-medium;
+  padding-bottom: $padding-medium;
+  @include screen-lg-up {
+    padding-top: $padding-xlarge;
+    padding-bottom: $padding-large;
+  }
+  h3 {
+    margin-bottom: $padding-small;
+  }
+  dt, dd {
+    margin-bottom: $padding-xsmall;
+  }
+  @include screen-lg-up {
+    p {
+      font-size: rem-calc(14);
+    }
+  }
 }

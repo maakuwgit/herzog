@@ -41,24 +41,24 @@ $headline     = $data['headline'];
 $divisions    = $data['divisions'];
 $capabilities = $data['capabilities'];
 $started      = $data['started'];
-$completed    = $data['completed'];
+$completed    = ( $data['completed'] ? $data['completed'] : $default_data['completed'] );
 $delivery     = $data['delivery'];
 $overview     = $data['overview'];
 ?>
 <section<?php echo $id . $css; ?> data-component="completion-details">
-  <div class="container row stretch">
-    <header class="col">
+  <div class="container row start">
+    <header class="col col-md-6of12 col-lg-5of12 col-xl-5of12">
       <h2><?php echo $headline; ?></h2>
     </header>
   </div>
   <div class="container row stretch">
     <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
       <h3 class="h6 text-bold">Details</h3>
-      <dl>
+      <dl class="container row">
       <?php if( $divisions ) : ?>
         <?php if( sizeof($divisions) > 1 ) : ?>
-        <dt>Divisions</dt>
-        <dd>
+        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Divisions</dt>
+        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
           <ul class="no-bullet">
           <?php
             foreach( $divisions as $division ) :
@@ -72,14 +72,14 @@ $overview     = $data['overview'];
           else :
           $abbr = get_field('division_abbreviation', $divisions[0]->ID);
         ?>
-        <dt>Division</dt>
-        <dd><?php echo $abbr; ?></dd>
-        <?php endif; ?>
+        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Division</dt>
+        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $abbr; ?></dd>
+      <?php endif; ?>
       <?php endif; ?>
       <?php if( $capabilities ) : ?>
         <?php if( sizeof($capabilities) > 1 ) : ?>
-        <dt>Capabilities</dt>
-        <dd>
+        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Capabilities</dt>
+        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
           <ul class="no-bullet">
           <?php foreach( $capabilities as $capability ) : ?>
             <li><?php echo $capability->post_title; ?></li>
@@ -87,16 +87,18 @@ $overview     = $data['overview'];
           </ul>
         </dd>
         <?php else : ?>
-        <dt>Capability</dt>
-        <dd><?php echo $capabilities[0]->post_title; ?></dd>
+        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Capability</dt>
+        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $capabilities[0]->post_title; ?></dd>
         <?php endif; ?>
       <?php endif; ?>
       <?php if( $started) : ?>
-        <dt>Year Started</dt>
-        <dd><?php echo $started; ?></dd>
+        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Year Started</dt>
+        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $started; ?></dd>
       <?php endif; ?>
-        <dt>Year Completed</dt>
-        <dd><?php echo $completed; ?></dd>
+        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Year Completed</dt>
+        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $completed; ?></dd>
+        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Delivery Method</dt>
+        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $delivery; ?></dd>
       </dl>
     </div>
     <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
