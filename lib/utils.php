@@ -102,3 +102,38 @@ function get_finger_icon($size=[33,41],$echo=false) {
     return $output;
   }
 }
+
+function ll_get_projects_json() {
+  $data = array(
+    'category' => 'project',
+    'items'    => array()
+  );
+
+  $pargs    = array(
+                'post_type'     => 'project',
+                'post_status'   => 'publish',
+                'order'         => 'ASC',
+                'showposts'     => -1
+              );
+
+  $projects = new WP_Query( $pargs );
+
+  if ( $projects->have_posts() ) {
+    while( $projects->have_posts() ) {
+      $projects->the_post();
+
+      $latitude   = get_field('city_latitude');
+      $longitude  = get_field('city_longitude');
+      $magnitude  = get_field('city_magnitude') * 5;
+      $title      = get_the_title();
+      $slug       = get_post_field( 'post_name', get_post() );
+
+      $data['items'][] = array( $latitude,$longitude,$magnitude,$title,$slug );
+
+    }
+  }
+
+  $data = json_encode($data);
+
+  return $data;
+}

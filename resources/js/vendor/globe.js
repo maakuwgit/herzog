@@ -16,12 +16,13 @@ var DAT = DAT || {};
 DAT.Globe = function(container, opts) {
   opts = opts || {};
 
-  var colorFn = opts.colorFn || function(x) {
-    var c = new THREE.Color();
-    c.setHSL( ( 0.6 - ( x * 0.5 ) ), 1.0, 0.5 );
-    return c;
-  };
   var imgDir = opts.imgDir || '/wp-content/themes/herzog/assets/img/';
+
+  var raycaster = new THREE.Raycaster();
+  var mousetoo = new THREE.Vector2();
+
+  var earth = new Object();
+      earth.radius = 200;
 
   var Shaders = {
     'earth' : {
@@ -68,8 +69,8 @@ DAT.Globe = function(container, opts) {
     }
   };
 
-  var camera, scene, renderer, w, h;
-  var mesh, atmosphere, point;
+  var camera, scene, renderer, w, h, light;
+  var mesh, atmosphere, point, ring, label;
 
   var overRenderer;
 
@@ -81,7 +82,9 @@ DAT.Globe = function(container, opts) {
       target = { x: Math.PI*3/2, y: Math.PI / 6.0 },
       targetOnDown = { x: 0, y: 0 };
 
-  var distance = 100000, distanceTarget = 100000;
+  var multiplier = 10000;
+
+  var distance = multiplier, distanceTarget = multiplier;
   var padding = 40;
   var PI_HALF = Math.PI / 2;
 
@@ -94,17 +97,18 @@ DAT.Globe = function(container, opts) {
     w = container.offsetWidth || window.innerWidth;
     h = container.offsetHeight || window.innerHeight;
 
-    camera = new THREE.PerspectiveCamera(30, w / h, 1, 10000);
+    //The Scene Camera
+    camera = new THREE.PerspectiveCamera(30, w / h, 1, multiplier);
     camera.position.z = distance;
-
     scene = new THREE.Scene();
 
-    var geometry = new THREE.SphereGeometry(200, 40, 30);
+    /* The globe itself, wrapped in our texture */
+    var geometry = new THREE.SphereGeometry(earth.radius, 40, 30);
 
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world.jpg');
+    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world-2.jpg');
 
     material = new THREE.ShaderMaterial({
 
@@ -118,6 +122,7 @@ DAT.Globe = function(container, opts) {
     mesh.rotation.y = Math.PI;
     scene.add(mesh);
 
+    /* White glow around the globe */
     shader = Shaders['atmosphere'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
@@ -136,10 +141,31 @@ DAT.Globe = function(container, opts) {
     mesh.scale.set( 1.1, 1.1, 1.1 );
     scene.add(mesh);
 
-    geometry = new THREE.BoxGeometry(0.75, 0.75, 1);
-    geometry.applyMatrix(new THREE.Matrix4().makeTranslation(0,0,-0.5));
+    /* The point on the map*/
+    geometry = new THREE.ConeGeometry( 5, 20, 32 );
+    material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+    point = new THREE.Mesh( geometry, material );
 
-    point = new THREE.Mesh(geometry);
+
+    /* The ring around the point */
+    geometry = new THREE.RingGeometry( 10, 11, 64 );
+    material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+
+    ring = new THREE.Mesh( geometry, material );
+    ring.position.z = earth.radius + 10;
+
+
+    // LIGHTS
+    /*Dev Note: this appears to be doing nothing, but it's a position issue*/
+    light = new THREE.SpotLight( 0xff0000, 1);
+    light.position.set(0, earth.radius + 100, 0);
+    light.castShadow = true;
+    light.decay = 2;
+
+    scene.add( light );
+
+    var spotLightHelper = new THREE.SpotLightHelper( light );
+    scene.add( spotLightHelper );
 
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(w, h);
@@ -165,18 +191,26 @@ DAT.Globe = function(container, opts) {
     }, false);
   }
 
+  //Pushes the data into the point itself
   function addData(data, opts) {
     var lat, lng, size, color, i, step, colorFnWrapper;
 
     opts.animated = opts.animated || false;
     this.is_animated = opts.animated;
     opts.format = opts.format || 'magnitude'; // other option is 'legend'
+
+    var color = new THREE.Color(0xfffff);
+
     if (opts.format === 'magnitude') {
       step = 3;
-      colorFnWrapper = function(data, i) { return colorFn(data[i+2]); }
+      colorFnWrapper = function(data, i) {
+        return  color;
+      }
     } else if (opts.format === 'legend') {
       step = 4;
-      colorFnWrapper = function(data, i) { return colorFn(data[i+3]); }
+      colorFnWrapper = function(data, i) {
+        return  color;
+      }
     } else {
       throw('error: format not supported: '+opts.format);
     }
@@ -187,10 +221,11 @@ DAT.Globe = function(container, opts) {
         for (i = 0; i < data.length; i += step) {
           lat = data[i];
           lng = data[i + 1];
-//        size = data[i + 2];
+          title = data[i + 3];
+          slug = data[i + 4];
           color = colorFnWrapper(data,i);
-          size = 0;
-          addPoint(lat, lng, size, color, this._baseGeometry);
+          size = data[i + 2];
+          addPoint(lat, lng, size, color, this._baseGeometry, title);
         }
       }
       if(this._morphTargetId === undefined) {
@@ -200,14 +235,16 @@ DAT.Globe = function(container, opts) {
       }
       opts.name = opts.name || 'morphTarget'+this._morphTargetId;
     }
+
     var subgeo = new THREE.Geometry();
     for (i = 0; i < data.length; i += step) {
       lat = data[i];
       lng = data[i + 1];
       color = colorFnWrapper(data,i);
       size = data[i + 2];
-      size = size*200;
-      addPoint(lat, lng, size, color, subgeo);
+      title = data[i + 3];
+      slug = data[i + 4];
+      addPoint(lat, lng, size, color, subgeo, title);
     }
     if (opts.animated) {
       this._baseGeometry.morphTargets.push({'name': opts.name, vertices: subgeo.vertices});
@@ -217,35 +254,26 @@ DAT.Globe = function(container, opts) {
 
   };
 
+  //Make the point itself, and add it to the Scene
   function createPoints() {
     if (this._baseGeometry !== undefined) {
-      if (this.is_animated === false) {
-        this.points = new THREE.Mesh(this._baseGeometry, new THREE.MeshBasicMaterial({
-              color: 0xffffff,
-              vertexColors: THREE.FaceColors,
-              morphTargets: false
-            }));
-      } else {
-        if (this._baseGeometry.morphTargets.length < 8) {
-          console.log('t l',this._baseGeometry.morphTargets.length);
-          var padding = 8-this._baseGeometry.morphTargets.length;
-          console.log('padding', padding);
-          for(var i=0; i<=padding; i++) {
-            console.log('padding',i);
-            this._baseGeometry.morphTargets.push({'name': 'morphPadding'+i, vertices: this._baseGeometry.vertices});
-          }
-        }
-        this.points = new THREE.Mesh(this._baseGeometry, new THREE.MeshBasicMaterial({
-              color: 0xffffff,
-              vertexColors: THREE.FaceColors,
-              morphTargets: true
-            }));
-      }
+      this.points = new THREE.Mesh(this._baseGeometry, new THREE.MeshBasicMaterial({
+            color: 0xffffff
+          }));
       scene.add(this.points);
+
+      this.geometry = new THREE.RingGeometry( 10, 11, 64 );
+      this.material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+
+      this.rings = new THREE.Mesh( this.geometry, this.material );
+      this.rings.position.z = earth.radius + 10;
+
+      scene.add( this.rings );
     }
   }
 
-  function addPoint(lat, lng, size, color, subgeo) {
+  //Gets called several times (up to 4) for each actual point, for the face of the cube methinks.
+  function addPoint(lat, lng, size, color, subgeo, title) {
 
     var phi = (90 - lat) * Math.PI / 180;
     var theta = (180 - lng) * Math.PI / 180;
@@ -254,20 +282,19 @@ DAT.Globe = function(container, opts) {
     point.position.y = 200 * Math.cos(phi);
     point.position.z = 200 * Math.sin(phi) * Math.sin(theta);
 
-    point.lookAt(mesh.position);
+    point.lookAt(mesh.position.x, mesh.position.y + 180, mesh.position.z);
 
-    point.scale.z = Math.max( size, 0.1 ); // avoid non-invertible matrix
+    point.scale = Math.max( size, 0.1 );
+
     point.updateMatrix();
+    ring.updateMatrix();
 
-    for (var i = 0; i < point.geometry.faces.length; i++) {
-
-      point.geometry.faces[i].color = color;
-
-    }
     if(point.matrixAutoUpdate){
       point.updateMatrix();
+      ring.updateMatrix();
     }
     subgeo.merge(point.geometry, point.matrix);
+    subgeo.merge(ring.geometry, ring.matrix);
   }
 
   function onMouseDown(event) {
@@ -289,6 +316,31 @@ DAT.Globe = function(container, opts) {
   function onMouseMove(event) {
     mouse.x = - event.clientX;
     mouse.y = event.clientY;
+    // calculate mouse position in normalized device coordinates
+    // (-1 to +1) for both components
+
+    mousetoo.x = ( event.clientX / w ) * 2 - 1;
+    mousetoo.y = - ( event.clientY / h ) * 2 + 1;
+
+    // update the picking ray with the camera and mouse position
+    raycaster.setFromCamera( mousetoo, camera );
+
+    // calculate objects intersecting the picking ray
+    var intersects = raycaster.intersectObjects( scene.children );
+
+    for ( var i = 0; i < intersects.length; i++ ) {
+      var victim = intersects[ i ].object;
+      if( victim.geometry.type !== 'SphereGeometry') {
+//        console.log(intersects[ i ].object.geometry.type);
+      }
+      if( victim.geometry.type === 'RingGeometry' ){
+        //You've hit the ring!
+        //var name = viction.name eventually
+        console.log(victim);
+        $('body').addClass('globe-selection-made');
+        //point.material.shade.set( 0xff0000 );
+      }
+    }
 
     var zoomDamp = distance/1000;
 
@@ -351,6 +403,7 @@ DAT.Globe = function(container, opts) {
   }
 
   function render() {
+
     zoom(curZoomSpeed);
 
     rotation.x += (target.x - rotation.x) * 0.1;

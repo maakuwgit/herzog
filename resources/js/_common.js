@@ -201,14 +201,14 @@
               .addTo(controller);
             }
           }
-
-          //Animate everything with this one class
-          $('body').addClass('loaded');
-          var setAnimated = setTimeout(function(){
-            $('body').addClass('animated');
-            //Dev Note:
-          }, 2000);
         }
+
+        //Animate everything with this one class
+        $('body').addClass('loaded');
+        var setAnimated = setTimeout(function(){
+          $('body').addClass('animated');
+          //Dev Note:
+        }, 2000);
 
         //Timeline
         var panels = $('[data-hover-panels] .panel');

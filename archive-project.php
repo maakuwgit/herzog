@@ -1,3 +1,7 @@
+<div class="globe col" id="project-globe" data-globe>
+  <!-- Dev Note: put the texture image in here for SEO -->
+</div>
+<main class="content hero flex">
 <?php
   while (have_posts()) : the_post();
     $location     = get_field('project_location');
@@ -21,10 +25,6 @@
       $location = $city . ', <span class="text-uppercase">' . ($state->slug) . '</span>';
     }
 ?>
-<div class="globe col" id="project-globe" data-globe>
-  <!-- Dev Note: put the texture image in here for SEO -->
-</div>
-<main class="content hero flex">
   <div class="container row start">
     <header class="col col-12of12">
       <h1><?php the_title(); ?></h1>
@@ -93,8 +93,8 @@
       </dl>
     </div>
   </div>
-</main>
 <?php endwhile; ?>
+</main>
 <article <?php post_class('content'); ?>>
   <div class="container row">
 <?php while (have_posts()) : the_post(); ?>
@@ -111,30 +111,133 @@
 
       var container = document.getElementById('project-globe');
       var globe = new DAT.Globe(container);
-
+/*
+      particlesJS("project-space", {
+        "particles": {
+          "number": {
+            "value": 355,
+            "density": {
+              "enable": true,
+              "value_area": 789.1476416322727
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            },
+            "image": {
+              "src": "img/github.svg",
+              "width": 100,
+              "height": 100
+            }
+          },
+          "opacity": {
+            "value": 0.48927153781200905,
+            "random": false,
+            "anim": {
+              "enable": true,
+              "speed": 0.2,
+              "opacity_min": 0,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 2,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 2,
+              "size_min": 0,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": false,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 0.2,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "bubble"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 400,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 83.91608391608392,
+              "size": 1,
+              "duration": 3,
+              "opacity": 1,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 200,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
+*/
       var i, tweens = [];
 
-      var xhr;
       TWEEN.start();
 
+      var data = JSON.parse('<?php echo ll_get_projects_json();?>');
+      window.data = data;
+      for ( i=0; i<data.items.length; i++ ) {
+//        console.log(data.items[i]);
+        globe.addData(data.items[i], {format: 'magnitude', name: data.project, animated: true})
+      }
 
-      xhr = new XMLHttpRequest();
-      xhr.open('GET', '<?php echo get_template_directory_uri() . '/poc-globe/globe/';?>projects.json', true);
-      xhr.onreadystatechange = function(e) {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            window.data = data;
-            for (i=0;i<data.length;i++) {
-              globe.addData(data[i][1], {format: 'magnitude', name: data[i][0], animated: true});
-            }
-            globe.createPoints();
-            globe.animate();
-            document.body.style.backgroundImage = 'none'; // remove loading
-          }
-        }
-      };
-      xhr.send(null);
+      globe.createPoints();
+      globe.animate();
+      document.body.style.backgroundImage = 'none'; // remove loading
+
     }
 
-  </script>
+</script>

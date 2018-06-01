@@ -1,0 +1,53 @@
+/**
+ * Project Archive
+ */
+.post-type-archive-project {
+  height: 100vh;
+  overflow: hidden;
+  #project-globe, #project-space {
+    position: relative;
+    height: 100vh;
+    top: 0;
+    z-index: 1;
+    padding: 0;
+    canvas {
+      background-color: transparent;
+    }
+  }
+  main, article.content, & > aside, & > footer {
+    position: fixed;
+  }
+  main {
+    background-color: rgba($black, 0.6);
+  }
+
+  #project-globe {
+    background-color: rgba($coal, 0.6);
+  }
+
+  &.globe-selection-made {
+    height: auto;
+    overflow: initial;
+    & > aside,
+    main,
+    footer,
+    article.content {
+      position: relative;
+    }
+    #project-globe, #project-space {
+      position: fixed;
+      z-index: 0;
+    }
+    main,
+    article.content {
+      z-index: 1;
+    }
+    main {
+      top: 0;
+    }
+    article.content {
+      top: initial;
+      height: auto;
+    }
+  }
+}

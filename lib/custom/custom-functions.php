@@ -473,7 +473,7 @@ add_action( 'wp_head', 'll_generate_schema_json'  );
 * ll_update_filterable_divisions
 * -----------------------------------------------------------------------------
 * Update the component Locations Filterable content
-*
+* Dev Note: the AJAX was the last issue I ran into..
 function ll_filter_locations() {
   $fetch = esc_sql( $_POST );
   if( $fetch ){
