@@ -22,7 +22,8 @@ DAT.Globe = function(container, opts) {
   var mousetoo = new THREE.Vector2();
 
   var earth = new Object();
-      earth.radius = 200;
+      earth.radius = 200,
+      earth.orbit  = earth.radius * 3;
 
   var Shaders = {
     'earth' : {
@@ -70,7 +71,7 @@ DAT.Globe = function(container, opts) {
   };
 
   var camera, scene, renderer, w, h, light;
-  var mesh, atmosphere, point, ring, label;
+  var mesh, atmosphere, point, ring, label, starField;
 
   var overRenderer;
 
@@ -101,6 +102,7 @@ DAT.Globe = function(container, opts) {
     camera = new THREE.PerspectiveCamera(30, w / h, 1, multiplier);
     camera.position.z = distance;
     scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0x000A15 );
 
     /* The globe itself, wrapped in our texture */
     var geometry = new THREE.SphereGeometry(earth.radius, 40, 30);
@@ -111,16 +113,31 @@ DAT.Globe = function(container, opts) {
     uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world-2.jpg');
 
     material = new THREE.ShaderMaterial({
-
-          uniforms: uniforms,
-          vertexShader: shader.vertexShader,
-          fragmentShader: shader.fragmentShader
-
-        });
+      uniforms: uniforms,
+      vertexShader: shader.vertexShader,
+      fragmentShader: shader.fragmentShader,
+      transparent: true
+    });
 
     mesh = new THREE.Mesh(geometry, material);
     mesh.rotation.y = Math.PI;
     scene.add(mesh);
+
+    //Space, the final frontier...
+    var starsGeometry = new THREE.Geometry();
+    for ( var i = 0; i < distance * 5; i ++ ) {
+      var star = new THREE.Vector3();
+      star.x = THREE.Math.randFloatSpread( 2000 );
+      star.y = THREE.Math.randFloatSpread( 2000 );
+      star.z = THREE.Math.randFloatSpread( 2000 );
+
+      starsGeometry.vertices.push( star );
+
+    }
+
+    var starsMaterial = new THREE.PointsMaterial( { color: 0xFFFFFF } );
+    starField = new THREE.Points( starsGeometry, starsMaterial );
+    scene.add( starField );
 
     /* White glow around the globe */
     shader = Shaders['atmosphere'];
@@ -152,7 +169,7 @@ DAT.Globe = function(container, opts) {
     material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
 
     ring = new THREE.Mesh( geometry, material );
-    ring.position.z = earth.radius + 10;
+//    ring.position.z = earth.radius + 10;
 
 
     // LIGHTS
@@ -162,10 +179,10 @@ DAT.Globe = function(container, opts) {
     light.castShadow = true;
     light.decay = 2;
 
-    scene.add( light );
+    //scene.add( light );
 
     var spotLightHelper = new THREE.SpotLightHelper( light );
-    scene.add( spotLightHelper );
+    //scene.add( spotLightHelper );
 
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(w, h);
@@ -247,7 +264,7 @@ DAT.Globe = function(container, opts) {
       addPoint(lat, lng, size, color, subgeo, title);
     }
     if (opts.animated) {
-      this._baseGeometry.morphTargets.push({'name': opts.name, vertices: subgeo.vertices});
+      this._baseGeometry.morphTargets.push({'name': data.project, vertices: subgeo.vertices});
     } else {
       this._baseGeometry = subgeo;
     }
@@ -260,6 +277,7 @@ DAT.Globe = function(container, opts) {
       this.points = new THREE.Mesh(this._baseGeometry, new THREE.MeshBasicMaterial({
             color: 0xffffff
           }));
+
       scene.add(this.points);
 
       this.geometry = new THREE.RingGeometry( 10, 11, 64 );
@@ -282,7 +300,10 @@ DAT.Globe = function(container, opts) {
     point.position.y = 200 * Math.cos(phi);
     point.position.z = 200 * Math.sin(phi) * Math.sin(theta);
 
-    point.lookAt(mesh.position.x, mesh.position.y + 180, mesh.position.z);
+    ring.position.x = point.position.x;
+    ring.position.y = point.position.y;
+
+    point.lookAt(mesh.position.x, mesh.position.y + 270, mesh.position.z);
 
     point.scale = Math.max( size, 0.1 );
 
@@ -314,31 +335,30 @@ DAT.Globe = function(container, opts) {
   }
 
   function onMouseMove(event) {
+    //the ACTUAL mouse
     mouse.x = - event.clientX;
     mouse.y = event.clientY;
-    // calculate mouse position in normalized device coordinates
-    // (-1 to +1) for both components
 
+    // calculate the mouse position in "normalized device coordinates"
+    // basically (-1 to +1) for both components
     mousetoo.x = ( event.clientX / w ) * 2 - 1;
     mousetoo.y = - ( event.clientY / h ) * 2 + 1;
 
-    // update the picking ray with the camera and mouse position
+    //update the "picking ray" with the camera and mouse position
     raycaster.setFromCamera( mousetoo, camera );
 
-    // calculate objects intersecting the picking ray
+    //See if any cones or rings intersect the "picking ray"
     var intersects = raycaster.intersectObjects( scene.children );
 
     for ( var i = 0; i < intersects.length; i++ ) {
       var victim = intersects[ i ].object;
-      if( victim.geometry.type !== 'SphereGeometry') {
-//        console.log(intersects[ i ].object.geometry.type);
+      if( victim.geometry.type === 'SphereGeometry') {
+        //You've hit the earth :(
       }
       if( victim.geometry.type === 'RingGeometry' ){
         //You've hit the ring!
         //var name = viction.name eventually
-        console.log(victim);
         $('body').addClass('globe-selection-made');
-        //point.material.shade.set( 0xff0000 );
       }
     }
 

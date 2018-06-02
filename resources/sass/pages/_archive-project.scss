@@ -4,8 +4,8 @@
 .post-type-archive-project {
   height: 100vh;
   overflow: hidden;
-  #project-globe, #project-space {
-    position: relative;
+  position: relative;
+  #project-globe {
     height: 100vh;
     top: 0;
     z-index: 1;
@@ -14,15 +14,19 @@
       background-color: transparent;
     }
   }
-  main, article.content, & > aside, & > footer {
+  main, & > article, & > aside, & > footer {
     position: fixed;
   }
-  main {
+  main,
+  & > article {
     background-color: rgba($black, 0.6);
   }
-
-  #project-globe {
-    background-color: rgba($coal, 0.6);
+  [data-component=callout-numbers].callout-numbers {
+    background-color: transparent;
+  }
+  & > article,
+  [data-component=callout-numbers].callout-numbers {
+    box-shadow: none;
   }
 
   &.globe-selection-made {

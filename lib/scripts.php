@@ -78,7 +78,7 @@ function roots_scripts() {
     wp_enqueue_script('Three.min');
     wp_enqueue_script('Tween');
     wp_enqueue_script('globe');
-    //wp_enqueue_script('particles');
+    wp_enqueue_script('particles');
   }
 
 // Maps
