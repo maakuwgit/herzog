@@ -54,8 +54,7 @@
     }
     &.lefty {
       .brick {
-        &:nth-of-type(2),
-        &:nth-of-type(2n+3) {
+        &:nth-of-type(3n+2) {
           transform: translateY(25vh);
         }
         &:nth-of-type(3n+3) {
@@ -65,13 +64,11 @@
     }
     &.righty {
       .brick {
-        &:first-of-type,
-        &:nth-of-type(4n) {
-          transform: translateY(50vh);
-        }
-        &:nth-of-type(2),
-        &:nth-of-type(2n+5) {
+        &:nth-of-type(3n+2) {
           transform: translateY(25vh);
+        }
+        &:nth-of-type(3n+1) {
+          transform: translateY(50vh);
         }
       }
     }
