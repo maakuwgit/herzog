@@ -71,7 +71,7 @@ DAT.Globe = function(container, opts) {
   };
 
   var camera, scene, renderer, w, h, light;
-  var mesh, atmosphere, point, ring, label, starField;
+  var mesh, atmosphere, points, rings, labels, starField;
 
   var overRenderer;
 
@@ -158,17 +158,17 @@ DAT.Globe = function(container, opts) {
     mesh.scale.set( 1.1, 1.1, 1.1 );
     scene.add(mesh);
 
-    /* The point on the map*/
-    geometry = new THREE.ConeGeometry( 5, 20, 32 );
-    material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
-    point = new THREE.Mesh( geometry, material );
+    /* The points on the map*/
+    //geometry = new THREE.ConeGeometry( 5, 20, 32 );
+    //material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+    points = [];//new THREE.Mesh( geometry, material );
 
 
     /* The ring around the point */
-    geometry = new THREE.RingGeometry( 10, 11, 64 );
-    material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+    //geometry = new THREE.RingGeometry( 10, 11, 64 );
+    //material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
 
-    ring = new THREE.Mesh( geometry, material );
+    rings = [];// new THREE.Mesh( geometry, material );
 //    ring.position.z = earth.radius + 10;
 
 
@@ -272,26 +272,31 @@ DAT.Globe = function(container, opts) {
   };
 
   //Make the point itself, and add it to the Scene
-  function createPoints() {
-    if (this._baseGeometry !== undefined) {
-      this.points = new THREE.Mesh(this._baseGeometry, new THREE.MeshBasicMaterial({
-            color: 0xffffff
-          }));
+  function createLocator() {
+//    if (this._baseGeometry !== undefined) {
+      this.geometry = new THREE.ConeGeometry( 5, 20, 32 );
+      this.material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+      this.point = new THREE.Mesh( this.geometry, this.material );
 
-      scene.add(this.points);
+      scene.add(this.point);
 
       this.geometry = new THREE.RingGeometry( 10, 11, 64 );
       this.material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+      this.ring = new THREE.Mesh( this.geometry, this.material );
 
-      this.rings = new THREE.Mesh( this.geometry, this.material );
-      this.rings.position.z = earth.radius + 10;
+      scene.add(this.ring);
 
-      scene.add( this.rings );
-    }
+      return [this.point, this.ring];
+//    }
   }
 
   //Gets called several times (up to 4) for each actual point, for the face of the cube methinks.
   function addPoint(lat, lng, size, color, subgeo, title) {
+    var locator = createLocator();
+    var point = locator[0];
+    var ring = locator[1];
+
+    console.log(locator);
 
     var phi = (90 - lat) * Math.PI / 180;
     var theta = (180 - lng) * Math.PI / 180;
@@ -302,8 +307,10 @@ DAT.Globe = function(container, opts) {
 
     ring.position.x = point.position.x;
     ring.position.y = point.position.y;
+    ring.position.z = point.position.z;
 
     point.lookAt(mesh.position.x, mesh.position.y + 270, mesh.position.z);
+    ring.lookAt(mesh.position.x, mesh.position.y, mesh.position.z);
 
     point.scale = Math.max( size, 0.1 );
 
@@ -472,7 +479,6 @@ DAT.Globe = function(container, opts) {
   });
 
   this.addData = addData;
-  this.createPoints = createPoints;
   this.renderer = renderer;
   this.scene = scene;
 

@@ -119,11 +119,11 @@
       var data = JSON.parse('<?php echo ll_get_projects_json();?>');
       window.data = data;
       for ( i=0; i<data.items.length; i++ ) {
-        console.log(data.items[i]);
+//        console.log(data.items[i]);
         globe.addData(data.items[i], {format: 'magnitude', name: data.project, animated: true})
       }
 
-      globe.createPoints();
+      //globe.createPoints();
       globe.animate();
       document.body.style.backgroundImage = 'none'; // remove loading
 
