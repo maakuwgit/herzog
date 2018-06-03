@@ -33,12 +33,9 @@ $default_args = [
 $data = ll_parse_args( $component_data, $default_data );
 $args = ll_parse_args( $component_args, $default_args );
 
-/*Dev Note: this variable will stagger the image.
-It's totally functional :)
 $handed = $args['cascade'];
-*/
-$handed = '';
-$css = ' class="gallery-masonry' . $handed;
+
+$css = ' class="gallery-masonry' . ( $handed ? ' ' . $handed : '' );
 if( $args['classes'] ) {
   if( is_array($args['classes'] ) ) {
     $css .= implode( " ", $args['classes'] );

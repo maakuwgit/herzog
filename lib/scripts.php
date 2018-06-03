@@ -71,14 +71,12 @@ function roots_scripts() {
   wp_register_script('Three.min', get_template_directory_uri() . '/resources/js/vendor/three.min.js', array(), '1');
   wp_register_script('Tween', get_template_directory_uri() . '/resources/js/vendor/Tween.js', array(), '1');
   wp_register_script('globe', get_template_directory_uri() . '/resources/js/vendor/globe.js', array(), '1');
-  wp_register_script('particles', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js', array(), '2.0.0');
 
   if( is_single() && 'project' === $post_type ||  is_archive() && 'project' === $post_type ) {
     wp_enqueue_script('Detector');
     wp_enqueue_script('Three.min');
     wp_enqueue_script('Tween');
     wp_enqueue_script('globe');
-    wp_enqueue_script('particles');
   }
 
 // Maps

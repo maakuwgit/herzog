@@ -1,3 +1,7 @@
+<div class="globe col" id="project-globe" data-globe>
+  <!-- Dev Note: put the texture image in here for SEO -->
+</div>
+<main class="content hero flex">
 <?php
   while (have_posts()) : the_post();
     $location     = get_field('project_location');
@@ -21,10 +25,6 @@
       $location = $city . ', <span class="text-uppercase">' . ($state->slug) . '</span>';
     }
 ?>
-<div class="globe col" id="project-globe" data-globe>
-  <!-- Dev Note: put the texture image in here for SEO -->
-</div>
-<main class="content hero flex">
   <div class="container row start">
     <header class="col col-12of12">
       <h1><?php the_title(); ?></h1>
@@ -93,8 +93,8 @@
       </dl>
     </div>
   </div>
-</main>
 <?php endwhile; ?>
+</main>
 <article <?php post_class('content'); ?>>
   <div class="container row">
 <?php while (have_posts()) : the_post(); ?>
@@ -114,27 +114,19 @@
 
       var i, tweens = [];
 
-      var xhr;
       TWEEN.start();
 
+      var data = JSON.parse('<?php echo ll_get_projects_json();?>');
+      window.data = data;
+      for ( i=0; i<data.items.length; i++ ) {
+//        console.log(data.items[i]);
+        globe.addData(data.items[i], {format: 'magnitude', name: data.project, animated: true})
+      }
 
-      xhr = new XMLHttpRequest();
-      xhr.open('GET', '<?php echo get_template_directory_uri() . '/poc-globe/globe/';?>projects.json', true);
-      xhr.onreadystatechange = function(e) {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            window.data = data;
-            for (i=0;i<data.length;i++) {
-              globe.addData(data[i][1], {format: 'magnitude', name: data[i][0], animated: true});
-            }
-            globe.createPoints();
-            globe.animate();
-            document.body.style.backgroundImage = 'none'; // remove loading
-          }
-        }
-      };
-      xhr.send(null);
+      //globe.createPoints();
+      globe.animate();
+      document.body.style.backgroundImage = 'none'; // remove loading
+
     }
 
-  </script>
+</script>

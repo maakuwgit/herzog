@@ -191,21 +191,25 @@ DAT.Globe = function(container, opts) {
 
     container.appendChild(renderer.domElement);
 
-    container.addEventListener('mousedown', onMouseDown, false);
+    if( ! $('body').hasClass('single-project') ) {
+      container.addEventListener('mousedown', onMouseDown, false);
 
-    container.addEventListener('mousewheel', onMouseWheel, false);
+      container.addEventListener('mousewheel', onMouseWheel, false);
 
-    document.addEventListener('keydown', onDocumentKeyDown, false);
+      document.addEventListener('keydown', onDocumentKeyDown, false);
 
-    window.addEventListener('resize', onWindowResize, false);
+      window.addEventListener('resize', onWindowResize, false);
 
-    container.addEventListener('mouseover', function() {
-      overRenderer = true;
-    }, false);
+      container.addEventListener('mouseover', function() {
+        overRenderer = true;
+      }, false);
 
-    container.addEventListener('mouseout', function() {
-      overRenderer = false;
-    }, false);
+      container.addEventListener('mouseout', function() {
+        overRenderer = false;
+      }, false);
+    }else{
+      $('body').addClass('globe-selection-made');
+    }
   }
 
   //Pushes the data into the point itself

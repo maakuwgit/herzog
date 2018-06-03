@@ -7,6 +7,11 @@
  */
 .gallery-masonry {
   padding-bottom: $padding-small;
+  body>article>.container> & {
+    &:last-child {
+      padding-bottom: $padding-small;
+    }
+  }
   h4 {
     margin-top: 120px;
   }
@@ -34,8 +39,18 @@
   }
   @include screen-lg-up {
     padding-bottom: calc(50vh + #{$padding-large});
+    body>article>.container> & {
+      &:last-child {
+        padding-bottom: calc(50vh + #{$padding-large});
+      }
+    }
     &:not(.lefty):not(.righty) {
       padding-bottom: $padding-large;
+    }
+    body>article>.container> & {
+      &:not(.lefty):not(.righty):last-child {
+        padding-bottom: $padding-large;
+      }
     }
     &.lefty {
       .brick {

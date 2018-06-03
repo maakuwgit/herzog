@@ -2,20 +2,56 @@
  * Single Project
  */
 .single-project {
-  > article {
-    padding-top: 0;
-  }
-  main {
-    flex-direction: column;
-    > div {
-      margin-top: 0;
-      &:first-of-type {
-        margin-top: auto;
-        margin-bottom: 0;
-      }
+height: 100vh;
+  overflow: hidden;
+  position: relative;
+  #project-globe {
+    height: 100vh;
+    top: 0;
+    z-index: 1;
+    padding: 0;
+    canvas {
+      background-color: transparent;
     }
   }
-  main.hero {
-    pointer-events: none;
+  main, & > article, & > aside, & > footer {
+    position: fixed;
+  }
+  main,
+  & > article {
+    background-color: rgba($black, 0.6);
+  }
+  [data-component=callout-numbers].callout-numbers {
+    background-color: transparent;
+  }
+  & > article,
+  [data-component=callout-numbers].callout-numbers {
+    box-shadow: none;
+  }
+
+  &.globe-selection-made {
+    height: auto;
+    overflow: initial;
+    & > aside,
+    main,
+    footer,
+    article.content {
+      position: relative;
+    }
+    #project-globe {
+      position: fixed;
+      z-index: 0;
+    }
+    main,
+    article.content {
+      z-index: 1;
+    }
+    main {
+      top: 0;
+    }
+    article.content {
+      top: initial;
+      height: auto;
+    }
   }
 }
