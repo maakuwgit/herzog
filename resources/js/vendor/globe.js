@@ -89,7 +89,7 @@ DAT.Globe = function(container, opts) {
   };
 
   var camera, scene, renderer, w, h, light;
-  var mesh, atmosphere, points, rings, labels, starField;
+  var mesh, atmosphere, points, starField;
 
   var overRenderer;
 
@@ -196,19 +196,6 @@ DAT.Globe = function(container, opts) {
     mesh = new THREE.Mesh(geometry, material);
     mesh.scale.set( 1.1, 1.1, 1.1 );
     scene.add(mesh);
-
-    /* The points on the map*/
-    //geometry = new THREE.ConeGeometry( 5, 20, 32 );
-    //material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
-    points = [];//new THREE.Mesh( geometry, material );
-
-
-    /* The ring around the point */
-    //geometry = new THREE.RingGeometry( 10, 11, 64 );
-    //material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
-
-    rings = [];// new THREE.Mesh( geometry, material );
-//    ring.position.z = earth.radius + 10;
 
 
     // LIGHTS
@@ -369,10 +356,12 @@ DAT.Globe = function(container, opts) {
     var hotspot = locator[2];
     var copy = locator[3];
 
+    //Figure out where the points are on the map
     var phi = (90 - lat) * Math.PI / 180;
     var theta = (180 - lng) * Math.PI / 180;
 
-    point.name = ring.name = id;
+    //Assign the Post ID to all the interactive objects so we know what we're clicking
+    point.name = ring.name = hotspot.name = copy.name = id;
 
     point.position.x = 200 * Math.sin(phi) * Math.cos(theta);
     point.position.y = 200 * Math.cos(phi);
@@ -393,6 +382,7 @@ DAT.Globe = function(container, opts) {
     point.updateMatrix();
     ring.updateMatrix();
     hotspot.updateMatrix();
+    copy.geometry.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI ) );
     copy.updateMatrix();
 
     subgeo.merge(point.geometry, point.matrix);
@@ -421,11 +411,19 @@ DAT.Globe = function(container, opts) {
     var collision = false;
     for ( var i = 0; i < intersects.length; i++ ) {
       var victim = intersects[ i ].object;
+      console.log(victim.geometry.type);
       //Let's see what our mouse is touching...
-      if( victim.geometry.type === 'RingGeometry' ||  victim.geometry.type === 'ConeGeometry' ){
-        $('body').addClass('globe-selection-made');
-        $('[data-location="project-'+victim.name+'"]').addClass('active');
-        collision = true;
+      switch( victim.geometry.type ){
+        case 'ConeGeometry':
+        case 'RingGeometry':
+        case 'TextGeometry':
+          $('body').addClass('globe-selection-made');
+          $('[data-location="project-'+victim.name+'"]').addClass('active');
+          collision = true;
+        break;
+        default:
+          console.log('viction is a '+victim.geometry.type);
+        break;
       }
     }
 
@@ -563,4 +561,3 @@ DAT.Globe = function(container, opts) {
   return this;
 
 };
-
