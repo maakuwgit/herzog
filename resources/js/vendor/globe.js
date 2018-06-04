@@ -114,7 +114,7 @@ DAT.Globe = function(container, opts) {
       hitTestDistance: 40
     };
     controls = new TouchControls($(container).parent(), camera, options);
-    //controls.setPosition(0, 35, 400);
+    controls.setPosition(0, 35, 400);
     controls.addToScene(scene);
 
     /* The globe itself, wrapped in our texture */
