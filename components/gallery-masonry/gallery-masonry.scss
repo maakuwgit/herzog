@@ -7,13 +7,20 @@
  */
 .gallery-masonry {
   padding-bottom: $padding-small;
+  @include screen-lg-up {
+    .headline + & {
+      &.righty {
+        margin-top: $padding-large * -1;
+      }
+    }
+  }
   body>article>.container> & {
     &:last-child {
       padding-bottom: $padding-small;
     }
   }
   h4 {
-    margin-top: 120px;
+    margin-top: $padding-large;
   }
   .brick {
     min-height: 50vh;
