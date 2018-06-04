@@ -71,7 +71,7 @@ function roots_scripts() {
   wp_register_script('Three.min', get_template_directory_uri() . '/resources/js/vendor/three.min.js', array(), '1');
   wp_register_script('Tween', get_template_directory_uri() . '/resources/js/vendor/Tween.js', array(), '1');
   wp_register_script('globe', get_template_directory_uri() . '/resources/js/vendor/globe.js', array(), '1');
-
+  //Dev Note: this is all mobile interactions. Dis-including them for now, until a plan is hatched
   wp_register_script('movement-pad', get_template_directory_uri() . '/resources/js/vendor/movement-pad.js', array(), '0.1');
   wp_register_script('rotation-pad', get_template_directory_uri() . '/resources/js/vendor/rotation-pad.js', array(), '0.1');
   wp_register_script('touch-controls', get_template_directory_uri() . '/resources/js/vendor/touch-controls.js', array(), '0.1');
