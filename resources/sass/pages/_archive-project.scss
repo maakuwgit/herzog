@@ -14,44 +14,77 @@
       background-color: transparent;
     }
   }
-  main, & > article, & > aside, & > footer {
+  & > article, & > aside, & > footer {
     position: fixed;
   }
   main,
   & > article {
     background-color: rgba($black, 0.6);
   }
+
   [data-component=callout-numbers].callout-numbers {
     background-color: transparent;
   }
+
   & > article,
   [data-component=callout-numbers].callout-numbers {
     box-shadow: none;
+  }
+
+  main.hero {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    cursor: pointer;
+    h2 {
+      position: absolute;
+      bottom: $padding-small;
+      @include screen-md-only {
+        bottom: $padding-medium;
+      }
+      @include screen-lg-up {
+        bottom: $padding-large;
+      }
+    }
+  }
+
+  article.hero {
+    min-height: 100vh;
   }
 
   &.globe-selection-made {
     height: auto;
     overflow: initial;
     & > aside,
-    main,
     footer,
-    article.content {
+    article.content.active {
       position: relative;
     }
     #project-globe {
       position: fixed;
       z-index: 0;
     }
-    main,
     article.content {
-      z-index: 1;
+      &.active {
+        z-index: 1;
+        top: initial;
+        height: auto;
+      }
+      &:not(.active) {
+        display: none;
+      }
     }
-    main {
-      top: 0;
+    [data-location-nav] {
+      display: block;
     }
-    article.content {
-      top: initial;
-      height: auto;
-    }
+  }
+
+  [data-location-nav] {
+    position: fixed;
+    top:  $padding-large;
+    right: $padding-small;
+    z-index: 10;
+    display: none;
+    transform-origin: center;
   }
 }

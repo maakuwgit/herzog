@@ -728,7 +728,7 @@
             },
             "button_label": "+ Component",
             "min": 0,
-            "max": 20
+            "max": ""
         }
     ],
     "location": [
@@ -748,5 +748,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Similar to General Components, but with all the additional settings for a Single Division",
-    "modified": 1526507249
+    "modified": 1528145429
 }

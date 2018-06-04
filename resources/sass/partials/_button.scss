@@ -18,6 +18,11 @@ button:not([data-nav]):not(.mfp-close):not([class*="slick"]),
       fill: $aluminum;
     }
   }
+  &.button-close {
+    font-size: rem-calc(64);
+    font-weight: $text-light;
+    color: $aluminum;
+  }
 }
 input[type="submit"],
 button, .button {

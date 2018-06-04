@@ -1,9 +1,15 @@
 <div class="globe col" id="project-globe" data-globe>
   <!-- Dev Note: put the texture image in here for SEO -->
 </div>
-<main class="content hero flex">
+<main class="content hero" data-interstitial>
+  <div class="wrapper column centered">
+    <h1 class="col">Our Projects</h1>
+    <h2 class="col h6 text-normal"><?php echo get_finger_icon(); ?><span class="block">Click and drag the globe to <br>explore our projects</span></h2>
+  </div>
+</main>
+<?php while (have_posts()) : the_post(); ?>
+<article class="content hero flex" data-location="project-<?php the_ID();?>">
 <?php
-  while (have_posts()) : the_post();
     $location     = get_field('project_location');
     $divisions    = get_field('project_division');
     $capabilities = get_field('project_capabilities');
@@ -93,16 +99,17 @@
       </dl>
     </div>
   </div>
-<?php endwhile; ?>
-</main>
-<article <?php post_class('content'); ?>>
+</article>
+<article <?php post_class('content'); ?> data-location="project-<?php the_ID();?>">
   <div class="container row">
-<?php while (have_posts()) : the_post(); ?>
   <?php get_template_part('templates/contents/content', 'components'); ?>
-<?php endwhile; ?>
   </div>
 </article>
+<?php endwhile; ?>
 <?php get_template_part('templates/contents/content', 'callout'); ?>
+<nav data-location-nav>
+  <button class="button button-close">&times;</button>
+</nav>
 <script type="text/javascript" defer>
 
     if(!Detector.webgl){
@@ -119,11 +126,9 @@
       var data = JSON.parse('<?php echo ll_get_projects_json();?>');
       window.data = data;
       for ( i=0; i<data.items.length; i++ ) {
-//        console.log(data.items[i]);
-        globe.addData(data.items[i], {format: 'magnitude', name: data.project, animated: true})
+        globe.addData(data.items[i], {name: data.project})
       }
 
-      //globe.createPoints();
       globe.animate();
       document.body.style.backgroundImage = 'none'; // remove loading
 

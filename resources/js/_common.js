@@ -26,14 +26,15 @@
       breakpoints.lg  = 1199;
       breakpoints.xl  = 1599;
 
-      var adminHeight = ( $('#wpadminbar').length > 0 ? $('#wpadminbar').outerHeight() : 0 ),
-          section_nav = '.section-nav',
-          footer      = 'body > footer',
-          prefooter   = 'body > .callout',
-          hero        = '.hero, .hero-w-nav',
-          primary_nav = 'body > header',
-          counters    = $('[data-component="callout-numbers"]'),
-          sections    = $('body > article section, body > article picture');
+      var adminHeight   = ( $('#wpadminbar').length > 0 ? $('#wpadminbar').outerHeight() : 0 ),
+          section_nav   = '.section-nav',
+          footer        = 'body > footer',
+          prefooter     = 'body > .callout',
+          hero          = '.hero, .hero-w-nav',
+          primary_nav   = 'body > header',
+          location_nav  = $('[data-location-nav]'),
+          counters      = $('[data-component="callout-numbers"]'),
+          sections      = $('body > article section, body > article picture');
 
       window.userLoggedIn = false;
       window.adminBarHeight = 0;
@@ -79,9 +80,28 @@
         makeBg(size);
       }
 
+      function closeInterstitial(e){
+        $(this).animate({'opacity':0}, 300, function(){
+          $(this).addClass('hide').removeAttr('style');
+        });
+      }
+
+      function closeProject(e){
+        $('[data-location]').removeClass('active');
+        $('body').removeClass('globe-selection-made');
+      }
+
       //checkAdminBar();
 
       $(function() {
+        function hideClose(e) {
+          TweenMax.to(location_nav, 0.3, {scale:0, rotation: 90, opacity:0});
+        }
+
+        function showClose(e) {
+          TweenMax.to(location_nav, 0.3, {scale:1, rotation: 0, opacity:1});
+        }
+
         function enterSection(e) {
           var target = $(e.target.triggerElement()),
               id     = target.attr('id');
@@ -154,6 +174,13 @@
                 offset: -1 * $(prefooter).height()/2
               })
               .setClassToggle(prefooter,'enter')
+              .addTo(controller);
+
+              var location_nav_anim = new ScrollMagic.Scene({
+                triggerElement: prefooter
+              })
+              .on("enter", hideClose)
+              .on("leave", showClose)
               .addTo(controller);
             }
 
@@ -243,6 +270,10 @@
           $(this).find('.button-close').on('click.closePanel', closePanel);
         } );
         //EOF
+
+        //Project/Projects
+        $('[data-interstitial]').on('click.closeInterstitial', closeInterstitial);
+        $('[data-location-nav]').on('click.closeProject', closeProject);
 
         $('a[href*="#"]:not(.js-no-scroll):not([href="#"])').click(function() {
           if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {

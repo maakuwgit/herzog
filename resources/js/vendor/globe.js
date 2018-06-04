@@ -67,6 +67,24 @@ DAT.Globe = function(container, opts) {
           'gl_FragColor = vec4( 1.0, 1.0, 1.0, 1.0 ) * intensity;',
         '}'
       ].join('\n')
+    },
+    'hotspot' : {
+      uniforms: {},
+      vertexShader: [
+        'varying vec2 vUv;',
+        'void main() {',
+        'vUv = uv;',
+          'gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);',
+        '}'
+      ].join('\n'),
+      fragmentShader: [
+        'uniform vec3 color1;',
+        'uniform vec3 color2;',
+        'varying vec2 vUv;',
+        'void main() {',
+          'gl_FragColor = vec4(mix(color1, color2, vUv.y),1.0);',
+        '}'
+      ].join('\n')
     }
   };
 
@@ -89,6 +107,8 @@ DAT.Globe = function(container, opts) {
   var padding = 40;
   var PI_HALF = Math.PI / 2;
 
+  var fontFamily = false;
+
   function init() {
 
     container.style.color = '#fff';
@@ -103,6 +123,11 @@ DAT.Globe = function(container, opts) {
     camera.position.z = distance;
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0x000A15 );
+
+    var loader = new THREE.FontLoader();
+    loader.load( '../wp-content/themes/herzog/assets/fonts/helvetiker_regular.typeface.json', function(font){
+      fontFamily = font;
+    });
 
     // Mobile Controls (Dev Note: doesn't work, that I can see...)
     /*
@@ -228,29 +253,20 @@ DAT.Globe = function(container, opts) {
 
   //Pushes the data into the point itself
   function addData(data, opts) {
-    var lat, lng, size, color, i, step, colorFnWrapper;
+    if( fontFamily ) {
+      var lat, lng, size, color, i, step, colorFnWrapper;
 
-    opts.animated = opts.animated || false;
-    this.is_animated = opts.animated;
-    opts.format = opts.format || 'magnitude'; // other option is 'legend'
+      opts.animated = opts.animated || false;
+      this.is_animated = opts.animated;
+      opts.format = opts.format || 'magnitude'; // other option is 'legend'
 
-    var color = new THREE.Color(0xfffff);
+      var color = new THREE.Color(0xfffff);
 
-    if (opts.format === 'magnitude') {
       step = 3;
       colorFnWrapper = function(data, i) {
         return  color;
       }
-    } else if (opts.format === 'legend') {
-      step = 4;
-      colorFnWrapper = function(data, i) {
-        return  color;
-      }
-    } else {
-      throw('error: format not supported: '+opts.format);
-    }
 
-    if (opts.animated) {
       if (this._baseGeometry === undefined) {
         this._baseGeometry = new THREE.Geometry();
         for (i = 0; i < data.length; i += step) {
@@ -258,9 +274,10 @@ DAT.Globe = function(container, opts) {
           lng = data[i + 1];
           title = data[i + 3];
           slug = data[i + 4];
+          id = data[i + 5];
           color = colorFnWrapper(data,i);
           size = data[i + 2];
-          addPoint(lat, lng, size, color, this._baseGeometry, title);
+          addPoint(lat, lng, size, color, this._baseGeometry, title, slug, id);
         }
       }
       if(this._morphTargetId === undefined) {
@@ -269,100 +286,126 @@ DAT.Globe = function(container, opts) {
         this._morphTargetId += 1;
       }
       opts.name = opts.name || 'morphTarget'+this._morphTargetId;
-    }
+  /* Dev Note: this point is below ground for use as a line. Deprecated?*/
+      var subgeo = new THREE.Geometry();
+      for (i = 0; i < data.length; i += step) {
+        lat = data[i];
+        lng = data[i + 1];
+        color = colorFnWrapper(data,i);
+        size = data[i + 2];
+        title = data[i + 3];
+        slug = data[i + 4];
+        id = data[i + 5];
+        addPoint(lat, lng, size, color, subgeo, title, slug, id);
+      }
 
-    var subgeo = new THREE.Geometry();
-    for (i = 0; i < data.length; i += step) {
-      lat = data[i];
-      lng = data[i + 1];
-      color = colorFnWrapper(data,i);
-      size = data[i + 2];
-      title = data[i + 3];
-      slug = data[i + 4];
-      addPoint(lat, lng, size, color, subgeo, title);
-    }
-    if (opts.animated) {
       this._baseGeometry.morphTargets.push({'name': data.project, vertices: subgeo.vertices});
-    } else {
-      this._baseGeometry = subgeo;
+    }else{
+      //If we're still waiting on the font to load, give it another 3/10ths of a second and retry
+      var redial = setTimeout(function(){
+        addData(data, opts);
+      }, 300);
     }
-
   };
 
   //Make the point itself, and add it to the Scene
-  function createLocator() {
-//    if (this._baseGeometry !== undefined) {
-      this.geometry = new THREE.ConeGeometry( 5, 20, 32 );
-      this.material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
-      this.point = new THREE.Mesh( this.geometry, this.material );
+  function createLocator(title='Lorem Ipsum') {
+    var _this = this;
 
-      scene.add(this.point);
+    this.geometry = new THREE.ConeGeometry( 5, 20, 32 );
+    this.material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+    this.point = new THREE.Mesh( this.geometry, this.material );
 
-      this.geometry = new THREE.RingGeometry( 10, 11, 64 );
-      this.material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
-      this.ring = new THREE.Mesh( this.geometry, this.material );
+    scene.add(this.point);
 
-      scene.add(this.ring);
+    this.geometry = new THREE.RingGeometry( 1, 11, 64 );
+    this.shader = Shaders['hotspot'];
+    this.uniforms = {
+      "color1" : {
+        type : "c",
+        value : new THREE.Color(0xffffff)
+      },
+      "color2" : {
+        type : "c",
+        value : new THREE.Color(0x000000)
+      },
+    };
 
-      return [this.point, this.ring];
-//    }
+    this.material = new THREE.ShaderMaterial({
+      uniforms: this.uniforms,
+      vertexShader: this.shader.vertexShader,
+      fragmentShader: this.shader.fragmentShader
+    });
+
+    this.hotspot = new THREE.Mesh( this.geometry, this.material );
+
+    scene.add(this.hotspot);
+
+    this.geometry = new THREE.RingGeometry( 10, 11, 64 );
+    this.material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+    this.ring = new THREE.Mesh( this.geometry, this.material );
+
+    scene.add(this.ring);
+
+    this.material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+    this.geometry = new THREE.TextGeometry( title, {
+      font: fontFamily,
+      size: 2,
+      height: 1
+    } );
+
+    this.blurb = new THREE.Mesh(this.geometry, this.material);
+
+    scene.add(this.blurb);
+
+    return [this.point, this.ring, this.hotspot, this.blurb];
   }
 
   //Gets called several times (up to 4) for each actual point, for the face of the cube methinks.
-  function addPoint(lat, lng, size, color, subgeo, title) {
-    var locator = createLocator();
+  function addPoint(lat, lng, size, color, subgeo, title, slug, id) {
+    var locator = createLocator(title);
     var point = locator[0];
     var ring = locator[1];
-
-    console.log(locator);
+    var hotspot = locator[2];
+    var copy = locator[3];
 
     var phi = (90 - lat) * Math.PI / 180;
     var theta = (180 - lng) * Math.PI / 180;
+
+    point.name = ring.name = id;
 
     point.position.x = 200 * Math.sin(phi) * Math.cos(theta);
     point.position.y = 200 * Math.cos(phi);
     point.position.z = 200 * Math.sin(phi) * Math.sin(theta);
 
-    ring.position.x = point.position.x;
-    ring.position.y = point.position.y;
-    ring.position.z = point.position.z;
+    ring.position.x = hotspot.position.x = copy.position.x = point.position.x;
+    ring.position.y = hotspot.position.y = copy.position.y = point.position.y;
+    ring.position.z = hotspot.position.z = copy.position.z = point.position.z;
+
 
     point.lookAt(mesh.position.x, mesh.position.y + 270, mesh.position.z);
-    ring.lookAt(mesh.position.x, mesh.position.y, mesh.position.z);
+    ring.lookAt(mesh.position);
+    hotspot.lookAt(mesh.position);
+    copy.lookAt(mesh.position);
 
     point.scale = Math.max( size, 0.1 );
 
     point.updateMatrix();
     ring.updateMatrix();
+    hotspot.updateMatrix();
+    copy.updateMatrix();
 
-    if(point.matrixAutoUpdate){
-      point.updateMatrix();
-      ring.updateMatrix();
-    }
     subgeo.merge(point.geometry, point.matrix);
     subgeo.merge(ring.geometry, ring.matrix);
+    subgeo.merge(hotspot.geometry, hotspot.matrix);
+    subgeo.merge(copy.geometry, copy.matrix);
   }
 
   function onMouseDown(event) {
     event.preventDefault();
 
-    container.addEventListener('mousemove', onMouseMove, false);
-    container.addEventListener('mouseup', onMouseUp, false);
-    container.addEventListener('mouseout', onMouseOut, false);
-
     mouseOnDown.x = - event.clientX;
     mouseOnDown.y = event.clientY;
-
-    targetOnDown.x = target.x;
-    targetOnDown.y = target.y;
-
-    container.style.cursor = 'move';
-  }
-
-  function onMouseMove(event) {
-    //the ACTUAL mouse
-    mouse.x = - event.clientX;
-    mouse.y = event.clientY;
 
     // calculate the mouse position in "normalized device coordinates"
     // basically (-1 to +1) for both components
@@ -375,17 +418,34 @@ DAT.Globe = function(container, opts) {
     //See if any cones or rings intersect the "picking ray"
     var intersects = raycaster.intersectObjects( scene.children );
 
+    var collision = false;
     for ( var i = 0; i < intersects.length; i++ ) {
       var victim = intersects[ i ].object;
-      if( victim.geometry.type === 'SphereGeometry') {
-        //You've hit the earth :(
-      }
-      if( victim.geometry.type === 'RingGeometry' ){
-        //You've hit the ring!
-        //var name = viction.name eventually
+      //Let's see what our mouse is touching...
+      if( victim.geometry.type === 'RingGeometry' ||  victim.geometry.type === 'ConeGeometry' ){
         $('body').addClass('globe-selection-made');
+        $('[data-location="project-'+victim.name+'"]').addClass('active');
+        collision = true;
       }
     }
+
+    //If we've hit nothing, just keep on with the rotation logic
+    if( !collision ) {
+      container.addEventListener('mousemove', onMouseMove, false);
+      container.addEventListener('mouseup', onMouseUp, false);
+      container.addEventListener('mouseout', onMouseOut, false);
+
+      targetOnDown.x = target.x;
+      targetOnDown.y = target.y;
+
+      container.style.cursor = 'move';
+    }
+  }
+
+  function onMouseMove(event) {
+    //the ACTUAL mouse
+    mouse.x = - event.clientX;
+    mouse.y = event.clientY;
 
     var zoomDamp = distance/1000;
 

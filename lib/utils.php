@@ -127,8 +127,9 @@ function ll_get_projects_json() {
       $magnitude  = get_field('city_magnitude') * 5;
       $title      = get_the_title();
       $slug       = get_post_field( 'post_name', get_post() );
+      $id         = get_the_ID();
 
-      $data['items'][] = array( $latitude,$longitude,$magnitude,$title,$slug );
+      $data['items'][] = array( $latitude,$longitude,$magnitude,$title,$slug,$id);
 
     }
   }

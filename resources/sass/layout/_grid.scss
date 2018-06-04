@@ -24,7 +24,8 @@
   @include container-fixed($site-width);
 }
 
-.row {
+.row,
+.column {
   width: 100%;
   @include flexible;
   @include screen-md {
@@ -48,6 +49,10 @@
   }
   &.center {
     justify-content: center;
+  }
+  &.centered {
+    align-items: center;
+    align-content: center;
   }
   [class^="col"],
   [class*="col-"] {
@@ -82,6 +87,9 @@
   }
 }
 
+.column {
+  flex-direction: column;
+}
 .col {
   width: 100%;
   max-width: 100%;
