@@ -81,9 +81,9 @@ function roots_scripts() {
     wp_enqueue_script('Three.min');
     wp_enqueue_script('Tween');
     wp_enqueue_script('globe');
-    wp_enqueue_script('touch-controls');
-    wp_enqueue_script('movement-pad');
-    wp_enqueue_script('rotation-pad');
+//    wp_enqueue_script('touch-controls');
+//    wp_enqueue_script('movement-pad');
+//    wp_enqueue_script('rotation-pad');
   }
 
 // Maps

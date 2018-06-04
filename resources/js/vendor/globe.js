@@ -104,7 +104,8 @@ DAT.Globe = function(container, opts) {
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0x000A15 );
 
-    // Controls
+    // Mobile Controls (Dev Note: doesn't work, that I can see...)
+    /*
     var options = {
       speedFactor: 0.5,
       delta: 1,
@@ -116,7 +117,7 @@ DAT.Globe = function(container, opts) {
     controls = new TouchControls($(container).parent(), camera, options);
     controls.setPosition(0, 35, 400);
     controls.addToScene(scene);
-
+    */
     /* The globe itself, wrapped in our texture */
     var geometry = new THREE.SphereGeometry(earth.radius, 40, 30);
 
