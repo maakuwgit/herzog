@@ -74,7 +74,7 @@
             nextArrow: nextArrow,
             appendArrows: sliderNav,
             centerMode: true,
-            adaptiveHeight: true
+            adaptiveHeight: false
           }).on('afterChange', setProgress);
         });
 
