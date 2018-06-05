@@ -73,7 +73,7 @@ $id = ' id="' . $id . '"';
 
       $capabilities = $teaser['teaser_capability'];
 
-      if( $capabilities ) {
+      if( $teaser['use_existing_capability'] ) {
         $capability .= '<div class="container row start">';
         $capability .= '<picture class="picture col col-sm-4of12 col-md-6of12 col-lg-6of12 col-xl-6of12 stretch" data-background>';
         $feature = wp_get_attachment_metadata(get_post_thumbnail_id($capabilities->ID));
