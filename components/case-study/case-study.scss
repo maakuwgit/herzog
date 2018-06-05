@@ -5,8 +5,17 @@
  * About the module
  *
  */
-
-.case-study {
+section.case-study {
+  padding-top: $padding-medium;
+  padding-bottom: $padding-small;
+  @include screen-lg-up {
+    padding-top: $padding-large;
+    padding-bottom: $padding-large;
+  }
+}
+[data-component="case-study"] {
+  background-color: #191919;
+  box-shadow: 0 #{rem-calc(2)} #{rem-calc(20)} $black;
   .picture {
     padding: 0 0 #{$padding-medium} 0;
   }
@@ -17,6 +26,7 @@
       li {
         width: 50%;
         flex: 0 0.5 auto;
+        font-size: rem-calc(14);
       }
     }
   }
