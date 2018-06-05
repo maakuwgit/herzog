@@ -5,7 +5,10 @@
  * About the module
  *
  */
-section.case-study {
+section[data-component="case-study"] {
+  article.content & {
+    width: calc(100% + #{2 * $padding-small});
+  }
   padding-top: $padding-medium;
   padding-bottom: $padding-small;
   @include screen-lg-up {
@@ -14,8 +17,9 @@ section.case-study {
   }
 }
 [data-component="case-study"] {
-  background-color: #191919;
-  box-shadow: 0 #{rem-calc(2)} #{rem-calc(20)} $black;
+  @include raised;
+  margin-left: -1 * $padding-small;
+  margin-right: -1 * $padding-small;
   .picture {
     padding: 0 0 #{$padding-medium} 0;
   }

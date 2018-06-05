@@ -7,8 +7,7 @@
   margin-right: $grid-gutter-width * -1;
   padding-top: $padding-large;
   padding-bottom: $padding-large;
-  background-color: #191919;
-  box-shadow: 0 #{rem-calc(2)} #{rem-calc(20)} $black;
+  @include raised;
   h2, h3, dt {
     color: $white;
   }

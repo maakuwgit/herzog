@@ -6,7 +6,21 @@
  *
  */
 
+
+section[data-component="locations-filterable"] {
+  article.content & {
+    width: calc(100% + #{2 * $padding-small});
+  }
+  padding-top: $padding-medium;
+  padding-bottom: $padding-small;
+  @include screen-lg-up {
+    padding-top: $padding-large;
+    padding-bottom: $padding-large;
+  }
+}
+
 .locations-filterable {
+  @include raised;
   h2 {
     width: 100%;
   }

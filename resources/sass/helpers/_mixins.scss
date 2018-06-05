@@ -75,6 +75,11 @@
   align-items: $align-items;
 }
 
+@mixin raised($color: #191919) {
+  background-color: $color;
+  box-shadow: 0 #{rem-calc(2)} #{rem-calc(20)} $black;
+}
+
 // Centered container element
 @mixin container-fixed($max-width: $container-width) {
   position: relative;
