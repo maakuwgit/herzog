@@ -297,8 +297,6 @@ DAT.Globe = function(container, opts) {
 
   //Make the point itself, and add it to the Scene
   function createLocator(title='Lorem Ipsum') {
-    var _this = this;
-
     this.geometry = new THREE.ConeGeometry( 5, 20, 32 );
     this.material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
     this.point = new THREE.Mesh( this.geometry, this.material );
@@ -364,7 +362,7 @@ DAT.Globe = function(container, opts) {
     point.name = ring.name = hotspot.name = copy.name = id;
 
     point.position.x = 200 * Math.sin(phi) * Math.cos(theta);
-    point.position.y = 200 * Math.cos(phi);
+    point.position.y = 200 * Math.cos(phi) * Math.cos(theta);
     point.position.z = 200 * Math.sin(phi) * Math.sin(theta);
 
     ring.position.x = hotspot.position.x = copy.position.x = point.position.x;
@@ -372,13 +370,14 @@ DAT.Globe = function(container, opts) {
     ring.position.z = hotspot.position.z = copy.position.z = point.position.z;
 
 
-    point.lookAt(mesh.position.x, mesh.position.y + 270, mesh.position.z);
+    point.lookAt(mesh.position);
     ring.lookAt(mesh.position);
     hotspot.lookAt(mesh.position);
     copy.lookAt(mesh.position);
 
     point.scale = Math.max( size, 0.1 );
 
+    point.geometry.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI/2 ) );
     point.updateMatrix();
     ring.updateMatrix();
     hotspot.updateMatrix();
