@@ -292,14 +292,14 @@
                     "min": "",
                     "max": ""
                 },
-                "5b04498192e5d": {
-                    "key": "5b04498192e5d",
+                "5b16afd0a65d3": {
+                    "key": "5b16afd0a65d3",
                     "name": "case-studies",
                     "label": "Case Study",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5b04498192e5e",
+                            "key": "field_5b16afd0a65d4",
                             "label": "Group Label",
                             "name": "group_label",
                             "type": "text",
@@ -318,7 +318,7 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5b04498192e5f",
+                            "key": "field_5b16afd0a65d5",
                             "label": "Target Name",
                             "name": "target_name",
                             "type": "text",
@@ -337,7 +337,7 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5b04499092e61",
+                            "key": "field_5b16afd1a65d6",
                             "label": "Case Study",
                             "name": "component_case_study",
                             "type": "clone",
@@ -886,5 +886,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Similar to Division Components, but with all the additional settings for a Single Capability",
-    "modified": 1528145364
+    "modified": 1528213680
 }
