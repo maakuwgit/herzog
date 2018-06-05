@@ -69,7 +69,10 @@ DAT.Globe = function(container, opts) {
       ].join('\n')
     },
     'hotspot' : {
-      uniforms: {},
+      uniforms: {
+      'color1' : { type : 'c', value : new THREE.Color(0xffffff) },
+      'color2' : { type : 'c', value : new THREE.Color(0x000000) },
+      },
       vertexShader: [
         'varying vec2 vUv;',
         'void main() {',
@@ -110,9 +113,6 @@ DAT.Globe = function(container, opts) {
   var fontFamily = false;
 
   function init() {
-
-    container.style.color = '#fff';
-    container.style.font = '13px/20px Arial, sans-serif';
 
     var shader, uniforms, material;
     w = container.offsetWidth || window.innerWidth;
@@ -201,7 +201,7 @@ DAT.Globe = function(container, opts) {
     // LIGHTS
     /*Dev Note: this appears to be doing nothing, but it's a position issue*/
     light = new THREE.SpotLight( 0xff0000, 1);
-    light.position.set(0, earth.radius + 100, 0);
+    light.position.set(1, earth.radius + 100, 1);
     light.castShadow = true;
     light.decay = 2;
 
@@ -218,6 +218,8 @@ DAT.Globe = function(container, opts) {
     container.appendChild(renderer.domElement);
 
     if( ! $('body').hasClass('single-project') ) {
+      container.addEventListener('mouseover', onMouseOver, false);
+
       container.addEventListener('mousedown', onMouseDown, false);
 
       container.addEventListener('mousewheel', onMouseWheel, false);
@@ -254,26 +256,13 @@ DAT.Globe = function(container, opts) {
         return  color;
       }
 
-      if (this._baseGeometry === undefined) {
-        this._baseGeometry = new THREE.Geometry();
-        for (i = 0; i < data.length; i += step) {
-          lat = data[i];
-          lng = data[i + 1];
-          title = data[i + 3];
-          slug = data[i + 4];
-          id = data[i + 5];
-          color = colorFnWrapper(data,i);
-          size = data[i + 2];
-          addPoint(lat, lng, size, color, this._baseGeometry, title, slug, id);
-        }
-      }
       if(this._morphTargetId === undefined) {
         this._morphTargetId = 0;
       } else {
         this._morphTargetId += 1;
       }
       opts.name = opts.name || 'morphTarget'+this._morphTargetId;
-  /* Dev Note: this point is below ground for use as a line. Deprecated?*/
+
       var subgeo = new THREE.Geometry();
       for (i = 0; i < data.length; i += step) {
         lat = data[i];
@@ -286,7 +275,6 @@ DAT.Globe = function(container, opts) {
         addPoint(lat, lng, size, color, subgeo, title, slug, id);
       }
 
-      this._baseGeometry.morphTargets.push({'name': data.project, vertices: subgeo.vertices});
     }else{
       //If we're still waiting on the font to load, give it another 3/10ths of a second and retry
       var redial = setTimeout(function(){
@@ -297,29 +285,22 @@ DAT.Globe = function(container, opts) {
 
   //Make the point itself, and add it to the Scene
   function createLocator(title='Lorem Ipsum') {
-    this.geometry = new THREE.ConeGeometry( 5, 20, 32 );
+    this.geometry = new THREE.ConeGeometry( 1, 5, 32 );
     this.material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
     this.point = new THREE.Mesh( this.geometry, this.material );
 
     scene.add(this.point);
 
-    this.geometry = new THREE.RingGeometry( 1, 11, 64 );
+    this.geometry = new THREE.RingGeometry( 1, 9, 64 );
     this.shader = Shaders['hotspot'];
-    this.uniforms = {
-      "color1" : {
-        type : "c",
-        value : new THREE.Color(0xffffff)
-      },
-      "color2" : {
-        type : "c",
-        value : new THREE.Color(0x000000)
-      },
-    };
 
     this.material = new THREE.ShaderMaterial({
-      uniforms: this.uniforms,
-      vertexShader: this.shader.vertexShader,
-      fragmentShader: this.shader.fragmentShader
+      uniforms: shader.uniforms,
+      vertexShader: shader.vertexShader,
+      fragmentShader: shader.fragmentShader,
+      side: THREE.BackSide,
+      blending: THREE.AdditiveBlending,
+      transparent: true
     });
 
     this.hotspot = new THREE.Mesh( this.geometry, this.material );
@@ -327,16 +308,17 @@ DAT.Globe = function(container, opts) {
     scene.add(this.hotspot);
 
     this.geometry = new THREE.RingGeometry( 10, 11, 64 );
-    this.material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );
+    this.material = new THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide, transparent:true, opacity:0 } );
     this.ring = new THREE.Mesh( this.geometry, this.material );
 
     scene.add(this.ring);
 
-    this.material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+    this.material = new THREE.MeshBasicMaterial( { color: 0xffffff, transparent:true, opacity:0 } );
     this.geometry = new THREE.TextGeometry( title, {
       font: fontFamily,
-      size: 2,
-      height: 1
+      size: 3,
+      height: 1,
+      bevelEnabled: false
     } );
 
     this.blurb = new THREE.Mesh(this.geometry, this.material);
@@ -362,7 +344,7 @@ DAT.Globe = function(container, opts) {
     point.name = ring.name = hotspot.name = copy.name = id;
 
     point.position.x = 200 * Math.sin(phi) * Math.cos(theta);
-    point.position.y = 200 * Math.cos(phi) * Math.cos(theta);
+    point.position.y = 210 * Math.cos(phi);
     point.position.z = 200 * Math.sin(phi) * Math.sin(theta);
 
     ring.position.x = hotspot.position.x = copy.position.x = point.position.x;
@@ -370,8 +352,9 @@ DAT.Globe = function(container, opts) {
     ring.position.z = hotspot.position.z = copy.position.z = point.position.z;
 
 
-    point.lookAt(mesh.position);
+    point.lookAt(mesh.position.x, mesh.position.y, mesh.position.z);
     ring.lookAt(mesh.position);
+
     hotspot.lookAt(mesh.position);
     copy.lookAt(mesh.position);
 
@@ -380,14 +363,104 @@ DAT.Globe = function(container, opts) {
     point.geometry.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI/2 ) );
     point.updateMatrix();
     ring.updateMatrix();
+    hotspot.geometry.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI ) );
     hotspot.updateMatrix();
     copy.geometry.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI ) );
+    copy.position.x -= 16;
+    copy.position.z -= 8;
     copy.updateMatrix();
 
     subgeo.merge(point.geometry, point.matrix);
     subgeo.merge(ring.geometry, ring.matrix);
     subgeo.merge(hotspot.geometry, hotspot.matrix);
     subgeo.merge(copy.geometry, copy.matrix);
+  }
+
+  function checkForHits(event) {
+    /*
+    for(var h = 0; h < scene.children.length; h++){
+      var victim = scene.children[ i ].object;
+      switch( victim.geometry.type ){
+        case 'ConeGeometry':
+        case 'RingGeometry':
+        case 'TextGeometry':
+        break;
+      }
+    }*/
+    // calculate the mouse position in "normalized device coordinates"
+    // basically (-1 to +1) for both components
+    mousetoo.x = ( event.clientX / w ) * 2 - 1;
+    mousetoo.y = - ( event.clientY / h ) * 2 + 1;
+
+    //update the "picking ray" with the camera and mouse position
+    raycaster.setFromCamera( mousetoo, camera );
+
+    //See if any cones or rings intersect the "picking ray"
+    var intersects = raycaster.intersectObjects( scene.children );
+
+    var collision = false;
+    for ( var i = 0; i < intersects.length; i++ ) {
+      var victim = intersects[ i ].object;
+      /*Let's see what our mouse is touching...*/
+      switch( victim.geometry.type ){
+        case 'ConeGeometry':
+        case 'RingGeometry':
+        case 'TextGeometry':
+        for(var c = 0; c < scene.children.length; c++){
+           var child = scene.children[c];
+           if(child.name === victim.name){
+            switch(child.geometry.type){
+              case 'TextGeometry':
+                /*It's the blurb*/
+                child.material.opacity = 1;
+              break;
+              case 'RingGeometry':
+                /*It's the hotspot/ring*/
+                /*Dev Note: this is likely overkill to recreate the whole shader,
+                per-parameter based changes weren't working correclty*/
+                this.shader = Shaders['hotspot'];
+                this.material = new THREE.ShaderMaterial({
+                  uniforms: shader.uniforms,
+                  vertexShader: shader.vertexShader,
+                  fragmentShader: shader.fragmentShader,
+                  side: THREE.DoubleSide,
+                  blending: THREE.AdditiveBlending,
+                  transparent: true
+                });
+
+                /*Check if it's the hotspot, which has no color, if so, use the gradient on ALL faces now*/
+                if( !child.material.color ) {
+                  child.material = this.material;
+                }else{
+                  child.material.opacity = 1;
+                }
+              break;
+              default:
+                /*Its GOTTA be a cone..*/
+                child.geometry = new THREE.ConeGeometry( 5, 20, 32 );
+                child.lookAt(mesh.position.x, mesh.position.y, mesh.position.z);
+                child.geometry.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI/2 ) );
+                child.updateMatrix();
+              break;
+            }
+           }
+        }
+        break;
+        default:
+          /*console.log('victim is a '+victim.geometry.type);*/
+        break;
+      }
+    }
+  }
+
+  function onMouseOut(event) {
+    console.log('out');
+    container.removeEventListener('mousemove', checkForHits, false);
+  }
+
+  function onMouseOver(event) {
+    console.log('over');
+    container.addEventListener('mousemove', checkForHits, false);
   }
 
   function onMouseDown(event) {
@@ -410,7 +483,7 @@ DAT.Globe = function(container, opts) {
     var collision = false;
     for ( var i = 0; i < intersects.length; i++ ) {
       var victim = intersects[ i ].object;
-      console.log(victim.geometry.type);
+      //console.log(victim.geometry.type);
       //Let's see what our mouse is touching...
       switch( victim.geometry.type ){
         case 'ConeGeometry':
@@ -421,7 +494,7 @@ DAT.Globe = function(container, opts) {
           collision = true;
         break;
         default:
-          console.log('viction is a '+victim.geometry.type);
+          //console.log('victim is a '+victim.geometry.type);
         break;
       }
     }
