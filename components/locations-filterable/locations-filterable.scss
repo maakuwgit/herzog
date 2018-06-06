@@ -11,12 +11,7 @@ section[data-component="locations-filterable"] {
   article.content & {
     width: calc(100% + #{2 * $padding-small});
   }
-  padding-top: $padding-medium;
-  padding-bottom: $padding-small;
-  @include screen-lg-up {
-    padding-top: $padding-large;
-    padding-bottom: $padding-large;
-  }
+  @include section;
 }
 
 .locations-filterable {
@@ -26,17 +21,17 @@ section[data-component="locations-filterable"] {
   .picture {
     padding: 0 0 #{$padding-medium} 0;
   }
+  #divisions .container:last-of-type dl {
+    margin-bottom: auto;
+    dd {
+      margin-bottom: auto;
+    }
+  }
   h2 {
     width: 100%;
   }
   h3 {
     margin-bottom: $padding-small;
-  }
-  @include screen-lg-up {
-    article.content & {
-      padding-top: $padding-large;
-      padding-bottom: $padding-large;
-    }
   }
   a {
     font-weight: $text-regular;
@@ -49,11 +44,6 @@ section[data-component="locations-filterable"] {
   dl {
     margin-top: 0;
     margin-bottom: $grid-gutter-width * 3;
-    div:last-of-type {
-      dd {
-        margin-bottom: auto;
-      }
-    }
     dd {
       margin-bottom: $padding-medium;
     }

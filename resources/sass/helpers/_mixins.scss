@@ -80,6 +80,16 @@
   box-shadow: 0 #{rem-calc(2)} #{rem-calc(20)} $black;
 }
 
+// Padding for components
+@mixin section($is_raised: false) {
+  padding-top: $padding-medium;
+  padding-bottom: $padding-medium;
+  @include screen-lg-up {
+    padding-top: $padding-large;
+    padding-bottom: $padding-large;
+  }
+}
+
 // Centered container element
 @mixin container-fixed($max-width: $container-width) {
   position: relative;

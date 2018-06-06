@@ -9,10 +9,7 @@
 $default_data = [
   'capabilities'    => false,
   'innovations'     => false,
-  'blurb1'      => '',
-  'blurb2'   => '',
-  'services'        => '',
-  'process'         => '',
+  'blurbs'          => false,
   'logo'            => array(
     'title' => '',
     'url'   => '//via.placeholder.com/264x200',

@@ -8,8 +8,15 @@ body.page-template-template-form {
   > article {
     padding-bottom: 0;
   }
+
+  .gform_wrapper {
+    padding-top: 0;
+    padding-bottom: $padding-small;
+    @include screen-lg-up {
+      padding-bottom: $padding-medium;
+    }
+  }
   @include screen-lg-up {
-    padding-bottom: $padding-large;
     #gform_1 {
       .gfield:last-of-type {
         position: absolute;

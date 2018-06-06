@@ -119,10 +119,7 @@ if( have_rows( 'components' ) ) {
       case 'capability-cards':
         while( have_rows( 'capability_right_rail' ) ) {
           the_row();
-          $who_served     = get_sub_field('capability_who_served');
-          $past_projects  = get_sub_field('capability_past_projects');
-          $services       = get_sub_field('capability_services');
-          $process        = get_sub_field('capability_project_process');
+          $blurbs         = get_sub_field('capability_blurbs');
         }
         while( have_rows( 'capability_left_rail' ) ) {
           the_row();
@@ -136,10 +133,7 @@ if( have_rows( 'components' ) ) {
         $capability_card   = array(
           'capabilities'  => $capabilites,
           'innovations'   => $related,
-          'who_served'    => $who_served,
-          'past_projects' => $past_projects,
-          'services'      => $services,
-          'process'       => $process,
+          'blurbs'        => $blurbs,
           'logo'          => get_field('division_logo_reversed'),
           'leader_btn'    => $leader_btn,
           'timeline_btn'  => $timeline_btn,
@@ -232,14 +226,12 @@ if( have_rows( 'components' ) ) {
       case 'division-cards' :
         while( have_rows( 'division_right_rail' ) ) {
           the_row();
-          $who_served = get_sub_field('division_who_served');
-          $expertise  = get_sub_field('division_expertise');
+          $blurbs        = get_sub_field('division_feature');
         }
 
         $division_card   = array(
           'capabilities' => get_sub_field('division_capabilities'),
-          'who_served'   => $who_served,
-          'expertise'    => $expertise,
+          'blurbs'       => $blurbs,
           'logo'         => get_field('division_logo_reversed')
         );
 
@@ -316,8 +308,7 @@ if( have_rows( 'components' ) ) {
       case 'innovation-cards' :
         while( have_rows( 'innovation_right_rail' ) ) {
           the_row();
-          $purpose     = get_sub_field('innovation_purpose');
-          $industries  = get_sub_field('innovation_industries');
+          $blurbs         = get_sub_field('innovation_blurbs');
         }
         while( have_rows( 'innovation_left_rail' ) ) {
           the_row();
@@ -335,8 +326,7 @@ if( have_rows( 'components' ) ) {
         $innovation_card   = array(
           'capabilities'  => $capabilites,
           'innovations'   => $related,
-          'purpose'       => $purpose,
-          'industries'    => $industries,
+          'blurbs'        => $blurbs,
           'logo'          => $logo
         );
 

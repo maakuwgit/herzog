@@ -8,7 +8,7 @@
 
 $default_data = [
   'capabilities' => false,
-  'blurbs'       => '',
+  'blurbs'       => false,
   'logo'         => array(
     'title' => '',
     'url' => '//via.placeholder.com/264x200',
@@ -68,13 +68,13 @@ if( !$logo ) $logo = $default_data['logo'];
     </figure>
     <dl class="col col-sm-8of12 col-md-8of12 col-lg-8of12 col-xl-8of12 center">
     <?php if( $blurbs ) : ?>
-    <?php foreach( $blurbs as $blurb ) : ?>
+      <?php foreach( $blurbs as $blurb ) : ?>
     <div class="row">
       <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['division_feature_headline'] ;?></dt>
       <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['division_feature_copy']; ?></dd>
     </div>
-    <?php endforeach; ?>
-  <?php endif; ?>
+      <?php endforeach; ?>
+    <?php endif; ?>
     </dl>
   </div>
 </section>

@@ -544,8 +544,7 @@ ll_include_component(
 <?php
   while( have_rows( 'innovation_right_rail' ) ) {
     the_row();
-    $purpose     = get_sub_field('innovation_purpose');
-    $industries  = get_sub_field('innovation_industries');
+    $blurbs         = get_sub_field('innovation_feature');
   }
   while( have_rows( 'innovation_left_rail' ) ) {
     the_row();
@@ -556,8 +555,7 @@ ll_include_component(
   $innovation_card   = array(
     'capabilities'  => $capabilites,
     'innovations'   => $related,
-    'purpose'       => $purpose,
-    'industries'    => $industries,
+    'blurbs'        => $blurbs,
     'logo'          => get_field('division_logo_reversed')
   );
 

@@ -9,8 +9,7 @@
 $default_data = [
   'capabilities'    => false,
   'innovations'     => false,
-  'purpose'         => '',
-  'industries'      => '',
+  'blurbs'          => false,
   'logo'            => array(
     'title' => '',
     'url'   => '//via.placeholder.com/264x200',
@@ -44,9 +43,8 @@ if( $args['classes'] ) {
 }
 $css .= '"';
 $id           = $args['id'];
-$purpose      = $data['purpose'];
+$blurbs       = $data['blurbs'];
 $capabilities = $data['capabilities'];
-$industries   = $data['industries'];
 $innovations  = $data['innovations'];
 $logo         = $data['logo'];
 
@@ -100,17 +98,13 @@ if( !$logo ) {
     <?php endif; ?>
     </figure>
     <dl class="col col-sm-8of12 col-md-8of12 col-lg-8of12 col-xl-8of12 center">
-    <?php if( $purpose ) : ?>
-      <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Applications + Purpose</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $purpose; ?></dd>
-      </div>
-    <?php endif; ?>
-    <?php if( $industries ) : ?>
-      <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Related Industries</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $industries; ?></dd>
-      </div>
+    <?php if( $blurbs ) : ?>
+      <?php foreach( $blurbs as $blurb ) : ?>
+    <div class="row">
+      <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['division_feature_headline'] ;?></dt>
+      <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['division_feature_copy']; ?></dd>
+    </div>
+      <?php endforeach; ?>
     <?php endif; ?>
     </dl>
   </div>

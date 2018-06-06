@@ -8,11 +8,7 @@
 
 .leader-grid {
   width: 100%;
-  @include screen-lg-up {
-    &.content {
-      padding-bottom: $padding-large;
-    }
-  }
+  @include section;
   h3 {
     font-size: rem-calc(20);
     font-weight: $text-light;

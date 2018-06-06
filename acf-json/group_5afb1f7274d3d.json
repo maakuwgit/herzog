@@ -11,7 +11,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "45",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -72,49 +72,70 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "55",
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5afb1f7280fc3",
-                    "label": "Applications + Purpose",
-                    "name": "innovation_purpose",
-                    "type": "textarea",
+                    "key": "field_5b17e8ce0fcd2",
+                    "label": "Features",
+                    "name": "innovation_feature",
+                    "type": "repeater",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 4,
-                    "new_lines": "br"
-                },
-                {
-                    "key": "field_5afb1f728101b",
-                    "label": "Related Industries",
-                    "name": "innovation_industries",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 8,
-                    "new_lines": "br"
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b17e8ce0fcd3",
+                            "label": "Headline",
+                            "name": "innovation_feature_headline",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b17e8ce0fcd4",
+                            "label": "Copy",
+                            "name": "innovation_feature_copy",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 4,
+                            "new_lines": "br"
+                        }
+                    ]
                 }
             ]
         }
@@ -136,5 +157,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526486684
+    "modified": 1528293853
 }

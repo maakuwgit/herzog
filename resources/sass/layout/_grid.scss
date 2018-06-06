@@ -6,7 +6,7 @@
  */
 .container,
 .wrapper {
-  body > *:not(main):not(footer):not(.callout) > & {
+  body:not(.post-type-archive-team) > *:not(main):not(footer):not(.callout) > & {
     max-width: calc(#{$screen-lg} + #{rem-calc(32)});
     @include screen-sm {
       padding-left: $padding-small;
