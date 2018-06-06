@@ -26,7 +26,7 @@ if ( ! function_exists('register_project_custom_post_type') ) {
       'label'               => 'project',
       'description'         => 'Project description',
       'labels'              => $labels,
-      'supports'            => array( 'title', 'page-attributes' ),
+      'supports'            => array( 'title', 'editor', 'page-attributes' ),
       'hierarchical'        => true,
       'public'              => true,
       'show_ui'             => true,

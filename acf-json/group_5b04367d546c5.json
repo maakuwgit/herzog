@@ -23,7 +23,7 @@
         },
         {
             "key": "field_5b04369e1c5c8",
-            "label": "Client",
+            "label": "Case Study",
             "name": "case_study_client",
             "type": "post_object",
             "instructions": "",
@@ -35,7 +35,7 @@
                 "id": ""
             },
             "post_type": [
-                "client"
+                "project"
             ],
             "taxonomy": [],
             "allow_null": 0,
@@ -121,5 +121,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "The Case Study component for use in the Divisions\/Capabilities Components",
-    "modified": 1527627079
+    "modified": 1528308092
 }

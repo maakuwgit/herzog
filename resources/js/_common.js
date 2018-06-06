@@ -428,22 +428,6 @@
         }
       });
 
-
-      /*
-       * Magnific Popup
-       */
-      $('[data-mfp-src]').on('click.openPopup', function(e){
-        e.preventDefault();
-        $src =  $(this).attr('data-mfp-src');
-        $.magnificPopup.open({
-          items: {
-            src: $src
-          },
-          type: 'inline',
-          removalDelay: 300,
-          mainClass: 'mfp-fade'
-        });
-      });
       /*
        * Address Autocompletes
        */

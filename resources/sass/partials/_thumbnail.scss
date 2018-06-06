@@ -87,7 +87,7 @@ $thumb-padding: 1.5rem;
     cursor: pointer;
   }
 
-  &:not([data-background]):not([data-mfp-src]):hover {
+  &:not([data-background]):not([class*="js-init-"]):hover {
     color: $white;
     background-color: $black;
   }

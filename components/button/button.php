@@ -44,10 +44,12 @@ if ( ll_empty( $data ) ) return;
 
 $modal = '';
 $use_modal = $args['modal'];
-if( $use_modal ) {
-  $modal = ' data-mfp-src="#'.$args['modal_id'].'"';
-}
+
 $css = ' class="button ';
+if( $use_modal ) {
+  $css .= ' js-init-video';
+  $modal = ' data-modal="#'.$args['modal_id'].'"';
+}
 if( is_array($args['classes'] ) ) {
   $css .= implode( " ", $args['classes'] );
 }else{

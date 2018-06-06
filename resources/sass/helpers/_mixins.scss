@@ -86,16 +86,18 @@
 /**
  * Flexi-box an element
  */
-@mixin section($sizes: false, $is_raised: false) {
-  @if !$sizes {
-    $sizes[0] = $padding-medium;
-    $sizes[1] = $padding-large;
+@mixin section($use-pad-md: false, $use-pad-lg: false, $is_raised: false) {
+  @if $use-pad-md == false {
+    $use-pad-md: $padding-medium;
   }
-  padding-top: $sizes[0];
-  padding-bottom: $sizes[0];
+  @if $use-pad-lg == false {
+    $use-pad-lg: $padding-large;
+  }
+  padding-top: $use-pad-md;
+  padding-bottom: $use-pad-md;
   @include screen-lg-up {
-    padding-top: $sizes[1];
-    padding-bottom: $sizes[1];
+    padding-top: $use-pad-lg;
+    padding-bottom: $use-pad-lg
   }
 }
 

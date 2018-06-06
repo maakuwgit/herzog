@@ -89,7 +89,7 @@
         },
         {
             "key": "field_5b0d6b74fd2cc",
-            "label": "Client",
+            "label": "Case Study",
             "name": "project_client",
             "type": "post_object",
             "instructions": "",
@@ -101,7 +101,7 @@
                 "id": ""
             },
             "post_type": [
-                "client"
+                "project"
             ],
             "taxonomy": [],
             "allow_null": 0,
@@ -197,5 +197,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Visible on the Locations Custom Taxonomy",
-    "modified": 1527628821
+    "modified": 1528308185
 }

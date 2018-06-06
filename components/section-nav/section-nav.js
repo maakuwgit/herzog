@@ -34,6 +34,8 @@
         dta.addClass('active');
         dda.addClass('active');
       }
+
+      //app.components.anchor_nav.setActive(slug);
     },
 
     goPrev : function(e) {
@@ -60,10 +62,15 @@
         dtp.addClass('active');
         ddp.addClass('active');
 
-        COMPONENT.setActive(dtp.attr('data-section-id'));
+        slug = dtp.attr('data-section-id');
+
+        COMPONENT.setActive(slug);
 
         //Now let's check for prev so we can deactivate
         dtp = dtp.prev().prev();
+
+        app.components.anchor_nav.selectActive(slug);
+
         if( !dtp.length ){
           prev.addClass('muted').off('click.goPrev');
         }
@@ -96,7 +103,9 @@
         dtn.addClass('active');
         ddn.addClass('active');
 
-        COMPONENT.setActive(dtn.attr('data-section-id'));
+        slug = dtn.attr('data-section-id');
+
+        COMPONENT.setActive(slug);
 
         dtn = dtn.next().next();
 
@@ -118,7 +127,12 @@
       dds = nav.find('dd');//Find ALL the definition descriptions
 
       next.on('click.goNext', this.goNext);
-      prev.addClass('muted');
+      if( window.scrollY <= window.outerHeight){
+        prev.addClass('muted');
+      }else{
+        prev.removeClass('muted');
+        prev.on('click.goPrev', this.goPrev);
+      }
     },
 
 
