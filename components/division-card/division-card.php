@@ -8,8 +8,7 @@
 
 $default_data = [
   'capabilities' => false,
-  'who_served'   => '',
-  'expertise'    => '',
+  'blurbs'       => '',
   'logo'         => array(
     'title' => '',
     'url' => '//via.placeholder.com/264x200',
@@ -43,9 +42,8 @@ if( $args['classes'] ) {
 }
 $css .= '"';
 $id           = $args['id'];
-$who_served   = $data['who_served'];
+$blurbs       = $data['blurbs'];
 $capabilities = $data['capabilities'];
-$expertise    = $data['expertise'];
 $logo         = $data['logo'];
 if( !$logo ) $logo = $default_data['logo'];
 ?>
@@ -69,18 +67,14 @@ if( !$logo ) $logo = $default_data['logo'];
     <?php endif; ?>
     </figure>
     <dl class="col col-sm-8of12 col-md-8of12 col-lg-8of12 col-xl-8of12 center">
-    <?php if( $who_served ) : ?>
-      <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Who We Serve</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $who_served; ?></dd>
-      </div>
-    <?php endif; ?>
-    <?php if( $expertise ) : ?>
-      <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Areas of Expertise</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $expertise; ?></dd>
-      </div>
-    <?php endif; ?>
+    <?php if( $blurbs ) : ?>
+    <?php foreach( $blurbs as $blurb ) : ?>
+    <div class="row">
+      <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['division_feature_headline'] ;?></dt>
+      <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['division_feature_copy']; ?></dd>
+    </div>
+    <?php endforeach; ?>
+  <?php endif; ?>
     </dl>
   </div>
 </section>

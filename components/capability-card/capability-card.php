@@ -9,8 +9,8 @@
 $default_data = [
   'capabilities'    => false,
   'innovations'     => false,
-  'who_served'      => '',
-  'past_projects'   => '',
+  'blurb1'      => '',
+  'blurb2'   => '',
   'services'        => '',
   'process'         => '',
   'logo'            => array(
@@ -73,12 +73,9 @@ if( $args['classes'] ) {
 }
 $css .= '"';
 $id           = $args['id'];
-$who_served   = $data['who_served'];
+$blurbs       = $data['blurbs'];
 $capabilities = $data['capabilities'];
-$projects     = $data['past_projects'];
-$services     = $data['services'];
 $innovations  = $data['innovations'];
-$process      = $data['process'];
 $logo         = $data['logo'];
 $leader_btn   = $data['leader_btn'];
 $timeline_btn = $data['timeline_btn'];
@@ -163,29 +160,13 @@ if( !$logo ) $logo = $default_data['logo'];
       </nav>
     </figure>
     <dl class="col col-sm-8of12 col-md-8of12 col-lg-8of12 col-xl-8of12 center">
-    <?php if( $who_served ) : ?>
+    <?php if( $blurbs ) : ?>
+      <?php foreach( $blurbs as $blurb ) : ?>
       <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Who We Serve</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $who_served; ?></dd>
+        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['capability_feature_headline'] ;?></dt>
+        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['capability_feature_copy']; ?></dd>
       </div>
-    <?php endif; ?>
-    <?php if( $projects ) : ?>
-      <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Past Projects</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $projects; ?></dd>
-      </div>
-    <?php endif; ?>
-    <?php if( $services ) : ?>
-      <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Capability Services</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $services; ?></dd>
-      </div>
-    <?php endif; ?>
-    <?php if( $process ) : ?>
-      <div class="row">
-        <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">Project Process</dt>
-        <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $process; ?></dd>
-      </div>
+      <?php endforeach; ?>
     <?php endif; ?>
     </dl>
   </div>
