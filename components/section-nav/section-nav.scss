@@ -1,20 +1,22 @@
-$nav-width: #{rem-calc(80)};
+$nav-height: #{rem-calc(88)};
 
 [data-component="section-nav"] {
   position: fixed;
   z-index: 5;
   align-items: center;
-  top: calc(100vh - #{$nav-width});
-  left: -1 * $nav-width;
+  top: calc(100vh - #{$nav-height});
+  left: -1 * $nav-height;
   bottom: 0;
-  height: $nav-width;
-  width: 100vh;
+  height: $nav-height;
+  body article.content & {
+    width: calc(100vh - #{$nav-height});
+  }
   transform-origin: bottom left;
   transform: rotate(270deg);
   font-weight: $text-medium;
   color: $white;
   &.left {
-    left: $nav-width;
+    left: $nav-height;
   }
   .wrap {
     width: inherit;

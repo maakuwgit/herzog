@@ -16,9 +16,11 @@
     },
 
     setActive : function(slug) {
-      nav = $('[data-component="'+COMPONENT.className+'"]');//The WHOLE nav item
-      dts = nav.find('dt')//Find ALL the definition titles
-      dds = nav.find('dd');//Find ALL the definition descriptions
+      nav   = $('[data-component="'+COMPONENT.className+'"]');//The WHOLE nav item
+      prog  = nav.find('progress');//The progress bar
+      dts   = nav.find('dt');//Find ALL the definition titles
+      dds   = nav.find('dd');//Find ALL the definition descriptions
+      val   = 0;
 
       dta = nav.find('dt[data-section-id="'+slug+'"]');
       dda  = dta.next();
@@ -33,9 +35,35 @@
 
         dta.addClass('active');
         dda.addClass('active');
-      }
 
-      //app.components.anchor_nav.setActive(slug);
+        for(var d = 0; d < dts.length; d++ ) {
+          if( $(dts[d]).hasClass('active') ){
+            val = d;
+          }
+        }
+
+        if( !val ) {
+          val = 0;
+        }
+
+        var max   = dts.length,
+            curr  = val,
+            total = max;
+
+        if( max === 1 ){
+          $(nav).detach();
+        }else{
+          if( val < 10 ){
+            curr = '0' + val;
+          }
+
+          if( max < 10 ){
+            total = '0' + max;
+          }
+
+          $(prog).attr({'max': max, 'value': val});
+        }
+      }
     },
 
     goPrev : function(e) {

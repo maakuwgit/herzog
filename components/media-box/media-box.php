@@ -37,8 +37,6 @@ $args = ll_parse_args( $component_args, $default_args );
 
 if ( ll_empty( $data ) ) return;
 
-$id           = $args['id'];
-
   if( $data['mediabox_columns'] ) {
     $first = true;
     $right_box = $left_box = $rimage = $limage = '';
@@ -91,7 +89,7 @@ $id           = $args['id'];
   $css .= '"';
   $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 ?>
-<section<?php $id . $css; ?> data-component="media-box">
+<section<?php echo $id . $css; ?> data-component="media-box">
   <div class="container row">
     <article class="col col-lg-4of12 col-xl-4of12 active" data-rel="left" data-btn-href="<?php echo $lbtn['url']; ?>" data-btn-title="<?php echo $lbtn['title']; ?>">
       <div class="row">

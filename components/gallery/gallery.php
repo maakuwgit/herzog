@@ -67,10 +67,10 @@ if( sizeof($data['gallery']) > 0 ){
 }
 ?>
 <?php if( !$is_hero ) : ?>
-  <section class="slideshow<?php echo $fullwidth; ?>">
+  <section<?php echo $id;?> class="slideshow<?php echo $fullwidth; ?>">
     <div class="container row end">
 <?php endif; ?>
-      <div<?php echo $id . $css; ?> data-component="gallery" data-gallery-nav="<?php echo $nav_id; ?>" style="width:100%;display:block;align-items: initial;flex: 0 0 auto;">
+      <div<?php echo $css; ?> data-component="gallery" data-gallery-nav="<?php echo $nav_id; ?>" style="width:100%;display:block;align-items: initial;flex: 0 0 auto;">
         <?php foreach($gallery as $slides) : ?>
           <?php $slide = $slides['gallery_image'];?>
           <?php echo ll_format_image($slide); ?>
