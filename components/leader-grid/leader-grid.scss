@@ -51,6 +51,10 @@ section[data-component="leader-grid"] {
     }
   }
   .thumbnail {
+    body.home & {
+      width: 25%;
+    }
+
     @include screen-sm {
       width: 100%;
     }

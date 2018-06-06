@@ -19,10 +19,12 @@
     init: function() {
       var _this = this;
       var gallery = $("body:not(.post-type-archive-team) [data-component='"+_this.className+"']");
-      gallery.find('> .container.row').each(function(){
+      gallery.find('.slider').each(function(){
         $(this).slick({
           infinite: false,
           fade: false,
+          centerMode: true,
+          centerPadding: '133.5px',
           slidesToShow: 4,
           slidesToScroll: 4,
           arrows: false,
@@ -30,15 +32,15 @@
             {
               breakpoint: 1281,
               settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3
+                slidesToShow: 4,
+                slidesToScroll: 4
               }
             },
             {
               breakpoint: 769,
               settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
+                slidesToShow: 3,
+                slidesToScroll: 3
               }
             },
             {

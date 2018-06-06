@@ -7,7 +7,7 @@
 */
 
 $default_data = [
-  'num_members'
+  'num_members' => -1
 ];
 
 $default_args = [
@@ -18,8 +18,12 @@ $default_args = [
 $data = ll_parse_args( $component_data, $default_data );
 $args = ll_parse_args( $component_args, $default_args );
 
+if ( ll_empty( $data ) ) return;
+
+$num_members = $data['num_members'];
+
 $margs = array(
-  'posts_per_page' => -1,
+  'posts_per_page' => $num_members,
   'order'          => 'ASC',
   'orderby'        => 'menu_order',
   'post_status'    => 'publish',
@@ -40,10 +44,9 @@ if( $args['classes'] ) {
 $css .= '"';
 
 $id       = $args['id'];
-
-  if ( ll_empty( $data ) ) return; ?>
-<section <?php echo 'id="'.$id.'"'; ?> data-component="leader-grid"<?php echo $css; ?>>
-  <div class="container row start">
+?>
+<section<?php echo ' id="'.$id.'"'; ?> data-component="leader-grid"<?php echo $css; ?>>
+  <div class="wrapper row start slider">
   <?php
     while ( $members->have_posts() ) {
       $members->the_post();

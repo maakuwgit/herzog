@@ -85,6 +85,7 @@ section + .hero-nav {
     overflow: hidden;
     margin: 0;
     padding: 0;
+    padding-left: 0 !important;
     &:focus {
       outline: none;
     }
