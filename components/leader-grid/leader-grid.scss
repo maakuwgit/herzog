@@ -8,6 +8,9 @@
 section[data-component="leader-grid"] {
   article & {
     @include section;
+    @include screen-md-up {
+      padding-top: 0;
+    }
   }
 }
 .leader-grid {

@@ -6,6 +6,10 @@
   section & {
     padding-top: $padding-small;
     padding-bottom: $padding-small;
+    @include screen-lg-up {      
+      padding-top: $padding-medium;
+      padding-bottom: $padding-medium;
+    }
   }
   ol {
     padding-left: rem-calc(17.5);

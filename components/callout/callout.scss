@@ -20,6 +20,12 @@
     align-self: center;
   }
 
+  @include screen-lg-up {
+    h2,h3,h4 {
+      margin-bottom: auto;
+    }
+  }
+
   nav {
     margin-top: rem-calc(50);
     text-align: center;

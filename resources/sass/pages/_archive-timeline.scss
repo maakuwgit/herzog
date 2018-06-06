@@ -92,8 +92,8 @@
 
     &.open { // Handles the testimonial that is currently open
       background-image: none !important;
-      background-color: $smoke !important;
-      box-shadow: 0 0 40px black inset;
+      background-color: $ebony !important;
+      box-shadow: 0 0 40px $black inset;
       .hope-testimonial-columns__intro {
         visibility: hidden;
         transform: translate3d(0, 10%, 0);

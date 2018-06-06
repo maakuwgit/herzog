@@ -160,18 +160,21 @@ function ll_parse_args( &$a, $b ) {
  * @return [array]
  */
 function ll_filter_array( $component_data ) {
+  if( is_array($component_data) ) {
+    foreach ( $component_data as $key => $value ) {
+      if ( is_array( $value ) ) {
+        $component_data[$key] = ll_filter_array( $component_data[$key] );
+      }
 
-  foreach ( $component_data as $key => $value ) {
-    if ( is_array( $value ) ) {
-      $component_data[$key] = ll_filter_array( $component_data[$key] );
+      if ( empty( $component_data[$key] ) ) {
+        unset( $component_data[$key] );
+      }
     }
 
-    if ( empty( $component_data[$key] ) ) {
-      unset( $component_data[$key] );
-    }
+    return $component_data;
+  }else{
+    return false;
   }
-
-  return $component_data;
 }
 
 

@@ -45,7 +45,7 @@
       margin-bottom: $padding-medium;
     }
     @include screen-lg-up {
-      margin-top: $padding-large;
+      margin-top: $padding-small * 3;
     }
   }
   p {

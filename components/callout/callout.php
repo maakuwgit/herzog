@@ -50,10 +50,10 @@ $id = ($args['id'] ? ' id="' . $args['id'] . '"' : '');
 ?>
 <aside<?php echo $id . $css; ?> data-component="callout">
   <div class="container row">
-    <div class="col col-sm-5of12 col-md-6of12 col-lg-6of12 col-xl-6of12 center">
+    <div class="col col-sm-5of12 col-md-6of12 col-lg-6of12 col-xl-6of12 flex-start">
       <h2><?php echo $data['headline']; ?></h2>
     </div>
-    <div class="col col-sm-7of12 col-md-6of12 col-lg-6of12 col-xl-6of12 center">
+    <div class="col col-sm-7of12 col-md-6of12 col-lg-6of12 col-xl-6of12 flex-start">
       <?php echo format_text($data['subheadline']); ?>
       <nav>
       <?php

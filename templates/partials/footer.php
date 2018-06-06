@@ -29,10 +29,10 @@
     );
   ?>
   <ul class="container row no-bullet footer__disclaimer">
-    <li class="footer__copyright col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><small>Copyright <?php echo date('Y'); ?>. All Rights Reserved.</small>
+    <li class="footer__copyright col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><small class="aluminum">Copyright <?php echo date('Y'); ?>. All Rights Reserved.</small>
     </li><!-- .footer__copyright -->
     <li class="footer__ll-logo col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12">
-      <small>Wed Design in Kansas City by <a href="https://liftedlogic.com/" target="_blank" class="iblock">
+      <small class="aluminum">Wed Design in Kansas City by <a href="https://liftedlogic.com/" target="_blank" class="iblock">
         <svg name="Lifted Logic" class="icon icon-LiftedLogic"><use xlink:href="#icon-LiftedLogic"></use></svg>
       </a></small>
     </li><!-- .footer__ll-logo -->
