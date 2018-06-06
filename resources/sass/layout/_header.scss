@@ -251,9 +251,8 @@ body {
   @include screen-lg-up {
     box-shadow: #{rem-calc(-4)} #{rem-calc(16)} #{rem-calc(39)} $black;
     .mega_menu & {
-      top: rem-calc(-16);
-      padding-top: $padding-large;
-      box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
+      top: rem-calc(88);
+      padding-top: rem-calc(-16);
     }
   }
   @include screen-md-up {
