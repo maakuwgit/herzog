@@ -12,6 +12,9 @@ html {
   font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @include screen-xl-up {
+    font-size: 125%;
+  }
 }
 
 body {

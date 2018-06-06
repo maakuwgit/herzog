@@ -66,7 +66,7 @@ $id = ($args['id'] ? ' id="' . $args['id'] . '" ' : '"');
         endforeach;
       ?>
     </dl>
-    <!--<progress value="1" max="2" data-slick-progress>-->
+    <progress value="1" max="2" data-slick-progress>
   </div>
 </aside>
 <?php

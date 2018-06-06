@@ -58,9 +58,9 @@ main.hero {
       min-height: 100vh;
       &.background {
         @include screen-lg-up {
-          margin-left: rem-calc(-16);
-          margin-right: rem-calc(-16);
-          width: calc(100% + #{rem-calc(32)};
+          margin-left: -1 * $padding-medium;
+          margin-right: -1 * $padding-medium;
+          width: calc(100% + #{ 2 * $padding-medium};
           max-width: none;
         }
       }

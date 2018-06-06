@@ -49,6 +49,9 @@
     @include screen-lg-up {
       left: initial;
     }
+    @include screen-xl-up {
+      margin-right: -1 * $padding-medium;
+    }
     align-items: center;
     padding-left: 0 !important;
     padding-right: 0 !important;

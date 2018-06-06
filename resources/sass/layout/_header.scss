@@ -9,8 +9,9 @@ body {
     overflow: hidden;
   }
   > header {
-    &.top {
+    &.top, &.expanded {
       background: $ebony;
+      box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
     }
     a {
       display: inline-block;
@@ -74,7 +75,7 @@ body {
   .menu-item {
     a {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       padding: $padding-xsmall $padding-small;
     }
     @include screen-md {
@@ -241,95 +242,96 @@ body {
   }
 }
 
-@include screen-md-up {
-  .dropdown-menu {
-    position: absolute;
+.dropdown-menu {
+  position: absolute;
+  left: -1 * ($menu_min_width/4);
+  right: -1 * ($menu_min_width/4);
+  min-width: $menu_min_width;
+  background-color: $ebony;
+  box-shadow: #{rem-calc(-4)} #{rem-calc(16)} #{rem-calc(39)} $black;
+  .mega_menu & {
     top: rem-calc(-16);
-    left: -1 * ($menu_min_width/4);
-    right: -1 * ($menu_min_width/4);
-    min-width: $menu_min_width;
     padding-top: $padding-large;
-    background-color: $ebony;
     box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
+  }
+  @include screen-md-up {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: $grid_column_padding;
+    #primary-nav & {
+      .menu-item,
+      .widget {
+        width: 100%;
+        flex: 0 1 auto;
+        a {
+          padding: $grid_column_padding/2 $grid_gutter_width;
+          font-size: rem-calc(14);
+        }
+        @include screen-md {
+          display: none !important;
+        }
+      }
+    }
+  }
+  @include screen-nav-mobile {
+    position: relative;
+    overflow: hidden;
+  }
+  &.collapsed {
+    top: -100vh;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .headline > a {
+    font-weight: $text-medium;
+  }
+  .dropdown.mega_menu & {
+    right: 0;
+    left: 0;
+    align-items: flex-start;
+    #primary-nav & {
+      .menu-item {
+        flex: 0 1 auto;
+      }
+    }
     @include screen-md-up {
-      display: flex;
+      padding-bottom: $grid_gutter_width * 2;
+      flex-direction: row;
+    }
+  }
+  .dropdown .dropdown-menu {
+    position: initial;
+    top: initial;
+    padding-left: 0;
+    padding-bottom: 0;
+    flex-direction: column;
+    background: transparent;
+    box-shadow: initial;
+  }
+  .menu-item {
+    a {
+      color: $ivory;
+    }
+    p {
+      font-weight: $text-light;
+      font-size: rem-calc(14);
+    }
+    figure {
       flex-direction: column;
-      padding-bottom: $grid_column_padding;
-      #primary-nav & {
-        .menu-item,
-        .widget {
-          width: 100%;
-          flex: 0 1 auto;
-          a {
-            padding: $grid_column_padding/2 $grid_gutter_width;
-            font-size: rem-calc(14);
-          }
-          @include screen-md {
-            display: none !important;
-          }
-        }
+      figcaption {
+        margin-top: $grid_column_padding;
+      }
+      img {
+        width: auto;
+        max-width: rem-calc(260);
       }
     }
-    @include screen-nav-mobile {
-      position: relative;
-      overflow: hidden;
+    figure,
+    > img {
+      padding: $grid_column_padding $grid_gutter_width;
     }
-    &.collapsed {
-      top: -100vh;
-      padding-bottom: 0;
-      padding-top: 0;
-    }
-    .headline > a {
-      font-weight: $text-medium;
-    }
-    .dropdown.mega_menu & {
-      right: 0;
-      left: 0;
-      align-items: flex-start;
-      #primary-nav & {
-        .menu-item {
-          flex: 0 1 auto;
-        }
-      }
-      @include screen-md-up {
-        padding-bottom: $grid_gutter_width * 2;
-        flex-direction: row;
-      }
-    }
-    .dropdown .dropdown-menu {
-      position: initial;
-      top: initial;
-      padding-left: 0;
-      padding-bottom: 0;
-      flex-direction: column;
-      background: transparent;
-      box-shadow: initial;
-    }
-    .menu-item {
-      a {
-        color: $ivory;
-      }
-      p {
-        font-weight: $text-light;
-        font-size: rem-calc(14);
-      }
-      figure {
-        flex-direction: column;
-        figcaption {
-          margin-top: $grid_column_padding;
-        }
-        img {
-          width: auto;
-          max-width: rem-calc(260);
-        }
-      }
-      figure,
-      > img {
-        padding: $grid_column_padding $grid_gutter_width;
-      }
-      small, .small {
-        font-size: rem-calc(12);
-      }
+    small, .small {
+      font-size: rem-calc(12);
     }
   }
 }
@@ -340,9 +342,14 @@ body {
   z-index: 10;
   width: 100vw;
   margin: 0 auto;
-  padding: $padding-xsmall 0;
+  //padding: $padding-xsmall 0;
   > .row {
     align-items: center;
+    padding: 0 $padding-small;
+    @include screen-lg-up {
+      padding-left: $padding-small * 3;
+      padding-right: $padding-small * 3;
+    }
   }
   li.active > a {
     color: darken($ivory, 20);

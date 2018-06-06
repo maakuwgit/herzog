@@ -1,6 +1,14 @@
 /**
  * Leadership (Team) Archive
  */
+body.post-type-archive-team {
+  > .container {
+    max-width: $container-width;
+    padding-left: initial;
+    padding-right: initial;
+  }
+}
+
 .post-type-archive-team {
   .leader-grid {
     padding-top: $padding-medium;

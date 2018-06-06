@@ -7,9 +7,11 @@
 .container,
 .wrapper {
   body > *:not(main):not(footer):not(.callout) > & {
-    max-width: calc(#{$site-width} + #{rem-calc(32)});
-    padding-left: $padding-small;
-    padding-right: $padding-small;
+    max-width: calc(#{$screen-lg} + #{rem-calc(32)});
+    @include screen-sm {
+      padding-left: $padding-small;
+      padding-right: $padding-small;
+    }
     .row {
       padding-left: 0;
       padding-right: 0;
@@ -21,7 +23,7 @@
 }
 
 .wrapper {
-  @include container-fixed($site-width);
+  @include container-fixed($screen-lg);
 }
 
 .row,
@@ -57,7 +59,12 @@
   [class^="col"],
   [class*="col-"] {
     align-self: auto;
-    padding: 0 $grid-column-padding;
+    &:not[data-component] {
+      padding:0 #{$padding-small/2};
+    }
+    @include screen-lg-up {
+      padding:0 $padding-small;
+    }
     &.flex-end {
       align-self: flex-end;
     }
@@ -94,7 +101,10 @@
   width: 100%;
   max-width: 100%;
   &:not([data-component]):not([data-slick-nav]) {
-    padding:0 $grid-column-padding;
+    padding:0 #{$padding-small/2};
+    @include screen-lg-up {
+      padding:0 $padding-small;
+    }
   }
 }
 

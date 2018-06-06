@@ -34,6 +34,7 @@
           primary_nav   = 'body > header',
           location_nav  = $('[data-location-nav]'),
           counters      = $('[data-component="callout-numbers"]'),
+          toggler       = $('[data-toggle]'),
           sections      = $('body > article section, body > article picture');
 
       window.userLoggedIn = false;
@@ -236,6 +237,15 @@
           $('body').addClass('animated');
           //Dev Note:
         }, 2000);
+
+        //Dropdown menu function
+        toggler.click(function(){
+          if( !$(primary_nav).hasClass('expanded') ) {
+            $(primary_nav).addClass('expanded');
+          }else if( $(this).next().hasClass('collapsed') ){
+            $(primary_nav).removeClass('expanded');
+          }
+        });
 
         //Timeline
         var panels = $('[data-hover-panels] .panel');

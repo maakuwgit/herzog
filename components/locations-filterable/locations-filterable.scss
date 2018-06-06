@@ -21,6 +21,11 @@ section[data-component="locations-filterable"] {
 
 .locations-filterable {
   @include raised;
+  margin-left: -1 * $padding-small;
+  margin-right: -1 * $padding-small;
+  .picture {
+    padding: 0 0 #{$padding-medium} 0;
+  }
   h2 {
     width: 100%;
   }

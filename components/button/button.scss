@@ -24,6 +24,22 @@ button.button {
     fill: $black;
     background-color: $white;
   }
+  @include screen-lg-up {
+    &:hover {
+      &.dark {
+        .icon {
+          color: $black;
+          fill: $black;
+          background-color: $yellow;
+        }
+      }
+      .icon {
+        color: $black;
+        fill: $black;
+        background-color: $yellow;
+      }
+    }
+  }
   &.button-large {
     font-size: rem-calc(32);
     .icon {

@@ -6,7 +6,7 @@
   $img_path = get_template_directory_uri() . '/assets/img/';
 ?>
 <header class="navbar" role="banner">
-  <div class="wrapper row">
+  <div class="row">
     <figure>
       <a href="<?php echo $href ?>" class="logo block">
     <?php if ( $logo ) : ?>

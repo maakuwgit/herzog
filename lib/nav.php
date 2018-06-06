@@ -18,7 +18,7 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
   }
 
   function start_lvl(&$output, $depth = 0, $args = array()) {
-    $output .= "\n<ul class=\" collapsed dropdown-menu\" id=\"dropdown-".$this->curItem."\"  data-content=\"collapse\">\n";
+    $output .= "\n<ul class=\" collapsed dropdown-menu wrapper\" id=\"dropdown-".$this->curItem."\"  data-content=\"collapse\">\n";
   }
 
   function end_lvl(&$output, $depth = 0, $args = array()) {

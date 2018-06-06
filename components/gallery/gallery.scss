@@ -8,16 +8,26 @@
 .slideshow {
   width: $container-width;
   &.fullwidth {
-    width: 100%;
+    width: calc(100% + #{2 * $padding-small});
     .row.container {
       max-width: none;
+      width: 100%;
       padding: 0;
+      margin-left: 0;
+      margin-right: 0;
+      .slick-slide {
+        max-width: none;
+      }
+      @include screen-sm {
+        margin-left: -1 * $padding-small;
+      }
     }
   }
   .slick-slide {
     max-width:  calc(100vw - #{$padding-medium});
   }
 }
+
 section + .hero-nav {
   max-width: $container-width;
   width: 100%;
@@ -27,8 +37,20 @@ section + .hero-nav {
   > .wrapper {
     width: inherit;
   }
+
   progress {
-    width: calc(100% - #{rem-calc(150)});
+    min-width: 60%;
+    width: calc(100% - #{rem-calc(210)});
+    margin-right: rem-calc(16);
+    @include screen-xl-up {
+      width: 100%;
+    }
+  }
+  [data-slick-details] {
+    margin-right: rem-calc(20);
+    @include screen-lg-up {
+      margin-right: rem-calc(50);
+    }
   }
 }
 
@@ -37,6 +59,7 @@ section + .hero-nav {
   position: relative;
   display: block;
   box-sizing: border-box;
+  height: 100%;
   margin: 0;
   .row & {
     &[class^="col"]:not([class*="xxs-"]):not([class*="xs-"]):not([class*="sm-"]):not([class*="md-"]):not([class*="lg-"]):not([class*="xl-"]),

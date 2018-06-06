@@ -45,7 +45,15 @@
     }
   }
   .picture {
-    min-height: 140px;
+    @include screen-md {
+      min-height: 140px;
+    }
+    @include screen-md-up {
+      &:before {
+        padding-top: 50%;
+        padding-bottom: 50%;
+      }
+    }
     @include screen-sm {
       margin-bottom: $padding-small;
     }
