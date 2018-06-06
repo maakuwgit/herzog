@@ -308,7 +308,7 @@ if( have_rows( 'components' ) ) {
       case 'innovation-cards' :
         while( have_rows( 'innovation_right_rail' ) ) {
           the_row();
-          $blurbs         = get_sub_field('innovation_blurbs');
+          $blurbs         = get_sub_field('innovation_feature');
         }
         while( have_rows( 'innovation_left_rail' ) ) {
           the_row();
