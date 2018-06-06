@@ -79,6 +79,7 @@ if( !$logo ) {
         </ul>
         <?php endif; ?>
       <?php endif; ?>
+    <?php endif; ?>
       <?php if( $innovations ) : ?>
         <?php if( sizeof($innovations) > 1 ) : ?>
         <strong class="block">Related Innovations</strong>
@@ -95,7 +96,6 @@ if( !$logo ) {
         <?php endif; ?>
       <?php endif; ?>
       </figcaption>
-    <?php endif; ?>
     </figure>
     <dl class="col col-sm-8of12 col-md-8of12 col-lg-8of12 col-xl-8of12 center">
     <?php if( $blurbs ) : ?>
