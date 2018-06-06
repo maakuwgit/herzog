@@ -5,10 +5,13 @@
  * About the module
  *
  */
-
+section[data-component="leader-grid"] {
+  article & {
+    @include section;
+  }
+}
 .leader-grid {
   width: 100%;
-  @include section;
   h3 {
     font-size: rem-calc(20);
     font-weight: $text-light;

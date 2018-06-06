@@ -101,8 +101,8 @@ if( !$logo ) {
     <?php if( $blurbs ) : ?>
       <?php foreach( $blurbs as $blurb ) : ?>
     <div class="row">
-      <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['division_feature_headline'] ;?></dt>
-      <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['division_feature_copy']; ?></dd>
+      <dt class="text-bold col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['innovation_feature_headline'] ;?></dt>
+      <dd class="col col-sm-6of12 col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $blurb['innovation_feature_copy']; ?></dd>
     </div>
       <?php endforeach; ?>
     <?php endif; ?>

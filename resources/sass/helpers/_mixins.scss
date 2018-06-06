@@ -75,18 +75,27 @@
   align-items: $align-items;
 }
 
+/**
+ * Give an element the lighter grey background and drop-shadow effect
+ */
 @mixin raised($color: #191919) {
   background-color: $color;
   box-shadow: 0 #{rem-calc(2)} #{rem-calc(20)} $black;
 }
 
-// Padding for components
-@mixin section($is_raised: false) {
-  padding-top: $padding-medium;
-  padding-bottom: $padding-medium;
+/**
+ * Flexi-box an element
+ */
+@mixin section($sizes: false, $is_raised: false) {
+  @if !$sizes {
+    $sizes[0] = $padding-medium;
+    $sizes[1] = $padding-large;
+  }
+  padding-top: $sizes[0];
+  padding-bottom: $sizes[0];
   @include screen-lg-up {
-    padding-top: $padding-large;
-    padding-bottom: $padding-large;
+    padding-top: $sizes[1];
+    padding-bottom: $sizes[1];
   }
 }
 
