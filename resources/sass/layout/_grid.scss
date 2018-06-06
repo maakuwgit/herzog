@@ -105,6 +105,12 @@
     @include screen-lg-up {
       padding:0 $padding-small;
     }
+    @include screen-sm {
+      .col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
   }
 }
 

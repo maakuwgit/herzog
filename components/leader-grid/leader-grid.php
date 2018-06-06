@@ -43,7 +43,7 @@ $id       = $args['id'];
 
   if ( ll_empty( $data ) ) return; ?>
 <section <?php echo 'id="'.$id.'"'; ?> data-component="leader-grid"<?php echo $css; ?>>
-  <div class="container row">
+  <div class="container row start">
   <?php
     while ( $members->have_posts() ) {
       $members->the_post();

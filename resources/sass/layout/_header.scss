@@ -184,7 +184,7 @@ body {
   overflow: visible;
   background-color: transparent;
   position: absolute;
-  height: 100%;
+  height: rem-calc(40);
   z-index:25;
   align-self: stretch;
   @include screen-md {
@@ -248,11 +248,13 @@ body {
   right: -1 * ($menu_min_width/4);
   min-width: $menu_min_width;
   background-color: $ebony;
-  box-shadow: #{rem-calc(-4)} #{rem-calc(16)} #{rem-calc(39)} $black;
-  .mega_menu & {
-    top: rem-calc(-16);
-    padding-top: $padding-large;
-    box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
+  @include screen-lg-up {
+    box-shadow: #{rem-calc(-4)} #{rem-calc(16)} #{rem-calc(39)} $black;
+    .mega_menu & {
+      top: rem-calc(-16);
+      padding-top: $padding-large;
+      box-shadow: #{rem-calc(-4)} #{rem-calc(-4)} #{rem-calc(39)} $black;
+    }
   }
   @include screen-md-up {
     display: flex;
@@ -276,6 +278,8 @@ body {
   @include screen-nav-mobile {
     position: relative;
     overflow: hidden;
+    left: initial;
+    right: initial;
   }
   &.collapsed {
     top: -100vh;
@@ -345,10 +349,9 @@ body {
   //padding: $padding-xsmall 0;
   > .row {
     align-items: center;
-    padding: 0 $padding-small;
+    padding: $padding-small;
     @include screen-lg-up {
-      padding-left: $padding-small * 3;
-      padding-right: $padding-small * 3;
+      padding: 0 $padding-small * 3;
     }
   }
   li.active > a {

@@ -88,7 +88,7 @@ $nav_id = $args['nav_id'];
     <?php if ( $headline['style'] === 'text' ) : ?>
     <h1 class="col col-lg-6of12 col-xl-5of12 center text-center"><?php echo $headline['text']; ?></h1>
     <?php else: ?>
-    <div class="h1 hero__logo col col-lg-6of12 col-xl-5of12 center text-center">
+    <div class="h1 hero__logo col col-xs-9of12 col-sm-8of12 col-md-7of12 col-lg-6of12 col-xl-5of12 center text-center">
       <img alt="<?php echo $headline['image']['alt']; ?>" src="<?php echo $headline['image']['url']; ?>">
     </div>
     <?php endif; ?>
