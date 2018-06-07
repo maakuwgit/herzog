@@ -129,13 +129,18 @@ if( have_rows( 'components' ) ) {
           $leader_btn     = get_sub_field('capability_leadership_btn');
           $timeline_btn   = get_sub_field('capability_timeline_btn');
           $case_btn       = get_sub_field('capability_case_studies_btn');
+          $logo           = get_sub_field('capability_logo');
+
+          if( $logo ) {
+            $logo = get_field('division_logo_reversed', $logo);
+          }
         }
 
         $capability_card   = array(
           'capabilities'  => $capabilites,
           'innovations'   => $related,
           'blurbs'        => $blurbs,
-          'logo'          => get_field('division_logo_reversed'),
+          'logo'          => $logo,
           'leader_btn'    => $leader_btn,
           'timeline_btn'  => $timeline_btn,
           'case_btn'      => $case_btn
