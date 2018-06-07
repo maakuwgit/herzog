@@ -105,7 +105,7 @@ $accordions = $data['accordion_wrapper'][0]['accordion_element'];
       $headline = $division->post_title;
       $abbr = get_field('division_abbreviation', $division->ID);
       $url = $division->guid;
-      $target = ' id="'.$abbr.'"';
+      $target = ' id="'.strtolower($abbr).'"';
     }
 
     $logos = array(
