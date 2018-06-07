@@ -123,31 +123,37 @@ $base_url     = get_bloginfo('url');
   <?php if( $additionals ) : ?>
   <div class="container row stretch">
     <footer class="col">
-      <h3>Additional Project Experience</h3>
-      <nav>
-      <?php
-        ll_include_component(
-          'button',
-          array(
-            'link'    => array(
-              'title'   => 'All Case Studies',
-              'url'     => get_bloginfo('url') . '/project/'
+      <div class="row between">
+        <h3 class="col col-6of12 center">Additional Project Experience</h3>
+        <nav class="col col-6of12 center text-right">
+        <?php
+          ll_include_component(
+            'button',
+            array(
+              'link'    => array(
+                'title'   => 'All Case Studies',
+                'url'     => get_bloginfo('url') . '/project/'
+              )
             )
-          )
-        );
+          );
+          ?>
+        </nav>
+      </div>
+      <div class="row container between">
+        <ul class="col">
+        <?php
+          foreach( $additionals as $additional ) :
+            $client = $additional->post_title;
+            $location = $additional->post_excerpt;
         ?>
-      </nav>
+            <li>
+              <h6 class="text-bold"><?php echo $client; ?></h6>
+              <p><?php echo $location; ?></p>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+      </div>
     </footer>
-    <dl class="col col-sm-8of12 col-md-8of12 col-lg-8of12 col-xl-8of12 center">
-    <?php
-      foreach( $additionals as $additional ) :
-        $client = 'Lorem';
-        $location = 'Lipsum';
-    ?>
-        <dt class="text-bold"><?php echo $client; ?></dt>
-        <dd><?php echo $location; ?></dd>
-    <?php endforeach; ?>
-    </dl>
   </div>
   <?php endif; ?>
 </section>

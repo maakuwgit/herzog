@@ -40,4 +40,12 @@ section[data-component="case-study"] {
       margin-bottom: auto;
     }
   }
+  footer {
+    .button {
+      margin-top: auto;
+    }
+    div:last-child {
+      margin-top: $padding-small;
+    }
+  }
 }
