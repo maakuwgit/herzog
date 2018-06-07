@@ -103,7 +103,7 @@
 .col {
   width: 100%;
   max-width: 100%;
-  &:not([data]) {
+  &:not([data-component]):not([data-slick-nav]) {
     padding:0 #{$padding-small/2};
     @include screen-lg-up {
       padding:0 $padding-small;

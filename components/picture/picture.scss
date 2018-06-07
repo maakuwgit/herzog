@@ -7,8 +7,7 @@
  */
 
 .picture {
-  padding-top: $grid-gutter-width * 5;
-  padding-bottom: $grid-gutter-width * 5;
+  @include section;
   @include screen-lg-up {
     padding-left: $padding-small;
     padding-right: $padding-small;
