@@ -143,7 +143,9 @@
       var data = JSON.parse('<?php echo ll_get_projects_json();?>');
       window.data = data;
       for ( i=0; i<data.items.length; i++ ) {
-        globe.addData(data.items[i], {name: data.project})
+        if( data.items[0] && data.items[1] ) {
+          globe.addData(data.items[i], {name: data.project});
+        };
       }
 
       globe.animate();
