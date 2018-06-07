@@ -1,9 +1,13 @@
 [data-component="callout"]{
-  padding-top: $grid-gutter-width;
-  padding-bottom: $padding-small;
+  @include section;
   background-color: #191919;
   @include screen-sm {
-    padding: $padding-medium $padding-small;
+    padding-left: $padding-small;
+    padding-right: $padding-small;
+  }
+  @include screen-md-only {
+    padding-left: $padding-medium;
+    padding-right: $padding-medium;
   }
   @include screen-lg-up {
     padding-top: $padding-large;

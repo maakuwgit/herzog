@@ -6,7 +6,7 @@ $use_form = get_field('form_use');
 ?>
 <?php get_template_part('templates/contents/content', 'hero--nav'); ?>
 <article <?php post_class('content'); ?>>
-  <div class="container row">
+  <div class="row">
 <?php while (have_posts()) : the_post(); ?>
   <section class="gform_wrapper content">
     <div class="gform_wrapper container row start">

@@ -123,14 +123,14 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
 srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x600 3x" data-src-md="http://via.placeholder.com/316x200" data-src-lg="http://via.placeholder.com/632x400 data-src-xl="http://via.placeholder.com/948x600">';
     }
 ?>
-    <dt class="col-md-12of12 col-lg-2of12 col-xl-2of12 no-shadow accordion--trigger<?php echo $flag; ?>" data-content-num="<?php echo $aID; ?>" data-background>
+    <dt class="col-md-3of12 col-lg-2of12 col-xl-2of12 no-shadow accordion--trigger<?php echo $flag; ?>" data-content-num="<?php echo $aID; ?>" data-background>
       <div class="feature">
         <?php echo $logo . $logo_ov; ?>
       </div>
     </dt>
-    <dd<?php echo $target; ?> class="col-md-12of12 col-lg-10of12 col-offset-lg-2of12 col-xl-10of12 col-offset-lg-2of12 col-offset-xl-2of12 accordion<?php echo $flag; ?>">
+    <dd<?php echo $target; ?> class="col-md-9of12 col-offset-md-2of12 col-lg-10of12 col-offset-lg-2of12 col-xl-10of12 col-offset-lg-2of12 col-offset-xl-2of12 accordion<?php echo $flag; ?>">
       <div class="container row between">
-        <div class="col col-md-12of12 col-lg-7of12 col-xl-10of12">
+        <div class="col col-md-7of12 col-lg-8of12 col-xl-8of12">
           <h2><?php echo $headline; ?></h2>
           <?php echo format_text($accordion['accordion_content']); ?>
           <?php
@@ -150,7 +150,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
             );
             ?>
           </div>
-          <nav class="col col-md-12of12 col-lg-3of12 col-xl-2of12">
+          <nav>
             <?php
               ll_include_component(
                 'button',
@@ -199,7 +199,10 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
               ?>
           </nav>
       </div>
-    <?php if( $capabilities || $case_studies || $careers || $leaders ) : ?>
+    <?php
+    if( $capabilities || $case_studies || $careers || $leaders ) :
+      $licss = ' class="col col-md-3of12 col-lg-3of12 col-xl-3of12"';
+    ?>
       <ul class="slider container row start no-bullet">
     <?php
       //Capabilities
@@ -212,7 +215,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
             $cimg = $img_base_url . $cimg['file'];
           }
       ?>
-        <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
+        <li<?php echo$licss;?>>
           <h6 class="text-normal silver">Capabilities</h6>
           <figure class="thumbnail col" data-clickthrough>
             <?php
@@ -255,7 +258,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
             $pimg = $img_base_url . $pimg['file'];
           }
       ?>
-        <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
+        <li<?php echo$licss;?>>
           <h6 class="text-normal silver">Case Study</h6>
           <figure class="thumbnail col" data-clickthrough>
             <?php
@@ -295,7 +298,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
             $jimg = $img_base_url . $jimg['file'];
           }
       ?>
-        <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
+        <li<?php echo$licss;?>>
           <h6 class="text-normal silver">Careers</h6>
           <figure class="thumbnail col" data-clickthrough>
             <?php
@@ -334,7 +337,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
             $limg = $img_base_url . $limg['file'];
           }
       ?>
-        <li class="col col-xs-6of12 col-sm-4of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
+        <li<?php echo$licss;?>>
           <h6 class="text-normal silver">Leadership</h6>
           <figure class="thumbnail col" data-clickthrough>
             <?php
@@ -373,7 +376,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
 ?>
   </dl>
   <nav data-accordion-nav class="accordion-nav wrapper row">
-    <div class="col-md-12of12 col-lg-2of12 col-xl-2of12">
+    <div class="col-md-3of12 col-lg-2of12 col-xl-2of12">
       <div class="wrapper row">
         <button class="button button-large light" data-accordion-prev>
             <svg class="icon icon-chevron-left"><use xlink:href="#icon-chevron-left"></use></svg>
@@ -383,7 +386,7 @@ srcset="http://via.placeholder.com/632x400 2x, http://via.placeholder.com/948x60
         </button>
       </div>
     </div>
-    <div class="col-md-12of12 col-lg-10of12 col-xl-10of12">
+    <div class="col-md-9of12 col-lg-10of12 col-xl-10of12">
       <figure class="accordion-nav__info wrapper row end">
         <figcaption>
           <p class="aluminum">Click and drag to explore</p>

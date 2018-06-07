@@ -1,20 +1,25 @@
 [data-component="accordion"] {
   position: relative;
-  min-width: calc(100% + #{$padding-medium});
-  padding-top: $padding-large;
-  padding-bottom: $padding-large;
+  @include section;
+  padding-bottom: 0;
   background-color: transparent;
   background-size: 150% auto;
   background-position: top center;
   .slider {
     max-width: $container-width;
     width: 100%;
+    @include screen-md-up {
+      margin-right: -1 * $padding-medium;
+    }
+    @include screen-md-only {
+      margin-bottom: rem-calc(-180);
+    }
     @include screen-lg-up {
       margin-bottom: rem-calc(-220);
     }
     &.row li[class*="col"] {
-      padding-left: $grid-column-padding;
-      padding-right: $grid-column-padding;
+      padding-left: $padding-xsmall;
+      padding-right: $padding-xsmall;
       &:first-of-type {
         padding-left: 0;
       }
@@ -53,7 +58,7 @@
       margin-bottom: auto;
     }
   }
-  @include screen-lg-up {
+  @include screen-md-up {
     .accordion {
       display: none;
       padding: $grid-gutter-width * 3;

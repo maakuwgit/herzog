@@ -58,6 +58,19 @@
     .slick-arrow {
       display: none;
     }
+    .slick-list {
+      max-width: $container-width;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: visible;
+    }
+    .slick-slide {
+      transition: opacity 150ms ease-in-out;
+      &[aria-hidden="true"] {
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+    }
   }
   .thumbnail {
     width: 100%;

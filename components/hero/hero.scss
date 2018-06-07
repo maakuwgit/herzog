@@ -26,6 +26,8 @@ main.hero {
   }
   .hero__logo {
     z-index: 1;
+    width: 80vw;
+    max-width: 640px;
   }
   .picture {
     position: absolute;

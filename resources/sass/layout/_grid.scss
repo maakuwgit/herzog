@@ -60,7 +60,10 @@
   [class*="col-"] {
     align-self: auto;
     &:not[data-component] {
-      padding:0 #{$padding-small/2};
+      padding:0 $padding-xsmall;
+    }
+    @include screen-md-only {
+      padding:0 $padding-xsmall;
     }
     @include screen-lg-up {
       padding:0 $padding-small;
@@ -100,7 +103,7 @@
 .col {
   width: 100%;
   max-width: 100%;
-  &:not([data-component]):not([data-slick-nav]) {
+  &:not([data]) {
     padding:0 #{$padding-small/2};
     @include screen-lg-up {
       padding:0 $padding-small;

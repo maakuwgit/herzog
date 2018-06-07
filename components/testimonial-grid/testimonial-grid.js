@@ -23,8 +23,9 @@
         $(this).slick({
           infinite: false,
           fade: false,
-          slidesToShow: 4,
-          slidesToScroll: 4,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          centerPadding: '120px',
           arrows: false,
           responsive: [
             {

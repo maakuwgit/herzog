@@ -5,25 +5,19 @@
   background-color: $black;
   padding-top: rem-calc(25);
   padding-bottom: rem-calc(25);
-  @include screen_xs {
-    .row div[class^=col] {
-      padding-left: 25%;
-      padding-right: 25%;
-    }
-  }
   dl {
-    margin-bottom: rem-calc(46);
+    margin-bottom: $padding-medium;
     padding-top: 0;
     padding-bottom: 0;
     dd {
-      margin-bottom: rem-calc(46);
+      margin-bottom: $padding-medium;
     }
   }
   .footer__logo {
-    padding-top: rem-calc(44);
+    padding-top: $padding-medium;
     margin-bottom: rem-calc(67);
     > a {
-      padding-left: rem-calc(15);
+      padding-left: $padding-small;
     }
     figcaption {
       max-width: 320px;
