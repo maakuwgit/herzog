@@ -43,21 +43,7 @@ $targets = $args['targets'];
 ?>
 <main class="content hero-w-nav">
   <div class="wrapper row">
-    <?php if ( $headline['text'] ) : ?>
-    <h1 class="hero center col col-lg-9of12 col-xl-8of12"><?php echo $headline['text']; ?></h1>
-    <?php endif; ?>
     <?php
-      if(!$targets) {
-        $targets = get_field('anchor_btn');
-      }
-
-      if( $targets ) {
-        ll_include_component(
-          'anchor_nav',
-          $targets
-        );
-      }
-
       //Create a new array with the values we just parse
       $banner = [
         'headline' => array(
@@ -85,6 +71,20 @@ $targets = $args['targets'];
         );
       }
 ?>
+    <?php if ( $headline['text'] ) : ?>
+    <h1 class="hero center col col-lg-9of12 col-xl-8of12"><?php echo $headline['text']; ?></h1>
+    <?php endif; ?>
+    <?php
+      if(!$targets) {
+        $targets = get_field('anchor_btn');
+      }
+
+      if( $targets ) {
+        ll_include_component(
+          'anchor_nav',
+          $targets
+        );
+      }?>
   </div>
 </main>
 <?php

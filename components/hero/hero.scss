@@ -100,5 +100,11 @@ main.hero {
       left: 0;
       right: 0;
     }
+    &.has_nav + h1 {
+      max-height: rem-calc(64);
+      margin-top: $padding-medium;
+      white-space: nowrap;
+      line-height: 1;
+    }
   }
 }

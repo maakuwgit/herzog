@@ -1,14 +1,14 @@
 {
-    "key": "group_5b019d00a27b6",
-    "title": "Testimonials",
+    "key": "group_5b1969846fad5",
+    "title": "Leadership Options",
     "fields": [
         {
-            "key": "field_5b019d721421f",
-            "label": "Number of Testimonials to show?",
-            "name": "num_testimonials",
+            "key": "field_5b196a0fe9445",
+            "label": "Number of Members",
+            "name": "num_members",
             "type": "number",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -16,30 +16,30 @@
                 "id": ""
             },
             "default_value": -1,
-            "placeholder": "",
+            "placeholder": 16,
             "prepend": "",
             "append": "",
-            "min": -1,
-            "max": 12,
+            "min": "",
+            "max": "",
             "step": ""
         }
     ],
     "location": [
         [
             {
-                "param": "page",
+                "param": "options_page",
                 "operator": "==",
-                "value": "2"
+                "value": "team_settings"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
-    "description": "Not sure what this is for. I made it in the beginning, but can't find a use. Disabled, not deleted",
-    "modified": 1528389223
+    "active": 1,
+    "description": "",
+    "modified": 1528392332
 }

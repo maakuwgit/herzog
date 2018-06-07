@@ -1,11 +1,11 @@
 {
-    "key": "group_5af30b9b8b039",
-    "title": "Archive Hero",
+    "key": "group_5b195f964fd51",
+    "title": "Careers Hero",
     "fields": [
         {
-            "key": "field_5af30b9b93b69",
+            "key": "field_5b195f9657eed",
             "label": "Visual Style",
-            "name": "archive_type",
+            "name": "career-archive_type",
             "type": "button_group",
             "instructions": "",
             "required": 1,
@@ -26,9 +26,9 @@
             "return_format": "value"
         },
         {
-            "key": "field_5af30b9b93bab",
+            "key": "field_5b195f9657f3a",
             "label": "Show Scroll Icon?",
-            "name": "archive_show_icons",
+            "name": "career-archive_show_icons",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -45,16 +45,16 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5af30b9b93c97",
+            "key": "field_5b195f9657f7a",
             "label": "Gallery",
-            "name": "archive_gallery",
+            "name": "career-archive_gallery",
             "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b195f9657eed",
                         "operator": "==",
                         "value": "gallery"
                     }
@@ -72,7 +72,7 @@
             "button_label": "+ Image",
             "sub_fields": [
                 {
-                    "key": "field_5af30b9bd807e",
+                    "key": "field_5b195f965dea9",
                     "label": "Image",
                     "name": "gallery_image",
                     "type": "image",
@@ -98,16 +98,16 @@
             ]
         },
         {
-            "key": "field_5af30b9b93d29",
+            "key": "field_5b195f9657fb8",
             "label": "Popup Video Url",
-            "name": "archive_popup_video",
+            "name": "career-archive_popup_video",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b195f9657eed",
                         "operator": "==",
                         "value": "video"
                     }
@@ -125,16 +125,16 @@
             "maxlength": ""
         },
         {
-            "key": "field_5af30b9b93dd3",
+            "key": "field_5b195f9657ff5",
             "label": "Type of Background",
-            "name": "archive_type_variation",
+            "name": "career-archive_type_variation",
             "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b195f9657eed",
                         "operator": "==",
                         "value": "image"
                     }
@@ -155,23 +155,23 @@
             "return_format": "value"
         },
         {
-            "key": "field_5af30b9b93e48",
+            "key": "field_5b195f9658031",
             "label": "Loop Video Url",
-            "name": "archive_loop_video",
+            "name": "career-archive_loop_video",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b195f9657eed",
                         "operator": "==",
                         "value": "video"
                     }
                 ],
                 [
                     {
-                        "field": "field_5af30b9b93dd3",
+                        "field": "field_5b195f9657ff5",
                         "operator": "==",
                         "value": "video"
                     }
@@ -189,21 +189,21 @@
             "maxlength": ""
         },
         {
-            "key": "field_5af30b9b93ef1",
+            "key": "field_5b195f96580c3",
             "label": "Background Image Link",
-            "name": "archive_background_image",
+            "name": "career-archive_background_image",
             "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b195f9657eed",
                         "operator": "==",
                         "value": "image"
                     },
                     {
-                        "field": "field_5af30b9b93dd3",
+                        "field": "field_5b195f9657ff5",
                         "operator": "==",
                         "value": "image"
                     }
@@ -229,9 +229,9 @@
     "location": [
         [
             {
-                "param": "taxonomy",
+                "param": "options_page",
                 "operator": "==",
-                "value": "category"
+                "value": "career_settings"
             }
         ]
     ],
@@ -243,5 +243,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1528390209
+    "modified": 1528391481
 }

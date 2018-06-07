@@ -186,6 +186,7 @@ main + nav {
 }
 
 main {
+  min-height: 540px;
   overflow: hidden;
 }
 
@@ -226,29 +227,18 @@ textarea {
 
 table {
   width: 100%;
-  margin-bottom: 2rem;
-  a {
-    color: #762123;
-  }
+  margin-bottom: $padding-medium;
   th {
-    padding-bottom: 2rem;
-    font-size: 1rem;
-    font-weight: $text-medium;
+    padding-bottom: $padding-small * 0.75;
+    font-weight: $text-light;
   }
   td {
-    padding-bottom: 1rem;
+    padding-bottom: $padding-small * 0.75;
   }
   td, th {
-    text-align: center;
-    border-bottom: solid 1px $white;
-    padding-top: 1rem;
-
-    &:first-of-type {
-      text-align: left;
-    }
-    &:last-of-type {
-      text-align: right;
-    }
+    text-align: left;
+    border-bottom: solid 1px #444444;
+    padding-top: $padding-small * 0.75;
   }
 }
 

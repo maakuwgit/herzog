@@ -87,7 +87,7 @@ if ( ! function_exists('register_project_type_taxonomy') ) {
 
 /**
  * Create ACF setting page under CPT menu
- */
+
  if ( function_exists( 'acf_add_options_sub_page' ) ){
    acf_add_options_sub_page(array(
      'page_title' => 'Project Settings',
@@ -96,4 +96,4 @@ if ( ! function_exists('register_project_type_taxonomy') ) {
      'parent'     => 'edit.php?post_type=project',
      'capability' => 'manage_options'
    ));
- }
+ }*/

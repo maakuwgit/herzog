@@ -1,11 +1,11 @@
 {
-    "key": "group_5af30b9b8b039",
-    "title": "Archive Hero",
+    "key": "group_5b196146b8b22",
+    "title": "Leadership Hero",
     "fields": [
         {
-            "key": "field_5af30b9b93b69",
+            "key": "field_5b196146c0ac7",
             "label": "Visual Style",
-            "name": "archive_type",
+            "name": "leadership-archive_type",
             "type": "button_group",
             "instructions": "",
             "required": 1,
@@ -26,9 +26,9 @@
             "return_format": "value"
         },
         {
-            "key": "field_5af30b9b93bab",
+            "key": "field_5b196146c0b11",
             "label": "Show Scroll Icon?",
-            "name": "archive_show_icons",
+            "name": "leadership-archive_show_icons",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -45,16 +45,16 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5af30b9b93c97",
+            "key": "field_5b196146c0b50",
             "label": "Gallery",
-            "name": "archive_gallery",
+            "name": "leadership-archive_gallery",
             "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b196146c0ac7",
                         "operator": "==",
                         "value": "gallery"
                     }
@@ -72,7 +72,7 @@
             "button_label": "+ Image",
             "sub_fields": [
                 {
-                    "key": "field_5af30b9bd807e",
+                    "key": "field_5b196146c5da0",
                     "label": "Image",
                     "name": "gallery_image",
                     "type": "image",
@@ -98,16 +98,16 @@
             ]
         },
         {
-            "key": "field_5af30b9b93d29",
+            "key": "field_5b196146c0b8d",
             "label": "Popup Video Url",
-            "name": "archive_popup_video",
+            "name": "leadership-archive_popup_video",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b196146c0ac7",
                         "operator": "==",
                         "value": "video"
                     }
@@ -125,16 +125,16 @@
             "maxlength": ""
         },
         {
-            "key": "field_5af30b9b93dd3",
+            "key": "field_5b196146c0bc9",
             "label": "Type of Background",
-            "name": "archive_type_variation",
+            "name": "leadership-archive_type_variation",
             "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b196146c0ac7",
                         "operator": "==",
                         "value": "image"
                     }
@@ -155,23 +155,23 @@
             "return_format": "value"
         },
         {
-            "key": "field_5af30b9b93e48",
+            "key": "field_5b196146c0c5f",
             "label": "Loop Video Url",
-            "name": "archive_loop_video",
+            "name": "leadership-archive_loop_video",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b196146c0ac7",
                         "operator": "==",
                         "value": "video"
                     }
                 ],
                 [
                     {
-                        "field": "field_5af30b9b93dd3",
+                        "field": "field_5b196146c0bc9",
                         "operator": "==",
                         "value": "video"
                     }
@@ -189,21 +189,21 @@
             "maxlength": ""
         },
         {
-            "key": "field_5af30b9b93ef1",
+            "key": "field_5b196146c0cf6",
             "label": "Background Image Link",
-            "name": "archive_background_image",
+            "name": "leadership-archive_background_image",
             "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5af30b9b93b69",
+                        "field": "field_5b196146c0ac7",
                         "operator": "==",
                         "value": "image"
                     },
                     {
-                        "field": "field_5af30b9b93dd3",
+                        "field": "field_5b196146c0bc9",
                         "operator": "==",
                         "value": "image"
                     }
@@ -229,9 +229,9 @@
     "location": [
         [
             {
-                "param": "taxonomy",
+                "param": "options_page",
                 "operator": "==",
-                "value": "category"
+                "value": "team_settings"
             }
         ]
     ],
@@ -243,5 +243,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1528390209
+    "modified": 1528390096
 }

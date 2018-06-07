@@ -36,12 +36,13 @@ $loop_video      = $data['loop_video'];
 $popup_video     = $data['popup_video'];
 $background      = $data['bg_image'];
 $type            = $data['type'];
+$has_cta         = ( $data['has_cta'] ? ' has_nav' : '' );
 
 $data_background = '';
 if( $background &&  $type === 'image' ) {
   $data_background = ' data-background="'.$background['url'].'"';
 }
-$css = ' class="picture col';
+$css = ' class="picture col' . $has_cta;
 if( is_array($args['classes'] ) ) {
   $css .= implode( " ", $args['classes'] );
 }else{
@@ -96,7 +97,7 @@ $nav_id = $args['nav_id'];
         'text'    => 'Learn More',
         'link'    => array(
             'title' => $button['label'],
-            'href'  => $button['url']
+            'url'  => $button['url']
           )
         )
       );

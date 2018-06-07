@@ -46,6 +46,9 @@
     z-index: 0;
     display: flex;
     overflow: hidden;
+    &.has_nav {
+      overflow: visible;
+    }
     @include screen-lg-up {
       left: initial;
     }
@@ -91,8 +94,14 @@
     }
 
     .button {
-      position: relative;
+      position: absolute;
       z-index: 1;
+      top: calc(50% + #{$padding-small * 3});
+      margin-left: rem-calc(-32);
+      svg {
+        width: rem-calc(32);
+        height: rem-calc(32);
+      }
     }
 
     .feature {
@@ -116,6 +125,12 @@
       left: 0;
       right: 0;
     }
+    &.has_nav + h1 {
+        max-height: rem-calc(64);
+        margin-top: $padding-medium;
+        white-space: nowrap;
+        line-height: 1;
+      }
   }
 
   + .hero-nav {
