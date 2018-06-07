@@ -1,17 +1,13 @@
 /**
- * Leadership (Team) Archive
+ * Careers Archive
  */
-body.post-type-archive-team {
+body.post-type-archive-career {
   > .container {
-    max-width: $container-width;
-    padding-left: initial;
-    padding-right: initial;
   }
 }
 
-.post-type-archive-team {
-  .leader-grid {
-    padding-top: $padding-medium;
-    padding-bottom: $padding-medium;
+.post-type-archive-career {
+  .hentry .content {
+    width: 100%;
   }
 }

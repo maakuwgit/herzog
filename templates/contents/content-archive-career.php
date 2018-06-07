@@ -1,4 +1,4 @@
-<section class="content light-bg">
+<section class="content col">
   <div class="container row end">
     <table class="col">
       <thead>

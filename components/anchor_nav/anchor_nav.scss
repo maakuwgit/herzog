@@ -3,7 +3,7 @@ section[id*="anchor_nav"] {
   padding-top: $grid-gutter-width;
   @include screen-lg-up {
     margin-left: 15%;
-    padding-left: rem-calc(15);
+    padding-left: rem-calc(5);
     body.single & {
       ol {
         padding-bottom: $padding-large;

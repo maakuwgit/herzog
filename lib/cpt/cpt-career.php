@@ -90,7 +90,7 @@ if ( ! function_exists('register_career_type_taxonomy') ) {
 
 /**
  * Create ACF setting page under CPT menu
-
+**/
  if ( function_exists( 'acf_add_options_sub_page' ) ){
    acf_add_options_sub_page(array(
      'page_title' => 'Career Settings',
@@ -99,4 +99,4 @@ if ( ! function_exists('register_career_type_taxonomy') ) {
      'parent'     => 'edit.php?post_type=career',
      'capability' => 'manage_options'
    ));
- }*/
+ }

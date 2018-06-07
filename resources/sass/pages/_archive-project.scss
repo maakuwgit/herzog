@@ -5,6 +5,21 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
+  article.content.hero {
+    div:first-of-type {
+      margin-bottom: 0;
+    }
+    div:last-of-type {
+      margin-top: 0;
+    }
+  }
+  .icon-location {
+    width: rem-calc(25);
+    height: rem-calc(25);
+    margin-right: $padding-xsmall;
+    color: $yellow;
+    fill: $yellow;
+  }
   #project-globe {
     height: 100vh;
     top: 0;
@@ -69,6 +84,7 @@
         z-index: 1;
         top: initial;
         height: auto;
+        padding-top: 0;
       }
       &:not(.active) {
         display: none;

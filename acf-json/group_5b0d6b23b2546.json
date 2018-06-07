@@ -89,9 +89,9 @@
         },
         {
             "key": "field_5b0d6b74fd2cc",
-            "label": "Case Study",
+            "label": "Client",
             "name": "project_client",
-            "type": "post_object",
+            "type": "textarea",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -100,14 +100,11 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "project"
-            ],
-            "taxonomy": [],
-            "allow_null": 0,
-            "multiple": 0,
-            "return_format": "object",
-            "ui": 1
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
         },
         {
             "key": "field_5b0d6c09fd2ce",
@@ -197,5 +194,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Visible on the Locations Custom Taxonomy",
-    "modified": 1528308185
+    "modified": 1528380978
 }

@@ -231,7 +231,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "team_settings"
+                "value": "project_settings"
             }
         ],
         [
@@ -245,7 +245,28 @@
             {
                 "param": "options_page",
                 "operator": "==",
+                "value": "team_settings"
+            }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
                 "value": "testimonial_settings"
+            }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "timeline_settings"
+            }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "career_settings"
             }
         ]
     ],
@@ -257,5 +278,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1527097956
+    "modified": 1528379923
 }
