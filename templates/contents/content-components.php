@@ -119,8 +119,9 @@ if( have_rows( 'components' ) ) {
       case 'capability-cards':
         while( have_rows( 'capability_right_rail' ) ) {
           the_row();
-          $blurbs         = get_sub_field('capability_blurbs');
+          $blurbs         = get_sub_field('capability_feature');
         }
+
         while( have_rows( 'capability_left_rail' ) ) {
           the_row();
           $capabilites    = get_sub_field('capability_related_capabilities');

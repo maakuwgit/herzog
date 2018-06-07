@@ -12,6 +12,19 @@
     display: none;
   }
 
+  h2 {
+    margin-top: 0;
+    font-size: rem-calc(60);
+    font-weight: $text-light;
+  }
+
+  h3 {
+    min-height: rem-calc(25);
+    margin-bottom: $padding-xsmall;
+    font-size: rem-calc(16);
+    font-weight: $text-medium;
+  }
+
   .panel {
     cursor: pointer;
     z-index: 1;
@@ -21,7 +34,7 @@
       font-weight: $text-light;
     }
     .tags {
-      margin-top: $grid-gutter-width * 3;
+      margin-top: $padding-small * 3;
     }
   }
 }
@@ -39,12 +52,6 @@
   }
   @include screen-lg-up {
     background-attachment: fixed;
-  }
-
-  h3 {
-    margin-bottom: $padding-xsmall;
-    font-size: rem-calc(16);
-    font-weight: $text-medium;
   }
 
   .panel {
@@ -183,12 +190,6 @@
       top: inherit;
       left: inherit;
       transform: inherit;
-    }
-
-    h2 {
-      margin-top: 0;
-      font-size: rem-calc(60);
-      font-weight: $text-light;
     }
 
     .open-testimonial {

@@ -51,7 +51,15 @@ if( $years->have_posts() ) :
 <?php
   while( $years->have_posts() ) :
     $years->the_post();
-    $division = 'HCC';//FPO
+    $division = get_field('timeline_division');
+    $guid     = get_field('timeline_link');
+
+    if( $division ) {
+      $division = get_field('division_abbreviation', $division);
+      if( !$division ) {
+        $division = '&nbsp;';
+      }
+    }
     $thumb = wp_get_attachment_metadata(get_post_thumbnail_id(get_the_ID()));
     if( !$thumb ) {
       $thumb = false;//Dev Note: add placeholder $args['client_hero'];
@@ -115,24 +123,27 @@ if( $years->have_posts() ) :
 
       <article class="hope-testimonial-columns__main row">
         <div class="col">
+          <h2><?php the_title(); ?></h2>
+          <h3><?php echo $division; ?></h3>
         <?php
             echo the_content();
+            if( $guid ) {
+              $button = array(
+                'link'    => array(
+                    'title'   => 'Learn More',
+                    'url'     => $guid,
+                    'target'  => '_self'
+                  )
+              );
 
-            $button = array(
-              'link'    => array(
-                  'title'   => 'Learn More',
-                  'url'     => get_the_permalink(),
-                  'target'  => '_self'
+              ll_include_component(
+                'button',
+                $button,
+                array(
+                  'classes' => array('button-cta')
                 )
-            );
-
-            ll_include_component(
-              'button',
-              $button,
-              array(
-                'classes' => array('button-cta')
-              )
-            );
+              );
+            }
 
             $button = array(
               'icon'    => 'plus',
