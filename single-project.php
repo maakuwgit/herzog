@@ -1,7 +1,7 @@
 <div class="globe col" id="project-globe" data-globe>
   <!-- Dev Note: put the texture image in here for SEO -->
 </div>
-<main class="content hero flex">
+<main class="content hero flex column">
 <?php
   while (have_posts()) : the_post();
     $location     = get_field('project_location');
@@ -26,71 +26,88 @@
     }
 ?>
   <div class="container row start">
-    <header class="col col-12of12">
-      <h1><?php the_title(); ?></h1>
-      <?php if( $location ) : ?>
-      <h2 class="text-normal"><?php echo $location; ?></h2>
-      <?php endif; ?>
+    <header class="row">
+      <div class="container row">
+        <div class="col col-12of12">
+          <h1><?php the_title(); ?></h1>
+          <?php if( $location ) : ?>
+          <h2 class="text-normal">
+            <svg class="icon icon-location">
+              <use xlink:href="#icon-location"></use>
+            </svg>
+            <?php echo $location; ?>
+          </h2>
+          <?php endif; ?>
+        </div>
+      </div>
     </header>
   </div>
   <div class="container row stretch">
-    <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
-      <dl class="container row">
-      <?php if( $types ) : ?>
-        <?php if( sizeof($types) > 1 ) : ?>
-        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Project Types</dt>
-        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
-          <ul class="no-bullet">
-          <?php foreach( $types as $type ) : ?>
-            <li><?php echo $type->post_title; ?></li>
-          <?php endforeach;?>
-          </ul>
-        </dd>
-        <?php else : ?>
-        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Project Type</dt>
-        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $types[0]->name; ?></dd>
-        <?php endif; ?>
-      <?php endif; ?>
-        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Year Completed</dt>
-        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $completed; ?></dd>
-      </dl>
-    </div>
-    <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
-      <dl class="container row">
-      <?php if( $divisions ) : ?>
-        <?php if( sizeof($divisions) > 1 ) : ?>
-        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Divisions</dt>
-        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
-          <ul class="no-bullet">
-          <?php foreach( $divisions as $division ) : ?>
-            <li><?php echo $division->post_title; ?></li>
-          <?php endforeach;?>
-          </ul>
-        </dd>
-        <?php
-          else :
-          $abbr = get_field('division_abbreviation', $divisions[0]->ID);
-        ?>
-        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Division</dt>
-        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $abbr; ?></dd>
-      <?php endif; ?>
-      <?php endif; ?>
-      <?php if( $capabilities ) : ?>
-        <?php if( sizeof($capabilities) > 1 ) : ?>
-        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Capabilities</dt>
-        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
-          <ul class="no-bullet">
-          <?php foreach( $capabilities as $capability ) : ?>
-            <li><?php echo $capability->post_title; ?></li>
-          <?php endforeach;?>
-          </ul>
-        </dd>
-        <?php else : ?>
-        <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Capability</dt>
-        <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $capabilities[0]->post_title; ?></dd>
-        <?php endif; ?>
-      <?php endif; ?>
-      </dl>
+    <div class="row">
+      <div class="container row">
+        <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
+          <dl class="container row">
+          <?php if( $client ) : ?>
+            <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Client</dt>
+            <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><p><?php echo $client; ?></p></dd>
+          <?php endif; ?>
+          <?php if( $types ) : ?>
+            <?php if( sizeof($types) > 1 ) : ?>
+            <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Project Types</dt>
+            <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
+              <ul class="no-bullet">
+              <?php foreach( $types as $type ) : ?>
+                <li class="text-bold"><?php echo $type->post_title; ?></li>
+              <?php endforeach;?>
+              </ul>
+            </dd>
+            <?php else : ?>
+            <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Project Type</dt>
+            <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><p><?php echo $types[0]->name; ?></p></dd>
+            <?php endif; ?>
+          <?php endif; ?>
+            <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Year Completed</dt>
+            <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><p><?php echo $completed; ?></p></dd>
+          </dl>
+        </div>
+        <div class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
+          <dl class="container row">
+          <?php if( $divisions ) : ?>
+            <?php if( sizeof($divisions) > 1 ) : ?>
+            <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Divisions</dt>
+            <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
+              <ul class="no-bullet">
+              <?php foreach( $divisions as $division ) : ?>
+                <li class="text-bold"><?php echo $division->post_title; ?></li>
+              <?php endforeach;?>
+              </ul>
+            </dd>
+            <?php
+              else :
+              $abbr = get_field('division_abbreviation', $divisions[0]->ID);
+            ?>
+            <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Division</dt>
+            <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><p><?php echo $abbr; ?></p></dd>
+          <?php endif; ?>
+          <?php endif; ?>
+          <?php if( $capabilities ) : ?>
+            <?php if( sizeof($capabilities) > 1 ) : ?>
+            <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Capabilities</dt>
+            <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12">
+              <ul class="no-bullet">
+              <?php foreach( $capabilities as $capability ) : ?>
+                <li class="text-bold"><?php echo $capability->post_title; ?></li>
+              <?php endforeach;?>
+              </ul>
+            </dd>
+            <?php else : ?>
+            <dt class="col col-md-6of12 col-lg-6of12 col-xl-6of12">Capability</dt>
+            <dd class="col col-md-6of12 col-lg-6of12 col-xl-6of12"><?php echo $capabilities[0]->post_title; ?></dd>
+            <?php endif; ?>
+          <?php endif; ?>
+          </dl>
+        </div>
+      </div>
     </div>
   </div>
 <?php endwhile; ?>
