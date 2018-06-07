@@ -42,11 +42,12 @@ $id = $args['id'];
   <button class="button" data-trigger="related-nav">
     <?php get_navigator(); ?>
   </button>
-  <nav class="row">
-    <h6 class="h5 text-normal">Related Pages</h6>
+  <nav class="flex row">
+    <div class="col"><h6 class="h5 text-normal">Related Pages</h6></div>
     <?php if( array_key_exists( 'links', $data ) ) : ?>
-    <dl>
+    <dl class="col">
     <?php
+      $l = 0;
       foreach( $data['links'] as $link) :
         $page = $link['relationship'];
     ?>
@@ -54,7 +55,11 @@ $id = $args['id'];
         <dt class="col col-4of12 flex-start"><?php echo $page['rel_parent'];?></dt>
         <dd class="col col-8of12 flex-start"><a href="<?php echo $page['rel_url'];?>" target="_self"><?php echo $page['rel_label'];?></a></dd>
       </div>
-    <?php endforeach; ?>
+    <?php
+    //var_dump($l%4);
+        if( $l > 0 && $l%4 == 0 ) echo '</dl><dl>';
+      $l++;
+     endforeach; ?>
     </dl>
   <?php endif; ?>
   </nav>
