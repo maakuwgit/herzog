@@ -149,7 +149,7 @@ DAT.Globe = function(container, opts) {
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world-2.jpg');
+    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world-3.jpg');
 
     material = new THREE.ShaderMaterial({
       uniforms: uniforms,
@@ -176,7 +176,7 @@ DAT.Globe = function(container, opts) {
 
     var starsMaterial = new THREE.PointsMaterial( { color: 0xFFFFFF } );
     starField = new THREE.Points( starsGeometry, starsMaterial );
-    scene.add( starField );
+//    scene.add( starField );
 
     /* White glow around the globe */
     shader = Shaders['atmosphere'];
