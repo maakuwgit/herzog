@@ -176,7 +176,7 @@ DAT.Globe = function(container, opts) {
 
     var starsMaterial = new THREE.PointsMaterial( { color: 0xFFFFFF } );
     starField = new THREE.Points( starsGeometry, starsMaterial );
-//    scene.add( starField );
+    scene.add( starField );
 
     /* White glow around the globe */
     shader = Shaders['atmosphere'];

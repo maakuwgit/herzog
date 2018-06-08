@@ -9,7 +9,7 @@ if( have_rows( 'components' ) ) {
 
   while( have_rows( 'components' ) ) {
     the_row();
-    $id = ( get_sub_field('target_name') ? get_sub_field('target_name') : false );
+    $id = ( get_sub_field('target_name') ? uniqid( get_sub_field('target_name') . '-' ) : false );
 
     switch( get_row_layout() ) {
       case 'bands' :
@@ -467,7 +467,7 @@ if( have_rows( 'components' ) ) {
         the_content();
       break;
     }
-    //If there's an target_name, let's push it into an array
+    //If there's a target_name, let's push it into an array
     if( $id ) {
       if( get_sub_field('target_name') ) {
         $sections[] = array(
